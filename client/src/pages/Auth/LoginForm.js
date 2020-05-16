@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import { Container, Row, Col } from '../../components/Grid';
-import { Card } from '../../components/Card';
+import { Container, Grid} from "@material-ui/core";
+import { Cards } from '../../components/Cards';
 import { Input, FormBtn } from '../../components/Form';
 
 function LoginForm({login}) {
@@ -28,11 +28,10 @@ function LoginForm({login}) {
     return <Redirect to={{ pathname: redirectTo }} />
   } else {
     return (
+      <>
       <Container>
-        <Row>
-          <Col size="md-3"></Col>
-          <Col size="md-6">
-            <Card title="Login to React Reading List">
+      <Grid container item spacing={3} justify="center">
+            <Cards title="Login to Miles 4 Smiles">
               <form style={{marginTop: 10}}>
                 <label htmlFor="username">Username: </label>
                 <Input
@@ -41,6 +40,7 @@ function LoginForm({login}) {
                   value={userObject.username}
                   onChange={handleChange}
                 />
+                <br></br>
                 <label htmlFor="password">Password: </label>
                 <Input
                   type="password"
@@ -51,13 +51,13 @@ function LoginForm({login}) {
                 <Link to="/signup">Register</Link>
                 <FormBtn onClick={handleSubmit}>Login</FormBtn>
               </form>
-            </Card>
-          </Col>
-          <Col size="md-3"></Col>
-        </Row>
+            </Cards>
+        </Grid>
       </Container>
+      </>
     )
   }
 }
 
 export default LoginForm;
+

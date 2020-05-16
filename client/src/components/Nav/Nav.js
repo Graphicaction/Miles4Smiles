@@ -1,7 +1,10 @@
 import React, { Fragment } from "react";
 import { Link } from 'react-router-dom';
-import { Col } from '../Grid';
-import './Nav.css';
+import { AppBar, Toolbar } from "@material-ui/core";
+
+
+
+// import './Nav.css';
 
 const Nav = (props) => {
   let greeting;
@@ -23,16 +26,14 @@ const Nav = (props) => {
   }
   
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-      <Col size="md-6 sm-6">
-        <Link to="/" className="navbar-brand">React Reading List With Auth</Link>
-      </Col>
-      <Col size="md-6 sm-6">
-        <div className="float-right">
+    <AppBar position="static">
+      <Toolbar>
+        <Link to="/" className="navbar-brand">Miles 4 Smiles</Link>
+        <div >
         {greeting} - <Link to="#" className="logout" onClick={props.logout}>Logout</Link>
         </div>
-      </Col>
-    </nav>
+      </Toolbar>
+    </AppBar>
   )
 };
 

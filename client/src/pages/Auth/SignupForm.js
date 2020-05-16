@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import { Container, Row, Col } from '../../components/Grid';
-import { Card } from '../../components/Card';
+import { Container, Grid } from "@material-ui/core";
+import { Cards } from '../../components/Cards';
 import { Input, FormBtn } from '../../components/Form';
 import AUTH from '../../utils/AUTH';
 
@@ -46,11 +46,10 @@ function SignupForm() {
   }
   
   return (
+    
     <Container>
-      <Row>
-        <Col size="md-3"></Col>
-        <Col size="md-6">
-          <Card title="Register for React Reading List">
+      <Grid container item spacing={3} justify="center">
+          <Cards title="Register for Miles for Smiles">
             <form style={{marginTop: 10}}>
               <label htmlFor="username">First name: </label>
               <Input
@@ -90,12 +89,13 @@ function SignupForm() {
               <Link to="/">Login</Link>
               <FormBtn onClick={handleSubmit}>Register</FormBtn>
             </form>
-          </Card>
-        </Col>
-        <Col size="md-3"></Col>
-      </Row>
+          </Cards>
+       {/* {/* </Grid> */}
+       </Grid>
     </Container>
   )
 }
 
 export default SignupForm;
+
+

@@ -1,21 +1,18 @@
 import React from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
+import { Card, Container, Grid} from "@material-ui/core";
 
 const NoMatch = () => (
   <Container fluid>
-    <Row>
-      <Col size="md-12">
-        <Jumbotron>
+    <Grid spacing={3} justify="center">
+      <Grid item component={Card} xs={12} md={6} className="card">
           <h1>404 Page Not Found</h1>
           <h1>
             <span role="img" aria-label="Face With Rolling Eyes Emoji">
               🙄
             </span>
           </h1>
-        </Jumbotron>
-      </Col>
-    </Row>
+        </Grid>
+      </Grid>
   </Container>
 );
 

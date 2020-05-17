@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import { Container, Row, Col } from '../../components/Grid';
+import { Container } from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import AUTH from '../../utils/AUTH';
@@ -32,7 +32,7 @@ function SignupForm() {
       username: userObject.username,
       password: userObject.password
     }).then(response => {
-      // console.log(response);
+      console.log(response);
       if (!response.data.errmsg) {
         setRedirectTo('/');
       } else {
@@ -47,9 +47,6 @@ function SignupForm() {
   
   return (
     <Container>
-      <Row>
-        <Col size="md-3"></Col>
-        <Col size="md-6">
           <Card title="Register for React Reading List">
             <form style={{marginTop: 10}}>
               <label htmlFor="username">First name: </label>
@@ -87,13 +84,10 @@ function SignupForm() {
                 value={userObject.confirmPassword}
                 onChange={handleChange}
               />
-              <Link to="/">Login</Link>
+              <Link to="/" className="btn btn-dark">Login</Link>
               <FormBtn onClick={handleSubmit}>Register</FormBtn>
             </form>
           </Card>
-        </Col>
-        <Col size="md-3"></Col>
-      </Row>
     </Container>
   )
 }

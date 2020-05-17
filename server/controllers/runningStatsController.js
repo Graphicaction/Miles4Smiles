@@ -1,40 +1,40 @@
 const ObjectId = require("mongoose").Types.ObjectId;
 const db = require("../models");
 
-// Defining methods for the booksController
+// Defining methods for the runningStatsController
 module.exports = {
   findAll: function(req, res) {
     if (req.user) {
       db.User
         .find({ _id: req.user._id })
-        .populate({ path: "books", options: { sort: { 'date': -1 } } })
+        .populate({ path: "runningStats", options: { sort: { 'date': -1 } } })
         .then(users => {
-          res.json({ books: users[0].books });
+          res.json({ runningStats: users[0].runningStats });
         })
         .catch(err => res.status(422).json(err));
     } else {
-      return res.json({ books: null });
+      return res.json({ runningStats: null });
     }
   },
   findById: function(req, res) {
     if (req.user) {
       db.User
         .find({ _id: req.user._id })
-        .populate("books")
+        .populate("runningStats")
         .then(users => {
-          const book = users[0].books.filter(b => b._id.toString() === req.params.id);
-          res.json({ book: book[0] });
+          const runningStat = users[0].runningStats.filter(b => b._id.toString() === req.params.id);
+          res.json({ runningStat: runningStat[0] });
         })
         .catch(err => res.status(422).json(err));
     } else {
-      return res.json({ book: null });
+      return res.json({ runningStat: null });
     }
   },
   create: function(req, res) {
-    db.Book
+    db.RunningStat
       .create(req.body)
-      .then(dbBook => {
-        return db.User.findOneAndUpdate({ _id: req.user._id }, { $push: { books: dbBook._id } }, { new: true });
+      .then(dbRunningStat => {
+        return db.User.findOneAndUpdate({ _id: req.user._id }, { $push: { runningStats: dbRunningStat._id } }, { new: true });
       })
       .then((dbUser) => {
         // If the User was updated successfully, send it back to the client
@@ -43,7 +43,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Book
+    db.RunningStat
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => {
         console.log(dbModel);
@@ -52,11 +52,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.User.findOneAndUpdate({ _id: req.user._id }, { $pull: { books: new ObjectId(req.params.id) } }, { new: true })
+    db.User.findOneAndUpdate({ _id: req.user._id }, { $pull: { runningStats: new ObjectId(req.params.id) } }, { new: true })
       .then(() => {
-        db.Book
+        db.RunningStat
           .findOneAndDelete({ _id: req.params.id })
-          .then(dbBook => res.json(dbBook))
+          .then(dbRunningStat => res.json(dbRunningStat))
           .catch(err => res.status(422).json(err));
       });
   }

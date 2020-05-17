@@ -8,6 +8,6 @@ const runningStatsSchema = new Schema({
   totalTime: { type: Number, required: true}
 });
 
-const RunningStats = mongoose.model("RunningStats", runningStatsSchema);
+const RunningStat = mongoose.model("RunningStat", runningStatsSchema);
 
-module.exports = RunningStats;
+module.exports = RunningStat;

@@ -1,7 +1,7 @@
 const ObjectId = require("mongoose").Types.ObjectId;
 const db = require("../models");
 
-// Defining methods for the runningStatsController
+// Defining methods for the challengeController
 module.exports = {
   findAll: function(req, res) {
     db.Challenge
@@ -23,7 +23,7 @@ module.exports = {
     db.Challenge
       .create(req.body)
       .then((dbChallenge) => {
-        // If the User was updated successfully, send it back to the client
+        // If the Challenge was created successfully, send it back to the client
         res.json(dbChallenge);
       })
       .catch(err => res.status(422).json(err));

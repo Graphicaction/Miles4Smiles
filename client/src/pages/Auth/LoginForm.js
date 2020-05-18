@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import { Container, Row, Col } from '../../components/Grid';
+import { Container} from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 
@@ -29,9 +29,6 @@ function LoginForm({login}) {
   } else {
     return (
       <Container>
-        <Row>
-          <Col size="md-3"></Col>
-          <Col size="md-6">
             <Card title="Login to React Reading List">
               <form style={{marginTop: 10}}>
                 <label htmlFor="username">Username: </label>
@@ -48,13 +45,10 @@ function LoginForm({login}) {
                   value={userObject.password}
                   onChange={handleChange}
                 />
-                <Link to="/signup">Register</Link>
+                <Link to="/signup" className="btn btn-dark">Register</Link>
                 <FormBtn onClick={handleSubmit}>Login</FormBtn>
               </form>
             </Card>
-          </Col>
-          <Col size="md-3"></Col>
-        </Row>
       </Container>
     )
   }

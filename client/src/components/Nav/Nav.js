@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { Link } from 'react-router-dom';
-import { Col } from '../Grid';
 import './Nav.css';
 
 const Nav = (props) => {
@@ -23,15 +22,28 @@ const Nav = (props) => {
   }
   
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-      <Col size="md-6 sm-6">
-        <Link to="/" className="navbar-brand">React Reading List With Auth</Link>
-      </Col>
-      <Col size="md-6 sm-6">
-        <div className="float-right">
-        {greeting} - <Link to="#" className="logout" onClick={props.logout}>Logout</Link>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <Link to ="/" className="navbar-brand">Miles 4 Smiles</Link>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarText">
+        <ul className="navbar-nav mr-auto">
+          {/* <li className="nav-item active ">
+            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+          </li> */}
+          <li className="nav-item">
+            <Link to ="/dashboard" className="nav-link" >Dashboard</Link>
+          </li>
+          <li className="nav-item">
+            <Link to ="/mypage/:id" className="nav-link" >My Page</Link>
+          </li>
+        </ul>
+
+        <div className="float-right greeting">
+        {greeting} ! <Link to="#" className="btn btn-danger ml-5 logout" onClick={props.logout}>Logout</Link>
         </div>
-      </Col>
+        </div>
     </nav>
   )
 };

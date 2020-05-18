@@ -3,14 +3,22 @@ import { Route, Switch } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Nav from "./components/Nav";
+
+import UserCard from "./components/UserCard/UserCard";
+import GeoMap from "./utils/Geolocation";
+import Location from "./utils/Location";
+
 import Books from './pages/Books';
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import AUTH from './utils/AUTH';
 
+
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  
   
   useEffect(() => {
     AUTH.getUser().then(response => {
@@ -51,7 +59,8 @@ function App() {
         setUser(response.data.user);
       }
     });
-	};
+  };
+  
 
   return (
     <div className="App">
@@ -60,9 +69,9 @@ function App() {
           <Nav user={user} logout={logout}/>
           <div className="main-view">
             <Switch>
-              <Route exact path="/" component={Books} />
-              <Route exact path="/books" component={Books} />
-              <Route exact path="/books/:id" component={Detail} />
+              <Route exact path="/" component={UserCard} />
+              <Route exact path="/dashboard" component={Books} />
+              <Route exact path="/mypage/:id" component={Detail} />
               <Route component={NoMatch} />
             </Switch>
           </div>
@@ -71,10 +80,14 @@ function App() {
       { !loggedIn && (
         <div className="auth-wrapper" style={{paddingTop:40}}>
           <Route exact path="/" component={() => <LoginForm login={login}/>} />
-          <Route exact path="/books" component={() => <LoginForm user={login} />} />
+          <Route exact path="/dashboard" component={() => <LoginForm user={login} />} />
           <Route exact path="/signup" component={SignupForm} />
         </div>
       )}
+
+      {/* not used yet therefore commented out */}
+      <Location /> 
+       {/* <GeoMap />   */}
     </div>
   );
 }

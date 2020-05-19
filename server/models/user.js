@@ -7,20 +7,20 @@ mongoose.promise = Promise;
 const userSchema = new Schema({
 	firstName: { type: String, unique: false },
 	lastName: { type: String, unique: false },
-  username: { type: String, unique: false, required: false },
-  password: { type: String, unique: false, required: false },
-  city:{ type: String, unique: false },
-  avatar:{ type: String, unique: false },
-  averageDistance: { type: Number, unique: false },
-  averagePace: { type: Number, unique: false },
-  runningStats: [
-    {
-      // Store ObjectIds in the array
-      type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the Book model
-      ref: "RunningStat"
-    }
-  ]
+	username: { type: String, unique: false, required: false },
+	password: { type: String, unique: false, required: false },
+	city:{ type: String, unique: false },
+	avatar:{ type: String, unique: false },
+	averageDistance: { type: Number, unique: false },
+	averagePace: { type: Number, unique: false },
+	runningStats: [
+		{
+		// Store ObjectIds in the array
+		type: Schema.Types.ObjectId,
+		// The ObjectIds will refer to the ids in the Book model
+		ref: "RunningStat"
+		}
+	]
 });
 
 // Define schema methods

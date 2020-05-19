@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+//Define Challenge Schema
 const ChallengeSchema = new Schema({
   businessName: { type: String, required: true },
   businessType: { type: String, required: false },
@@ -10,7 +10,7 @@ const ChallengeSchema = new Schema({
   doner:{ type: String, required: false },
   donatedAmount: { type: Number, required: true}
 });
-
+// Create reference to Challenge & export
 const Challenge = mongoose.model("Challenge", ChallengeSchema);
 
 module.exports = Challenge;

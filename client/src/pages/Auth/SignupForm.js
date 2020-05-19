@@ -17,15 +17,15 @@ function SignupForm() {
   const [redirectTo, setRedirectTo] = useState(null);
 
   const handleChange = (event) => {
-		setUserObject({
+    setUserObject({
       ...userObject,
 			[event.target.name]: event.target.value
 		});
 	};
   
 	const handleSubmit = (event) => {
-		event.preventDefault();
-		// TODO - validate!
+    event.preventDefault();
+    // TODO - validate!
 		AUTH.signup({
       firstName: userObject.firstName,
       lastName: userObject.lastName,

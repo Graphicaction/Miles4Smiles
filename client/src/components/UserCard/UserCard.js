@@ -1,5 +1,6 @@
 import React from "react";
 import "./UserCard.css"
+import RunningStats from "../../pages/RunningStats/RunningStats";
 
 
 const UserCard =() => {
@@ -17,6 +18,7 @@ const UserCard =() => {
         <a href="#" className="btn btn-light card-link">Contact</a>
       </div>
     </div>
+    <RunningStats />
     </>
   )
 }

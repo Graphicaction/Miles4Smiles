@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Card } from "../../components/Card";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Input, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 
@@ -46,11 +46,12 @@ function RunningStats() {
   // Then reload RunningStats from the database
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.author) {
+    if (formObject.pace && formObject.distance && formObject.totalTime) {
       API.saveRunningStat({
-        title: formObject.title,
-        author: formObject.author,
-        synopsis: formObject.synopsis
+        pace: formObject.pace,
+        distance: formObject.distance,
+        //date: formObject.date,
+        totalTime: formObject.totalTime
       })
         .then(res => {
           formEl.current.reset();
@@ -68,21 +69,26 @@ function RunningStats() {
               <form ref={formEl}>
                 <Input
                   onChange={handleInputChange}
-                  name="title"
-                  placeholder="Title (required)"
+                  name="pace"
+                  placeholder="Pace (required)"
                 />
                 <Input
                   onChange={handleInputChange}
-                  name="author"
-                  placeholder="Author (required)"
+                  name="distance"
+                  placeholder="Distance (required)"
                 />
-                <TextArea
+                <Input
                   onChange={handleInputChange}
-                  name="synopsis"
-                  placeholder="Synopsis (Optional)"
+                  name="date"
+                  placeholder="Date"
+                />
+                <Input
+                  onChange={handleInputChange}
+                  name="totalTime"
+                  placeholder="Total Time (required)"
                 />
                 <FormBtn
-                  disabled={!(formObject.author && formObject.title)}
+                  disabled={!(formObject.pace && formObject.distance && formObject.totalTime)}
                   onClick={handleFormSubmit}
                 >
                   Submit runningStat
@@ -98,7 +104,8 @@ function RunningStats() {
                     <ListItem key={runningStat._id}>
                       <Link to={"/runningStats/" + runningStat._id}>
                         <strong>
-                          {runningStat.title} by {runningStat.author}
+                        <p>I run a mile in {runningStat.pace} minutes.</p>
+                        I prefer to run between {runningStat.distance} miles. 
                         </strong>
                       </Link>
                       <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />

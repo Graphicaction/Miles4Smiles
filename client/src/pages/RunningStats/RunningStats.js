@@ -8,31 +8,31 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 
-function Books() {
+function RunningStats() {
   // Setting our component's initial state
-  const [books, setBooks] = useState([]);
+  const [runningStats, setRunningStats] = useState([]);
   const [formObject, setFormObject] = useState({});
   const formEl = useRef(null);
 
-  // Load all books and store them with setBooks
+  // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
-    loadBooks();
+    loadRunningStats();
   }, []);
 
-  // Loads all books and sets them to books
-  function loadBooks() {
-    API.getBooks()
+  // Loads all RunningStats and sets them to RunningStats
+  function loadRunningStats() {
+    API.getRunningStats()
       .then(res => {
-        // console.log(res.data.books);
-        setBooks(res.data.books);
+        // console.log(res.data.RunningStats);
+        setRunningStats(res.data.runningStats);
       })
       .catch(err => console.log(err));
   };
 
-  // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteBook(id) {
-    API.deleteBook(id)
-      .then(res => loadBooks())
+  // Deletes a book from the database with a given id, then reloads RunningStats from the db
+  function deleteRunningStat(id) {
+    API.deleteRunningStat(id)
+      .then(res => loadRunningStats())
       .catch(err => console.log(err));
   }
 
@@ -43,18 +43,18 @@ function Books() {
   };
 
   // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
+  // Then reload RunningStats from the database
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.author) {
-      API.saveBook({
+      API.saveRunningStat({
         title: formObject.title,
         author: formObject.author,
         synopsis: formObject.synopsis
       })
         .then(res => {
           formEl.current.reset();
-          loadBooks();
+          loadRunningStats();
         })
         .catch(err => console.log(err));
     }
@@ -64,7 +64,7 @@ function Books() {
       <Container fluid>
         <Row>
           <Col size="md-6">
-            <Card title="What Books Should I Read?">
+            <Card title="What are RunningStats?">
               <form ref={formEl}>
                 <Input
                   onChange={handleInputChange}
@@ -85,23 +85,23 @@ function Books() {
                   disabled={!(formObject.author && formObject.title)}
                   onClick={handleFormSubmit}
                 >
-                  Submit Book
+                  Submit runningStat
                 </FormBtn>
               </form>
             </Card>
           </Col>
           <Col size="md-6 sm-12">
-            <Card title="Books On My List">
-              {books.length ? (
+            <Card title="RunningStats On My List">
+              {runningStats.length ? (
                 <List>
-                  {books.map(book => (
-                    <ListItem key={book._id}>
-                      <Link to={"/books/" + book._id}>
+                  {runningStats.map(runningStat => (
+                    <ListItem key={runningStat._id}>
+                      <Link to={"/runningStats/" + runningStat._id}>
                         <strong>
-                          {book.title} by {book.author}
+                          {runningStat.title} by {runningStat.author}
                         </strong>
                       </Link>
-                      <DeleteBtn onClick={() => deleteBook(book._id)} />
+                      <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />
                     </ListItem>
                   ))}
                 </List>
@@ -116,4 +116,4 @@ function Books() {
   }
 
 
-export default Books;
+export default RunningStats;

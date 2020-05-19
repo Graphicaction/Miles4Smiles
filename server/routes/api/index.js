@@ -4,6 +4,6 @@ const challengeRoutes = require("./challenge");
 
 // Running Stat and Challenge routes
 router.use("/runningStats", runningStatRoutes);
-router.use("/challenge", challengeRoutes);
+router.use("/challenges", challengeRoutes);
 
 module.exports = router;

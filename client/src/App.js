@@ -8,7 +8,7 @@ import UserCard from "./components/UserCard/UserCard";
 import GeoMap from "./utils/Geolocation";
 import Location from "./utils/Location";
 
-import Books from './pages/Books';
+import RunningStats from './pages/RunningStats';
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import AUTH from './utils/AUTH';
@@ -70,7 +70,7 @@ function App() {
           <div className="main-view">
             <Switch>
               <Route exact path="/" component={UserCard} />
-              <Route exact path="/dashboard" component={Books} />
+              <Route exact path="/dashboard" component={RunningStats} />
               <Route exact path="/mypage/:id" component={Detail} />
               <Route component={NoMatch} />
             </Switch>

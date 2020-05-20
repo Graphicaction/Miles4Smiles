@@ -5,8 +5,9 @@ import SignupForm from './pages/Auth/SignupForm';
 import Nav from "./components/Nav";
 
 import UserCard from "./components/UserCard/UserCard";
-import GeoMap from "./utils/Geolocation";
+// import GeoMap from "./utils/Geolocation";
 import Location from "./utils/Location";
+import UserData from "./components/UserData/UserData"
 
 import RunningStats from './pages/RunningStats';
 import Detail from "./pages/Detail";
@@ -64,7 +65,7 @@ function App() {
 
   return (
     <div className="App">
-      { loggedIn && (
+       {/* { loggedIn && (
         <div>
           <Nav user={user} logout={logout}/>
           <div className="main-view">
@@ -83,11 +84,12 @@ function App() {
           <Route exact path="/dashboard" component={() => <LoginForm user={login} />} />
           <Route exact path="/signup" component={SignupForm} />
         </div>
-      )}
+      )} */}
 
       {/* not used yet therefore commented out */}
       <Location /> 
        {/* <GeoMap />   */}
+       <UserData />
     </div>
   );
 }

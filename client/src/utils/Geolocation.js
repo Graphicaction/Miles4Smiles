@@ -37,5 +37,5 @@ class GeoMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'API_KEY'
+  apiKey: process.env.API_KEY
 })(GeoMap);

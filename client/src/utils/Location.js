@@ -15,7 +15,7 @@ class Location extends Component{
 }
 render() {
   return(
-   <p>Temporary message just so you know Location is in console now</p>
+    <></>
   )
 }
 }

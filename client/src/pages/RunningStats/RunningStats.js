@@ -50,7 +50,7 @@ function RunningStats() {
       API.saveRunningStat({
         pace: formObject.pace,
         distance: formObject.distance,
-        //date: formObject.date,
+        date: formObject.date,
         totalTime: formObject.totalTime
       })
         .then(res => {
@@ -64,19 +64,21 @@ function RunningStats() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
-            <Card title="What are RunningStats?">
-              <form ref={formEl}>
-                <Input
-                  onChange={handleInputChange}
-                  name="pace"
-                  placeholder="Pace (required)"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="distance"
-                  placeholder="Distance (required)"
-                />
+          <Col size="md-3 sm-12">
+            <Card title="Tell us about your running routine!">
+                <form ref={formEl}>
+                  <label>How many minutes: seconds does it usually take you to run a mile?</label>
+                  <Input
+                    onChange={handleInputChange}
+                    name="pace"
+                    placeholder="Pace (required)"
+                  /> 
+                  <label>How many miles do you prefer to run?</label>
+                  <Input
+                    onChange={handleInputChange}
+                    name="distance"
+                    placeholder="Distance (required)"
+                  />
                 <Input
                   onChange={handleInputChange}
                   name="date"
@@ -105,7 +107,7 @@ function RunningStats() {
                       <Link to={"/runningStats/" + runningStat._id}>
                         <strong>
                         <p>I run a mile in {runningStat.pace} minutes.</p>
-                        I prefer to run between {runningStat.distance} miles. 
+                        I prefer to run {runningStat.distance} miles. 
                         </strong>
                       </Link>
                       <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />

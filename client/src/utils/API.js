@@ -16,5 +16,9 @@ export default {
   // Saves a runningStat to the database
   saveRunningStat: function(runningStatData) {
     return axios.post("/api/runningStats", runningStatData);
+  },
+  // Gets all challenges
+  getChallenges: function() {
+    return axios.get("/api/challenges");
   }
 };

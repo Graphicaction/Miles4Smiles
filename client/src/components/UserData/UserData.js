@@ -5,12 +5,14 @@ import { Col, Container, Row } from "../Grid";
 import Jumbotron from "../Jumbotron"
 import { Card } from "../Card";
 import { Input, FormBtn } from "../Form";
+import usStates from "../usStates";
 // import API from "../../utils/API";
 
 const UserData =() => {
   //  Setting our component's initial state
    const [userData, setUserData] = useState({
      city: "",
+     state: "",
      distance: "",
      pace: "",
     //  avatar: ""
@@ -25,10 +27,11 @@ const UserData =() => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (formObject.city && formObject.distance && formObject.pace) {
+    if (formObject.city && formObject.state && formObject.distance && formObject.pace) {
       // API.saveUserData({
         console.log({
         city: formObject.city,
+        state: formObject.state,
         distance: formObject.distance,
         pace: formObject.pace
         // avatar: formObject.avatar
@@ -38,8 +41,6 @@ const UserData =() => {
   };
   return(
     <>
-     
-    />  */}
    <Jumbotron >
     <div className="container">
       <h1 className="display-4">Hello! </h1>
@@ -73,11 +74,18 @@ const UserData =() => {
                   <Col size="md-6 sm-6">
                     <label>What state do you live in?</label>
                       {/* add usState data to select a state */}
-                          <Input 
+                          {/* <Input 
                             onChange={handleInputChange}
                             name="state"
                             placeholder="NC"
-                          /> 
+                          />  */}
+                           <select className="form-control" id="usStateSelect" name="state" onChange={handleInputChange}  placeholder="NC">
+                           <option defaultValue>Choose...</option>
+                           {usStates.map((states, i) =>(
+                            <option key={i} >{states.name}</option>
+                            ))}
+                          </select>
+
              
                   </Col>
                 </Row>
@@ -117,7 +125,7 @@ const UserData =() => {
                 <br></br>
 
                 <FormBtn
-                  disabled={!(formObject.city && formObject.distance && formObject.pace)}
+                  disabled={!(formObject.city && formObject.state && formObject.distance && formObject.pace)}
                   onClick={handleFormSubmit}
                 >
                 <i className="fa fa-paper-plane mr-2"></i>

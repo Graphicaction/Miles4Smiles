@@ -19,7 +19,7 @@ const Nav = (props) => {
 				Welcome back, <strong>{props.user.username} </strong>
 			</Fragment>
 		)
-  }
+  } 
   
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

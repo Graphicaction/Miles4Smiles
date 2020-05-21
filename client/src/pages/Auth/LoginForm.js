@@ -4,6 +4,7 @@ import { Container} from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import Jumbotron from "../../components/Jumbotron/Jumbotron"
+import bgIMG from "./bgIMG.jpg"
 // import M4S from "./M4S.png";
 
 function LoginForm({login}) {

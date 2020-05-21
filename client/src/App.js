@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
+import Welcome from "./pages/Welcome/Welcome"
+import RunningStats from './pages/RunningStats';
+import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
 import UserCard from "./components/UserCard/UserCard";
-// import GeoMap from "./utils/Geolocation";
-import Location from "./utils/Location";
+// import GeoMap from "./components/Map/Geolocation";
+import Location from "./components/Location/Location";
 import UserData from "./components/UserData/UserData"
-
-import RunningStats from './pages/RunningStats';
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
 import AUTH from './utils/AUTH';
 
 
@@ -65,14 +64,15 @@ function App() {
 
   return (
     <div className="App">
-       {/* { loggedIn && (
+       { loggedIn && (
         <div>
           <Nav user={user} logout={logout}/>
           <div className="main-view">
             <Switch>
-              <Route exact path="/" component={UserCard} />
+              <Route exact path="/" component={Welcome} />
+              <Route exact path="/firstdata" component={UserData} />
               <Route exact path="/dashboard" component={RunningStats} />
-              <Route exact path="/mypage/:id" component={Detail} />
+              <Route exact path="/user/:id" component={UserCard} />
               <Route component={NoMatch} />
             </Switch>
           </div>
@@ -84,12 +84,12 @@ function App() {
           <Route exact path="/dashboard" component={() => <LoginForm user={login} />} />
           <Route exact path="/signup" component={SignupForm} />
         </div>
-      )} */}
+      )}
 
       {/* not used yet therefore commented out */}
       <Location /> 
        {/* <GeoMap />   */}
-       <UserData />
+       
     </div>
   );
 }

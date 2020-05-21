@@ -64,31 +64,29 @@ function RunningStats() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-3 sm-12">
+          <Col size="md-6 sm-12">
             <Card title="Tell us about your running routine!">
                 <form ref={formEl}>
-                  <label>How many minutes: seconds does it usually take you to run a mile?</label>
                   <Input
                     onChange={handleInputChange}
                     name="pace"
                     placeholder="Pace (required)"
                   /> 
-                  <label>How many miles do you prefer to run?</label>
                   <Input
                     onChange={handleInputChange}
                     name="distance"
                     placeholder="Distance (required)"
                   />
-                <Input
-                  onChange={handleInputChange}
-                  name="date"
-                  placeholder="Date"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="totalTime"
-                  placeholder="Total Time (required)"
-                />
+                  <Input
+                    onChange={handleInputChange}
+                    name="date"
+                    placeholder="Date"
+                  />
+                  <Input
+                    onChange={handleInputChange}
+                    name="totalTime"
+                    placeholder="Total Time (required)"
+                  />
                 <FormBtn
                   disabled={!(formObject.pace && formObject.distance && formObject.totalTime)}
                   onClick={handleFormSubmit}

@@ -18,7 +18,7 @@ export default {
     return axios.post("/api/runningStats", runningStatData);
   },
   //save the user info to the database
-  // saveUserData: function(id) {
-  //   return axios.post("/api/user/" + id);
+  // saveUserData: function(userData) {
+  //   return axios.post("/api/user", userData);
   // }
 }

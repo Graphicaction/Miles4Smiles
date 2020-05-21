@@ -11,6 +11,7 @@ const userSchema = new Schema({
 	username: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false },
 	city:{ type: String, unique: false },
+	state: { type: String, unique: false},
 	avatar:{ type: String, unique: false },
 	averageDistance: { type: Number, unique: false },
 	averagePace: { type: Number, unique: false },

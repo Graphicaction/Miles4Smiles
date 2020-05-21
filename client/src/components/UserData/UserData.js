@@ -38,8 +38,7 @@ const UserData =() => {
   };
   return(
     <>
-    {/* <Script url="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA9zb0nW3K4YQi8zj6Fy1s9QU9nMXuMCDI"       
-      onLoad={handleScriptLoad}        
+     
     />  */}
    <Jumbotron >
     <div className="container">

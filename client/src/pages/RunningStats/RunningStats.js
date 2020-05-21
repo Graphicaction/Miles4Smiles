@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./RunningStats.css"
 // import Moment from 'react-moment';
-
+import LineChart from "../../components/LineChart";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Card } from "../../components/Card";
@@ -131,7 +131,8 @@ function RunningStats() {
           </Col>
           <Col size="md-6 sm-12">
             <Card title="My runs">
-              {runningStats.length ? (
+              <LineChart />
+              {/* {runningStats.length ? (
                 <List>
                   {runningStats.map(runningStat => (
                     <ListItem key={runningStat._id}>
@@ -147,7 +148,7 @@ function RunningStats() {
                 </List>
               ) : (
                 <h3>No Results to Display</h3>
-              )}
+              )} */}
             </Card>
             <Card title="My challenges">
               {challenges.length ? (

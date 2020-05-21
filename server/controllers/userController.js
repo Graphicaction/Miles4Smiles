@@ -23,7 +23,12 @@ module.exports = {
         'firstName': firstName,
         'lastName': lastName,
         'username': username,
-        'password': password
+        'password': password,
+        'avatar': avatar,
+        'city': city,
+        'state': state,
+        'averageDistance': averageDistance,
+        'averagePace': averagePace
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);

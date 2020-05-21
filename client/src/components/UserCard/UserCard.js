@@ -14,8 +14,8 @@ const UserCard =() => {
         <p className="card-text pace">Average mile pace: xx</p>
         <p className="card-text distance">Preferred distance: xx</p>
         <hr></hr>
-        <a href="/challenge" className="btn btn-danger card-link">Challenge</a>
-        <a href="#" className="btn btn-light card-link">Contact</a>
+        <button className="btn card-link challengeBtn"><i className="fa fa-flag-checkered mr-2"></i>Challenge</button>
+        <button className="btn btn-light card-link ml-3"><i className="fa fa-envelope mr-2"></i>Contact</button>
       </div>
     </div>
     

@@ -1,5 +1,11 @@
 .logout {
-  color: #fff;
+  color: black;
+  background-color: #d6947a;
+}
+
+.logout:hover {
+  color: white;
+  background-color: #c46540;
 }
 
 .greeting{

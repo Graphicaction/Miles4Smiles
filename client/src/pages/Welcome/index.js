@@ -1,1 +1,1 @@
-export { default } from "./Welcome.js";
+export * from "./Welcome";

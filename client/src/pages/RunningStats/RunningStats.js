@@ -62,7 +62,7 @@ function RunningStats() {
       API.saveRunningStat({
         pace: formObject.pace,
         distance: formObject.distance,
-        //date: formObject.date,
+        date: formObject.date,
         totalTime: formObject.totalTime
       })
         .then(res => {

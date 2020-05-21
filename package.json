@@ -36,12 +36,7 @@
     "mongoose": "^5.9.14",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
-<<<<<<< HEAD
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0"
-=======
-    "passport-local": "^1.0.0",
-    "react-moment": "^0.9.7"
->>>>>>> 4aca5a92dca04e828e658018df84915b8935e4c8
   }
 }

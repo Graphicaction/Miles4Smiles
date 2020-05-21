@@ -20,5 +20,9 @@ export default {
   //save the user info to the database
   // saveUserData: function(userData) {
   //   return axios.post("/api/user", userData);
+  // },
+  // Gets all challenges
+  // getChallenges: function() {
+  //   return axios.get("/api/challenges");
   // }
-}
+};

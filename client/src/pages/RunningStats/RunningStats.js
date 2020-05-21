@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+// import Moment from 'react-moment';
 
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
@@ -11,6 +12,7 @@ import API from "../../utils/API";
 function RunningStats() {
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
+  const [challenges, setChallenges] = useState([]);
   const [formObject, setFormObject] = useState({});
   const formEl = useRef(null);
 
@@ -29,7 +31,17 @@ function RunningStats() {
       .catch(err => console.log(err));
   };
 
-  // Deletes a book from the database with a given id, then reloads RunningStats from the db
+  // Loads all Challenges and sets them to Challenges
+  function loadChallenges() {
+    API.getChallenges()
+      .then(res => {
+        console.log(res.data.challenges);
+        setChallenges(res.data.runningStats);
+      })
+      .catch(err => console.log(err));
+  };
+
+  // Deletes a run from the database with a given id, then reloads RunningStats from the db
   function deleteRunningStat(id) {
     API.deleteRunningStat(id)
       .then(res => loadRunningStats())
@@ -64,48 +76,68 @@ function RunningStats() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6 sm-12">
-            <Card title="Tell us about your running routine!">
-                <form ref={formEl}>
-                  <Input
-                    onChange={handleInputChange}
-                    name="pace"
-                    placeholder="Pace (required)"
-                  /> 
-                  <Input
-                    onChange={handleInputChange}
-                    name="distance"
-                    placeholder="Distance (required)"
-                  />
-                  <Input
-                    onChange={handleInputChange}
-                    name="date"
-                    placeholder="Date"
-                  />
-                  <Input
-                    onChange={handleInputChange}
-                    name="totalTime"
-                    placeholder="Total Time (required)"
-                  />
+          <Col size="md-6">
+            <Card title="Submit a run">
+              <form ref={formEl}>
+                <Input
+                  onChange={handleInputChange}
+                  name="pace"
+                  placeholder="Pace (required)"
+                />
+                <Input
+                  onChange={handleInputChange}
+                  name="distance"
+                  placeholder="Distance (required)"
+                />
+                <Input
+                  onChange={handleInputChange}
+                  name="date"
+                  placeholder="Date"
+                />
+                <Input
+                  onChange={handleInputChange}
+                  name="totalTime"
+                  placeholder="Total Time (required)"
+                />
                 <FormBtn
                   disabled={!(formObject.pace && formObject.distance && formObject.totalTime)}
                   onClick={handleFormSubmit}
                 >
-                  Submit runningStat
+                  Submit a run
                 </FormBtn>
               </form>
             </Card>
+            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Start a challenge!</button>
+            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Create a challenge to support your favorite local business!</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    ... Will add challenge form here
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" className="btn btn-success">Save challenge</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </Col>
           <Col size="md-6 sm-12">
-            <Card title="RunningStats On My List">
+            <Card title="My runs">
               {runningStats.length ? (
                 <List>
                   {runningStats.map(runningStat => (
                     <ListItem key={runningStat._id}>
                       <Link to={"/runningStats/" + runningStat._id}>
                         <strong>
-                        <p>I run a mile in {runningStat.pace} minutes.</p>
-                        I prefer to run {runningStat.distance} miles. 
+                        <p>Pace: {runningStat.pace} minutes</p>
+                          Distance: {runningStat.distance} miles 
                         </strong>
                       </Link>
                       <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />
@@ -114,6 +146,24 @@ function RunningStats() {
                 </List>
               ) : (
                 <h3>No Results to Display</h3>
+              )}
+            </Card>
+            <Card title="My challenges">
+              {challenges.length ? (
+                <List>
+                  {challenges.map(challenge => (
+                    <ListItem key={challenge._id}>
+                      <Link to={"/challenge/" + challenge._id}>
+                        <strong>
+                        <p>Supported business: {challenge.businessName}</p>
+                        </strong>
+                      </Link>
+                      {/* <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} /> */}
+                    </ListItem>
+                  ))}
+                </List>
+              ) : (
+                <h3>No current challenges</h3>
               )}
             </Card>
           </Col>

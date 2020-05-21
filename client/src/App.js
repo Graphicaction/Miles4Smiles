@@ -4,6 +4,8 @@ import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Welcome from "./pages/Welcome/Welcome"
 import RunningStats from './pages/RunningStats';
+import UserPage from './pages/userPage/userPage';
+
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
@@ -72,7 +74,7 @@ function App() {
               <Route exact path="/" component={Welcome} />
               <Route exact path="/firstdata" component={UserData} />
               <Route exact path="/dashboard" component={RunningStats} />
-              <Route exact path="/user/:id" component={UserCard} />
+              <Route exact path="/mypage/:id" component={UserPage} />
               <Route component={NoMatch} />
             </Switch>
           </div>

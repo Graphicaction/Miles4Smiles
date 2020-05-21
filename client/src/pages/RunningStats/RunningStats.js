@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import "./RunningStats.css"
 // import Moment from 'react-moment';
 
 import { Col, Row, Container } from "../../components/Grid";
@@ -107,7 +108,7 @@ function RunningStats() {
                 </FormBtn>
               </form>
             </Card>
-            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Start a challenge!</button>
+            <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target="#exampleModal">Start a challenge!</button>
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">

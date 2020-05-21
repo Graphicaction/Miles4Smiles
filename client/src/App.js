@@ -9,7 +9,7 @@ import UserPage from './pages/userPage/userPage';
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
-import UserCard from "./components/UserCard/UserCard";
+// import UserCard from "./components/UserCard/UserCard";
 // import GeoMap from "./components/Map/Geolocation";
 import Location from "./components/Location/Location";
 import UserData from "./components/UserData/UserData"

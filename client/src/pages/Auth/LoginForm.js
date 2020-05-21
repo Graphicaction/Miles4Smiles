@@ -4,7 +4,7 @@ import { Container} from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import Jumbotron from "../../components/Jumbotron/Jumbotron"
-// import Navbar from "../../components/Nav/Nav"
+// import M4S from "./M4S.png";
 
 function LoginForm({login}) {
   const [userObject, setUserObject] = useState({
@@ -34,6 +34,7 @@ function LoginForm({login}) {
       {/* <Navbar /> */}
       <Jumbotron>
         <div className="container">
+          {/* <img src={M4S} width="200" height="50" /> */}
           <h1 className="display-4">Miles 4 Smiles</h1>
           <br></br>
           <h2>Run to support your local business!</h2>
@@ -42,7 +43,7 @@ function LoginForm({login}) {
           </div>
       </Jumbotron>
          <Container>
-            <Card title="Login to React Reading List">
+            <Card title="Login to Miles 4 Smiles">
               <form style={{marginTop: 10}}>
                 <label htmlFor="username">Username: </label>
                 <Input

@@ -22,8 +22,10 @@ const Nav = (props) => {
   } 
   
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <Link to ="/" className="navbar-brand">Miles 4 Smiles</Link>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark"> 
+      <Link to ="/" className="navbar-brand">Miles 4 Smiles
+        {/* <img src="./M4S.png" width="30" height="30" alt="logo" /> */}
+      </Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -41,7 +43,7 @@ const Nav = (props) => {
         </ul>
 
         <div className="float-right greeting">
-        {greeting} ! <Link to="#" className="btn ml-5 logout" onClick={props.logout}>Logout</Link>
+        {greeting} ! <Link to="/auth/logout" className="btn ml-5 logout" onClick={props.logout}>Logout</Link>
         </div>
         </div>
     </nav>

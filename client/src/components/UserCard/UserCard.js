@@ -1,6 +1,6 @@
 import React from "react";
 import "./UserCard.css"
-import RunningStats from "../../pages/RunningStats/RunningStats";
+// import RunningStats from "../../pages/RunningStats/RunningStats";
 
 
 const UserCard =() => {
@@ -19,7 +19,7 @@ const UserCard =() => {
       </div>
     </div>
     
-    <RunningStats />
+    {/* <RunningStats /> */}
     </>
   )
 }

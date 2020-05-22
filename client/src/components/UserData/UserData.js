@@ -6,7 +6,7 @@ import Jumbotron from "../Jumbotron"
 import { Card } from "../Card";
 import { Input, FormBtn } from "../Form";
 import usStates from "../usStates";
-// import API from "../../utils/API";
+import AUTH from '../../utils/AUTH';
 
 const UserData =() => {
   //  Setting our component's initial state
@@ -47,21 +47,21 @@ const UserData =() => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (formObject.city && formObject.state && formObject.distance && formObject.pace) {
-      // API.saveUserData({
-        console.log({
+    if (formObject.city) {
+      AUTH.update({
         city: formObject.city,
         state: formObject.state,
         averageDistance: formObject.distance,
         averagePace: formObject.pace,
         avatar: ""
         })
-        // .then(res => {
-        //   formEl.current.reset();
-        //   loadUserData();
-        //   setFirstLoginFalse();
-        // })
-        // .catch(err => console.log(err));
+        .then(res => {
+          if (!res.data.errmsg) {
+            setRedirectTo('/welcome');
+          } else {
+            console.log('duplicate');
+          }
+        })
     }
   };
   return(

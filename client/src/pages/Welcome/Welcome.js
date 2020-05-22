@@ -9,8 +9,10 @@ import { Row, Col } from "../../components/Grid"
 
 const Welcome = (props) =>{
   const [firstLogin, setFirstLogin] = useState();
+  
   useEffect(()=>{
-    setFirstLogin(props.user.firstLogin)
+    if(props.user.firstLogin)
+      setFirstLogin(props.user.firstLogin)
   });
   console.log(props.user.firstLogin)
 

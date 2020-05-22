@@ -85,7 +85,9 @@ function App() {
         <div className="auth-wrapper" style={{paddingTop:40}}>
           <Switch>
             <Route exact path="/" component={() => <LoginForm login={login}/>} />
-            <Route exact path="/dashboard" component={() => <LoginForm user={login} />} />
+            <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
+            <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
+            <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
             <Route exact path="/signup" component={SignupForm} />
           </Switch>
         </div>

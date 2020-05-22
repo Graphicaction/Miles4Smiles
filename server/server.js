@@ -30,6 +30,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
 
+//Google OAuth
+require("./passport/GoogleStrategy");
+require('./routes/auth/Googleauth')(app);
+
 // If its production environment!
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path');

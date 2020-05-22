@@ -30,9 +30,10 @@ function SignupForm() {
       firstName: userObject.firstName,
       lastName: userObject.lastName,
       username: userObject.username,
-      password: userObject.password
+      password: userObject.password,
+      firstLogin: true
     }).then(response => {
-      console.log(response);
+      console.log(response)
       if (!response.data.errmsg) {
         setRedirectTo('/');
       } else {
@@ -47,7 +48,7 @@ function SignupForm() {
   
   return (
     <Container>
-          <Card title="Register for React Reading List">
+          <Card title="Register for Miles 4 Smiles">
             <form style={{marginTop: 10}}>
               <label htmlFor="username">First name: </label>
               <Input

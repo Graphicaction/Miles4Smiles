@@ -1,14 +1,35 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { Route} from 'react-router-dom';
 import UserCard from "../../components/UserCard/UserCard";
-import Jumbotron from "../../components/Jumbotron/Jumbotron"
+import Jumbotron from "../../components/Jumbotron/Jumbotron";
+import UserData from "../../components/UserData/UserData"
 import {Card} from "../../components/Card"
 import { Row, Col } from "../../components/Grid"
 
 
-const Welcome = () =>{
+const Welcome = (props) =>{
+  const [firstLogin, setFirstLogin] = useState();
+  useEffect(()=>{
+    setFirstLogin(props.user.firstLogin)
+  });
+  console.log(props.user.firstLogin)
+  // const username= props.user.username;
+
   return(
+    <div>
+    { firstLogin && (
+     <div>
+       <UserData />
+       
+      </div>
+      
+    )}
+    { !firstLogin && (
+     
+    //if returning user display this
+    // : 
     <>
-   <Jumbotron >
+    <Jumbotron >
     <div className="container">
       <h1 className="display-4">Miles 4 Smiles </h1>
       <hr></hr>
@@ -38,6 +59,8 @@ const Welcome = () =>{
      List of most recent runs and businesses supported maybe using socket.io to post
    </Card>
    </>
+     )}
+    </div>
   )
 }
 

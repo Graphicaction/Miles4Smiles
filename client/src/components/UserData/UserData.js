@@ -13,9 +13,9 @@ const UserData =() => {
    const [userData, setUserData] = useState({
      city: "",
      state: "",
-     distance: "",
-     pace: "",
-    //  avatar: ""
+     averageDistance: "",
+     averagePace: "",
+     avatar: ""
    });
   const [formObject, setFormObject] = useState({});
   const formEl = useRef(null);
@@ -32,9 +32,9 @@ const UserData =() => {
         console.log({
         city: formObject.city,
         state: formObject.state,
-        distance: formObject.distance,
-        pace: formObject.pace
-        // avatar: formObject.avatar
+        averageDistance: formObject.distance,
+        averagePace: formObject.pace,
+        avatar: ""
         })
         // .catch(err => console.log(err));
     }

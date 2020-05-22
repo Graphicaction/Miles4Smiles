@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     AUTH.getUser().then(response => {
         // console.log(response.data);
-        if (!!response.data.user) {
+        if (!response.data.user) {
           setLoggedIn(true);
           setUser(response.data.user);
         } else {
@@ -57,9 +57,10 @@ function App() {
       console.log(response.data);
       if (response.status === 200) {
         // update the state
-        setLoggedIn(true);
         setUser(response.data.user);
-      }
+        setLoggedIn(true);
+     
+      } 
     });
   };
   
@@ -71,8 +72,8 @@ function App() {
           <Nav user={user} logout={logout}/>
           <div className="main-view">
             <Switch>
-              <Route exact path="/" component={Welcome} />
-              <Route exact path="/firstdata" component={UserData} />
+              <Route exact path="/welcome" component={()=> <Welcome user={user}/>}/>
+              {/* <Route exact path="/firstdata" component={UserData} /> */}
               <Route exact path="/dashboard" component={RunningStats} />
               <Route exact path="/mypage/:id" component={UserPage} />
               <Route component={NoMatch} />
@@ -82,9 +83,11 @@ function App() {
       )}
       { !loggedIn && (
         <div className="auth-wrapper" style={{paddingTop:40}}>
-          <Route exact path="/" component={() => <LoginForm login={login}/>} />
-          <Route exact path="/dashboard" component={() => <LoginForm user={login} />} />
-          <Route exact path="/signup" component={SignupForm} />
+          <Switch>
+            <Route exact path="/" component={() => <LoginForm login={login}/>} />
+            <Route exact path="/dashboard" component={() => <LoginForm user={login} />} />
+            <Route exact path="/signup" component={SignupForm} />
+          </Switch>
         </div>
       )}
 

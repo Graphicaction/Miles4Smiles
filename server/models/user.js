@@ -5,7 +5,7 @@ mongoose.promise = Promise;
 
 // Define userSchema
 const userSchema = new Schema({
-	googleId: { type : String, unique: true, required: false},
+	googleId: { type : String, unique: false, required: false},
 	firstName: { type: String, unique: false },
 	lastName: { type: String, unique: false },
 	username: { type: String, unique: false, required: false },
@@ -15,6 +15,7 @@ const userSchema = new Schema({
 	avatar:{ type: String, unique: false },
 	averageDistance: { type: Number, unique: false },
 	averagePace: { type: Number, unique: false },
+	firstLogin: {type: Boolean, required: false},
 	runningStats: [
 		{
 		// Store ObjectIds in the array

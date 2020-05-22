@@ -18,7 +18,7 @@ export default {
     return axios.post('/auth/signup', userData);
   },
   //user update after first signup
-  update: function(userData){
-    return axios.put('/auth/signup', {userData});
+  update: function(id, userData){
+    return axios.put('/auth/signup'+id, {userData});
   }
 };

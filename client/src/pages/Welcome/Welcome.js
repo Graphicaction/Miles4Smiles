@@ -20,7 +20,7 @@ const Welcome = (props) =>{
     <div>
     { firstLogin && (
      <div>
-       <UserData />
+       <UserData id={props.user._id} />
        
       </div>
       

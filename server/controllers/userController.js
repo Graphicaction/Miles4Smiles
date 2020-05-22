@@ -55,8 +55,16 @@ module.exports = {
 		res.json({ user: cleanUser });
   },
   update: (req, res)=> {
+    const { city, state, averageDistance, averagePace, avatar } = req.body;
     db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.params.id }, 
+        {
+          'city': city,
+          'state': state,
+          'averageDistance': averageDistance,
+          'averagePace': averagePace,
+          'avatar' : "",
+        })
       .then(dbModel => {
         console.log(dbModel);
         res.json(dbModel);

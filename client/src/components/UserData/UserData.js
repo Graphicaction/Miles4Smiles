@@ -8,7 +8,7 @@ import { Input, FormBtn } from "../Form";
 import usStates from "../usStates";
 import AUTH from '../../utils/AUTH';
 
-const UserData =() => {
+const UserData =(props) => {
   //  Setting our component's initial state
    const [userData, setUserData] = useState({
      city: "",
@@ -18,9 +18,9 @@ const UserData =() => {
      avatar: ""
    });
   const [formObject, setFormObject] = useState({});
-  // const [firstLogin, setFirstLogin] = useState();
+  const [firstLogin, setFirstLogin] = useState();
   const formEl = useRef(null);
-
+  const id = props.id;
 //   useEffect(() => {
 //     loadUserData();
 //   }, []);
@@ -48,7 +48,7 @@ const UserData =() => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (formObject.city) {
-      AUTH.update({
+      AUTH.update(id,{
         city: formObject.city,
         state: formObject.state,
         averageDistance: formObject.distance,
@@ -56,11 +56,8 @@ const UserData =() => {
         avatar: ""
         })
         .then(res => {
-          if (!res.data.errmsg) {
-            setRedirectTo('/welcome');
-          } else {
-            console.log('duplicate');
-          }
+          console.log(res);
+          setFirstLogin(false);
         })
     }
   };
@@ -92,6 +89,7 @@ const UserData =() => {
                             onChange={handleInputChange}
                             name="city"
                             placeholder="Raleigh"
+                            //value={formObject.city}
                           /> 
                         {/* </Col>
                     </Row> */}
@@ -124,6 +122,7 @@ const UserData =() => {
                             onChange={handleInputChange}
                             name="distance"
                             placeholder="3"
+                            //value={formObject.distance}
                           />
                         </Col>
                         <Col size="md-3">
@@ -139,6 +138,7 @@ const UserData =() => {
                             onChange={handleInputChange}
                             name="pace"
                             placeholder="9:50"
+                            //value={formObject.pace}
                           />
                         </Col>
                         <Col size="md-3">

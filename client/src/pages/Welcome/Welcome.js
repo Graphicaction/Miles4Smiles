@@ -13,7 +13,6 @@ const Welcome = (props) =>{
     setFirstLogin(props.user.firstLogin)
   });
   console.log(props.user.firstLogin)
-  // const username= props.user.username;
 
   return(
     <div>
@@ -26,8 +25,7 @@ const Welcome = (props) =>{
     )}
     { !firstLogin && (
      
-    //if returning user display this
-    // : 
+    //if it's a returning user display this
     <>
     <Jumbotron >
     <div className="container">

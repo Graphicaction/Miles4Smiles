@@ -15,6 +15,7 @@ const userSchema = new Schema({
 	avatar:{ type: String, unique: false },
 	averageDistance: { type: Number, unique: false },
 	averagePace: { type: Number, unique: false },
+	firstLogin: {type: Boolean, required: false},
 	runningStats: [
 		{
 		// Store ObjectIds in the array

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 // import Autocomplete from "./components/Autocomplete/Autocomplete"
 // import Script from "react-load-script";
 import { Col, Container, Row } from "../Grid";
@@ -18,7 +18,27 @@ const UserData =() => {
      avatar: ""
    });
   const [formObject, setFormObject] = useState({});
+  // const [firstLogin, setFirstLogin] = useState();
   const formEl = useRef(null);
+
+//   useEffect(() => {
+//     loadUserData();
+//   }, []);
+
+//   const setFirstLoginFalse = () =>{
+//     if (firstLogin===true){
+//       setFirstLogin(false)
+//     }
+//   }
+
+// const loadUserData =()  =>{
+//     API.getUserData()
+//       .then(res => {
+//         // console.log(res.data.UserData);
+//         setUserData(res.data.userData);
+//       })
+//       .catch(err => console.log(err));
+//   };
 
  const handleInputChange =(event) =>{
     const { name, value } = event.target;
@@ -36,6 +56,11 @@ const UserData =() => {
         averagePace: formObject.pace,
         avatar: ""
         })
+        // .then(res => {
+        //   formEl.current.reset();
+        //   loadUserData();
+        //   setFirstLoginFalse();
+        // })
         // .catch(err => console.log(err));
     }
   };

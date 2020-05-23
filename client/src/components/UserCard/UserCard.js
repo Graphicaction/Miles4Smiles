@@ -1,6 +1,6 @@
 import React from "react";
 import "./UserCard.css"
-// import RunningStats from "../../pages/RunningStats/RunningStats";
+// import RunningStats from "../components/RunningStats/RunningStats";
 
 
 const UserCard =() => {

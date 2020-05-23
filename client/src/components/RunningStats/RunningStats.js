@@ -2,13 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./RunningStats.css"
 // import Moment from 'react-moment';
-import LineChart from "../../components/LineChart";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Card } from "../../components/Card";
-import { Input, FormBtn } from "../../components/Form";
-import DeleteBtn from "../../components/DeleteBtn";
-import ChallengeModal from "../../components/ChallengeModal/ChallengeModal";
+import LineChart from "../LineChart";
+import PieChart from "../PieChart";
+
+import { Col, Row, Container } from "../Grid";
+import { List, ListItem } from "../List";
+import { Card } from "../Card";
+import { Input, FormBtn } from "../Form";
+import DeleteBtn from "../DeleteBtn";
+import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import API from "../../utils/API";
 
 function RunningStats() {
@@ -78,6 +80,52 @@ function RunningStats() {
     return (
       <Container fluid>
         <Row>
+          <Col size="md-6 sm-12">
+            <Card title="My challenges">
+              {challenges.length ? (
+                <List>
+                  {challenges.map(challenge => (
+                    <ListItem key={challenge._id}>
+                      <Link to={"/challenge/" + challenge._id}>
+                        <strong>
+                        <p>Supported business: {challenge.businessName}</p>
+                        </strong>
+                      </Link>
+                      {/* <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} /> */}
+                    </ListItem>
+                  ))}
+                </List>
+              ) : (
+                // hardcoded until we can render, then we will write "No Challenges yet"
+              
+            <>
+            <div className="card text-center">
+              <div className="card-body">
+                <h5 className="card-title">Challenge from Bob Bobsen</h5>
+                <p class="card-text">Bob challenges you to do a 3 mile race. The slower runner donates 10$ per mile to Bob's Burger.</p>
+                <a href="#" class="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
+              </div>
+              <div class="card-footer text-muted">
+                  2 days ago
+              </div>
+            </div>
+       
+            <div className="card text-center">
+              <div className="card-body">
+                <h5 className="card-title">Challenge from Bob Bobsen</h5>
+                <p class="card-text">Bob challenges you to do a 3 mile race. The slower runner donates 10$ per mile to Bob's Burger.</p>
+                <a href="#" class="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
+              </div>
+              <div class="card-footer text-muted">
+                2 days ago
+              </div>
+            </div>
+            </>
+     
+              )}
+            </Card>
+          </Col>
+            
           <Col size="md-6">
             <Card title="Submit a run">
               <form ref={formEl}>
@@ -111,6 +159,9 @@ function RunningStats() {
             </Card>
             <ChallengeModal />
           </Col>
+          </Row>
+          
+          <Row>
           <Col size="md-6 sm-12">
             <Card title="My runs">
               <LineChart />
@@ -132,26 +183,16 @@ function RunningStats() {
                 <h3>No Results to Display</h3>
               )} */}
             </Card>
-            <Card title="My challenges">
-              {challenges.length ? (
-                <List>
-                  {challenges.map(challenge => (
-                    <ListItem key={challenge._id}>
-                      <Link to={"/challenge/" + challenge._id}>
-                        <strong>
-                        <p>Supported business: {challenge.businessName}</p>
-                        </strong>
-                      </Link>
-                      {/* <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} /> */}
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>No current challenges</h3>
-              )}
+            </Col>
+            
+            <Col size="md-6 sm-12">
+            <Card title="Past Challenges">
+              <PieChart />
+              
             </Card>
-          </Col>
-        </Row>
+            
+            </Col>
+          </Row>
       </Container>
     );
   }

@@ -11,7 +11,7 @@ import usStates from "../usStates";
 import AUTH from '../../utils/AUTH';
 // import Welcome from '../../pages/Welcome';
 
-const UserData =(props) => {
+const PostSignUpUserData =(props) => {
   //  Setting our component's initial state
   const [formObject, setFormObject] = useState({});
   let firstLogin;
@@ -153,4 +153,4 @@ const UserData =(props) => {
   )
 }
 
-export default UserData;
+export default PostSignUpUserData;

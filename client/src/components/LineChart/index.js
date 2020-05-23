@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
 
 const state = {
@@ -17,7 +17,7 @@ const state = {
   ]
 }
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
       <div>
@@ -26,7 +26,7 @@ export default class App extends React.Component {
           options={{
             title:{
               display:true,
-              text:'Daily running data',
+              // text:'Daily running data',
               fontSize:20
             },
             legend:{

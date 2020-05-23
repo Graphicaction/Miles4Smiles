@@ -54,16 +54,18 @@ module.exports = {
 		}
 		res.json({ user: cleanUser });
   },
+  //Updates a user data
   update: (req, res)=> {
-    const { city, state, averageDistance, averagePace, avatar } = req.body;
+    //Updating user when login for the first time
     db.User
       .findOneAndUpdate({ _id: req.params.id }, 
         {
-          'city': city,
-          'state': state,
-          'averageDistance': averageDistance,
-          'averagePace': averagePace,
-          'avatar' : "",
+          'city': req.body.userData.city,
+          'state': req.body.userData.state,
+          'averageDistance': req.body.userData.averageDistance,
+          'averagePace': req.body.userData.averagePace,
+          'avatar' : req.body.userData.avatar,
+          'firstLogin': req.body.userData.firstLogin
         })
       .then(dbModel => {
         console.log(dbModel);

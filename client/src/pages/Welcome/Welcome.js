@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Route} from 'react-router-dom';
+//import { Route} from 'react-router-dom';
 import UserCard from "../../components/UserCard/UserCard";
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import UserData from "../../components/UserData/UserData"
@@ -9,21 +9,18 @@ import { Row, Col } from "../../components/Grid"
 
 const Welcome = (props) =>{
   const [firstLogin, setFirstLogin] = useState();
-  
+  console.log(props.user);
   useEffect(()=>{
     if(props.user.firstLogin)
-      setFirstLogin(props.user.firstLogin)
+      setFirstLogin(props.user.firstLogin);
   });
-  console.log(props.user.firstLogin)
-
+  
   return(
     <div>
     { firstLogin && (
      <div>
        <UserData id={props.user._id} />
-       
-      </div>
-      
+     </div>
     )}
     { !firstLogin && (
      

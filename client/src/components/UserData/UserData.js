@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 // import Autocomplete from "./components/Autocomplete/Autocomplete"
 // import Script from "react-load-script";
 import { Col, Container, Row } from "../Grid";
@@ -7,38 +7,14 @@ import { Card } from "../Card";
 import { Input, FormBtn } from "../Form";
 import usStates from "../usStates";
 import AUTH from '../../utils/AUTH';
+import Welcome from '../../pages/Welcome';
 
 const UserData =(props) => {
   //  Setting our component's initial state
-   const [userData, setUserData] = useState({
-     city: "",
-     state: "",
-     averageDistance: "",
-     averagePace: "",
-     avatar: ""
-   });
   const [formObject, setFormObject] = useState({});
-  const [firstLogin, setFirstLogin] = useState();
+  let firstLogin;
   const formEl = useRef(null);
   const id = props.id;
-//   useEffect(() => {
-//     loadUserData();
-//   }, []);
-
-//   const setFirstLoginFalse = () =>{
-//     if (firstLogin===true){
-//       setFirstLogin(false)
-//     }
-//   }
-
-// const loadUserData =()  =>{
-//     API.getUserData()
-//       .then(res => {
-//         // console.log(res.data.UserData);
-//         setUserData(res.data.userData);
-//       })
-//       .catch(err => console.log(err));
-//   };
 
  const handleInputChange =(event) =>{
     const { name, value } = event.target;
@@ -47,17 +23,18 @@ const UserData =(props) => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    //Updating user data when first login
     if (formObject.city) {
       AUTH.update(id,{
         city: formObject.city,
         state: formObject.state,
-        averageDistance: formObject.distance,
-        averagePace: formObject.pace,
-        avatar: ""
+        averageDistance: parseInt(formObject.distance),
+        averagePace: parseInt(formObject.pace),
+        avatar: "",
+        firstLogin: false
         })
         .then(res => {
           console.log(res.data);
-          setFirstLogin(false);
         })
     }
   };
@@ -159,8 +136,9 @@ const UserData =(props) => {
             </form>
          </Card>
        </Col> 
-      </Container>
-      </>
+    </Container>
+    <Welcome firstLogin = {firstLogin} />
+    </>
   )
 }
 

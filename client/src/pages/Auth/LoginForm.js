@@ -4,6 +4,7 @@ import { Container} from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import Jumbotron from "../../components/Jumbotron/Jumbotron"
+import Axios from 'axios';
 //import bgIMG from "./bgIMG.jpg"
 // import M4S from "./M4S.png";
 
@@ -19,7 +20,12 @@ function LoginForm({login}) {
       ...userObject,
 			[event.target.name]: event.target.value
 		});
-	};
+  };
+  
+  const googleDirect = (event) =>{
+    event.preventDefault();
+    Axios.get("/auth/google")
+  }
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -61,7 +67,7 @@ function LoginForm({login}) {
                   onChange={handleChange}
                 />
                 <Link to="/signup" className="btn btn-dark">Register</Link>
-                <Link to="/auth/google" className="btn btn-info ml-2"><i className="fa fa-google mr-2"></i>Sign in with google</Link>
+                <button onClick={googleDirect} className="btn btn-info ml-2"><i className="fa fa-google mr-2"></i>Sign in with google</button>
 
                 <FormBtn onClick={handleSubmit}>Login</FormBtn>
               </form>

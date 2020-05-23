@@ -1,13 +1,15 @@
 import React, { useState, useRef } from "react";
 // import Autocomplete from "./components/Autocomplete/Autocomplete"
 // import Script from "react-load-script";
+// import { Redirect, Link } from 'react-router-dom';
+
 import { Col, Container, Row } from "../Grid";
 import Jumbotron from "../Jumbotron"
 import { Card } from "../Card";
 import { Input, FormBtn } from "../Form";
 import usStates from "../usStates";
 import AUTH from '../../utils/AUTH';
-import Welcome from '../../pages/Welcome';
+// import Welcome from '../../pages/Welcome';
 
 const UserData =(props) => {
   //  Setting our component's initial state
@@ -20,6 +22,7 @@ const UserData =(props) => {
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
   };
+  // const [redirectTo, setRedirectTo] = useState(null);
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -35,11 +38,19 @@ const UserData =(props) => {
         })
         .then(res => {
           console.log(res.data);
+          // setRedirectTo('/dashboard');
         })
     }
+
   };
+
+  // if (redirectTo) {
+  //   return <Redirect to={{ pathname: redirectTo, state: {firstLogin: false} }} />
+  // }
+
   return(
     <>
+ 
    <Jumbotron >
     <div className="container">
       <h1 className="display-4">Hello! </h1>
@@ -137,7 +148,7 @@ const UserData =(props) => {
          </Card>
        </Col> 
     </Container>
-    <Welcome firstLogin = {firstLogin} />
+    {/* <Welcome firstLogin = {firstLogin} /> */}
     </>
   )
 }

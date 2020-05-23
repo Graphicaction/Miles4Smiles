@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Welcome from "./pages/Welcome/Welcome"
@@ -20,17 +20,18 @@ import AUTH from './utils/AUTH';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
-  
+  let history = useHistory();
+
   
   useEffect(() => {
     AUTH.getUser().then(response => {
         // console.log(response.data);
         if (!response.data.user) {
-          setLoggedIn(true);
-          setUser(response.data.user);
-        } else {
           setLoggedIn(false);
           setUser(null);
+        } else {
+          setLoggedIn(true);
+          setUser(response.data.user);
         }
       });
 
@@ -48,6 +49,7 @@ function App() {
 			if (response.status === 200) {
 				setLoggedIn(false);
         setUser(null);
+        history.push('/')
 			}
 		});
 	};
@@ -96,7 +98,7 @@ function App() {
       )}
 
       {/* not used yet therefore commented out */}
-      <Location /> 
+      {/* <Location />  */}
        {/* <GeoMap />   */}
        
     </div>

@@ -43,7 +43,7 @@ const Nav = (props) => {
         </ul>
 
         <div className="float-right greeting">
-        {greeting} ! <Link to="/" className="btn ml-5 logout" onClick={props.logout}>Logout</Link>
+        {greeting} ! <button className="btn ml-5 logout" onClick={props.logout}>Logout</button>
         </div>
         </div>
     </nav>

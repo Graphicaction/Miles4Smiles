@@ -8,10 +8,10 @@ import { Row, Col } from "../../components/Grid"
 
 
 const Welcome = (props) =>{
-  const [firstLogin, setFirstLogin] = useState();
+  const [firstLogin, setFirstLogin] = useState(false);
   console.log(props.user);
   useEffect(()=>{
-    if(props.user.firstLogin)
+    if(props.user)
       setFirstLogin(props.user.firstLogin);
   });
   

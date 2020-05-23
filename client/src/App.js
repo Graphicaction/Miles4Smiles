@@ -12,7 +12,6 @@ import Nav from "./components/Nav";
 // import UserCard from "./components/UserCard/UserCard";
 // import GeoMap from "./components/Map/Geolocation";
 import Location from "./components/Location/Location";
-import UserData from "./components/UserData/UserData"
 import AUTH from './utils/AUTH';
 
 
@@ -26,15 +25,14 @@ function App() {
     AUTH.getUser().then(response => {
         // console.log(response.data);
         if (!response.data.user) {
-          setLoggedIn(true);
-          setUser(response.data.user);
-        } else {
           setLoggedIn(false);
           setUser(null);
+        } else {
+          setLoggedIn(true);
+          setUser(response.data.user);
         }
       });
-
-      return () => {
+     return () => {
         setLoggedIn(false);
         setUser(null);
       };

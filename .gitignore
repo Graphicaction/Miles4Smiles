@@ -6,6 +6,9 @@
 /build
 /client/build
 
+#keys
+keys.js
+
 # dependencies
 **/node_modules
 **/jspm_packages

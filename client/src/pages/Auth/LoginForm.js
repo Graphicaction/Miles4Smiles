@@ -61,6 +61,8 @@ function LoginForm({login}) {
                   onChange={handleChange}
                 />
                 <Link to="/signup" className="btn btn-dark">Register</Link>
+                <Link to="/auth/google" className="btn btn-info ml-2"><i className="fa fa-google mr-2"></i>Sign in with google</Link>
+
                 <FormBtn onClick={handleSubmit}>Login</FormBtn>
               </form>
             </Card>

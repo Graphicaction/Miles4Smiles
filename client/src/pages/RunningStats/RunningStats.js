@@ -8,6 +8,7 @@ import { List, ListItem } from "../../components/List";
 import { Card } from "../../components/Card";
 import { Input, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
+import ChallengeModal from "../../components/ChallengeModal/ChallengeModal";
 import API from "../../utils/API";
 
 function RunningStats() {
@@ -108,26 +109,7 @@ function RunningStats() {
                 </FormBtn>
               </form>
             </Card>
-            <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target="#exampleModal">Start a challenge!</button>
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Create a challenge to support your favorite local business!</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div className="modal-body">
-                    ... Will add challenge form here
-                  </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" className="btn btn-success">Save challenge</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ChallengeModal />
           </Col>
           <Col size="md-6 sm-12">
             <Card title="My runs">

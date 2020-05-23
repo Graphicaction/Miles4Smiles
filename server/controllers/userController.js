@@ -25,11 +25,6 @@ module.exports = {
         'username': username,
         'password': password,
         'firstLogin' : firstLogin,
-        // 'avatar': avatar,
-        // 'city': city,
-        // 'state': state,
-        // 'averageDistance': averageDistance,
-        // 'averagePace': averagePace
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
@@ -58,21 +53,24 @@ module.exports = {
 			delete cleanUser.password;
 		}
 		res.json({ user: cleanUser });
+  },
+  //Updates a user data
+  update: (req, res)=> {
+    //Updating user when login for the first time
+    db.User
+      .findOneAndUpdate({ _id: req.params.id }, 
+        {
+          'city': req.body.userData.city,
+          'state': req.body.userData.state,
+          'averageDistance': req.body.userData.averageDistance,
+          'averagePace': req.body.userData.averagePace,
+          'avatar' : req.body.userData.avatar,
+          'firstLogin': req.body.userData.firstLogin
+        })
+      .then(dbModel => {
+        console.log(dbModel);
+        res.json(dbModel);
+      })
+      .catch(err => res.status(422).json(err));
   }
-  // update: (req, res)=> {
-  //   db.User
-  //     .findOneAndUpdate({ _id: req.params.id }, {
-  //       'avatar': avatar,
-  //       'city': city,
-  //       'state': state,
-  //       'averageDistance': averageDistance,
-  //       'averagePace': averagePace
-  //     })
-  //     .then(dbModel => {
-  //       console.log(dbModel);
-  //       res.json(dbModel);
-  //     })
-  //     .catch(err => res.status(422).json(err));
-  // }
-
 };

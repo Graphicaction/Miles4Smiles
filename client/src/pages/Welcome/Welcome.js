@@ -25,13 +25,14 @@ const Welcome = (props) =>{
     { !firstLogin && (
      
     //if it's a returning user display this
-    <>
+    <div>
     <Jumbotron >
-    <div className="container">
-      <h1 className="display-4">Miles 4 Smiles </h1>
+    {/* <div className="container"> */}
+      <h2 className="display-4">Miles 4 Smiles </h2>
       <hr></hr>
-      <h2>We are so excited you are back again and want to continue to support your local business!</h2>
-    </div>
+      <h3>We are so excited you are back again and want to continue to support your local business!</h3>
+      <h3>Select a user close to your location and start a challenge!</h3>
+    {/* </div> */}
    </Jumbotron>
    <Row>
      <Col size="md-3">
@@ -53,11 +54,15 @@ const Welcome = (props) =>{
    </Row>
 
    <Card>
-     List of most recent runs and businesses supported maybe using socket.io to post
+     <ul>
+       <li>bob won against sue and sue donated 34$ to Faulisi</li>
+       <li>bob won against sue and sue donated 34$ to Faulisi</li>
+       <li>bob won against sue and sue donated 34$ to Faulisi</li>
+     </ul>
    </Card>
-   </>
+   </div>
      )}
-    </div>
+  </div>
   )
 }
 

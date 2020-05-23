@@ -56,7 +56,7 @@ const UserData =(props) => {
         avatar: ""
         })
         .then(res => {
-          console.log(res);
+          console.log(res.data);
           setFirstLogin(false);
         })
     }

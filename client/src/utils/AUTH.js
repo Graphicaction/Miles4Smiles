@@ -17,8 +17,9 @@ export default {
   signup: function(userData) {
     return axios.post('/auth/signup', userData);
   },
-  // user update after first signup
-  // update: function(city, state, averagePace,averageDistance){
-  //   return axios.update('/auth/user', {city, state, averagePace,averageDistance})
-  // }
+  //user update after first signup
+  update: function(id, userData){
+    console.log(userData);
+    return axios.put('/auth/signup/' + id, {userData});
+  }
 };

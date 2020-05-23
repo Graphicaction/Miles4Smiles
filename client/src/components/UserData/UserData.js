@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 // import Autocomplete from "./components/Autocomplete/Autocomplete"
 // import Script from "react-load-script";
 import { Col, Container, Row } from "../Grid";
@@ -6,39 +6,15 @@ import Jumbotron from "../Jumbotron"
 import { Card } from "../Card";
 import { Input, FormBtn } from "../Form";
 import usStates from "../usStates";
-// import API from "../../utils/API";
+import AUTH from '../../utils/AUTH';
+import Welcome from '../../pages/Welcome';
 
-const UserData =() => {
+const UserData =(props) => {
   //  Setting our component's initial state
-   const [userData, setUserData] = useState({
-     city: "",
-     state: "",
-     averageDistance: "",
-     averagePace: "",
-     avatar: ""
-   });
   const [formObject, setFormObject] = useState({});
-  // const [firstLogin, setFirstLogin] = useState();
+  let firstLogin;
   const formEl = useRef(null);
-
-//   useEffect(() => {
-//     loadUserData();
-//   }, []);
-
-//   const setFirstLoginFalse = () =>{
-//     if (firstLogin===true){
-//       setFirstLogin(false)
-//     }
-//   }
-
-// const loadUserData =()  =>{
-//     API.getUserData()
-//       .then(res => {
-//         // console.log(res.data.UserData);
-//         setUserData(res.data.userData);
-//       })
-//       .catch(err => console.log(err));
-//   };
+  const id = props.id;
 
  const handleInputChange =(event) =>{
     const { name, value } = event.target;
@@ -47,21 +23,19 @@ const UserData =() => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (formObject.city && formObject.state && formObject.distance && formObject.pace) {
-      // API.saveUserData({
-        console.log({
+    //Updating user data when first login
+    if (formObject.city) {
+      AUTH.update(id,{
         city: formObject.city,
         state: formObject.state,
-        averageDistance: formObject.distance,
-        averagePace: formObject.pace,
-        avatar: ""
+        averageDistance: parseInt(formObject.distance),
+        averagePace: parseInt(formObject.pace),
+        avatar: "",
+        firstLogin: false
         })
-        // .then(res => {
-        //   formEl.current.reset();
-        //   loadUserData();
-        //   setFirstLoginFalse();
-        // })
-        // .catch(err => console.log(err));
+        .then(res => {
+          console.log(res.data);
+        })
     }
   };
   return(
@@ -92,6 +66,7 @@ const UserData =() => {
                             onChange={handleInputChange}
                             name="city"
                             placeholder="Raleigh"
+                            //value={formObject.city}
                           /> 
                         {/* </Col>
                     </Row> */}
@@ -124,6 +99,7 @@ const UserData =() => {
                             onChange={handleInputChange}
                             name="distance"
                             placeholder="3"
+                            //value={formObject.distance}
                           />
                         </Col>
                         <Col size="md-3">
@@ -139,6 +115,7 @@ const UserData =() => {
                             onChange={handleInputChange}
                             name="pace"
                             placeholder="9:50"
+                            //value={formObject.pace}
                           />
                         </Col>
                         <Col size="md-3">
@@ -159,8 +136,9 @@ const UserData =() => {
             </form>
          </Card>
        </Col> 
-      </Container>
-      </>
+    </Container>
+    <Welcome firstLogin = {firstLogin} />
+    </>
   )
 }
 

@@ -8,5 +8,6 @@ router.get('/user', userController.getUser)
 router.post('/login', userController.auth, passport.authenticate('local'), userController.authenticate);
 router.post('/logout', userController.logout);
 router.post('/signup', userController.register);
+router.put('/signup/:id', userController.update);
 
 module.exports = router;

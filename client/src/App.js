@@ -72,7 +72,9 @@ function App() {
           <Nav user={user} logout={logout}/>
           <div className="main-view">
             <Switch>
-              <Route exact path="/welcome" component={()=> <Welcome user={user}/>}/>
+              <Route exact path="/welcome" >
+                <Welcome user={user}/>
+              </Route>
               {/* <Route exact path="/firstdata" component={UserData} /> */}
               <Route exact path="/dashboard" component={RunningStats} />
               <Route exact path="/mypage/:id" component={UserPage} />
@@ -85,7 +87,9 @@ function App() {
         <div className="auth-wrapper" style={{paddingTop:40}}>
           <Switch>
             <Route exact path="/" component={() => <LoginForm login={login}/>} />
-            <Route exact path="/dashboard" component={() => <LoginForm user={login} />} />
+            <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
+            <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
+            <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
             <Route exact path="/signup" component={SignupForm} />
           </Switch>
         </div>

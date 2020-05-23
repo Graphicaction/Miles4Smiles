@@ -8,10 +8,12 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
+// const cookieSession = require('cookie-session')
 const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db'); // loads our connection to the mongo database
 const routes = require("./routes");
 const passport = require('./passport');
+const keys = require("./config/keys")
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -25,6 +27,14 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+// app.use(cookieSession({
+// 	//save cookie for 30days
+// 	maxAge: 30*24*60*60*1000,
+// 	keys: process.env.COOKIE_KEY || [keys.COOKIE_KEY]
+
+// })
+// );
 
 // Passport
 app.use(passport.initialize());

@@ -26,7 +26,7 @@ export default class App extends Component {
           options={{
             title:{
               display:true,
-              text:'Daily running data',
+              // text:'Daily running data',
               fontSize:20
             },
             legend:{

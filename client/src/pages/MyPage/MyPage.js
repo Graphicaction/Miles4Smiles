@@ -1,11 +1,9 @@
 import React, {Fragment} from "react";
-import {Col, Row} from "../../components/Grid"
-import RunningStats from "../RunningStats";
-import {Card} from "../../components/Card"
-import "./userPage.css"
+import RunningStats from "../../components/RunningStats/RunningStats";
+import "./MyPage.css"
 
 
-const UserPage =(props) => {
+const MyPage =(props) => {
 //add personalized message later will need props and fragment import maybe easiest with Context
     // let greeting;
   
@@ -28,13 +26,11 @@ const UserPage =(props) => {
     
   return(
     <>
-      {/* <h3 className="mt-5 mb-5 text-center"> Hello! We are glad you are back! Here is an overview of your latest runs and challenges.</h3> */}
-      {/* <hr></hr> */}
-    
+     
   
       <RunningStats />
     </>
   )
 }
 
-export default UserPage;
+export default MyPage;

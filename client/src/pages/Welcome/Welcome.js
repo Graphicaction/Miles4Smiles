@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 //import { Route} from 'react-router-dom';
 import UserCard from "../../components/UserCard/UserCard";
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
-import UserData from "../../components/UserData/UserData"
+import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUserData"
 import {Card} from "../../components/Card"
 import { Row, Col } from "../../components/Grid"
 
@@ -14,12 +14,14 @@ const Welcome = (props) =>{
     if(props.user)
       setFirstLogin(props.user.firstLogin);
   });
+
+  // do we need that as second argument?, [props.user]
   
   return(
     <div>
     { firstLogin && (
      <div>
-       <UserData id={props.user._id} />
+       <PostSignUpUserData id={props.user._id} />
      </div>
     )}
     { !firstLogin && (
@@ -53,13 +55,27 @@ const Welcome = (props) =>{
 
    </Row>
 
-   <Card>
-     <ul>
-       <li>bob won against sue and sue donated 34$ to Faulisi</li>
-       <li>bob won against sue and sue donated 34$ to Faulisi</li>
-       <li>bob won against sue and sue donated 34$ to Faulisi</li>
-     </ul>
-   </Card>
+   <Row>
+     {/* <Col size="md-6 sm-12">
+      <Card title="Find a User by Username">
+          <form className="form-inline">
+            <input className="form-control mr-sm-2" type="search" placeholder="Search User" aria-label="Search"/>
+            <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+          </form>
+      </Card>
+    </Col> */}
+
+    <Col size="md-12 sm-12">
+      <Card title="Latest Updates">
+        {/* dynamically render the last challenges that occurred */}
+        <ul>
+          <li>Bob won against Sue and sue donated 34$ to Faulisi</li><hr></hr>
+          <li>Bob won against Sue and sue donated 34$ to Faulisi</li><hr></hr>
+          <li>Bob won against Sue and sue donated 34$ to Faulisi</li><hr></hr>
+        </ul>
+      </Card>
+    </Col>
+    </Row>
    </div>
      )}
   </div>

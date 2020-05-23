@@ -3,7 +3,7 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Welcome from "./pages/Welcome/Welcome"
-import RunningStats from './pages/RunningStats';
+import Dashboard from './pages/Dashboard';
 import UserPage from './pages/userPage/userPage';
 
 import NoMatch from "./pages/NoMatch";
@@ -11,7 +11,7 @@ import Nav from "./components/Nav";
 
 // import UserCard from "./components/UserCard/UserCard";
 // import GeoMap from "./components/Map/Geolocation";
-import Location from "./components/Location/Location";
+// import Location from "./components/Location/Location";
 import AUTH from './utils/AUTH';
 
 
@@ -76,7 +76,7 @@ function App() {
                 <Welcome user={user}/>
               </Route>
               {/* <Route exact path="/firstdata" component={UserData} /> */}
-              <Route exact path="/dashboard" component={RunningStats} />
+              <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/mypage/:id" component={UserPage} />
               <Route component={NoMatch} />
             </Switch>

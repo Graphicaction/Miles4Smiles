@@ -1,13 +1,17 @@
-import React from "react";
+import React, {Fragment} from "react";
+import {Col, Row} from "../../components/Grid"
 import RunningStats from "../RunningStats";
 import {Card} from "../../components/Card"
+import "./userPage.css"
 
 
-const UserPage =() => {
-//add personalized message later will need props and fragment import
+const UserPage =(props) => {
+//add personalized message later will need props and fragment import maybe easiest with Context
     // let greeting;
   
-    //  if (props.user.firstName) {
+    // if (props.user === null) {
+    //   greeting = <p>Hello guest</p>
+    // } else if (props.user.firstName) {
     //   greeting = (
     //     <Fragment>
     //       Hello <strong>{props.user.firstName} ! Here is an overview of your latest runs and challenges.</strong>
@@ -20,21 +24,14 @@ const UserPage =() => {
     //     </Fragment>
     //   )
     // } 
+
+    
   return(
     <>
-      <h3 className="mt-5 mb-5 text-center"> We are glad you are back! Here is an overview of your latest runs and challenges.</h3>
-      <hr></hr>
-      <Card>
-        Your Statistics
-      </Card>
-      <Card>
-        Incoming Challenges
-        {/* add list of all incoming challenges */}
-      </Card>
-      <Card>
-        Find a User
-        {/* user search option that redirects to that user cars */}
-      </Card>
+      {/* <h3 className="mt-5 mb-5 text-center"> Hello! We are glad you are back! Here is an overview of your latest runs and challenges.</h3> */}
+      {/* <hr></hr> */}
+    
+  
       <RunningStats />
     </>
   )

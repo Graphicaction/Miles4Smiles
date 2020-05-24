@@ -38,27 +38,28 @@ const PostSignUpUserData =(props) => {
         })
         .then(res => {
           console.log(res.data);
-          // setRedirectTo('/dashboard');
-        })
+          if (formObject.city && formObject.state && formObject.averageDistance && formObject.averagePace){
+            window.location.reload()
+          } else {
+            window.location.reload(false)
+          }
+        }
+        )
     }
 
   };
 
-  // if (redirectTo) {
-  //   return <Redirect to={{ pathname: redirectTo, state: {firstLogin: false} }} />
-  // }
 
   return(
     <>
  
    <Jumbotron >
-    <div className="container">
-      <h1 className="display-4">Hello! </h1>
-      <br></br>
-      <h2>We are so excited you want to support your local business!</h2>
+    {/* <div className="container"> */}
+      <h3 className="display-4">Hello! </h3>
+      <h5>We are so excited you want to support your local business!</h5>
       <hr></hr>
       <p className="lead">To allow you to find runners with similar skills living close to you, we need some information from you before you can start to run for your local business!</p>
-    </div>
+    {/* </div> */}
    </Jumbotron>
 
    <Container>
@@ -148,7 +149,6 @@ const PostSignUpUserData =(props) => {
          </Card>
        </Col> 
     </Container>
-    {/* <Welcome firstLogin = {firstLogin} /> */}
     </>
   )
 }

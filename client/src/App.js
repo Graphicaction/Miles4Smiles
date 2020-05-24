@@ -5,7 +5,7 @@ import SignupForm from './pages/Auth/SignupForm';
 import Welcome from "./pages/Welcome/Welcome"
 import Dashboard from './pages/Dashboard';
 import MyPage from './pages/MyPage/MyPage';
-
+import PostSignUpUserData from "./components/PostSignUpUserData/PostSignUpUserData"
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
@@ -87,6 +87,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={() => <LoginForm login={login}/>} />
             <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
+
             <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
             <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
             <Route exact path="/signup" component={SignupForm} />

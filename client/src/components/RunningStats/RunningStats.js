@@ -11,6 +11,7 @@ import { Card } from "../Card";
 import { Input, FormBtn } from "../Form";
 import DeleteBtn from "../DeleteBtn";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
+import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
 
 function RunningStats() {

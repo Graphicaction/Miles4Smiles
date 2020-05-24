@@ -4,6 +4,7 @@ import "./Dashboard.css"
 import LineChart from "../../components/LineChart";
 import { Col, Row, Container } from "../../components/Grid";
 import { Card } from "../../components/Card";
+import CountUp from "react-countup";
 
 
 function Dashboard() {
@@ -42,8 +43,8 @@ function Dashboard() {
           </Col>
           <Col size="md-6 sm-6">
             <Card title="Overall Donation Amount " >
-               <p style={{ textAlign: "center", marginBottom:"0"}}>$12,566</p>
-               {/* use countup package for that later */}
+               <p style={{ textAlign: "center", marginBottom:"0"}}>
+                 <CountUp duration={3} prefix="$" end={566}/></p>
             </Card>
           </Col>
           </Row>

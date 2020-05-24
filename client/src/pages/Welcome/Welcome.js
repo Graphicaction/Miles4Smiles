@@ -38,19 +38,19 @@ const Welcome = (props) =>{
    </Jumbotron>
    <Row>
      <Col size="md-3">
-     <UserCard />
+     <UserCard user={props.user} />
      </Col>
 
      <Col size="md-3">
-     <UserCard />
+     <UserCard user={props.user}/>
      </Col>
 
      <Col size="md-3">
-     <UserCard />
+     <UserCard user={props.user}/>
      </Col>
 
      <Col size="md-3">
-     <UserCard />
+     <UserCard user={props.user}/>
      </Col>
 
    </Row>

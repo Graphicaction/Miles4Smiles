@@ -57,7 +57,7 @@ function DailyRunForm() {
                   placeholder="Total Time (required)"
                 />
                 <FormBtn
-                  disabled={!(formObject.pace && formObject.distance && formObject.totalTime)}
+                  disabled={!(formObject.distance && formObject.totalTime)}
                   onClick={handleFormSubmit}
                 >
                   Submit a run

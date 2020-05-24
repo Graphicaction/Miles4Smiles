@@ -79,10 +79,10 @@ function RunningStats() {
             <div className="card text-center">
               <div className="card-body">
                 <h5 className="card-title">Challenge from Bob Bobsen</h5>
-                <p class="card-text">Bob challenges you to do a 3 mile race. The slower runner donates 10$ per mile to Bob's Burger.</p>
-                <a href="#" class="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
+                <p className="card-text">Bob challenges you to do a 3 mile race. The slower runner donates $10 per mile to Bob's Burger.</p>
+                <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
               </div>
-              <div class="card-footer text-muted">
+              <div className="card-footer text-muted">
                   2 days ago
               </div>
             </div>
@@ -90,10 +90,10 @@ function RunningStats() {
             <div className="card text-center">
               <div className="card-body">
                 <h5 className="card-title">Challenge from Bob Bobsen</h5>
-                <p class="card-text">Bob challenges you to do a 3 mile race. The slower runner donates 10$ per mile to Bob's Burger.</p>
-                <a href="#" class="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
+                <p className="card-text">Bob challenges you to do a 3 mile race. The slower runner donates $10 per mile to Bob's Burger.</p>
+                <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
               </div>
-              <div class="card-footer text-muted">
+              <div className="card-footer text-muted">
                 2 days ago
               </div>
             </div>

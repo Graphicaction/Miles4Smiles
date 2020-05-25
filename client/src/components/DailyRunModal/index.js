@@ -6,8 +6,8 @@ function DailyRunModal() {
 
   return (
     <>
-      <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target="#exampleModal">Submit Run</button>
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target="#runModal">Submit Run</button>
+            <div className="modal fade" id="runModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-header">

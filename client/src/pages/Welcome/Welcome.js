@@ -15,6 +15,8 @@ const Welcome = (props) =>{
       setFirstLogin(props.user.firstLogin);
   });
 
+  
+
   // do we need that as second argument?, [props.user]
   
   return(

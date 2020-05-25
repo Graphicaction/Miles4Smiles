@@ -62,6 +62,7 @@ function DailyRunForm() {
                 >
                   Submit a run
                 </FormBtn>
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
         </>
     )

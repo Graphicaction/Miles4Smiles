@@ -8,17 +8,18 @@ import PieChart from "../PieChart";
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Card } from "../Card";
-import { Input, FormBtn } from "../Form";
+//import { Input, FormBtn } from "../Form";
 import DeleteBtn from "../DeleteBtn";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
+import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
 
 function RunningStats() {
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
   const [challenges, setChallenges] = useState([]);
-  const [formObject, setFormObject] = useState({});
-  const formEl = useRef(null);
+  // const [formObject, setFormObject] = useState({});
+  // const formEl = useRef(null);
 
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
@@ -52,31 +53,7 @@ function RunningStats() {
       .catch(err => console.log(err));
   }
 
-  // Handles updating component state when the user types into the input field
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
-  };
-
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload RunningStats from the database
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.pace && formObject.distance && formObject.totalTime) {
-      API.saveRunningStat({
-        pace: formObject.pace,
-        distance: formObject.distance,
-        date: formObject.date,
-        totalTime: formObject.totalTime
-      })
-        .then(res => {
-          formEl.current.reset();
-          loadRunningStats();
-        })
-        .catch(err => console.log(err));
-    }
-  };
-
+  
     return (
       <Container fluid>
         <Row>
@@ -102,10 +79,10 @@ function RunningStats() {
             <div className="card text-center">
               <div className="card-body">
                 <h5 className="card-title">Challenge from Bob Bobsen</h5>
-                <p class="card-text">Bob challenges you to do a 3 mile race. The slower runner donates 10$ per mile to Bob's Burger.</p>
-                <a href="#" class="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
+                <p className="card-text">Bob challenges you to do a 3 mile race. The slower runner donates $10 per mile to Bob's Burger.</p>
+                <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
               </div>
-              <div class="card-footer text-muted">
+              <div className="card-footer text-muted">
                   2 days ago
               </div>
             </div>
@@ -113,10 +90,10 @@ function RunningStats() {
             <div className="card text-center">
               <div className="card-body">
                 <h5 className="card-title">Challenge from Bob Bobsen</h5>
-                <p class="card-text">Bob challenges you to do a 3 mile race. The slower runner donates 10$ per mile to Bob's Burger.</p>
-                <a href="#" class="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
+                <p className="card-text">Bob challenges you to do a 3 mile race. The slower runner donates $10 per mile to Bob's Burger.</p>
+                <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
               </div>
-              <div class="card-footer text-muted">
+              <div className="card-footer text-muted">
                 2 days ago
               </div>
             </div>
@@ -127,36 +104,7 @@ function RunningStats() {
           </Col>
             
           <Col size="md-6">
-            <Card title="Submit a run">
-              <form ref={formEl}>
-                <Input
-                  onChange={handleInputChange}
-                  name="pace"
-                  placeholder="Pace (required)"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="distance"
-                  placeholder="Distance (required)"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="date"
-                  placeholder="Date"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="totalTime"
-                  placeholder="Total Time (required)"
-                />
-                <FormBtn
-                  disabled={!(formObject.pace && formObject.distance && formObject.totalTime)}
-                  onClick={handleFormSubmit}
-                >
-                  Submit a run
-                </FormBtn>
-              </form>
-            </Card>
+            <DailyRunModal />
             <ChallengeModal />
           </Col>
           </Row>

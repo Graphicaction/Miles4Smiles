@@ -37,9 +37,11 @@ const Nav = (props) => {
           <li className="nav-item">
             <Link to ="/dashboard" className="nav-link" >Dashboard</Link>
           </li>
-          <li className="nav-item">
-            <Link to ="/mypage/:id" className="nav-link" >My Page</Link>
-          </li>
+          {(props.user) && (
+            <li className="nav-item">
+              <Link to ={"/mypage/" +props.user._id} className="nav-link" >My Page</Link>
+            </li>
+          )}
         </ul>
 
         <div className="float-right greeting">

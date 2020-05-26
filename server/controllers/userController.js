@@ -92,7 +92,10 @@ module.exports = {
           'averageDistance': req.body.userData.averageDistance,
           'averagePace': req.body.userData.averagePace,
           'avatar' : req.body.userData.avatar,
-          'firstLogin': req.body.userData.firstLogin
+          'firstLogin': req.body.userData.firstLogin,
+          'challengesWon': 0,
+          'challengesTied': 0,
+          'challengesLost': 0
         })
       .then(dbModel => {
         console.log(dbModel);

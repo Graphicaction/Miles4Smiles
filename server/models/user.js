@@ -16,6 +16,9 @@ const userSchema = new Schema({
 	averageDistance: { type: Number, unique: false },
 	averagePace: { type: Number, unique: false },
 	firstLogin: {type: Boolean, required: false},
+	challengesWon: { type: Number, unique: false },
+	challengesTied: { type: Number, unique: false },
+	challengesLost: { type: Number, unique: false },
 	runningStats: [
 		{
 		// Store ObjectIds in the array

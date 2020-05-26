@@ -153,27 +153,20 @@ function RunningStats() {
           
           <Row>
           <Col size="md-6 sm-12">
-            <Card title="My runs">
+            <Card title="My Marathon Runs">
               { (runningStats.length) ? (<LineChart milesData={milesData} />) : <h3>No Run recorded!</h3>
               }
               
               {/* {runningStats.length ? (
                 <List>
                   {runningStats.map(runningStat => (
-                    <ListItem key={runningStat._id}>
-                      <Link to={"/runningStats/" + runningStat._id}>
-                        <strong>
+                    <Link to={"/runningStats/" + runningStat._id}>
                         <p>Pace: {runningStat.pace} minutes</p>
-                          Distance: {runningStat.distance} miles 
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />
+                    <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />
                     </ListItem>
                   ))}
                 </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )} */}
+              )  */}
             </Card>
             </Col>
             

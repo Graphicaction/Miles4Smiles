@@ -30,7 +30,6 @@ module.exports = {
   //=============
 
   getUser: (req, res, next) => {
-    // console.log(req.user);
     if (req.user) {
       return res.json({ user: req.user });
     } else {
@@ -102,5 +101,18 @@ module.exports = {
         res.json(dbModel);
       })
       .catch(err => res.status(422).json(err));
+  },
+
+  userUpdate: (req, res)=> {
+    //Updating user when login for the first time
+    db.User
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbModel => {
+        console.log(dbModel);
+        res.json(dbModel);
+      })
+      .catch(err => res.status(422).json(err));
   }
 };
+
+

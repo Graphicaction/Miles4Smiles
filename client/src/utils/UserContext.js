@@ -6,7 +6,11 @@ const UserContext = React.createContext({
   city: "",
   state: "",
   averagePace: "",
-  averageDistance:""
+  averageDistance:"",
+  firstlogin: "",
+  challengesWon: "",
+  challengesTied: "",
+  challegesLost: ""
 });
 
 export default UserContext;

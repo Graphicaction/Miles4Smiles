@@ -1,12 +1,12 @@
 import React, {useContext} from "react";
 import "./UserCard.css"
 import Jdenticon from "react-jdenticon";
-// import UserContext from "../../utils/UserContext"
+import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 
 const UserCard =(props) => {
-  // const { username } = useContext(UserContext);
-  // console.log(props.user);
+  const { user } = useContext(UserContext);
+  console.log("Context UserCard: ", user);
 
   // later add that only users from certain location
   // const getUsers =() => {

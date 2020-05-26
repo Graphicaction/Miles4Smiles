@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 //import { Route} from 'react-router-dom';
+// import UserContext from "../../utils/UserContext";
 import UserCard from "../../components/UserCard/UserCard";
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUserData"
@@ -8,19 +9,58 @@ import { Row, Col } from "../../components/Grid"
 
 
 const Welcome = (props) =>{
+  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState({});
+  const [userIndex, setUserIndex] = useState(0);
+
+//we will need city,state to show only users from same location
+  const [location, setLocation] = useState("");
+ 
   const [firstLogin, setFirstLogin] = useState(false);
+
+  //setup to direct first time login user to different component before going to usual welcome
   console.log(props.user);
   useEffect(()=>{
     if(props.user)
       setFirstLogin(props.user.firstLogin);
   });
 
-  
+//build user carousel
+  // function nextUser(userIndex) {
+  //   // Ensure that the user index stays within our range of users
+  //   if (userIndex >= users.length) {
+  //     userIndex = 0;
+  //   }
+  //   setUser(users[userIndex]);
+  //   setUserIndex(userIndex);
+  // }
 
-  // do we need that as second argument?, [props.user]
-  
+  // function previousUser(userIndex) {
+  //   // Ensure that the user index stays within our range of users
+  //   if (userIndex < 0) {
+  //     userIndex = users.length - 1;
+  //   }
+  //   setUser(users[userIndex]);
+  //   setUserIndex(userIndex);
+  // }
+
+  // function handleUserBtnClick(event) {
+  //   // Get the title of the clicked button
+  //   const btnName = event.target.getAttribute("data-value");
+  //   if (btnName === "next") {
+  //     const newUserIndex = userIndex + 1;
+  //     nextUser(newUserIndex);
+  //   } else {
+  //     const newUserIndex = userIndex - 1;
+  //     previousUser(newUserIndex);
+  //   }
+  // }
+ 
+    
   return(
     <div>
+    {/* <UserContext.Provider value={{ user, users, handleUserBtnClick  }}> */}
+
     { firstLogin && (
      <div>
        <PostSignUpUserData id={props.user._id} />
@@ -80,6 +120,8 @@ const Welcome = (props) =>{
     </Row>
    </div>
      )}
+ 
+  {/* </UserContext.Provider> */}
   </div>
   )
 }

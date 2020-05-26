@@ -5,7 +5,7 @@ import SignupForm from './pages/Auth/SignupForm';
 import Welcome from "./pages/Welcome/Welcome"
 import Dashboard from './pages/Dashboard';
 import MyPage from './pages/MyPage/MyPage';
-import PostSignUpUserData from "./components/PostSignUpUserData/PostSignUpUserData"
+// import PostSignUpUserData from "./components/PostSignUpUserData/PostSignUpUserData"
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 

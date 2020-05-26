@@ -25,4 +25,6 @@ export default {
   // getChallenges: function() {
   //   return axios.get("/api/challenges");
   // }
+
 };
+

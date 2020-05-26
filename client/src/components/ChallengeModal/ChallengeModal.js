@@ -19,10 +19,6 @@ function ChallengeModal() {
                   <div className="modal-body">
                     <ChallengeForm />
                   </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" className="btn btn-success">Save challenge</button>
-                  </div>
                 </div>
               </div>
             </div>

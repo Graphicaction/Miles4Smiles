@@ -9,12 +9,12 @@ import { Row, Col } from "../../components/Grid"
 
 
 const Welcome = (props) =>{
-  const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
-  const [userIndex, setUserIndex] = useState(0);
+//   const [users, setUsers] = useState([]);
+//   const [user, setUser] = useState({});
+//   const [userIndex, setUserIndex] = useState(0);
 
-//we will need city,state to show only users from same location
-  const [location, setLocation] = useState("");
+// //we will need city,state to show only users from same location
+//   const [location, setLocation] = useState("");
  
   const [firstLogin, setFirstLogin] = useState(false);
 
@@ -78,34 +78,29 @@ const Welcome = (props) =>{
       <h3>Select a user close to your location and start a challenge!</h3>
     {/* </div> */}
    </Jumbotron>
+
    <Row>
      <Col size="md-3">
-     <UserCard user={props.user} />
-     </Col>
 
-     <Col size="md-3">
+      {/* replace with carousel of users in same location  */}
      <UserCard user={props.user}/>
      </Col>
 
      <Col size="md-3">
-     <UserCard user={props.user}/>
+     <UserCard />
      </Col>
 
      <Col size="md-3">
-     <UserCard user={props.user}/>
+     <UserCard />
+     </Col>
+
+     <Col size="md-3">
+     <UserCard/>
      </Col>
 
    </Row>
 
    <Row>
-     {/* <Col size="md-6 sm-12">
-      <Card title="Find a User by Username">
-          <form className="form-inline">
-            <input className="form-control mr-sm-2" type="search" placeholder="Search User" aria-label="Search"/>
-            <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-          </form>
-      </Card>
-    </Col> */}
 
     <Col size="md-12 sm-12">
       <Card title="Latest Updates">

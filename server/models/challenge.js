@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const ChallengeSchema = new Schema({
   businessName: { type: String, required: true },
   businessType: { type: String, required: false },
-  businessLocation: { type: String, required: true },
+  businessLocation: { type: String, required: false },
   businessUrl: { type: String, required: false },
   challengers: [{ type: String, required: false }],
-  doner:{ type: String, required: false },
+  donor:{ type: String, required: false },
   donatedAmount: { type: Number, required: false}
 });
 // Create reference to Challenge & export

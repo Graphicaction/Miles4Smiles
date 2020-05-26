@@ -2,19 +2,28 @@ import React, {useContext} from "react";
 import "./UserCard.css"
 import Jdenticon from "react-jdenticon";
 // import UserContext from "../../utils/UserContext"
-// import RunningStats from "../components/RunningStats/RunningStats";
-
+import API from "../../utils/API";
 
 const UserCard =(props) => {
   // const { username } = useContext(UserContext);
-  console.log(props.user);
-// console.log(props.user)
+  // console.log(props.user);
+
+  // later add that only users from certain location
+  // const getUsers =() => {
+  //   const users = API.getAllUsers();
+  //   console.log(users)
+  // }
+  // getUsers()
+
+
   return(
     <>
-    <div className="card" style={{width: "18rem"}}>
+    
+
+    <div className="card text-center">
       <div className="card-body ">
         <Jdenticon className="avatar" size="48" value="addIDLater" float="right"></Jdenticon>
-        <h5 className="card-title justify-content-center">Username</h5>
+        <h5 className="card-title justify-content-center">USERNAME</h5>
 
         <h6 className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>CITY, STATE</h6>
         <hr></hr>
@@ -26,7 +35,6 @@ const UserCard =(props) => {
       </div>
     </div>
     
-    {/* <RunningStats /> */}
     </>
   )
 }

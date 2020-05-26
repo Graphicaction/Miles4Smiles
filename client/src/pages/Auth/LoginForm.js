@@ -28,6 +28,11 @@ function LoginForm({login}) {
     Axios.get("/auth/google")
   }
 
+  const githubDirect =(event) => {
+    event.preventDefault();
+    Axios.get("/auth/github")
+  }
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		login(userObject.username, userObject.password);
@@ -62,8 +67,9 @@ function LoginForm({login}) {
                   value={userObject.password}
                   onChange={handleChange}
                 />
-                <Link to="/signup" className="btn btn-dark">Register</Link>
-                <button onClick={googleDirect} className="btn btn-info ml-2"><i className="fa fa-google mr-2"></i>Sign in with google</button>
+                <Link to="/signup" className="btn btn-primary">Register</Link>
+                <button onClick={googleDirect} className="btn btn-info ml-2"><i className="fa fa-google mr-2"></i>Sign in with Google</button>
+                <button onClick={githubDirect} className="btn btn-dark ml-2"><i className="fa fa-github mr-2"></i>Sign in with Github</button>
 
                 <FormBtn onClick={handleSubmit}>Login</FormBtn>
               </form>

@@ -2,14 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./RunningStats.css"
 // import Moment from 'react-moment';
+import Jdenticon from "react-jdenticon";
+
 import LineChart from "../LineChart";
 import PieChart from "../PieChart";
-
+// import UserCard from "../UserCard/UserCard"
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Card } from "../Card";
 //import { Input, FormBtn } from "../Form";
-import DeleteBtn from "../DeleteBtn";
+// import DeleteBtn from "../DeleteBtn";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
@@ -120,8 +122,31 @@ function RunningStats() {
           </Col>
             
           <Col size="md-6">
-            <DailyRunModal />
-            <ChallengeModal />
+        
+            <Card title="Update Your Information" style={{justifyContent:"center"}}>
+              
+              {/* <DailyRunModal />
+              <ChallengeModal /> */}
+                  
+              <div className="card text-center">
+              <div className="card-header text-center">
+                    <DailyRunModal />
+                    <ChallengeModal />
+                  </div>
+                <div className="card-body ">
+                  <Jdenticon className="avatar" size="48" value="addIDLater" float="right"></Jdenticon>
+                  <h5 className="card-title justify-content-center">USERNAME</h5>
+                  <h6 className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>CITY, STATE</h6>
+                  <hr></hr>
+                  <p className="card-text pace">Average mile pace: PACE</p>
+                  <p className="card-text distance">Preferred distance: DISTANCE</p>
+                  <hr></hr>
+                  <button className="btn card-link updateBtn"><i className="fa fa-edit mr-2"></i>Update</button>
+                  <button className="btn btn-light card-link deleteBtn ml-3"><i className="fa fa-trash mr-2"></i>Delete</button>
+                </div>
+              </div>                
+            </Card>
+            
           </Col>
           </Row>
           

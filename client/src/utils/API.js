@@ -17,12 +17,19 @@ export default {
   saveRunningStat: function(runningStatData) {
     return axios.post("/api/runningStats", runningStatData);
   },
-  //save the user info to the database
-  // saveUserData: function(userData) {
-  //   return axios.post("/api/user", userData);
-  // },
-  // Gets all challenges
-  // getChallenges: function() {
-  //   return axios.get("/api/challenges");
-  // }
+  
+  // get user info to the database
+  getAllUsers: function() {
+    return axios.get("/api/users");
+  },
+
+  
+  // Saves new challenge
+  saveChallenge: function(challengeData) {
+    return axios.post("/api/challenges", challengeData);
+  },
+  getChallenges: function() {
+    return axios.get("/api/challenges");
+  }
 };
+

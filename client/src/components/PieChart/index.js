@@ -4,14 +4,17 @@ import UserContext from "../../utils/UserContext";
 
 const PieChart = () => {
 	const { user } = useContext(UserContext);
-	console.log("Context from Piechart", user);
+	//converting db data into percentage 
+	const total = user.challengesWon + user.challengesLost;
+	const wonData = (user.challengesWon * 100)/total;
+	const lostData = (user.challengesLost * 100)/total;
 	const data = {
 		labels: [
 			'Challenges Won',
 			'Challenges Lost'
 		],
 		datasets: [{
-			data: [60, 40],
+			data: [wonData, lostData],
 			backgroundColor: [
 			'#e1f6e7',
 			'#f2ded6',

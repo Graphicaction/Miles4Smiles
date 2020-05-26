@@ -7,15 +7,6 @@ function DailyRunForm() {
     const [formObject, setFormObject] = useState({});
     const formEl = useRef(null);
     
-    function loadRunningStats() {
-        API.getRunningStats()
-          .then(res => {
-            // console.log(res.data.RunningStats);
-            setRunningStats(res.data.runningStats);
-          })
-          .catch(err => console.log(err));
-    };
-
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -33,7 +24,7 @@ function DailyRunForm() {
           })
             .then(res => {
               formEl.current.reset();
-              loadRunningStats();
+              console.log(res);
             })
             .catch(err => console.log(err));
         }

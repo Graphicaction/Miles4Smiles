@@ -11,4 +11,4 @@ const ChallengeContext = React.createContext({
     challengers: []
 });
 
-export default UserContext;
+export default ChallengeContext;

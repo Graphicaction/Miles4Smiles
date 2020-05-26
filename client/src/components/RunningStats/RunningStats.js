@@ -10,8 +10,7 @@ import PieChart from "../PieChart";
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Card } from "../Card";
-//import { Input, FormBtn } from "../Form";
-// import DeleteBtn from "../DeleteBtn";
+import ChallengeContext from "../../utils/ChallengeContext";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
@@ -131,7 +130,9 @@ function RunningStats() {
               <div className="card text-center">
               <div className="card-header text-center">
                     <DailyRunModal />
-                    <ChallengeModal />
+                    <ChallengeContext.Provider value={{ challenges }}>
+                      <ChallengeModal />
+                    </ChallengeContext.Provider>
                   </div>
                 <div className="card-body ">
                   <Jdenticon className="avatar" size="48" value="addIDLater" float="right"></Jdenticon>

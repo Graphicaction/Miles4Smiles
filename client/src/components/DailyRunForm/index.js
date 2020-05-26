@@ -58,8 +58,7 @@ function DailyRunForm() {
                 />
                 <FormBtn
                   disabled={!(formObject.distance && formObject.totalTime)}
-                  onClick={handleFormSubmit}
-                >
+                  onClick={handleFormSubmit} >
                   Submit a run
                 </FormBtn>
             </form>

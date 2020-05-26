@@ -1,25 +1,23 @@
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
 
-const state = {
-  labels: ['Sunday', 'Monday', 'Tuesday',
-           'Wednesday', 'Friday', 'Saturday'],
-  datasets: [
-    {
-      label: 'Running Stats',
-      fill: false,
-      lineTension: 0.5,
-      backgroundColor: 'rgba(75,192,192,1)',
-      borderColor: 'rgba(0,0,0,1)',
-      borderWidth: 2,
-      data: [15, 20, 10, 11, 5, 12]
-    }
-  ]
-}
-
-export default class App extends Component {
-  render() {
-    return (
+const LineChart = (props) => { 
+  const state = {
+    labels: ['Sunday', 'Monday', 'Tuesday',
+             'Wednesday', 'Friday', 'Saturday'],
+    datasets: [
+      {
+        label: 'Running Stats',
+        fill: false,
+        lineTension: 0.5,
+        backgroundColor: 'rgba(75,192,192,1)',
+        borderColor: 'rgba(0,0,0,1)',
+        borderWidth: 2,
+        data: props.milesData
+      }
+    ]
+  }
+  return (
       <div>
         <Line
           data={state}
@@ -38,4 +36,5 @@ export default class App extends Component {
       </div>
     );
   }
-}
+
+export default LineChart;

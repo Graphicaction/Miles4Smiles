@@ -17,6 +17,7 @@ import API from "../../utils/API";
 function RunningStats() {
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
+  const [milesData, setMilesData] = useState([]);
   const [challenges, setChallenges] = useState([]);
   // const [formObject, setFormObject] = useState({});
   // const formEl = useRef(null);
@@ -30,18 +31,33 @@ function RunningStats() {
   function loadRunningStats() {
     API.getRunningStats()
       .then(res => {
-        // console.log(res.data.RunningStats);
         setRunningStats(res.data.runningStats);
+        setGraphData(res.data.runningStats);
       })
       .catch(err => console.log(err));
   };
-
+  //Setting graph data array
+  const setGraphData = (data) => {
+    let graphData = [];
+    if(data.length) {
+      data.map(result => {
+        graphData.push(result.distance);
+      })
+      //If no data for the day put 0
+      for(let j = 0; j < 7; j++) {
+        if(!graphData[j]) {
+          graphData[j] = 0;
+        }
+      }
+    setMilesData(graphData);
+    }
+  }
   // Loads all Challenges and sets them to Challenges
   function loadChallenges() {
     API.getChallenges()
       .then(res => {
         console.log(res.data.challenges);
-        setChallenges(res.data.runningStats);
+        setChallenges(res.data.challenges);
       })
       .catch(err => console.log(err));
   };
@@ -112,7 +128,9 @@ function RunningStats() {
           <Row>
           <Col size="md-6 sm-12">
             <Card title="My runs">
-              <LineChart />
+              { (runningStats.length) ? (<LineChart milesData={milesData} />) : <h3>No Run recorded!</h3>
+              }
+              
               {/* {runningStats.length ? (
                 <List>
                   {runningStats.map(runningStat => (

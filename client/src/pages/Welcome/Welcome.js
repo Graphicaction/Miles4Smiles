@@ -1,24 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 //import { Route} from 'react-router-dom';
 // import UserContext from "../../utils/UserContext";
 import UserCard from "../../components/UserCard/UserCard";
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUserData"
 import {Card} from "../../components/Card"
-import { Row, Col } from "../../components/Grid"
+import { Row, Col } from "../../components/Grid";
+import UserContext from "../../utils/UserContext";
 
 
 const Welcome = (props) =>{
-//   const [users, setUsers] = useState([]);
-//   const [user, setUser] = useState({});
-//   const [userIndex, setUserIndex] = useState(0);
 
 // //we will need city,state to show only users from same location
 //   const [location, setLocation] = useState("");
  
   const [firstLogin, setFirstLogin] = useState(false);
-
-  //setup to direct first time login user to different component before going to usual welcome
+  const { user } = useContext(UserContext);
+ //setup to direct first time login user to different component before going to usual welcome
   console.log(props.user);
   useEffect(()=>{
     if(props.user)
@@ -83,9 +81,9 @@ const Welcome = (props) =>{
      <Col size="md-3">
 
       {/* replace with carousel of users in same location  */}
-     <UserCard user={props.user}/>
+      <UserCard user={props.user}/>
      </Col>
-
+{/* 
      <Col size="md-3">
      <UserCard />
      </Col>
@@ -96,7 +94,7 @@ const Welcome = (props) =>{
 
      <Col size="md-3">
      <UserCard/>
-     </Col>
+     </Col> */}
 
    </Row>
 

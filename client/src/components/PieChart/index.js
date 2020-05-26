@@ -1,32 +1,48 @@
-import React, {Component} from 'react';
+import React, {Component,useState, useContext} from 'react';
 import {Pie} from 'react-chartjs-2';
+import UserContext from "../../utils/UserContext";
 
-const data = {
-	labels: [
-		'Challenges Won',
-		'Challenges Lost'
-	],
-	datasets: [{
-		data: [60, 40],
-		backgroundColor: [
-		'#e1f6e7',
-		'#f2ded6',
-	
+const PieChart = () => {
+	const { user } = useContext(UserContext);
+	let wonData, lostData;
+	//console.log("Piechart user ", user);
+	//converting db data into percentage 
+	if(user!= null) { 
+		console.log("challege not found!")
+		const total = user.challengesWon + user.challengesLost;
+		wonData = (user.challengesWon * 100)/total;
+		lostData = (user.challengesLost * 100)/total;
+	} else
+	{
+		wonData = 0;
+		lostData = 0;
+	}
+	const data = {
+		labels: [
+			'Challenges Won',
+			'Challenges Lost'
 		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-
-		]
-	}]
-};
-
-export default class App extends Component {
-  render() {
+		datasets: [{
+			data: [wonData, lostData],
+			backgroundColor: [
+			'#e1f6e7',
+			'#f2ded6',
+		
+			],
+			hoverBackgroundColor: [
+			'#FF6384',
+			'#36A2EB',
+	
+			]
+		}]
+	};
+  
     return (
       <div>
-        <Pie data={data} />
+		<Pie data={data} />
       </div>
     );
-  }
+  
 };
+
+export default PieChart;

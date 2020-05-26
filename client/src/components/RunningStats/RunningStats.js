@@ -10,8 +10,7 @@ import PieChart from "../PieChart";
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Card } from "../Card";
-//import { Input, FormBtn } from "../Form";
-// import DeleteBtn from "../DeleteBtn";
+import ChallengeContext from "../../utils/ChallengeContext";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
@@ -19,6 +18,7 @@ import API from "../../utils/API";
 function RunningStats() {
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
+  const [milesData, setMilesData] = useState([]);
   const [challenges, setChallenges] = useState([]);
   // const [formObject, setFormObject] = useState({});
   // const formEl = useRef(null);
@@ -32,18 +32,33 @@ function RunningStats() {
   function loadRunningStats() {
     API.getRunningStats()
       .then(res => {
-        // console.log(res.data.RunningStats);
         setRunningStats(res.data.runningStats);
+        setGraphData(res.data.runningStats);
       })
       .catch(err => console.log(err));
   };
-
+  //Setting graph data array
+  const setGraphData = (data) => {
+    let graphData = [];
+    if(data.length) {
+      data.map(result => {
+        graphData.push(result.distance);
+      })
+      //If no data for the day put 0
+      for(let j = 0; j < 7; j++) {
+        if(!graphData[j]) {
+          graphData[j] = 0;
+        }
+      }
+    setMilesData(graphData);
+    }
+  }
   // Loads all Challenges and sets them to Challenges
   function loadChallenges() {
     API.getChallenges()
       .then(res => {
         console.log(res.data.challenges);
-        setChallenges(res.data.runningStats);
+        setChallenges(res.data.challenges);
       })
       .catch(err => console.log(err));
   };
@@ -115,7 +130,9 @@ function RunningStats() {
               <div className="card text-center">
               <div className="card-header text-center">
                     <DailyRunModal />
-                    <ChallengeModal />
+                    <ChallengeContext.Provider value={{ challenges }}>
+                      <ChallengeModal />
+                    </ChallengeContext.Provider>
                   </div>
                 <div className="card-body ">
                   <Jdenticon className="avatar" size="48" value="addIDLater" float="right"></Jdenticon>
@@ -136,25 +153,20 @@ function RunningStats() {
           
           <Row>
           <Col size="md-6 sm-12">
-            <Card title="My runs">
-              <LineChart />
+            <Card title="My Marathon Runs">
+              { (runningStats.length) ? (<LineChart milesData={milesData} />) : <h3>No Run recorded!</h3>
+              }
+              
               {/* {runningStats.length ? (
                 <List>
                   {runningStats.map(runningStat => (
-                    <ListItem key={runningStat._id}>
-                      <Link to={"/runningStats/" + runningStat._id}>
-                        <strong>
+                    <Link to={"/runningStats/" + runningStat._id}>
                         <p>Pace: {runningStat.pace} minutes</p>
-                          Distance: {runningStat.distance} miles 
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />
+                    <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />
                     </ListItem>
                   ))}
                 </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )} */}
+              )  */}
             </Card>
             </Col>
             

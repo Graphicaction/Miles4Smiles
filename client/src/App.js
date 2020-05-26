@@ -5,16 +5,10 @@ import SignupForm from './pages/Auth/SignupForm';
 import Welcome from "./pages/Welcome/Welcome"
 import Dashboard from './pages/Dashboard';
 import MyPage from './pages/MyPage/MyPage';
-// import PostSignUpUserData from "./components/PostSignUpUserData/PostSignUpUserData"
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-
-// import UserCard from "./components/UserCard/UserCard";
-// import GeoMap from "./components/Map/Geolocation";
-// import Location from "./components/Location/Location";
 import AUTH from './utils/AUTH';
-
-
+import UserContext from "./utils/UserContext";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -24,7 +18,7 @@ function App() {
   
   useEffect(() => {
     AUTH.getUser().then(response => {
-        // console.log(response.data);
+        console.log("App getuser ",response.data);
         if (!response.data.user) {
           setLoggedIn(false);
           setUser(null);
@@ -73,10 +67,16 @@ function App() {
           <div className="main-view">
             <Switch>
               <Route exact path="/welcome" >
-                <Welcome user={user}/>
+                <UserContext.Provider value={{user}}>
+                  <Welcome />
+                </UserContext.Provider>
               </Route>
               <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/mypage/:id" component={MyPage} />
+              <Route exact path="/mypage/:id">
+                <UserContext.Provider value={{user}}>
+                  <MyPage />
+                </UserContext.Provider>
+                </Route>
               <Route component={NoMatch} />
             </Switch>
           </div>

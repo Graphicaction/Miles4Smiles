@@ -26,9 +26,7 @@ const MyPage =(props) => {
     
   return(
     <>
-     
-  
-      <RunningStats />
+     <RunningStats />
     </>
   )
 }

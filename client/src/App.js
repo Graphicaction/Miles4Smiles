@@ -18,7 +18,7 @@ function App() {
   
   useEffect(() => {
     AUTH.getUser().then(response => {
-        console.log(response.data);
+        console.log("App getuser ",response.data);
         if (!response.data.user) {
           setLoggedIn(false);
           setUser(null);

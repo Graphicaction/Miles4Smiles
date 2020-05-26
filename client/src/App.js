@@ -5,7 +5,7 @@ import SignupForm from './pages/Auth/SignupForm';
 import Welcome from "./pages/Welcome/Welcome"
 import Dashboard from './pages/Dashboard';
 import MyPage from './pages/MyPage/MyPage';
-import PostSignUpUserData from "./components/PostSignUpUserData/PostSignUpUserData"
+// import PostSignUpUserData from "./components/PostSignUpUserData/PostSignUpUserData"
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
@@ -83,7 +83,9 @@ function App() {
         </div>
       )}
       { !loggedIn && (
-        <div className="auth-wrapper" style={{paddingTop:40}}>
+        <>
+      <Nav login={login}/>
+        <div className="auth-wrapper">
           <Switch>
             <Route exact path="/" component={() => <LoginForm login={login}/>} />
             <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
@@ -93,6 +95,7 @@ function App() {
             <Route exact path="/signup" component={SignupForm} />
           </Switch>
         </div>
+        </>
       )}
 
       {/* not used yet therefore commented out */}

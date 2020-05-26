@@ -7,7 +7,7 @@
 /client/build
 
 #keys
-keys.js
+dev.js
 
 # dependencies
 **/node_modules

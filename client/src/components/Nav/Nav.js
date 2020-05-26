@@ -5,8 +5,12 @@ import './Nav.css';
 const Nav = (props) => {
   let greeting;
 
-  if (props.user === null) {
-		greeting = <p>Hello guest</p>
+  if (!props.user) {
+		greeting = (
+      <Fragment>
+        Hello Guest
+      </Fragment>
+    )
 	} else if (props.user.firstName) {
 		greeting = (
 			<Fragment>
@@ -37,16 +41,28 @@ const Nav = (props) => {
           <li className="nav-item">
             <Link to ="/dashboard" className="nav-link" >Dashboard</Link>
           </li>
-          {(props.user) && (
+          {(props.user) ? (
             <li className="nav-item">
               <Link to ={"/mypage/" +props.user._id} className="nav-link" >My Page</Link>
             </li>
-          )}
+          )
+          : (
+          <li className="nav-item">
+          <Link to ={"/"} className="nav-link" >Not Available</Link>
+        </li>
+          )
+        }
         </ul>
-
+        {(props.user) ? (
         <div className="float-right greeting">
-        {greeting} ! <button className="btn ml-5 logout" onClick={props.logout}>Logout</button>
+        {greeting} !<button className="btn ml-5 logout" onClick={props.logout}>Logout</button>
         </div>
+        ) :(
+          <div className="float-right greeting">
+          {greeting} !
+          </div>
+        )
+        }
         </div>
     </nav>
   )

@@ -17,10 +17,12 @@ export default {
   saveRunningStat: function(runningStatData) {
     return axios.post("/api/runningStats", runningStatData);
   },
-  //save the user info to the database
-  // saveUserData: function(userData) {
-  //   return axios.post("/api/user", userData);
-  // },
+  
+  // get user info to the database
+  getAllUsers: function() {
+    return axios.get("/api/users");
+  },
+
   
   // Saves new challenge
   saveChallenge: function(challengeData) {
@@ -30,3 +32,4 @@ export default {
     return axios.get("/api/challenges");
   }
 };
+

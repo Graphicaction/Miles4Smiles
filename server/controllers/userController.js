@@ -2,6 +2,33 @@ const db = require("../models");
 
 // Defining methods for the userController
 module.exports = {
+//======newly added===========
+  findAll: (req, res)=>{
+    db.User
+      .find()
+      .then(users => {
+        res.json({ users });
+      })
+      .catch(err => res.status(422).json(err));
+  },
+
+  findById: (req, res) => {
+    db.User
+        .find({ _id: req.params.id })
+        .then(user => {
+          res.json({ user });
+        })
+        .catch(err => res.status(422).json(err));
+  },
+  //in case we want to remove users later too
+  remove: (req, res)=> {
+    db.User
+        .findOneAndDelete({ _id: req.params.id })
+        .then(dbUser => res.json(dbUser))
+        .catch(err => res.status(422).json(err));
+  },
+  //=============
+
   getUser: (req, res, next) => {
     // console.log(req.user);
     if (req.user) {

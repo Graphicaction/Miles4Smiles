@@ -36,7 +36,7 @@ function Dashboard() {
                 <li>Bos's Burger, Apex, NC, website</li>
                 <li>Lena's Lemons, Cary, NC, website </li>
                 <li>Rashmi's Radish, Durham, website</li>
-                <li>Rachel's Ramen, Chael Hill, website</li>
+                <li>Rachel's Ramen, Chapel Hill, website</li>
               </ul>
             </Card>
           </Col>

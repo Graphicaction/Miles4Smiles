@@ -1,5 +1,5 @@
 const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const GithubStrategy = require("passport-github2").Strategy;
 const mongoose = require("mongoose");
 const User = mongoose.model('User');
 const keys = require("../config/keys");
@@ -17,15 +17,15 @@ passport.deserializeUser((id, done)=>{
 });
 
 passport.use(
-  new GoogleStrategy(
+  new GithubStrategy(
     {
-      clientID: keys.googleClientID,
-      clientSecret: keys.googleClientSecret,
-      callbackURL: "/auth/google/callback",
+      clientID: keys.GITHUB_CLIENT_ID,
+      clientSecret: keys.GITHUB_CLIENT_SECRET,
+      callbackURL: "https://localhost/3001/auth/github/callback",
       proxy: true
     }, 
     (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleId : profile.id })
+      User.findOne({ githubId : profile.id })
       .then((existingUser)=>{
         //if already signed up with that googleid no new user
         if(existingUser){
@@ -34,14 +34,14 @@ passport.use(
           console.log("accessToken", accessToken);
           console.log("refresh Token", refreshToken);
           console.log("profile", profile);
-          new User({ 
-            googleId: profile.id,
-            firstName: profile.name.givenName,
-            lastName: profile.name.familyName,
-            username: profile.displayName 
-            // password:""
-          }).save()
-          .then(user => done(null, user));
+          // new User({ 
+          //   googleId: profile.id,
+          //   firstName: profile.name.givenName,
+          //   lastName: profile.name.familyName,
+          //   username: profile.displayName 
+          //   // password:""
+          // }).save()
+          // .then(user => done(null, user));
 
           }
         })

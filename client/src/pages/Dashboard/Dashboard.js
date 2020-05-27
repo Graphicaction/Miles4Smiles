@@ -13,7 +13,7 @@ function Dashboard() {
         
           <Row>
           <Col size="md-6 sm-12">
-            <Card title="Collective Miles Ran">
+            <Card title="Challenges">
               <LineChart />
               {/* needs to call the graph that shows overall miles ran similar to budget tracker adding on*/}
             </Card>

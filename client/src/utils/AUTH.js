@@ -5,6 +5,10 @@ export default {
   getUser: function() {
     return axios.get('/auth/user');
   },
+   // get user info to the database
+   getAllUsers: function() {
+    return axios.get("/auth/users");
+  },
   // Logs the user out
   logout: function() {
     return axios.post('/auth/logout');

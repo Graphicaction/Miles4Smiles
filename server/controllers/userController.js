@@ -29,7 +29,7 @@ findAll: (req, res)=>{
         .catch(err => res.status(422).json(err));
   },
   //in case we want to remove users later too
-  remove: (req, res)=> {
+  deleteUser: (req, res)=> {
     db.User
         .findOneAndDelete({ _id: req.params.id })
         .then(dbUser => res.json(dbUser))

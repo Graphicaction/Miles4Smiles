@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
 import "./dailyRunForm.css";
@@ -17,28 +18,24 @@ function DailyRunForm() {
     const formEl = useRef(null);
     
     function handleInputChange(event) {
-      if (typeof event === 'object') {
-        const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
-      } else {
-        setFormObject({...formObject, date: event})
-      }
+      const { name, value } = event.target;
+      setFormObject({...formObject, [name]: value})
     };
 
     function onDateChange(name,value){
-      console.log("Date is", name, value);
       setFormObject({...formObject, [name]: value})
     } 
     
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log(formObject.date);
+        const formatteddate = moment(date).format('YYYY-MM-DD'); 
+        console.log("Date is", formatteddate);
         const pace = formObject.distance / formObject.totalTime;
         if (formObject.distance && formObject.totalTime) {
           API.saveRunningStat({
             pace: pace,
             distance: formObject.distance,
-            date: formObject.date,
+            date: formObject.formatteddate,
             totalTime: formObject.totalTime
           })
             .then(res => {

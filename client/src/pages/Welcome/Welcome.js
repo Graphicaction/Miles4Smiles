@@ -4,7 +4,7 @@ import UserCard from "../../components/UserCard/UserCard";
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUserData"
 import {Card} from "../../components/Card"
-import { Row, Col } from "../../components/Grid";
+import { Row, Col, Container } from "../../components/Grid";
 import UserContext from "../../utils/UserContext";
 
 
@@ -76,24 +76,8 @@ const Welcome = (props) =>{
    </Jumbotron>
 
    <Row>
-     <Col size="md-3">
-
       {/* replace with carousel of users in same location  */}
-      <UserCard/>
-     </Col>
-{/* 
-     <Col size="md-3">
-     <UserCard />
-     </Col>
-
-     <Col size="md-3">
-     <UserCard />
-     </Col>
-
-     <Col size="md-3">
-     <UserCard/>
-     </Col> */}
-
+      <UserCard className="col"/>
    </Row>
 
    <Row>

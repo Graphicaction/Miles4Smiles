@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./RunningStats.css"
 // import Moment from 'react-moment';
@@ -15,8 +15,11 @@ import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import UpdateChallengeForm from "../UpdateChallenge/UpdateChallengeForm";
 import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
+import UserContext from "../../utils/UserContext";
 
 function RunningStats() {
+  const { user } = useContext(UserContext);
+  console.log("Context UserCard: ", user);
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
   const [milesData, setMilesData] = useState([]);
@@ -71,8 +74,11 @@ function RunningStats() {
       .catch(err => console.log(err));
   }
 
-  
-    return (
+  let loggedInUser;
+  if (user) {
+    loggedInUser = { user }
+  return(
+    <>
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
@@ -147,7 +153,7 @@ function RunningStats() {
               {/* <DailyRunModal />
               <ChallengeModal /> */}
                   
-              <div className="card text-center">
+              <div key= {user._id} className="card text-center">
               <div className="card-header text-center">
                     <DailyRunModal />
                     <ChallengeContext.Provider value={{ challenges }}>
@@ -155,12 +161,12 @@ function RunningStats() {
                     </ChallengeContext.Provider>
                   </div>
                 <div className="card-body ">
-                  <Jdenticon className="avatar" size="48" value="addIDLater" float="right"></Jdenticon>
-                  <h5 className="card-title justify-content-center">USERNAME</h5>
-                  <h6 className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>CITY, STATE</h6>
+                  <Jdenticon className="avatar" size="48" value={user._id} float="right"></Jdenticon>
+                  <h5 className="card-title justify-content-center">{user.username}</h5>
+                  <h6 className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state}</h6>
                   <hr></hr>
-                  <p className="card-text pace">Average mile pace: PACE</p>
-                  <p className="card-text distance">Preferred distance: DISTANCE</p>
+                  <p className="card-text pace">Average mile pace: {user.averagePace}</p>
+                  <p className="card-text distance">Preferred distance: {user.averageDistance}</p>
                   <hr></hr>
                   <button className="btn card-link updateBtn"><i className="fa fa-edit mr-2"></i>Update</button>
                   <button className="btn btn-light card-link deleteBtn ml-3"><i className="fa fa-trash mr-2"></i>Delete</button>
@@ -199,8 +205,12 @@ function RunningStats() {
             </Col>
           </Row>
       </Container>
+      </>
     );
+  } else {
+    loggedInUser = "Loading..."
   }
-
+  return <div>{loggedInUser}</div>
+}
 
 export default RunningStats;

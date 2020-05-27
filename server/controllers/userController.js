@@ -3,7 +3,15 @@ const db = require("../models");
 // Defining methods for the userController
 module.exports = {
 //======newly added===========
-  findAll: (req, res)=>{
+getAllUsers: (req, res)=>{
+  db.User
+    .find()
+    .then(users => {
+      res.json({ users });
+    })
+    .catch(err => res.status(422).json(err));
+},
+findAll: (req, res)=>{
     db.User
       .find()
       .then(users => {

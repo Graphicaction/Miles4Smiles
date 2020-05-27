@@ -153,7 +153,7 @@ function RunningStats() {
           
           <Row>
           <Col size="md-6 sm-12">
-            <Card title="My Marathon Runs">
+            <Card title="My Ran Races">
               { (runningStats.length) ? (<LineChart milesData={milesData} />) : <h3>No Run recorded!</h3>
               }
               

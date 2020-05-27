@@ -17,10 +17,10 @@ const Welcome = (props) =>{
   const [firstLogin, setFirstLogin] = useState(false);
   const { user } = useContext(UserContext);
  //setup to direct first time login user to different component before going to usual welcome
-  console.log(props.user);
+  console.log(user);
   useEffect(()=>{
-    if(props.user)
-      setFirstLogin(props.user.firstLogin);
+    if(user)
+      setFirstLogin(user.firstLogin);
   });
 
 //build user carousel
@@ -61,7 +61,7 @@ const Welcome = (props) =>{
 
     { firstLogin && (
      <div>
-       <PostSignUpUserData id={props.user._id} />
+       <PostSignUpUserData id={user._id} />
      </div>
     )}
     { !firstLogin && (
@@ -81,7 +81,7 @@ const Welcome = (props) =>{
      <Col size="md-3">
 
       {/* replace with carousel of users in same location  */}
-      <UserCard user={props.user}/>
+      <UserCard user={user}/>
      </Col>
 {/* 
      <Col size="md-3">

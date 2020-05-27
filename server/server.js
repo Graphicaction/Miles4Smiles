@@ -42,8 +42,8 @@ app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
 
 //Google OAuth
-// require("./passport/GoogleStrategy");
-// require('./routes/auth/Googleauth')(app);
+require("./passport/GoogleStrategy");
+require('./routes/auth/Googleauth')(app);
 
 //Github OAuth
 require("./passport/GithubStrategy");

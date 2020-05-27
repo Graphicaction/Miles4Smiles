@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from "react";
 //import { Route} from 'react-router-dom';
-// import UserContext from "../../utils/UserContext";
 import UserCard from "../../components/UserCard/UserCard";
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUserData"
@@ -57,7 +56,6 @@ const Welcome = (props) =>{
     
   return(
     <div>
-    {/* <UserContext.Provider value={{ user, users, handleUserBtnClick  }}> */}
 
     { firstLogin && (
      <div>
@@ -81,7 +79,7 @@ const Welcome = (props) =>{
      <Col size="md-3">
 
       {/* replace with carousel of users in same location  */}
-      <UserCard user={user}/>
+      <UserCard/>
      </Col>
 {/* 
      <Col size="md-3">
@@ -114,7 +112,6 @@ const Welcome = (props) =>{
    </div>
      )}
  
-  {/* </UserContext.Provider> */}
   </div>
   )
 }

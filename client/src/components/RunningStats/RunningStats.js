@@ -75,7 +75,7 @@ function RunningStats() {
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
-            <Card title="My challenges">
+            <Card title="My Challenges">
               {challenges.length ? (
                 <List>
                   {challenges.map(challenge => (
@@ -95,7 +95,20 @@ function RunningStats() {
             <>
             <div className="card text-center">
               <div className="card-body">
-                <h5 className="card-title">Challenge from Bob Bobsen</h5>
+                <h5 className="card-header">You Challenged Bruno</h5>
+                <p className="card-text">You challenged Bruno to do a 5mile run where the user needs to donate 10$ per Mile to Rashmi's Radish.</p>
+                <a href="#" className="btn accept mr-5">Enter Challenge Outcome</a>
+              </div>
+              <div className="card-footer text-muted">
+                  Status: Pending
+              </div>
+            </div>
+
+            <hr></hr>
+
+            <div className="card text-center">
+              <div className="card-body">
+                <h5 className="card-header">You Were Challenged By Bob</h5>
                 <p className="card-text">Bob challenges you to do a 3 mile race. The slower runner donates $10 per mile to Bob's Burger.</p>
                 <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
               </div>
@@ -104,16 +117,7 @@ function RunningStats() {
               </div>
             </div>
        
-            <div className="card text-center">
-              <div className="card-body">
-                <h5 className="card-title">Challenge from Bob Bobsen</h5>
-                <p className="card-text">Bob challenges you to do a 3 mile race. The slower runner donates $10 per mile to Bob's Burger.</p>
-                <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
-              </div>
-              <div className="card-footer text-muted">
-                2 days ago
-              </div>
-            </div>
+            
             </>
      
               )}

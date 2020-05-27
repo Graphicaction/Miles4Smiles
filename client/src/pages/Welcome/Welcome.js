@@ -1,11 +1,10 @@
 import React, {useState, useEffect, useContext} from "react";
 //import { Route} from 'react-router-dom';
-// import UserContext from "../../utils/UserContext";
 import UserCard from "../../components/UserCard/UserCard";
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUserData"
 import {Card} from "../../components/Card"
-import { Row, Col } from "../../components/Grid";
+import { Row, Col, Container } from "../../components/Grid";
 import UserContext from "../../utils/UserContext";
 
 
@@ -17,10 +16,10 @@ const Welcome = (props) =>{
   const [firstLogin, setFirstLogin] = useState(false);
   const { user } = useContext(UserContext);
  //setup to direct first time login user to different component before going to usual welcome
-  console.log(props.user);
+  console.log(user);
   useEffect(()=>{
-    if(props.user)
-      setFirstLogin(props.user.firstLogin);
+    if(user)
+      setFirstLogin(user.firstLogin);
   });
 
 //build user carousel
@@ -57,11 +56,10 @@ const Welcome = (props) =>{
     
   return(
     <div>
-    {/* <UserContext.Provider value={{ user, users, handleUserBtnClick  }}> */}
 
     { firstLogin && (
      <div>
-       <PostSignUpUserData id={props.user._id} />
+       <PostSignUpUserData id={user._id} />
      </div>
     )}
     { !firstLogin && (
@@ -78,24 +76,8 @@ const Welcome = (props) =>{
    </Jumbotron>
 
    <Row>
-     <Col size="md-3">
-
       {/* replace with carousel of users in same location  */}
-      <UserCard user={props.user}/>
-     </Col>
-{/* 
-     <Col size="md-3">
-     <UserCard />
-     </Col>
-
-     <Col size="md-3">
-     <UserCard />
-     </Col>
-
-     <Col size="md-3">
-     <UserCard/>
-     </Col> */}
-
+      <UserCard className="col"/>
    </Row>
 
    <Row>
@@ -114,7 +96,6 @@ const Welcome = (props) =>{
    </div>
      )}
  
-  {/* </UserContext.Provider> */}
   </div>
   )
 }

@@ -13,6 +13,7 @@ import UserContext from "./utils/UserContext";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [users, setUsers] = useState(null);
   let history = useHistory();
 
   
@@ -32,6 +33,21 @@ function App() {
         setUser(null);
       };
   }, []);
+
+  useEffect(() => {
+    AUTH.getAllUsers().then(response => {
+        console.log("App getAllUsers ",response.data);
+        if (!response.data.users) {
+          setUsers(null);
+        } else {
+          setUsers(response.data.users);
+        };
+      });
+      return () => {
+        setUsers(null);
+      };
+    }, []);
+
 
 	const logout = (event) => {
     event.preventDefault();
@@ -67,13 +83,13 @@ function App() {
           <div className="main-view">
             <Switch>
               <Route exact path="/welcome" >
-                <UserContext.Provider value={{user}}>
+                <UserContext.Provider value={{user, users}}>
                   <Welcome />
                 </UserContext.Provider>
               </Route>
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/mypage/:id">
-                <UserContext.Provider value={{user}}>
+                <UserContext.Provider value={{user, users}}>
                   <MyPage />
                 </UserContext.Provider>
                 </Route>

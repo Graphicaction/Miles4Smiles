@@ -33,7 +33,7 @@ function ChallengeForm() {
             donatedAmount: donation
         })
         .then(res => {
-            // console.log(res.data);
+            console.log(res.data);
             alert("Challenge saved!");
             //^this is ugly but just a reminder for me to figure out how to display the SuccessAlert compo later...
             challengeForm.current.reset();

@@ -1,19 +1,38 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
+import "./dailyRunForm.css";
 
 function DailyRunForm() {
     const [runningStats, setRunningStats] = useState([]);
-    const [formObject, setFormObject] = useState({});
+    const [formObject, setFormObject] = useState({
+      pace:0,
+      distance:0,
+      date:new Date(),
+      totalTime:0
+    });
+    const {date} = formObject;
     const formEl = useRef(null);
     
     function handleInputChange(event) {
+      if (typeof event === 'object') {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
+      } else {
+        setFormObject({...formObject, date: event})
+      }
     };
 
+    function onDateChange(name,value){
+      console.log("Date is", name, value);
+      setFormObject({...formObject, [name]: value})
+    } 
+    
     function handleFormSubmit(event) {
         event.preventDefault();
+        console.log(formObject.date);
         const pace = formObject.distance / formObject.totalTime;
         if (formObject.distance && formObject.totalTime) {
           API.saveRunningStat({
@@ -37,11 +56,15 @@ function DailyRunForm() {
                   name="distance"
                   placeholder="Distance (required)"
                 />
-                <Input
-                  onChange={handleInputChange}
+                <div className="form-group">
+                <DatePicker
+                  onChange={date => onDateChange('date', date)}
                   name="date"
-                  placeholder="Date"
+                  className="form-control"
+                  selected={date}
+                  placeholder="Date(required)"
                 />
+                </div>
                 <Input
                   onChange={handleInputChange}
                   name="totalTime"

@@ -12,6 +12,7 @@ import { List, ListItem } from "../List";
 import { Card } from "../Card";
 import ChallengeContext from "../../utils/ChallengeContext";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
+import UpdateChallengeForm from "../UpdateChallenge/UpdateChallengeForm";
 import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
 import UserContext from "../../utils/UserContext";
@@ -103,7 +104,22 @@ function RunningStats() {
               <div className="card-body">
                 <h5 className="card-header">You Challenged Bruno</h5>
                 <p className="card-text">You challenged Bruno to do a 5mile run where the user needs to donate 10$ per Mile to Rashmi's Radish.</p>
-                <a href="#" className="btn accept mr-5">Enter Challenge Outcome</a>
+                <a href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target="#updateModal" >Enter Challenge Outcome</a>
+                <div className="modal fade" id="updateModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">Complete & submit challenge details below:</h5>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div className="modal-body">
+                        <UpdateChallengeForm />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="card-footer text-muted">
                   Status: Pending

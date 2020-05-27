@@ -30,6 +30,9 @@ export default {
   },
   getChallenges: function() {
     return axios.get("/api/challenges");
+  },
+  updateChallenge: function({_id, doner}) {
+    return axios.put("/api/challenges/" + _id, doner);
   }
 };
 

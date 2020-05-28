@@ -11,10 +11,10 @@ router.post('/logout', userController.logout);
 router.post('/signup', userController.register);
 router.put('/signup/:id', userController.update); 
 router.put('/user/:id', userController.userUpdate);
+router.delete('/user/:id', userController.deleteUser)
 
 router.get("/google", passport.authenticate('google', {
   scope: ['profile', 'email']
   }))
-// router.get("/google" )
 
 module.exports = router;

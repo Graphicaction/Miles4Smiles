@@ -6,10 +6,13 @@ import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUs
 import {Card} from "../../components/Card"
 import { Row, Col, Container } from "../../components/Grid";
 import UserContext from "../../utils/UserContext";
+import ItemsCarousel from 'react-items-carousel';
+
 
 
 const Welcome = (props) =>{
-
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const chevronWidth = 40;
 // //we will need city,state to show only users from same location
 //   const [location, setLocation] = useState("");
  
@@ -20,7 +23,7 @@ const Welcome = (props) =>{
   useEffect(()=>{
     if(user)
       setFirstLogin(user.firstLogin);
-  });
+  }, [user]);
 
 //build user carousel
   // function nextUser(userIndex) {
@@ -75,9 +78,10 @@ const Welcome = (props) =>{
     {/* </div> */}
    </Jumbotron>
 
-   <Row>
-      {/* replace with carousel of users in same location  */}
-      <UserCard className="col"/>
+   <Row >
+    <div className="card-deck" style={{margin: "20px"}}>
+      <UserCard />
+    </div>
    </Row>
 
    <Row>

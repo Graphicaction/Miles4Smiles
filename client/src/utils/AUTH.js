@@ -9,6 +9,9 @@ export default {
    getAllUsers: function() {
     return axios.get("/auth/users");
   },
+  deleteUser: function(id) {
+    return axios.delete('/auth/user/' + id);
+  },
   // Logs the user out
   logout: function() {
     return axios.post('/auth/logout');

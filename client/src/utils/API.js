@@ -19,9 +19,9 @@ export default {
   },
   
   // get user info to the database
-  getAllUsers: function() {
-    return axios.get("/api/users");
-  },
+  // getAllUsers: function() {
+  //   return axios.get("/api/users");
+  // },
 
   
   // Saves new challenge
@@ -31,8 +31,8 @@ export default {
   getChallenges: function() {
     return axios.get("/api/challenges");
   },
-  updateChallenge: function({_id, doner}) {
-    return axios.put("/api/challenges/" + _id, doner);
+  updateChallenge: function({_id, donor}) {
+    return axios.put("/api/challenges/" + _id, donor);
   }
 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./RunningStats.css"
 import Jdenticon from "react-jdenticon";
 import LineChart from "../LineChart";
@@ -12,10 +12,11 @@ import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import UpdateChallengeForm from "../UpdateChallenge/UpdateChallengeForm";
 import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
+import AUTH from "../../utils/AUTH";
 import UserContext from "../../utils/UserContext";
 
 function RunningStats() {
-  const { user } = useContext(UserContext);
+  const { user, users } = useContext(UserContext);
   console.log("Context UserCard: ", user);
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
@@ -59,9 +60,24 @@ function RunningStats() {
       .catch(err => console.log(err));
   }
 
+  const handleUserUpdate =() =>{
+    console.log(user)
+  }
+
+  const handleUserDelete =(id) => {
+    console.log(user._id)
+    AUTH.deleteUser(user._id)
+    .then(res => console.log("user deleted"))
+    .catch(err => console.log(err));
+    //add that immediately logged out
+  }
+  
+  
   let loggedInUser;
+
   if (user) {
     loggedInUser = { user }
+    console.log(loggedInUser)
   return(
     <>
       <Container fluid>
@@ -148,11 +164,11 @@ function RunningStats() {
                   <h5 className="card-title justify-content-center">{user.username}</h5>
                   <h6 className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state}</h6>
                   <hr></hr>
-                  <p className="card-text pace">Average mile pace: {user.averagePace}</p>
-                  <p className="card-text distance">Preferred distance: {user.averageDistance}</p>
+                  <p className="card-text pace">Average pace: {user.averagePace} min/mile</p>
+                  <p className="card-text distance">Preferred distance: {user.averageDistance} miles</p>
                   <hr></hr>
-                  <button className="btn card-link updateBtn"><i className="fa fa-edit mr-2"></i>Update</button>
-                  <button className="btn btn-light card-link deleteBtn ml-3"><i className="fa fa-trash mr-2"></i>Delete</button>
+                  <button className="btn card-link updateBtn" onClick={handleUserUpdate}><i className="fa fa-edit mr-2"></i>Update</button>
+                  <button className="btn btn-light card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete</button>
                 </div>
               </div>                
             </Card>

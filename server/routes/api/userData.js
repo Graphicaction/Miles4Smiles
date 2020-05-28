@@ -10,6 +10,8 @@ router
   .route("/:id")
   .get(userController.findById)
   .put(userController.update)
-  .delete(userController.remove);
+  // .delete(userController.deleteUser);
 
 module.exports = router;
+
+// can this file be deleted?

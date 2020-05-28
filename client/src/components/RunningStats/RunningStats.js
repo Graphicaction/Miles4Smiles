@@ -5,11 +5,10 @@ import Jdenticon from "react-jdenticon";
 import LineChart from "../LineChart";
 import PieChart from "../PieChart";
 import { Col, Row, Container } from "../Grid";
-import { List, ListItem } from "../List";
 import { Card } from "../Card";
 import ChallengeContext from "../../utils/ChallengeContext";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
-import UpdateChallengeForm from "../UpdateChallenge/UpdateChallengeForm";
+import ChallengeCard from "../ChallengeCard";
 import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
 import AUTH from "../../utils/AUTH";
@@ -88,69 +87,10 @@ function RunningStats() {
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
-            <Card title="My Challenges">
-              {myChallenges.length && (
-                <List>
-                  { 
-                  myChallenges.map(challenge => ( 
-                    //Challenges created by you
-                    <div className="card text-center" key={challenge._id}>
-                        <div className="card-body">
-                          <h5 className="card-header">You Challenged {challenge.challengers[1]}</h5>
-                          <p className="card-text">You challenged {challenge.challengers[1]} to do a {challenge.distance} miles run where the loser needs to donate ${challenge.donatedAmount} to {challenge.businessName}.</p>
-                          <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target="#updateModal" >Enter Challenge Outcome</button>
-                          <div className="modal fade" id="updateModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <h5 className="modal-title" id="exampleModalLabel">Complete & submit challenge details below:</h5>
-                                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div className="modal-body">
-                                  <UpdateChallengeForm />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="card-footer text-muted">
-                            Status: Pending
-                        </div>
-                      </div>
-                  ))}
-                </List>
-              )}
-              {  incomingChallenges.length ? (
-                  <List>
-                    {
-                      incomingChallenges.map(challenge => (
-                         <div className="card text-center">
-                          <div className="card-body">
-                            <h5 className="card-header">You Were Challenged By {challenge.challengers[0]}</h5>
-                            <p className="card-text">{challenge.challengers[0]} challenges you to do a {challenge.distance} miles race. The slower runner donates ${challenge.donatedAmount} to {challenge.businessName}.</p>
-                            <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
-                          </div>
-                          <div className="card-footer text-muted">
-                              2 days ago
-                          </div>
-                        </div>
-                      ))
-                    }
-                  </List>
-                ) : (<h3>No challenges found</h3>)
-              }
-            </Card>
+            <ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} />
           </Col>
-            
           <Col size="md-6">
-        
             <Card title="Update Your Information" style={{justifyContent:"center"}}>
-              
-              {/* <DailyRunModal />
-              <ChallengeModal /> */}
-                  
               <div key= {user._id} className="card text-center">
               <div className="card-header text-center">
                     <DailyRunModal />
@@ -171,37 +111,22 @@ function RunningStats() {
                 </div>
               </div>                
             </Card>
-            
           </Col>
-          </Row>
+        </Row>
           
-          <Row>
+        <Row>
           <Col size="md-6 sm-12">
             <Card title="My Ran Races">
               { (runningStats.length) ? (<LineChart />) : <h3>No Run recorded!</h3>
               }
-              
-              {/* {runningStats.length ? (
-                <List>
-                  {runningStats.map(runningStat => (
-                    <Link to={"/runningStats/" + runningStat._id}>
-                        <p>Pace: {runningStat.pace} minutes</p>
-                    <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              )  */}
             </Card>
-            </Col>
-            
-            <Col size="md-6 sm-12">
+          </Col>
+          <Col size="md-6 sm-12">
             <Card title="Past Challenges">
               <PieChart />
-              
             </Card>
-            
-            </Col>
-          </Row>
+          </Col>
+        </Row>
       </Container>
       </>
     );

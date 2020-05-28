@@ -5,10 +5,8 @@ import UserContext from "../../utils/UserContext";
 const PieChart = () => {
 	const { user } = useContext(UserContext);
 	let wonData, lostData;
-	//console.log("Piechart user ", user);
 	//converting db data into percentage 
 	if(user!= null) { 
-		console.log("challege not found!")
 		const total = user.challengesWon + user.challengesLost;
 		wonData = (user.challengesWon * 100)/total;
 		lostData = (user.challengesLost * 100)/total;

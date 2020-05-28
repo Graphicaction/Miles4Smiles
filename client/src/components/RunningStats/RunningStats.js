@@ -20,14 +20,12 @@ function RunningStats() {
   console.log("Context UserCard: ", user);
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
-  const [milesData, setMilesData] = useState([]);
   const [challenges, setChallenges] = useState([]);
-  // const [formObject, setFormObject] = useState({});
-  // const formEl = useRef(null);
-
+  
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
     loadRunningStats();
+    loadChallenges();
   }, []);
 
   // Loads all RunningStats and sets them to RunningStats
@@ -35,32 +33,22 @@ function RunningStats() {
     API.getRunningStats()
       .then(res => {
         setRunningStats(res.data.runningStats);
-        setGraphData(res.data.runningStats);
       })
       .catch(err => console.log(err));
   };
-  //Setting graph data array
-  const setGraphData = (data) => {
-    let graphData = [];
-    if(data.length) {
-      data.map(result => {
-        graphData.push(result.distance);
-      })
-      //If no data for the day put 0
-      for(let j = 0; j < 7; j++) {
-        if(!graphData[j]) {
-          graphData[j] = 0;
-        }
-      }
-    setMilesData(graphData);
-    }
-  }
+
   // Loads all Challenges and sets them to Challenges
   function loadChallenges() {
     API.getChallenges()
       .then(res => {
-        console.log(res.data.challenges);
-        setChallenges(res.data.challenges);
+        console.log("My challenge ",res.data.challenges);
+        const myChallenges = []; 
+        res.data.challenges.map( challenge => {
+          // Extracting the challenges started by or challenged to the current user
+          if(challenge.challengers[0]===user.username || challenge.challengers[1]===user.username)
+            myChallenges.push(challenge);
+        });
+        setChallenges(myChallenges);
       })
       .catch(err => console.log(err));
   };
@@ -98,47 +86,45 @@ function RunningStats() {
             <Card title="My Challenges">
               {challenges.length ? (
                 <List>
-                  {challenges.map(challenge => (
+                  { 
+                  challenges.map(challenge => ( (challenge.challengers[0] === user.username) && (
                     <ListItem key={challenge._id}>
                       <Link to={"/challenge/" + challenge._id}>
-                        <strong>
-                        <p>Supported business: {challenge.businessName}</p>
-                        </strong>
+                      <div className="card text-center">
+                        <div className="card-body">
+                          <h5 className="card-header">You Challenged {challenge.challengers[1]}</h5>
+                          <p className="card-text">You challenged {challenge.challengers[1]} to do a {challenge.distance} miles run where the loser needs to donate ${challenge.donatedAmount} to {challenge.businessName}.</p>
+                          <a href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target="#updateModal" >Enter Challenge Outcome</a>
+                          <div className="modal fade" id="updateModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document">
+                              <div className="modal-content">
+                                <div className="modal-header">
+                                  <h5 className="modal-title" id="exampleModalLabel">Complete & submit challenge details below:</h5>
+                                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div className="modal-body">
+                                  <UpdateChallengeForm />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="card-footer text-muted">
+                            Status: Pending
+                        </div>
+                      </div>
                       </Link>
                       {/* <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} /> */}
                     </ListItem>
-                  ))}
+                  )))}
                 </List>
               ) : (
                 // hardcoded until we can render, then we will write "No Challenges yet"
               
             <>
-            <div className="card text-center">
-              <div className="card-body">
-                <h5 className="card-header">You Challenged Bruno</h5>
-                <p className="card-text">You challenged Bruno to do a 5mile run where the user needs to donate 10$ per Mile to Rashmi's Radish.</p>
-                <a href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target="#updateModal" >Enter Challenge Outcome</a>
-                <div className="modal fade" id="updateModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Complete & submit challenge details below:</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div className="modal-body">
-                        <UpdateChallengeForm />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="card-footer text-muted">
-                  Status: Pending
-              </div>
-            </div>
-
+            
             <hr></hr>
 
             <div className="card text-center">
@@ -193,7 +179,7 @@ function RunningStats() {
           <Row>
           <Col size="md-6 sm-12">
             <Card title="My Ran Races">
-              { (runningStats.length) ? (<LineChart milesData={milesData} />) : <h3>No Run recorded!</h3>
+              { (runningStats.length) ? (<LineChart />) : <h3>No Run recorded!</h3>
               }
               
               {/* {runningStats.length ? (

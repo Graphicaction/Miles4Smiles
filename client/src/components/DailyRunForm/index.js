@@ -1,30 +1,47 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
+import LineChart from "../LineChart";
+import "./dailyRunForm.css";
 
 function DailyRunForm() {
-    const [runningStats, setRunningStats] = useState([]);
-    const [formObject, setFormObject] = useState({});
-    const formEl = useRef(null);
-    
+  const [isSaved, setSaved] = useState(false);
+  const [formObject, setFormObject] = useState({
+    pace:0,
+    distance:0,
+    date:new Date(),
+    totalTime:0
+  });
+  const {date} = formObject;
+  const formEl = useRef(null);
+
     function handleInputChange(event) {
-        const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
+      const { name, value } = event.target;
+      setFormObject({...formObject, [name]: value})
     };
 
+    function onDateChange(name,value){
+      setFormObject({...formObject, [name]: value})
+    } 
+    
     function handleFormSubmit(event) {
         event.preventDefault();
+        const formatteddate = moment(date).format('YYYY-MM-DD'); 
+        console.log("Date is", formatteddate);
         const pace = formObject.distance / formObject.totalTime;
         if (formObject.distance && formObject.totalTime) {
           API.saveRunningStat({
             pace: pace,
             distance: formObject.distance,
-            date: formObject.date,
+            date: formObject.formatteddate,
             totalTime: formObject.totalTime
           })
             .then(res => {
               formEl.current.reset();
-              console.log(res);
+              setSaved(true);
             })
             .catch(err => console.log(err));
         }
@@ -37,11 +54,15 @@ function DailyRunForm() {
                   name="distance"
                   placeholder="Distance (required)"
                 />
-                <Input
-                  onChange={handleInputChange}
+                <div className="form-group">
+                <DatePicker
+                  onChange={date => onDateChange('date', date)}
                   name="date"
-                  placeholder="Date"
+                  className="form-control"
+                  selected={date}
+                  placeholder="Date(required)"
                 />
+                </div>
                 <Input
                   onChange={handleInputChange}
                   name="totalTime"
@@ -54,6 +75,7 @@ function DailyRunForm() {
                 </FormBtn>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
+            {isSaved && <LineChart />}
         </>
     )
 }

@@ -1,9 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API";
-
+import UserContext from "../../utils/UserContext";
 
 function ChallengeForm() {
-
+    const { user } = useContext(UserContext);
     const [challengeData, setChallenges] = useState([]);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
@@ -23,13 +23,15 @@ function ChallengeForm() {
 
     function handleChallengeSave(event) {
         event.preventDefault();
+        const challengers = [user.username, formObject.oppUser];
         const donation = formObject.cMiles * formObject.cDonation;
-
+        console.log("challengers array:",challengers);
         // need to pass loggedin user to this comp so we can set current user to "challengers" then push accepting user... or maybe this gets done on the updateChallenge operation later?
         
         API.saveChallenge({
-            challengers: formObject.oppUser,
+            challengers: challengers,
             businessName: formObject.cBusiness,
+            distance: formObject.cMiles,
             donatedAmount: donation
         })
         .then(res => {

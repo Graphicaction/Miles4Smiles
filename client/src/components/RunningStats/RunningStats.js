@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./RunningStats.css"
-// import Moment from 'react-moment';
 import Jdenticon from "react-jdenticon";
-
 import LineChart from "../LineChart";
 import PieChart from "../PieChart";
-// import UserCard from "../UserCard/UserCard"
 import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Card } from "../Card";
@@ -22,11 +19,8 @@ function RunningStats() {
   console.log("Context UserCard: ", user);
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
-  const [milesData, setMilesData] = useState([]);
   const [challenges, setChallenges] = useState([]);
-  // const [formObject, setFormObject] = useState({});
-  // const formEl = useRef(null);
-
+  
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
     loadRunningStats();
@@ -37,26 +31,10 @@ function RunningStats() {
     API.getRunningStats()
       .then(res => {
         setRunningStats(res.data.runningStats);
-        setGraphData(res.data.runningStats);
       })
       .catch(err => console.log(err));
   };
-  //Setting graph data array
-  const setGraphData = (data) => {
-    let graphData = [];
-    if(data.length) {
-      data.map(result => {
-        graphData.push(result.distance);
-      })
-      //If no data for the day put 0
-      for(let j = 0; j < 7; j++) {
-        if(!graphData[j]) {
-          graphData[j] = 0;
-        }
-      }
-    setMilesData(graphData);
-    }
-  }
+
   // Loads all Challenges and sets them to Challenges
   function loadChallenges() {
     API.getChallenges()
@@ -180,7 +158,7 @@ function RunningStats() {
           <Row>
           <Col size="md-6 sm-12">
             <Card title="My Ran Races">
-              { (runningStats.length) ? (<LineChart milesData={milesData} />) : <h3>No Run recorded!</h3>
+              { (runningStats.length) ? (<LineChart />) : <h3>No Run recorded!</h3>
               }
               
               {/* {runningStats.length ? (

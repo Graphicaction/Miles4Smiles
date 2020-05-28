@@ -4,19 +4,20 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
+import LineChart from "../LineChart";
 import "./dailyRunForm.css";
 
 function DailyRunForm() {
-    const [runningStats, setRunningStats] = useState([]);
-    const [formObject, setFormObject] = useState({
-      pace:0,
-      distance:0,
-      date:new Date(),
-      totalTime:0
-    });
-    const {date} = formObject;
-    const formEl = useRef(null);
-    
+  const [isSaved, setSaved] = useState(false);
+  const [formObject, setFormObject] = useState({
+    pace:0,
+    distance:0,
+    date:new Date(),
+    totalTime:0
+  });
+  const {date} = formObject;
+  const formEl = useRef(null);
+
     function handleInputChange(event) {
       const { name, value } = event.target;
       setFormObject({...formObject, [name]: value})
@@ -40,7 +41,7 @@ function DailyRunForm() {
           })
             .then(res => {
               formEl.current.reset();
-              console.log(res);
+              setSaved(true);
             })
             .catch(err => console.log(err));
         }
@@ -74,6 +75,7 @@ function DailyRunForm() {
                 </FormBtn>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
+            {isSaved && <LineChart />}
         </>
     )
 }

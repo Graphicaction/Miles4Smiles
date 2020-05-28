@@ -31,6 +31,7 @@ function ChallengeForm() {
         API.saveChallenge({
             challengers: challengers,
             businessName: formObject.cBusiness,
+            distance: formObject.cMiles,
             donatedAmount: donation
         })
         .then(res => {

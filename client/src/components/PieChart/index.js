@@ -7,7 +7,6 @@ const PieChart = () => {
 	let wonData, lostData;
 	//converting db data into percentage 
 	if(user!= null) { 
-		console.log("challege not found!")
 		const total = user.challengesWon + user.challengesLost;
 		wonData = (user.challengesWon * 100)/total;
 		lostData = (user.challengesLost * 100)/total;

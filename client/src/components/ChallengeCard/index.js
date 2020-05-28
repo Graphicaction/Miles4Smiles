@@ -25,7 +25,7 @@ const ChallengeCard = (props) => {
                                   </button>
                                 </div>
                                 <div className="modal-body">
-                                  <UpdateChallengeForm />
+                                  <UpdateChallengeForm id={challenge._id} />
                                 </div>
                               </div>
                             </div>

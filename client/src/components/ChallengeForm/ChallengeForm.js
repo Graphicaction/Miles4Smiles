@@ -32,7 +32,8 @@ function ChallengeForm() {
             challengers: challengers,
             businessName: formObject.cBusiness,
             distance: formObject.cMiles,
-            donatedAmount: donation
+            donatedAmount: donation,
+            doner: ""
         })
         .then(res => {
             console.log(res.data);

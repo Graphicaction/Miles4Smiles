@@ -6,7 +6,7 @@ export default {
     return axios.get('/auth/user');
   },
   //  get user info to the database
-   getAllUsers: function() {
+  getAllUsers: function() {
     return axios.get("/auth/users");
   },
   deleteUser: function(id) {

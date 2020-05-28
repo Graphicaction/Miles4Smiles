@@ -17,13 +17,6 @@ export default {
   saveRunningStat: function(runningStatData) {
     return axios.post("/api/runningStats", runningStatData);
   },
-  
-  // get user info to the database
-  // getAllUsers: function() {
-  //   return axios.get("/api/users");
-  // },
-
-  
   // Saves new challenge
   saveChallenge: function(challengeData) {
     return axios.post("/api/challenges", challengeData);
@@ -31,8 +24,8 @@ export default {
   getChallenges: function() {
     return axios.get("/api/challenges");
   },
-  updateChallenge: function({_id, donor}) {
-    return axios.put("/api/challenges/" + _id, donor);
+  updateChallenge: function(id, data) {
+    return axios.put("/api/challenges/" + id, data);
   }
 };
 

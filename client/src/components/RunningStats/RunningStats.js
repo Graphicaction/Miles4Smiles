@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
 import "./RunningStats.css"
 import Jdenticon from "react-jdenticon";
 import LineChart from "../LineChart";
@@ -57,13 +56,6 @@ function RunningStats() {
       .catch(err => console.log(err));
   };
 
-  // Deletes a run from the database with a given id, then reloads RunningStats from the db
-  function deleteRunningStat(id) {
-    API.deleteRunningStat(id)
-      .then(res => loadRunningStats())
-      .catch(err => console.log(err));
-  }
-
   const handleUserUpdate =() =>{
     console.log(user)
   }
@@ -75,11 +67,9 @@ function RunningStats() {
     .catch(err => console.log(err));
     //add that immediately logged out
   }
-  
-  
+ 
   let loggedInUser;
-
-  if (user) {
+ if (user) {
     loggedInUser = { user }
     console.log(loggedInUser)
   return(

@@ -8,7 +8,7 @@ const ChallengeSchema = new Schema({
   businessUrl: { type: String, required: false },
   challengers: [{ type: String, required: false }],
   distance: { type: Number, required:false },
-  donor:{ type: String, required: false },
+  doner:{ type: String, required: false },
   donatedAmount: { type: Number, required: false}
 });
 // Create reference to Challenge & export

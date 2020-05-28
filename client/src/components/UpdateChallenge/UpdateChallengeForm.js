@@ -25,32 +25,32 @@ function UpdateChallengeForm(props) {
     function handleChallengeSave(event) {
         event.preventDefault();
         console.log("Challege card with id ",props.id);
-        // API.updateChallenge(props.id,{doner: formObject.loser})
-        // .then(res => {
-        //     challengeForm.current.reset();
-        // })
-        // .catch(err => {
-        //     console.log(err);
-        // });
-        // if(formObject.loser == user.username){
-        //     const lost = user.challengesLost + 1;
-        //     AUTH.userUpdate(user._id, {challengesLost: lost})
-        //     .then(res => {
-        //         console.log(res);
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     });
-        // } else {
-        //     const won = user.challengesWon + 1;
-        //     AUTH.userUpdate(user._id, {challengesWon: won})
-        //     .then(res => {
-        //         console.log(res);
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     });
-        // }
+        API.updateChallenge(props.id,{doner: formObject.loser})
+        .then(res => {
+            challengeForm.current.reset();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+        if(formObject.loser == user.username){
+            const lost = user.challengesLost + 1;
+            AUTH.userUpdate(user._id, {challengesLost: lost})
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        } else {
+            const won = user.challengesWon + 1;
+            AUTH.userUpdate(user._id, {challengesWon: won})
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }
     }
 
     return (

@@ -20,7 +20,8 @@ function RunningStats() {
   console.log("Context UserCard: ", user);
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
-  const [challenges, setChallenges] = useState([]);
+  const [myChallenges, setMyChallenges] = useState([]);
+  const [incomingChallenges, setIncomingChallenges] = useState([]);
   
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
@@ -42,13 +43,17 @@ function RunningStats() {
     API.getChallenges()
       .then(res => {
         console.log("My challenge ",res.data.challenges);
-        const myChallenges = []; 
+        const startChallenges = []; 
+        const invitedChallenges = [];
         res.data.challenges.map( challenge => {
           // Extracting the challenges started by or challenged to the current user
-          if(challenge.challengers[0]===user.username || challenge.challengers[1]===user.username)
-            myChallenges.push(challenge);
+          if(challenge.challengers[0]===user.username) 
+            startChallenges.push(challenge);
+          if(challenge.challengers[1]===user.username)
+          invitedChallenges.push(challenge);
         });
-        setChallenges(myChallenges);
+        setMyChallenges(startChallenges);
+        setIncomingChallenges(invitedChallenges);
       })
       .catch(err => console.log(err));
   };
@@ -84,17 +89,16 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Challenges">
-              {challenges.length ? (
+              {myChallenges.length && (
                 <List>
                   { 
-                  challenges.map(challenge => ( (challenge.challengers[0] === user.username) && (
-                    <ListItem key={challenge._id}>
-                      <Link to={"/challenge/" + challenge._id}>
-                      <div className="card text-center">
+                  myChallenges.map(challenge => ( 
+                    //Challenges created by you
+                    <div className="card text-center" key={challenge._id}>
                         <div className="card-body">
                           <h5 className="card-header">You Challenged {challenge.challengers[1]}</h5>
                           <p className="card-text">You challenged {challenge.challengers[1]} to do a {challenge.distance} miles run where the loser needs to donate ${challenge.donatedAmount} to {challenge.businessName}.</p>
-                          <a href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target="#updateModal" >Enter Challenge Outcome</a>
+                          <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target="#updateModal" >Enter Challenge Outcome</button>
                           <div className="modal fade" id="updateModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
@@ -115,33 +119,28 @@ function RunningStats() {
                             Status: Pending
                         </div>
                       </div>
-                      </Link>
-                      {/* <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} /> */}
-                    </ListItem>
-                  )))}
+                  ))}
                 </List>
-              ) : (
-                // hardcoded until we can render, then we will write "No Challenges yet"
-              
-            <>
-            
-            <hr></hr>
-
-            <div className="card text-center">
-              <div className="card-body">
-                <h5 className="card-header">You Were Challenged By Bob</h5>
-                <p className="card-text">Bob challenges you to do a 3 mile race. The slower runner donates $10 per mile to Bob's Burger.</p>
-                <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
-              </div>
-              <div className="card-footer text-muted">
-                  2 days ago
-              </div>
-            </div>
-       
-            
-            </>
-     
               )}
+              {  incomingChallenges.length ? (
+                  <List>
+                    {
+                      incomingChallenges.map(challenge => (
+                         <div className="card text-center">
+                          <div className="card-body">
+                            <h5 className="card-header">You Were Challenged By {challenge.challengers[0]}</h5>
+                            <p className="card-text">{challenge.challengers[0]} challenges you to do a {challenge.distance} miles race. The slower runner donates ${challenge.donatedAmount} to {challenge.businessName}.</p>
+                            <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
+                          </div>
+                          <div className="card-footer text-muted">
+                              2 days ago
+                          </div>
+                        </div>
+                      ))
+                    }
+                  </List>
+                ) : (<h3>No challenges found</h3>)
+              }
             </Card>
           </Col>
             
@@ -155,7 +154,7 @@ function RunningStats() {
               <div key= {user._id} className="card text-center">
               <div className="card-header text-center">
                     <DailyRunModal />
-                    <ChallengeContext.Provider value={{ challenges }}>
+                    <ChallengeContext.Provider>
                       <ChallengeModal />
                     </ChallengeContext.Provider>
                   </div>

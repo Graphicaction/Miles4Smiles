@@ -1,13 +1,14 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API";
+import AUTH from "../../utils/AUTH";
+import UserContext from "../../utils/UserContext";
 
-
-function UpdateChallengeForm() {
-
+function UpdateChallengeForm(props) {
+    const { user } = useContext(UserContext);
     const [challengeData, setChallenges] = useState([]);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
-
+    
     function loadChallenges() {
         API.getChallenges()
           .then(res => {
@@ -23,26 +24,33 @@ function UpdateChallengeForm() {
 
     function handleChallengeSave(event) {
         event.preventDefault();
-        const donation = formObject.cMiles * formObject.cDonation;
-        const id = "5ecde1d197381c630151eeed";
-        //  ^need to get id from when we load the challenge into the card
-
-        // need to pass loggedin user to this comp so we can set current user to "challengers" then push accepting user... or maybe this gets done on the updateChallenge operation later?
-        
-        API.updateChallenge({
-            _id: id,
-            doner: formObject.loser
-        })
+        console.log("Challege card with id ",props.id);
+        API.updateChallenge(props.id,{doner: formObject.loser})
         .then(res => {
-            console.log(res.data);
-            alert("Challenge updated!");
-            // ^this is ugly but just a reminder for me to figure out how to display the SuccessAlert compo later...
             challengeForm.current.reset();
-            loadChallenges();
         })
         .catch(err => {
             console.log(err);
-        })
+        });
+        if(formObject.loser == user.username){
+            const lost = user.challengesLost + 1;
+            AUTH.userUpdate(user._id, {challengesLost: lost})
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        } else {
+            const won = user.challengesWon + 1;
+            AUTH.userUpdate(user._id, {challengesWon: won})
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }
     }
 
     return (

@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
 import "./RunningStats.css"
 import Jdenticon from "react-jdenticon";
 import LineChart from "../LineChart";
 import PieChart from "../PieChart";
 import { Col, Row, Container } from "../Grid";
-import { List, ListItem } from "../List";
 import { Card } from "../Card";
 import ChallengeContext from "../../utils/ChallengeContext";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
-import UpdateChallengeForm from "../UpdateChallenge/UpdateChallengeForm";
+import ChallengeCard from "../ChallengeCard";
 import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
 import AUTH from "../../utils/AUTH";
@@ -20,7 +18,8 @@ function RunningStats() {
   console.log("Context UserCard: ", user);
   // Setting our component's initial state
   const [runningStats, setRunningStats] = useState([]);
-  const [challenges, setChallenges] = useState([]);
+  const [myChallenges, setMyChallenges] = useState([]);
+  const [incomingChallenges, setIncomingChallenges] = useState([]);
   
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
@@ -42,23 +41,20 @@ function RunningStats() {
     API.getChallenges()
       .then(res => {
         console.log("My challenge ",res.data.challenges);
-        const myChallenges = []; 
+        const startChallenges = []; 
+        const invitedChallenges = [];
         res.data.challenges.map( challenge => {
           // Extracting the challenges started by or challenged to the current user
-          if(challenge.challengers[0]===user.username || challenge.challengers[1]===user.username)
-            myChallenges.push(challenge);
+          if(challenge.challengers[0]===user.username) 
+            startChallenges.push(challenge);
+          if(challenge.challengers[1]===user.username)
+          invitedChallenges.push(challenge);
         });
-        setChallenges(myChallenges);
+        setMyChallenges(startChallenges);
+        setIncomingChallenges(invitedChallenges);
       })
       .catch(err => console.log(err));
   };
-
-  // Deletes a run from the database with a given id, then reloads RunningStats from the db
-  function deleteRunningStat(id) {
-    API.deleteRunningStat(id)
-      .then(res => loadRunningStats())
-      .catch(err => console.log(err));
-  }
 
   const handleUserUpdate =() =>{
     console.log(user)
@@ -71,11 +67,9 @@ function RunningStats() {
     .catch(err => console.log(err));
     //add that immediately logged out
   }
-  
-  
+ 
   let loggedInUser;
-
-  if (user) {
+ if (user) {
     loggedInUser = { user }
     console.log(loggedInUser)
   return(
@@ -83,79 +77,14 @@ function RunningStats() {
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
-            <Card title="My Challenges">
-              {challenges.length ? (
-                <List>
-                  { 
-                  challenges.map(challenge => ( (challenge.challengers[0] === user.username) && (
-                    <ListItem key={challenge._id}>
-                      <Link to={"/challenge/" + challenge._id}>
-                      <div className="card text-center">
-                        <div className="card-body">
-                          <h5 className="card-header">You Challenged {challenge.challengers[1]}</h5>
-                          <p className="card-text">You challenged {challenge.challengers[1]} to do a {challenge.distance} miles run where the loser needs to donate ${challenge.donatedAmount} to {challenge.businessName}.</p>
-                          <a href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target="#updateModal" >Enter Challenge Outcome</a>
-                          <div className="modal fade" id="updateModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <h5 className="modal-title" id="exampleModalLabel">Complete & submit challenge details below:</h5>
-                                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div className="modal-body">
-                                  <UpdateChallengeForm />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="card-footer text-muted">
-                            Status: Pending
-                        </div>
-                      </div>
-                      </Link>
-                      {/* <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} /> */}
-                    </ListItem>
-                  )))}
-                </List>
-              ) : (
-                // hardcoded until we can render, then we will write "No Challenges yet"
-              
-            <>
-            
-            <hr></hr>
-
-            <div className="card text-center">
-              <div className="card-body">
-                <h5 className="card-header">You Were Challenged By Bob</h5>
-                <p className="card-text">Bob challenges you to do a 3 mile race. The slower runner donates $10 per mile to Bob's Burger.</p>
-                <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
-              </div>
-              <div className="card-footer text-muted">
-                  2 days ago
-              </div>
-            </div>
-       
-            
-            </>
-     
-              )}
-            </Card>
+            <ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} />
           </Col>
-            
           <Col size="md-6">
-        
             <Card title="Update Your Information" style={{justifyContent:"center"}}>
-              
-              {/* <DailyRunModal />
-              <ChallengeModal /> */}
-                  
               <div key= {user._id} className="card text-center">
               <div className="card-header text-center">
                     <DailyRunModal />
-                    <ChallengeContext.Provider value={{ challenges }}>
+                    <ChallengeContext.Provider>
                       <ChallengeModal />
                     </ChallengeContext.Provider>
                   </div>
@@ -172,37 +101,22 @@ function RunningStats() {
                 </div>
               </div>                
             </Card>
-            
           </Col>
-          </Row>
+        </Row>
           
-          <Row>
+        <Row>
           <Col size="md-6 sm-12">
             <Card title="My Ran Races">
               { (runningStats.length) ? (<LineChart />) : <h3>No Run recorded!</h3>
               }
-              
-              {/* {runningStats.length ? (
-                <List>
-                  {runningStats.map(runningStat => (
-                    <Link to={"/runningStats/" + runningStat._id}>
-                        <p>Pace: {runningStat.pace} minutes</p>
-                    <DeleteBtn onClick={() => deleteRunningStat(runningStat._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              )  */}
             </Card>
-            </Col>
-            
-            <Col size="md-6 sm-12">
+          </Col>
+          <Col size="md-6 sm-12">
             <Card title="Past Challenges">
               <PieChart />
-              
             </Card>
-            
-            </Col>
-          </Row>
+          </Col>
+        </Row>
       </Container>
       </>
     );

@@ -6,7 +6,7 @@ export default {
     return axios.get('/auth/user');
   },
   //  get user info to the database
-   getAllUsers: function() {
+  getAllUsers: function() {
     return axios.get("/auth/users");
   },
   deleteUser: function(id) {
@@ -28,5 +28,8 @@ export default {
   update: function(id, userData){
     console.log(userData);
     return axios.put('/auth/signup/' + id, {userData});
+  },
+  userUpdate: function(id, data) {
+    return axios.put('/auth/user/' + id, data);
   }
 };

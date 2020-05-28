@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API";
-
+import AUTH from "../../utils/AUTH";
+import UserContext from "../../utils/UserContext";
 
 function UpdateChallengeForm(props) {
-
+    const { user } = useContext(UserContext);
     const [challengeData, setChallenges] = useState([]);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
@@ -23,13 +24,33 @@ function UpdateChallengeForm(props) {
 
     function handleChallengeSave(event) {
         event.preventDefault();
-        API.updateChallenge(props.id,{doner: formObject.loser})
-        .then(res => {
-            challengeForm.current.reset();
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        console.log("Challege card with id ",props.id);
+        // API.updateChallenge(props.id,{doner: formObject.loser})
+        // .then(res => {
+        //     challengeForm.current.reset();
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // });
+        // if(formObject.loser == user.username){
+        //     const lost = user.challengesLost + 1;
+        //     AUTH.userUpdate(user._id, {challengesLost: lost})
+        //     .then(res => {
+        //         console.log(res);
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     });
+        // } else {
+        //     const won = user.challengesWon + 1;
+        //     AUTH.userUpdate(user._id, {challengesWon: won})
+        //     .then(res => {
+        //         console.log(res);
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     });
+        // }
     }
 
     return (

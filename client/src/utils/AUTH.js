@@ -28,5 +28,8 @@ export default {
   update: function(id, userData){
     console.log(userData);
     return axios.put('/auth/signup/' + id, {userData});
+  },
+  userUpdate: function(id, data) {
+    return axios.put('/auth/user/' + id, data);
   }
 };

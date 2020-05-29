@@ -26,6 +26,9 @@ export default {
   },
   updateChallenge: function(id, data) {
     return axios.put("/api/challenges/" + id, data);
+  },
+  deleteChallenge: function(id) {
+    return axios.delete("/api/challenges/" + id);
   }
 };
 

@@ -98,17 +98,17 @@ function RunningStats() {
   }
 
   const handleChallengeChange = (id, reply) => {
-
-    console.log("the status changed to ",id, reply);
     if(reply=="accept"){
       API.updateChallenge(id,{status: "pending"})
       .then(res => {
-        console.log(res.data);
-          loadChallenges();
+        loadChallenges();
       })
       .catch(err => {
           console.log(err);
       });
+    } else {
+      API.deleteChallenge(id);
+      loadChallenges();
     }
   }
 

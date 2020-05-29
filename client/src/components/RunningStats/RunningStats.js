@@ -73,12 +73,11 @@ function RunningStats() {
   function loadChallenges() {
     API.getChallenges()
       .then(res => {
-        console.log("My challenge ",res.data.challenges);
         const startChallenges = []; 
         const invitedChallenges = [];
         res.data.challenges.map( challenge => {
           // Extracting the challenges started by or challenged to the current user
-          if(challenge.challengers[0]===user.username) 
+          if(challenge.challengers[0]===user.username && challenge.status === "pending") 
             startChallenges.push(challenge);
           if(challenge.challengers[1]===user.username)
             invitedChallenges.push(challenge);
@@ -92,7 +91,6 @@ function RunningStats() {
   };
 
   function handleChallenge(){
-    console.log("Coming from challenge modal form");
     loadChallenges();
   }
 

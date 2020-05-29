@@ -9,7 +9,8 @@ const ChallengeSchema = new Schema({
   challengers: [{ type: String, required: false }],
   distance: { type: Number, required:false },
   donor:{ type: String, required: false },
-  donatedAmount: { type: Number, required: false}
+  donatedAmount: { type: Number, required: false},
+  status: { type:String, required:false }
 });
 // Create reference to Challenge & export
 const Challenge = mongoose.model("Challenge", ChallengeSchema);

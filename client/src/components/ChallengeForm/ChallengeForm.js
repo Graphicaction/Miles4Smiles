@@ -27,7 +27,7 @@ function ChallengeForm(props) {
             distance: formObject.cMiles,
             donatedAmount: donation,
             donor: "",
-            status:"pending"
+            status:"inProgress"
         })
         .then(res => {
             console.log(res.data);

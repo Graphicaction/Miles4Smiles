@@ -77,10 +77,13 @@ function RunningStats() {
         const invitedChallenges = [];
         res.data.challenges.map( challenge => {
           // Extracting the challenges started by or challenged to the current user
-          if(challenge.challengers[0]===user.username && challenge.status === "pending") 
-            startChallenges.push(challenge);
-          if(challenge.challengers[1]===user.username)
-            invitedChallenges.push(challenge);
+            if(challenge.status!=="finish"){
+              if(challenge.challengers[0]===user.username) 
+                startChallenges.push(challenge);
+              if(challenge.challengers[1]===user.username)
+                invitedChallenges.push(challenge);
+            }
+          
           });
         setMyChallenges(startChallenges);
         setIncomingChallenges(invitedChallenges);
@@ -92,6 +95,21 @@ function RunningStats() {
 
   function handleChallenge(){
     loadChallenges();
+  }
+
+  const handleChallengeChange = (id, reply) => {
+
+    console.log("the status changed to ",id, reply);
+    if(reply=="accept"){
+      API.updateChallenge(id,{status: "pending"})
+      .then(res => {
+        console.log(res.data);
+          loadChallenges();
+      })
+      .catch(err => {
+          console.log(err);
+      });
+    }
   }
 
   const handleUserUpdate =() =>{
@@ -123,7 +141,7 @@ function RunningStats() {
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
-            {(<ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} handleChallenge={handleChallenge} />)}
+            <ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} handleChallenge={handleChallenge} handleChallengeChange={handleChallengeChange} />
           </Col>
           <Col size="md-6">
             <Card title="Update Your Information" style={{justifyContent:"center"}}>

@@ -5,18 +5,9 @@ import UserContext from "../../utils/UserContext";
 
 function UpdateChallengeForm(props) {
     const { user } = useContext(UserContext);
-    const [challengeData, setChallenges] = useState([]);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     
-    function loadChallenges() {
-        API.getChallenges()
-          .then(res => {
-            setChallenges(res.data.challenges);
-          })
-          .catch(err => console.log(err));
-    };
-
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})

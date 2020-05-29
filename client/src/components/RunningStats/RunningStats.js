@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 import "./RunningStats.css"
 import Jdenticon from "react-jdenticon";
 import LineChart from "../LineChart";
@@ -12,16 +14,19 @@ import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
 import AUTH from "../../utils/AUTH";
 import UserContext from "../../utils/UserContext";
-import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
+import RunningStatsContext from "../../utils/RunningStatsContext";
+
 
 function RunningStats() {
   const { user, users } = useContext(UserContext);
   console.log("Context UserCard: ", user);
-  // Setting our component's initial state
+  // Setting our component's initial state for RunningStats and Challenges
   const [runningStats, setRunningStats] = useState([]);
   const [myChallenges, setMyChallenges] = useState([]);
   const [incomingChallenges, setIncomingChallenges] = useState([]);
+  // Setting our initial state for LineChart
+  const [milesData, setMilesData] = useState([]);
+  const [loading, setLoading] = useState(false);
   
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
@@ -37,6 +42,34 @@ function RunningStats() {
       })
       .catch(err => console.log(err));
   };
+  // Loads all RunningStats and sets them to RunningStats
+  function loadRunningStats() {
+    API.getRunningStats()
+      .then(res => {
+        console.log("Line chart data", res.data.runningStats);
+        setGraphData(res.data.runningStats);
+      })
+      .catch(err => console.log(err));
+  };
+
+  //Setting graph data array
+  const setGraphData = (data) => {
+    let graphData = [];
+    if(data.length) {
+      data.map(result => {
+        graphData.push(result.distance);
+      })
+      //If no data for the day put 0
+      for(let j = 0; j < 7; j++) {
+        if(!graphData[j]) {
+          graphData[j] = 0;
+        }
+      }
+    setMilesData([...graphData]);
+    setLoading(true);
+    console.log("miles data in line chart ", milesData);
+    }
+  }
 
   // Loads all Challenges and sets them to Challenges
   function loadChallenges() {
@@ -50,7 +83,7 @@ function RunningStats() {
           if(challenge.challengers[0]===user.username) 
             startChallenges.push(challenge);
           if(challenge.challengers[1]===user.username)
-          invitedChallenges.push(challenge);
+            invitedChallenges.push(challenge);
         });
         setMyChallenges(startChallenges);
         setIncomingChallenges(invitedChallenges);
@@ -119,7 +152,7 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (runningStats.length) ? (<LineChart />) : <h3>No races recorded yet</h3>
+              { (runningStats.length) ? (<LineChart milesData={milesData} />) : <h3>No races recorded yet</h3>
               }
             </Card>
           </Col>

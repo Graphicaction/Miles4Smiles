@@ -38,11 +38,7 @@ const PostSignUpUserData =(props) => {
         })
         .then(res => {
           console.log(res.data);
-          if (formObject.city && formObject.state && formObject.averageDistance && formObject.averagePace){
-            window.location.reload()
-          } else {
-            window.location.reload(false)
-          }
+          props.flip();
         }
         )
     }

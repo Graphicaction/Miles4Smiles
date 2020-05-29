@@ -14,10 +14,12 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState(null);
+  const [firstLogin, setFirstLogin] = useState(false);
   let history = useHistory();
 
   
   useEffect(() => {
+    console.log("getuser of App.js");
     AUTH.getUser().then(response => {
         console.log("App getuser ",response.data);
         if (!response.data.user) {
@@ -35,6 +37,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    console.log("getAllusers of App.js");
     AUTH.getAllUsers().then(response => {
         console.log("App getAllUsers ",response.data);
         if (!response.data.users) {

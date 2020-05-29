@@ -8,14 +8,14 @@ const ChallengeCard = (props) => {
               {props.myChallenges.length && (
                 <>
                   { 
-                  props.myChallenges.map(challenge => ( 
+                  props.myChallenges.map((challenge, i) => ( 
                     //Challenges created by you
                     <div className="card text-center" key={challenge._id}>
                         <div className="card-body">
                           <h5 className="card-header">You Challenged {challenge.challengers[1]}</h5>
                           <p className="card-text">You challenged {challenge.challengers[1]} to do a {challenge.distance} miles run where the loser needs to donate ${challenge.donatedAmount} to {challenge.businessName}.</p>
-                          <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target="#updateModal" >Enter Challenge Outcome</button>
-                          <div className="modal fade" id="updateModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>
+                          <div className="modal fade" id={`updateModal${i}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">

@@ -2,7 +2,7 @@ import React from "react";
 import ChallengeForm from "../../components/ChallengeForm/ChallengeForm";
 
 
-function ChallengeModal() {
+function ChallengeModal(props) {
 
   return (
     <>
@@ -17,7 +17,7 @@ function ChallengeModal() {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <ChallengeForm />
+                    <ChallengeForm handleChallenge={props.handleChallenge} />
                   </div>
                 </div>
               </div>

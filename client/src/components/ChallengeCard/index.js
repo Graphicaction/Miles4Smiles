@@ -25,7 +25,7 @@ const ChallengeCard = (props) => {
                                   </button>
                                 </div>
                                 <div className="modal-body">
-                                  <UpdateChallengeForm id={challenge._id} />
+                                  <UpdateChallengeForm id={challenge._id} handleChallenge={props.handleChallenge} />
                                 </div>
                               </div>
                             </div>
@@ -38,25 +38,24 @@ const ChallengeCard = (props) => {
                   ))}
                 </>
               )}
-              {  props.incomingChallenges.length ? (
-                  <>
-                    {
-                      props.incomingChallenges.map(challenge => (
-                         <div className="card text-center">
-                          <div className="card-body">
-                            <h5 className="card-header">You Were Challenged By {challenge.challengers[0]}</h5>
-                            <p className="card-text">{challenge.challengers[0]} challenges you to do a {challenge.distance} miles race. The slower runner donates ${challenge.donatedAmount} to {challenge.businessName}.</p>
-                            <a href="" className="btn accept mr-5">Accept Challenge</a><a href="" className="btn deny">Deny Challenge</a>
-                          </div>
-                          <div className="card-footer text-muted">
-                              2 days ago
-                          </div>
+              {props.incomingChallenges.length && (
+                <>
+                  {
+                    props.incomingChallenges.map(challenge => (
+                        <div className="card text-center">
+                        <div className="card-body">
+                          <h5 className="card-header">You Were Challenged By {challenge.challengers[0]}</h5>
+                          <p className="card-text">{challenge.challengers[0]} challenges you to do a {challenge.distance} miles race. The slower runner donates ${challenge.donatedAmount} to {challenge.businessName}.</p>
+                          <a href="" className="btn accept mr-5">Accept Challenge</a><a href="" className="btn deny">Deny Challenge</a>
                         </div>
-                      ))
-                    }
-                  </>
-                ) : (<h3>No challenges found</h3>)
-              }
+                        <div className="card-footer text-muted">
+                            2 days ago
+                        </div>
+                      </div>
+                    ))
+                  }
+                </>
+              )}
             </Card>
     );
 }

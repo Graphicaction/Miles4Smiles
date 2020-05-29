@@ -24,6 +24,7 @@ function RunningStats() {
   const [runningStats, setRunningStats] = useState([]);
   const [myChallenges, setMyChallenges] = useState([]);
   const [incomingChallenges, setIncomingChallenges] = useState([]);
+  const [newChallenge, setNewChallenge] =useState(false);
   // Setting our initial state for LineChart
   const [milesData, setMilesData] = useState([]);
   const [newRun, setNewRun] = useState(false);
@@ -66,7 +67,6 @@ function RunningStats() {
   }
 
   function handleLineChart(){
-    console.log("Coming from run modal form");
     loadRunningStats();
   }
   // Loads all Challenges and sets them to Challenges
@@ -82,12 +82,19 @@ function RunningStats() {
             startChallenges.push(challenge);
           if(challenge.challengers[1]===user.username)
             invitedChallenges.push(challenge);
-        });
+          });
         setMyChallenges(startChallenges);
         setIncomingChallenges(invitedChallenges);
+        setNewChallenge(true);
+      
       })
       .catch(err => console.log(err));
   };
+
+  function handleChallenge(){
+    console.log("Coming from challenge modal form");
+    loadChallenges();
+  }
 
   const handleUserUpdate =() =>{
     console.log("update!!")
@@ -118,7 +125,7 @@ function RunningStats() {
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
-            <ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} />
+            {(<ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} handleChallenge={handleChallenge} />)}
           </Col>
           <Col size="md-6">
             <Card title="Update Your Information" style={{justifyContent:"center"}}>
@@ -129,7 +136,7 @@ function RunningStats() {
                       <DailyRunModal handleLineChart={handleLineChart} />
                     </RunningStatsContext.Provider>
                     <ChallengeContext.Provider>
-                      <ChallengeModal />
+                      <ChallengeModal handleChallenge={handleChallenge} />
                     </ChallengeContext.Provider>
                 </AlertProvider>
                   </div>

@@ -10,7 +10,7 @@ import ItemsCarousel from 'react-items-carousel';
 
 
 
-const Welcome = (props) =>{
+const Welcome = () =>{
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 40;
 // //we will need city,state to show only users from same location

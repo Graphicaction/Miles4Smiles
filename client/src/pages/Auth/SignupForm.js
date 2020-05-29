@@ -12,6 +12,15 @@ function SignupForm() {
     username: '',
     password: '',
     confirmPassword: '',
+    firstLogin: '',
+    avatar:'',
+    averagePace: '',
+    averageDistance: '',
+    challengesLost: '',
+    ChallengesTied: '',
+    challengesWon: '',
+    city:'',
+    state:'',
     redirectTo: null
   });
   const [redirectTo, setRedirectTo] = useState(null);
@@ -31,7 +40,16 @@ function SignupForm() {
       lastName: userObject.lastName,
       username: userObject.username,
       password: userObject.password,
-      firstLogin: true
+      firstLogin: true,
+      avatar:'',
+      averagePace: '',
+      averageDistance: '',
+      challengesLost: '',
+      ChallengesTied: '',
+      challengesWon: '',
+      city:'',
+      state:'',
+
     }).then(response => {
       console.log(response)
       if (!response.data.errmsg) {

@@ -1,4 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
+import UserContext from "../../utils/UserContext";
+
 // import Autocomplete from "./components/Autocomplete/Autocomplete"
 // import Script from "react-load-script";
 // import { Redirect, Link } from 'react-router-dom';
@@ -13,10 +15,11 @@ import AUTH from '../../utils/AUTH';
 
 const PostSignUpUserData =(props) => {
   //  Setting our component's initial state
+  const { user } = useContext(UserContext);
   const [formObject, setFormObject] = useState({});
   let firstLogin;
   const formEl = useRef(null);
-  const id = props.id;
+  const id = user._id;
 
  const handleInputChange =(event) =>{
     const { name, value } = event.target;

@@ -1,31 +1,35 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useContext} from "react";
 import RunningStats from "../../components/RunningStats/RunningStats";
-import "./MyPage.css"
+import "./MyPage.css";
+import UserContext from "../../utils/UserContext";
 
 
-const MyPage =(props) => {
-//add personalized message later will need props and fragment import maybe easiest with Context
-    // let greeting;
+
+const MyPage =() => {
+  const { user } = useContext(UserContext);
+
+    let greeting;
   
-    // if (props.user === null) {
-    //   greeting = <p>Hello guest</p>
-    // } else if (props.user.firstName) {
-    //   greeting = (
-    //     <Fragment>
-    //       Hello <strong>{props.user.firstName} ! Here is an overview of your latest runs and challenges.</strong>
-    //     </Fragment>
-    //   )
-    // } else if (props.user.username) {
-    //   greeting = (
-    //     <Fragment>
-    //       Hello <strong>{props.user.username} ! Here is an overview of your latest runs and challenges. </strong>
-    //     </Fragment>
-    //   )
-    // } 
+    if (user === null) {
+      greeting = <p>Hello guest</p>
+    } else if (user.firstName) {
+      greeting = (
+        <Fragment>
+         Hello <strong>{user.firstName}, we are glad you are back  ! Here is an overview of your latest races and challenges.</strong>
+        </Fragment>
+      )
+    } else if (user.username) {
+      greeting = (
+        <Fragment>
+          Hello <strong>{user.username}, we are glad you are back ! Here is an overview of your latest races and challenges. </strong>
+        </Fragment>
+      )
+    } 
 
     
   return(
     <>
+    <div className="alert alert-secondary text-center">{greeting}</div>
      <RunningStats />
     </>
   )

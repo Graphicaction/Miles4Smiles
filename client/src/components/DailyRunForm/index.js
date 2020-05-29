@@ -6,6 +6,7 @@ import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
 import LineChart from "../LineChart";
 import "./dailyRunForm.css";
+import { useAlert } from 'react-alert'
 
 function DailyRunForm() {
   const [isSaved, setSaved] = useState(false);
@@ -17,6 +18,7 @@ function DailyRunForm() {
   });
   const {date} = formObject;
   const formEl = useRef(null);
+  const alert = useAlert();
 
     function handleInputChange(event) {
       const { name, value } = event.target;
@@ -31,10 +33,10 @@ function DailyRunForm() {
         event.preventDefault();
         const formatteddate = moment(date).format('YYYY-MM-DD'); 
         console.log("Date is", formatteddate);
-        const pace = formObject.distance / formObject.totalTime;
+        // const pace = formObject.distance / formObject.totalTime;
         if (formObject.distance && formObject.totalTime) {
           API.saveRunningStat({
-            pace: pace,
+            // pace: pace,
             distance: formObject.distance,
             date: formObject.formatteddate,
             totalTime: formObject.totalTime
@@ -42,6 +44,7 @@ function DailyRunForm() {
             .then(res => {
               formEl.current.reset();
               setSaved(true);
+              alert.success('Race Saved!');
             })
             .catch(err => console.log(err));
         }
@@ -71,7 +74,7 @@ function DailyRunForm() {
                 <FormBtn
                   disabled={!(formObject.distance && formObject.totalTime)}
                   onClick={handleFormSubmit} >
-                  Submit a run
+                  Submit race
                 </FormBtn>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>

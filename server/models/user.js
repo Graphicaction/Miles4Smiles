@@ -14,7 +14,7 @@ const userSchema = new Schema({
 	state: { type: String, unique: false},
 	avatar:{ type: String, unique: false },
 	averageDistance: { type: Number, unique: false },
-	averagePace: { type: Number, unique: false },
+	averagePace: { type: String, unique: false },
 	firstLogin: {type: Boolean, required: false},
 	challengesWon: { type: Number, unique: false },
 	challengesTied: { type: Number, unique: false },

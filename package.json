@@ -41,6 +41,8 @@
     "passport-github2": "^0.1.12",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
+    "react-alert": "^7.0.1",
+    "react-alert-template-basic": "^1.0.0",
     "react-datepicker": "^2.16.0",
     "save": "^2.4.0"
   }

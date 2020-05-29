@@ -4,9 +4,9 @@ import Jdenticon from "react-jdenticon";
 import UserContext from "../../utils/UserContext";
 
 const UserCard =() => {
-  const { user,users } = useContext(UserContext);
+  const { user, users } = useContext(UserContext);
   console.log("Context UserCard: ", user);
-  console.log(users);
+  console.log( users);
 
 
   // later add that only users from certain location

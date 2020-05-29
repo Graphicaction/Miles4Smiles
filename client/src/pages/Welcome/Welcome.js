@@ -6,13 +6,13 @@ import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUs
 import {Card} from "../../components/Card"
 import { Row, Col, Container } from "../../components/Grid";
 import UserContext from "../../utils/UserContext";
-import ItemsCarousel from 'react-items-carousel';
+// import ItemsCarousel from 'react-items-carousel';
 
 
 
-const Welcome = () =>{
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
-  const chevronWidth = 40;
+const Welcome = (props) =>{
+  // const [activeItemIndex, setActiveItemIndex] = useState(0);
+  // const chevronWidth = 40;
 // //we will need city,state to show only users from same location
 //   const [location, setLocation] = useState("");
  
@@ -24,7 +24,12 @@ const Welcome = () =>{
     if(user)
       setFirstLogin(user.firstLogin);
   }, [user]);
-
+  const flip = ()=> {
+    setFirstLogin(false);
+  }
+  const updateUserContext =(newData) => {
+    user.updateUser(newData);
+  }
 //build user carousel
   // function nextUser(userIndex) {
   //   // Ensure that the user index stays within our range of users
@@ -62,7 +67,7 @@ const Welcome = () =>{
 
     { firstLogin && (
      <div>
-       <PostSignUpUserData id={user._id} />
+       <PostSignUpUserData id={user._id} flip={flip} updateUser={updateUserContext}/>
      </div>
     )}
     { !firstLogin && (

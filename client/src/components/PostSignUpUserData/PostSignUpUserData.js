@@ -20,6 +20,7 @@ const PostSignUpUserData =(props) => {
   let firstLogin;
   const formEl = useRef(null);
   const id = user._id;
+  console.log(user._id)
 
  const handleInputChange =(event) =>{
     const { name, value } = event.target;
@@ -31,21 +32,18 @@ const PostSignUpUserData =(props) => {
     event.preventDefault();
     //Updating user data when first login
     if (formObject.city) {
-      AUTH.update(id,{
+      AUTH.update(user._id,{
         city: formObject.city,
         state: formObject.state,
         averageDistance: parseInt(formObject.distance),
-        averagePace: parseInt(formObject.pace),
+        averagePace: formObject.pace,
         avatar: "",
         firstLogin: false
         })
         .then(res => {
           console.log(res.data);
-          if (formObject.city && formObject.state && formObject.averageDistance && formObject.averagePace){
-            window.location.reload()
-          } else {
-            window.location.reload(false)
-          }
+          props.flip();
+        //   props.updateUserContext({ city: res.data.city, state: res.data.state });
         }
         )
     }

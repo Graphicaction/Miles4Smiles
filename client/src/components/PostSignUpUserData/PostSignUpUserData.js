@@ -32,7 +32,7 @@ const PostSignUpUserData =(props) => {
         city: formObject.city,
         state: formObject.state,
         averageDistance: parseInt(formObject.distance),
-        averagePace: parseInt(formObject.pace),
+        averagePace: formObject.pace,
         avatar: "",
         firstLogin: false
         })

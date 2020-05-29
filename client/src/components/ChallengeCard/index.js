@@ -46,7 +46,7 @@ const ChallengeCard = (props) => {
                           <div className="card-body">
                             <h5 className="card-header">You Were Challenged By {challenge.challengers[0]}</h5>
                             <p className="card-text">{challenge.challengers[0]} challenges you to do a {challenge.distance} miles race. The slower runner donates ${challenge.donatedAmount} to {challenge.businessName}.</p>
-                            <a href="#" className="btn accept mr-5">Accept Challenge</a><a href="#" className="btn deny">Deny Challenge</a>
+                            <a href="" className="btn accept mr-5">Accept Challenge</a><a href="" className="btn deny">Deny Challenge</a>
                           </div>
                           <div className="card-footer text-muted">
                               2 days ago

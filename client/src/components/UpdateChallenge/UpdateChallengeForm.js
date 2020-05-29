@@ -24,7 +24,7 @@ function UpdateChallengeForm(props) {
 
     function handleChallengeSave(event) {
         event.preventDefault();
-       API.updateChallenge(props.id,{doner: formObject.loser})
+        API.updateChallenge(props.id,{donor: formObject.loser})
         .then(res => {
             challengeForm.current.reset();
         })

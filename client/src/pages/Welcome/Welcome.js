@@ -24,7 +24,9 @@ const Welcome = (props) =>{
     if(user)
       setFirstLogin(user.firstLogin);
   }, [user]);
-
+  function flip(){
+    setFirstLogin(false);
+  }
 //build user carousel
   // function nextUser(userIndex) {
   //   // Ensure that the user index stays within our range of users
@@ -62,7 +64,7 @@ const Welcome = (props) =>{
 
     { firstLogin && (
      <div>
-       <PostSignUpUserData id={user._id} />
+       <PostSignUpUserData id={user._id} flip={flip} />
      </div>
     )}
     { !firstLogin && (

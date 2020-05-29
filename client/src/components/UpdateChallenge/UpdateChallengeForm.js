@@ -24,8 +24,7 @@ function UpdateChallengeForm(props) {
 
     function handleChallengeSave(event) {
         event.preventDefault();
-        console.log("Challege card with id ",props.id);
-        API.updateChallenge(props.id,{doner: formObject.loser})
+       API.updateChallenge(props.id,{doner: formObject.loser})
         .then(res => {
             challengeForm.current.reset();
         })

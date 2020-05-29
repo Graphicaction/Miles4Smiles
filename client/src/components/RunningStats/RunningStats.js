@@ -26,6 +26,7 @@ function RunningStats() {
   const [incomingChallenges, setIncomingChallenges] = useState([]);
   // Setting our initial state for LineChart
   const [milesData, setMilesData] = useState([]);
+  const [newRun, setNewRun] = useState(false);
   const [loading, setLoading] = useState(false);
   
   // Load all RunningStats and store them with setRunningStats
@@ -39,15 +40,8 @@ function RunningStats() {
     API.getRunningStats()
       .then(res => {
         setRunningStats(res.data.runningStats);
-      })
-      .catch(err => console.log(err));
-  };
-  // Loads all RunningStats and sets them to RunningStats
-  function loadRunningStats() {
-    API.getRunningStats()
-      .then(res => {
-        console.log("Line chart data", res.data.runningStats);
-        setGraphData(res.data.runningStats);
+        if(res.data.runningStats.length)
+          setGraphData(res.data.runningStats);
       })
       .catch(err => console.log(err));
   };
@@ -66,11 +60,15 @@ function RunningStats() {
         }
       }
     setMilesData([...graphData]);
+    setNewRun(true);
     setLoading(true);
-    console.log("miles data in line chart ", milesData);
     }
   }
 
+  function handleLineChart(){
+    console.log("Coming from run modal form");
+    loadRunningStats();
+  }
   // Loads all Challenges and sets them to Challenges
   function loadChallenges() {
     API.getChallenges()
@@ -127,7 +125,9 @@ function RunningStats() {
               <div key= {user._id} className="card text-center">
               <div className="card-header text-center">
                 <AlertProvider template={AlertTemplate} {...options}>
-                    <DailyRunModal />
+                    <RunningStatsContext.Provider>
+                      <DailyRunModal handleLineChart={handleLineChart} />
+                    </RunningStatsContext.Provider>
                     <ChallengeContext.Provider>
                       <ChallengeModal />
                     </ChallengeContext.Provider>
@@ -152,7 +152,7 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (runningStats.length) ? (<LineChart milesData={milesData} />) : <h3>No races recorded yet</h3>
+              { (newRun) ? (<LineChart milesData={milesData} />) : <h3>No races recorded yet</h3>
               }
             </Card>
           </Col>

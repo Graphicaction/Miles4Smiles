@@ -2,7 +2,7 @@ import React from "react";
 import DailyRunForm from "../../components/DailyRunForm";
 
 
-function DailyRunModal() {
+function DailyRunModal(props) {
 
   return (
     <>
@@ -17,7 +17,7 @@ function DailyRunModal() {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <DailyRunForm />
+                    <DailyRunForm handleLineChart={props.handleLineChart} />
                   </div>
                 </div>
               </div>

@@ -8,8 +8,7 @@ import LineChart from "../LineChart";
 import "./dailyRunForm.css";
 import { useAlert } from 'react-alert'
 
-function DailyRunForm() {
-  const [isSaved, setSaved] = useState(false);
+function DailyRunForm(props) {
   const [formObject, setFormObject] = useState({
     pace:0,
     distance:0,
@@ -43,8 +42,8 @@ function DailyRunForm() {
           })
             .then(res => {
               formEl.current.reset();
-              setSaved(true);
               alert.success('Race Saved!');
+              props.handleLineChart();
             })
             .catch(err => console.log(err));
         }
@@ -78,7 +77,6 @@ function DailyRunForm() {
                 </FormBtn>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
-            {isSaved && <LineChart />}
         </>
     )
 }

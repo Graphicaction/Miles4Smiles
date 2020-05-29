@@ -5,18 +5,9 @@ import UserContext from "../../utils/UserContext";
 
 function UpdateChallengeForm(props) {
     const { user } = useContext(UserContext);
-    const [challengeData, setChallenges] = useState([]);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     
-    function loadChallenges() {
-        API.getChallenges()
-          .then(res => {
-            setChallenges(res.data.challenges);
-          })
-          .catch(err => console.log(err));
-    };
-
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -24,31 +15,34 @@ function UpdateChallengeForm(props) {
 
     function handleChallengeSave(event) {
         event.preventDefault();
-        API.updateChallenge(props.id,{donor: formObject.loser})
-        .then(res => {
-            challengeForm.current.reset();
-        })
-        .catch(err => {
-            console.log(err);
-        });
-        if(formObject.loser == user.username){
-            const lost = user.challengesLost + 1;
-            AUTH.userUpdate(user._id, {challengesLost: lost})
+        if(formObject.loser) {
+            API.updateChallenge(props.id,{donor: formObject.loser, status: "finish"})
             .then(res => {
-                console.log(res);
+                challengeForm.current.reset();
+                props.handleChallenge();
             })
             .catch(err => {
                 console.log(err);
             });
-        } else {
-            const won = user.challengesWon + 1;
-            AUTH.userUpdate(user._id, {challengesWon: won})
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+            if(formObject.loser == user.username){
+                const lost = user.challengesLost + 1;
+                AUTH.userUpdate(user._id, {challengesLost: lost})
+                .then(res => {
+                    console.log(res);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            } else {
+                const won = user.challengesWon + 1;
+                AUTH.userUpdate(user._id, {challengesWon: won})
+                .then(res => {
+                    console.log(res);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            }
         }
     }
 

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 import "./RunningStats.css"
 import Jdenticon from "react-jdenticon";
 import LineChart from "../LineChart";
@@ -12,16 +14,21 @@ import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
 import AUTH from "../../utils/AUTH";
 import UserContext from "../../utils/UserContext";
-import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
+import RunningStatsContext from "../../utils/RunningStatsContext";
+
 
 function RunningStats() {
   const { user, users } = useContext(UserContext);
   console.log("Context UserCard: ", user);
-  // Setting our component's initial state
+  // Setting our component's initial state for RunningStats and Challenges
   const [runningStats, setRunningStats] = useState([]);
   const [myChallenges, setMyChallenges] = useState([]);
   const [incomingChallenges, setIncomingChallenges] = useState([]);
+  const [newChallenge, setNewChallenge] =useState(false);
+  // Setting our initial state for LineChart
+  const [milesData, setMilesData] = useState([]);
+  const [newRun, setNewRun] = useState(false);
+  const [loading, setLoading] = useState(false);
   
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
@@ -34,29 +41,76 @@ function RunningStats() {
     API.getRunningStats()
       .then(res => {
         setRunningStats(res.data.runningStats);
+        if(res.data.runningStats.length)
+          setGraphData(res.data.runningStats);
       })
       .catch(err => console.log(err));
   };
 
+  //Setting graph data array
+  const setGraphData = (data) => {
+    let graphData = [];
+    if(data.length) {
+      data.map(result => {
+        graphData.push(result.distance);
+      })
+      //If no data for the day put 0
+      for(let j = 0; j < 7; j++) {
+        if(!graphData[j]) {
+          graphData[j] = 0;
+        }
+      }
+    setMilesData([...graphData]);
+    setNewRun(true);
+    setLoading(true);
+    }
+  }
+
+  function handleLineChart(){
+    loadRunningStats();
+  }
   // Loads all Challenges and sets them to Challenges
   function loadChallenges() {
     API.getChallenges()
       .then(res => {
-        console.log("My challenge ",res.data.challenges);
         const startChallenges = []; 
         const invitedChallenges = [];
         res.data.challenges.map( challenge => {
           // Extracting the challenges started by or challenged to the current user
-          if(challenge.challengers[0]===user.username) 
-            startChallenges.push(challenge);
-          if(challenge.challengers[1]===user.username)
-          invitedChallenges.push(challenge);
-        });
+            if(challenge.status!=="finish"){
+              if(challenge.challengers[0]===user.username) 
+                startChallenges.push(challenge);
+              if(challenge.challengers[1]===user.username)
+                invitedChallenges.push(challenge);
+            }
+          
+          });
         setMyChallenges(startChallenges);
         setIncomingChallenges(invitedChallenges);
+        setNewChallenge(true);
+      
       })
       .catch(err => console.log(err));
   };
+
+  function handleChallenge(){
+    loadChallenges();
+  }
+
+  const handleChallengeChange = (id, reply) => {
+    if(reply=="accept"){
+      API.updateChallenge(id,{status: "pending"})
+      .then(res => {
+        loadChallenges();
+      })
+      .catch(err => {
+          console.log(err);
+      });
+    } else {
+      API.deleteChallenge(id);
+      loadChallenges();
+    }
+  }
 
   const handleUserUpdate =() =>{
     console.log("update!!")
@@ -87,16 +141,18 @@ function RunningStats() {
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
-            <ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} />
+            <ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} handleChallenge={handleChallenge} handleChallengeChange={handleChallengeChange} />
           </Col>
           <Col size="md-6">
             <Card title="Update Your Information" style={{justifyContent:"center"}}>
               <div key= {user._id} className="card text-center">
               <div className="card-header text-center">
                 <AlertProvider template={AlertTemplate} {...options}>
-                    <DailyRunModal />
+                    <RunningStatsContext.Provider>
+                      <DailyRunModal handleLineChart={handleLineChart} />
+                    </RunningStatsContext.Provider>
                     <ChallengeContext.Provider>
-                      <ChallengeModal />
+                      <ChallengeModal handleChallenge={handleChallenge} />
                     </ChallengeContext.Provider>
                 </AlertProvider>
                   </div>
@@ -119,7 +175,7 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (runningStats.length) ? (<LineChart />) : <h3>No races recorded yet</h3>
+              { (newRun) ? (<LineChart milesData={milesData} />) : <h3>No races recorded yet</h3>
               }
             </Card>
           </Col>

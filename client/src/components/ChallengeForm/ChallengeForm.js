@@ -3,20 +3,12 @@ import API from "../../utils/API";
 import UserContext from "../../utils/UserContext";
 import { useAlert } from 'react-alert'
 
-function ChallengeForm() {
+function ChallengeForm(props) {
     const { user } = useContext(UserContext);
     const [challengeData, setChallenges] = useState([]);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     const alert = useAlert();
-
-    function loadChallenges() {
-        API.getChallenges()
-          .then(res => {
-            setChallenges(res.data.challenges);
-          })
-          .catch(err => console.log(err));
-    };
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -34,13 +26,14 @@ function ChallengeForm() {
             businessName: formObject.cBusiness,
             distance: formObject.cMiles,
             donatedAmount: donation,
-            donor: ""
+            donor: "",
+            status:"inProgress"
         })
         .then(res => {
             console.log(res.data);
             alert.success('Challenge Saved!');
             challengeForm.current.reset();
-            loadChallenges();
+            props.handleChallenge();
         })
         .catch(err => {
             console.log(err);

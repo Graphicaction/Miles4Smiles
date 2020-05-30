@@ -1,13 +1,26 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./Dashboard.css"
 import BarChart from "../../components/BarChart";
 import { Col, Row, Container } from "../../components/Grid";
 import { Card } from "../../components/Card";
-import CountUp from "react-countup";
-
+import AddDonation from "../../components/AddDonation";
+import ChallengeContext from "../../utils/ChallengeContext";
+import API from "../../utils/API";
 
 function Dashboard() {
+  const [challenges, setChallenges] = useState([]);
 
+  // Loads all Challenges and sets them to Challenges
+  useEffect(() => {loadChallenges()},[])
+  
+  function loadChallenges() {
+    API.getChallenges()
+      .then(response => {
+       setChallenges(response.data.challenges);
+      })
+      .catch(err => console.log(err));
+      console.log(challenges);
+  };
     return (
       <Container fluid>
         
@@ -42,8 +55,9 @@ function Dashboard() {
           </Col>
           <Col size="md-6 sm-6">
             <Card title="Overall Donation Amount " >
-               <p style={{ textAlign: "center", marginBottom:"0"}}>
-                 <CountUp duration={3} prefix="$" end={566}/></p>
+              <ChallengeContext.Provider value={{challenges}}>
+                <AddDonation /> 
+              </ChallengeContext.Provider>
             </Card>
           </Col>
           </Row>

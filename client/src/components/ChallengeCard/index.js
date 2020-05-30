@@ -5,10 +5,9 @@ import { Card } from "../Card";
 const ChallengeCard = (props) => {
     return(
         <Card title="My Challenges">
-              {props.myChallenges.length && (
+              {props.myChallenges.length>0 && (
                 <>
-                  { 
-                  props.myChallenges.map((challenge, i) => ( 
+                  {props.myChallenges.map((challenge, i) => ( 
                     //Challenges created by you
                     <div className="card text-center" key={challenge._id}>
                         <div className="card-body">
@@ -36,21 +35,21 @@ const ChallengeCard = (props) => {
                                 </div>
                               </div>
                             </div>
+                            <div className="modal-body">
+                              <UpdateChallengeForm id={challenge._id} handleChallenge={props.handleChallenge} />
+                            </div>
                             </>
                           )}
                         </div>
-                        <div className="card-footer text-muted">
-                            Status: {challenge.status}
-                        </div>
-                      </div>
+                    </div>
                   ))}
                 </>
               )}
-              {props.incomingChallenges.length && (
+              {props.incomingChallenges.length>0 && (
                 <>
                   {
                     props.incomingChallenges.map((challenge,i) => (
-                        <div className="card text-center">
+                      <div className="card text-center">
                         <div className="card-body">
                           <h5 className="card-header">You Were Challenged By {challenge.challengers[0]}</h5>
                           <p className="card-text">{challenge.challengers[0]} challenges you to do a {challenge.distance} miles race. The slower runner donates ${challenge.donatedAmount} to {challenge.businessName}.</p>
@@ -72,23 +71,21 @@ const ChallengeCard = (props) => {
                                   </div>
                                 </div>
                               </div>
+                              <div className="modal-body">
+                                <UpdateChallengeForm id={challenge._id} handleChallenge={props.handleChallenge} />
+                              </div>
                             </>
                           ):(   
-                            <>
-                              <button className="btn accept mr-5" onClick={() => props.handleChallengeChange(challenge._id,"accept")}>Accept Challenge</button><button className="btn deny" onClick={() => props.handleChallengeChange(challenge._id,"deny")}>Deny Challenge</button>
-                            </>
-                          )}
+                          <div>
+                            <button className="btn accept mr-5" onClick={() => props.handleChallengeChange(challenge._id,"accept")}>Accept Challenge</button><button className="btn deny" onClick={() => props.handleChallengeChange(challenge._id,"deny")}>Deny Challenge</button>
                           </div>
-                        {/* either render actual time or kick out
-                        <div className="card-footer text-muted">
-                            2 days ago
-                        </div> */}
+                          )}
+                        </div>
                       </div>
-                    ))
-                  }
+                  ))}
                 </>
-              )}
-            </Card>
+        )}
+      </Card>
     );
 }
 

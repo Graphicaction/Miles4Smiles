@@ -43,7 +43,7 @@ const PostSignUpUserData =(props) => {
         .then(res => {
           console.log(res.data);
           props.flip();
-          // props.updateUserContext({ city: res.data.city, state: res.data.state, averagePace: res.data.averagePace, averageDistance: res.data.averageDistance });
+          props.updateUser({ city: res.data.city, state: res.data.state, averagePace: res.data.averagePace, averageDistance: res.data.averageDistance });
         }
         )
     }

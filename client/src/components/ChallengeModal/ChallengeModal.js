@@ -7,7 +7,7 @@ function ChallengeModal(props) {
     <>
     {(props.name) ? (
       <>
-        <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target={`#exampleModal${props.name}`}>Start a challenge!</button>
+        <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target={`#exampleModal${props.name}`}><i className ="fa fa-flag-checkered mr-2"/>Start a challenge!</button>
           <div className="modal fade" id={`exampleModal${props.name}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">

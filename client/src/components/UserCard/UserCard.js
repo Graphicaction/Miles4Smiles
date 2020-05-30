@@ -32,7 +32,7 @@ const UserCard =() => {
     {display4usersOnly.map((user, i)=> (
     <div key={i} className="card text-center">
       <div className="card-body ">
-        <Jdenticon   className="avatar" size="48" value={user.username} float="right"></Jdenticon>
+        <Jdenticon className="avatar" size="48" value={user.username} float="right"></Jdenticon>
         <h5  className="card-title justify-content-center">{user.username}</h5>
 
         <h6  className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state} </h6>
@@ -45,7 +45,7 @@ const UserCard =() => {
         </AlertProvider>
         {/* <button  className="btn card-link challengeBtn"><i className="fa fa-flag-checkered mr-2"></i>Challenge</button> */}
         {/* <button className="btn card-link challengeBtn"><i className="fa fa-flag-checkered mr-2"></i>Challenge</button> */}
-        <button  className="btn btn-light card-link ml-3"><i className="fa fa-envelope mr-2"></i>Contact</button>
+        {/* <button  className="btn btn-light card-link ml-3"><i className="fa fa-envelope mr-2"></i>Contact</button> */}
       </div>
     </div>
     ))}

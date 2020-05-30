@@ -11,3 +11,7 @@
 .greeting{
   color: white
 }
+
+.nav-link:hover{
+  color: #bee3db!important
+}

@@ -3,3 +3,19 @@
   /* padding-right: 0!important; */
   /* padding-left: 0!important */
 }
+
+.card{
+  box-shadow: 3px 3px 5px 6px #ccc; 
+  background-color: '#faf9f9' 
+}
+
+.card-header{
+  background-color: #89b0ae;
+  color: whitesmoke;
+  /* text-shadow: 1px 1px 1px #ffd6ba; */
+ 
+}
+
+h5{
+  font-family: 'Raleway', sans-serif
+}

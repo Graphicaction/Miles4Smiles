@@ -176,12 +176,12 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (newRun) ? (<BarChart milesData={milesData} />) : <h3>No races recorded yet</h3>
+              { (newRun) ? (<BarChart milesData={milesData} />) : <p>No races recorded yet</p>
               }
             </Card>
           </Col>
           <Col size="md-6 sm-12">
-            <Card title="Past Challenges">
+            <Card title="Past Challenges" style={{backgroundColor: "whitesmoke"}}>
               <PieChart />
             </Card>
           </Col>

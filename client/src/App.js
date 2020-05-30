@@ -10,6 +10,8 @@ import Nav from "./components/Nav";
 import AUTH from './utils/AUTH';
 import UserContext from "./utils/UserContext";
 import About from "./pages/About/About"
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -64,7 +66,14 @@ function App() {
         history.push('/')
 			}
 		});
-	};
+  };
+  
+  const options = {
+    position: positions.TOP_CENTER,
+    timeout: 2500,
+    offset: '30px',
+    transition: transitions.SCALE
+  }
 
   const login = (username, password) => {
     AUTH.login(username, password).then(response => {
@@ -127,7 +136,11 @@ function App() {
             <Route exact path="/about" component={About} />
             <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
             <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
-            <Route exact path="/signup" component={SignupForm} />
+            <>
+            <AlertProvider template={AlertTemplate} {...options}>
+              <Route exact path="/signup" component={SignupForm} />
+            </AlertProvider>
+            </>
           </Switch>
         </div>
         </>

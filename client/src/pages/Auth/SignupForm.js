@@ -4,8 +4,10 @@ import { Container } from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import AUTH from '../../utils/AUTH';
+import { useAlert } from 'react-alert'
 
 function SignupForm() {
+  const alert = useAlert();
   const [userObject, setUserObject] = useState({
     firstName: '',
     lastName: '',
@@ -30,11 +32,10 @@ function SignupForm() {
       ...userObject,
 			[event.target.name]: event.target.value
 		});
-	};
+  };
   
 	const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO - validate!
 		AUTH.signup({
       firstName: userObject.firstName,
       lastName: userObject.lastName,
@@ -51,11 +52,11 @@ function SignupForm() {
       state:'',
 
     }).then(response => {
-      console.log(response.data)
-      if (!response.data.errmsg) {
+      // console.log(response.data)
+      if (!response.data.error) {
         setRedirectTo('/');
       } else {
-        console.log('duplicate');
+        alert.error('User already exists!');
       }
     });
   };

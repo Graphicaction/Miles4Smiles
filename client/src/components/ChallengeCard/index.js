@@ -5,7 +5,7 @@ import { Card } from "../Card";
 const ChallengeCard = (props) => {
     return(
         <Card title="My Challenges">
-              {props.myChallenges.length && (
+              {props.myChallenges.length>0 && (
                 <>
                   {props.myChallenges.map((challenge, i) => ( 
                     //Challenges created by you
@@ -45,7 +45,7 @@ const ChallengeCard = (props) => {
                   ))}
                 </>
               )}
-              {props.incomingChallenges.length && (
+              {props.incomingChallenges.length>0 && (
                 <>
                   {
                     props.incomingChallenges.map((challenge,i) => (

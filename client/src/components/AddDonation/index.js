@@ -1,14 +1,32 @@
-import React from "react";
+import React, {useState, useContext, useEffect} from "react";
 import CountUp from "react-countup";
-import ChallengeForm from "../../components/ChallengeForm/ChallengeForm";
+import ChallengeContext from "../../utils/ChallengeContext";
 
-
-function AddDonation(props) {
-  console.log(props.name);
-  return (
+function AddDonation() {
+    const { challenges } = useContext(ChallengeContext);
+    const [donation, setDonation] = useState(0);
     
-    <p style={{ textAlign: "center", marginBottom:"0"}}>
-    <CountUp duration={3} prefix="$" end={566}/></p>
+    console.log(challenges);
+
+    useEffect(()=>{
+        getDonation();
+    },[challenges])
+
+    const getDonation = () => {
+        console.log(challenges);
+        let donationAmount = 0;
+        challenges.map(challenge => {
+            donationAmount += challenge.donatedAmount
+        })
+        setDonation(donationAmount);
+        console.log(donation);
+    }
+
+    return (
+        <div>
+            <p style={{ textAlign: "center", marginBottom:"0"}}>
+            <CountUp duration={3} prefix="$" end={donation}/></p>
+        </div>
   )
 }
 

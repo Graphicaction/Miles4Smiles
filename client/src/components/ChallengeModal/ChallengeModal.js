@@ -3,7 +3,6 @@ import ChallengeForm from "../../components/ChallengeForm/ChallengeForm";
 
 
 function ChallengeModal(props) {
-  console.log(props.name);
   return (
     <>
     {(props.name) ? (

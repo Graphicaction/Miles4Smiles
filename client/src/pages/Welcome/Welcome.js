@@ -35,10 +35,10 @@ const Welcome = (props) =>{
  
 
   //update react context
-  // const updateUserContext =(newData) => {
-  //   console.log(newData)
-  //   user.update(newData);
-  //   }
+  const updateUser =(newData) => {
+    console.log(newData)
+    // props.updateUser(newData);
+    }
   
 //build user carousel
   // function nextUser(userIndex) {
@@ -77,7 +77,7 @@ const Welcome = (props) =>{
 
     { firstLogin && (
      <div>
-      <PostSignUpUserData id={user._id} flip={flip} />
+      <PostSignUpUserData id={user._id} flip={flip} updateUser={updateUser}/>
 
        {/* <PostSignUpUserData id={user._id} flip={flip} updateUserContext={updateUserContext}/> */}
      </div>

@@ -26,10 +26,10 @@ const UserCard =() => {
   let usersToRender;
   if (users) {
     let display4usersOnly = users.slice(0, 5);
-    usersToRender = display4usersOnly.map((user, i )=> {
   return(
     <>
-
+    
+    {display4usersOnly.map((user, i)=> (
     <div key={i} className="card text-center">
       <div className="card-body ">
         <Jdenticon   className="avatar" size="48" value={user.username} float="right"></Jdenticon>
@@ -37,7 +37,7 @@ const UserCard =() => {
 
         <h6  className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state} </h6>
         <hr></hr>
-        <p  className="card-text pace">Average pace: {user.averagePace} min/mile</p>
+        <p  className="card-text pace">Average pace: {user.averagePace} mile</p>
         <p  className="card-text distance">Preferred distance: {user.averageDistance} miles</p>
         <hr></hr>
         <AlertProvider template={AlertTemplate} {...options}>
@@ -48,9 +48,9 @@ const UserCard =() => {
         <button  className="btn btn-light card-link ml-3"><i className="fa fa-envelope mr-2"></i>Contact</button>
       </div>
     </div>
+    ))}
     </>
     )
-  });
   } else {
     usersToRender ="Loading..."
   }

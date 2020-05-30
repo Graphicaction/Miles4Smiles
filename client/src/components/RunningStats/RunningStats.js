@@ -20,7 +20,6 @@ import RunningStatsContext from "../../utils/RunningStatsContext";
 
 function RunningStats() {
   const { user } = useContext(UserContext);
-  console.log("Context UserCard: ", user);
   // Setting our component's initial state for RunningStats and Challenges
   const [runningStats, setRunningStats] = useState([]);
   const [myChallenges, setMyChallenges] = useState([]);
@@ -117,8 +116,6 @@ function RunningStats() {
     console.log("update!!")
     console.log(user);
     return <UpdateUserModal/>
-
-
   }
 
   const handleUserDelete =(id) => {
@@ -139,7 +136,6 @@ function RunningStats() {
   let loggedInUser;
  if (user) {
     loggedInUser = { user }
-    console.log(loggedInUser)
   return(
     <>
       <Container fluid>

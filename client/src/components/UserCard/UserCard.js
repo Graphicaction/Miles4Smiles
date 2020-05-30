@@ -37,7 +37,7 @@ const UserCard =() => {
 
         <h6  className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state} </h6>
         <hr></hr>
-        <p  className="card-text pace">Average pace: {user.averagePace} min/mile</p>
+        <p  className="card-text pace">Average pace: {user.averagePace} mile</p>
         <p  className="card-text distance">Preferred distance: {user.averageDistance} miles</p>
         <hr></hr>
         <AlertProvider template={AlertTemplate} {...options}>

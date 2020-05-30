@@ -4,12 +4,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
-import LineChart from "../LineChart";
+import BarChart from "../BarChart";
 import "./dailyRunForm.css";
 import { useAlert } from 'react-alert'
+import {Row, Col} from "../Grid"
 
-function DailyRunForm() {
-  const [isSaved, setSaved] = useState(false);
+function DailyRunForm(props) {
   const [formObject, setFormObject] = useState({
     pace:0,
     distance:0,
@@ -43,8 +43,8 @@ function DailyRunForm() {
           })
             .then(res => {
               formEl.current.reset();
-              setSaved(true);
               alert.success('Race Saved!');
+              props.handleBarChart();
             })
             .catch(err => console.log(err));
         }
@@ -52,11 +52,48 @@ function DailyRunForm() {
     return (
         <>
             <form ref={formEl}>
-                <Input
+              <Row>
+                <Col size="3">
+              <div className="radio">
+                <label>
+                  <Input type="radio" value="5"name="distance"  onChange={handleInputChange}/>
+                  5K
+                </label>
+              </div>
+              </Col>
+              <Col size="3">
+              <div className="radio">
+                <label>
+                  <Input type="radio" value="10"name="distance"  onChange={handleInputChange}/>
+                  10K
+                </label>
+              </div>
+              </Col>
+              <Col size="3">
+              <div className="radio">
+                <label>
+                  <Input type="radio" value="21"name="distance"  onChange={handleInputChange}/>
+                  21K Half Marathon
+                </label>
+              </div>
+              </Col>
+              <Col size="3">
+              <div className="radio">
+                <label>
+                  <Input type="radio" value="42"name="distance" onChange={handleInputChange}/>
+                  42K Marathon
+                </label>
+              </div>
+              </Col>
+              </Row>
+                {/* <Input
                   onChange={handleInputChange}
+                  label="5K"
                   name="distance"
                   placeholder="Distance (required)"
-                />
+                  type="radio"
+                  value="5"
+                /> */}
                 <div className="form-group">
                 <DatePicker
                   onChange={date => onDateChange('date', date)}
@@ -78,7 +115,6 @@ function DailyRunForm() {
                 </FormBtn>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
-            {isSaved && <LineChart />}
         </>
     )
 }

@@ -74,7 +74,7 @@ function App() {
         setUser(response.data.user);
         setLoggedIn(true);
 
-        // console.log("getAllusers of App.js");
+        console.log("getAllusers of App.js");
         AUTH.getAllUsers().then(response => {
           console.log("App getAllUsers ", response.data);
           if (!response.data.users) {

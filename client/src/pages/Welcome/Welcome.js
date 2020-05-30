@@ -6,6 +6,7 @@ import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUs
 import {Card} from "../../components/Card"
 import { Row, Col, Container } from "../../components/Grid";
 import UserContext from "../../utils/UserContext";
+import AUTH from "../../utils/AUTH";
 // import ItemsCarousel from 'react-items-carousel';
 
 
@@ -24,12 +25,21 @@ const Welcome = (props) =>{
     if(user)
       setFirstLogin(user.firstLogin);
   }, [user]);
+
+
+//change user from first time to returning user
   const flip = ()=> {
     setFirstLogin(false);
   }
-  const updateUserContext =(newData) => {
-    user.updateUser(newData);
-  }
+
+ 
+
+  //update react context
+  // const updateUserContext =(newData) => {
+  //   console.log(newData)
+  //   user.update(newData);
+  //   }
+  
 //build user carousel
   // function nextUser(userIndex) {
   //   // Ensure that the user index stays within our range of users
@@ -67,7 +77,9 @@ const Welcome = (props) =>{
 
     { firstLogin && (
      <div>
-       <PostSignUpUserData id={user._id} flip={flip} updateUser={updateUserContext}/>
+      <PostSignUpUserData id={user._id} flip={flip} />
+
+       {/* <PostSignUpUserData id={user._id} flip={flip} updateUserContext={updateUserContext}/> */}
      </div>
     )}
     { !firstLogin && (

@@ -51,7 +51,7 @@ function SignupForm() {
       state:'',
 
     }).then(response => {
-      console.log(response)
+      console.log(response.data)
       if (!response.data.errmsg) {
         setRedirectTo('/');
       } else {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Dashboard.css"
-import LineChart from "../../components/LineChart";
+import BarChart from "../../components/BarChart";
 import { Col, Row, Container } from "../../components/Grid";
 import { Card } from "../../components/Card";
 import CountUp from "react-countup";
@@ -14,14 +14,14 @@ function Dashboard() {
           <Row>
           <Col size="md-6 sm-12">
             <Card title="Challenges">
-              <LineChart />
+              <BarChart />
               {/* needs to call the graph that shows overall miles ran similar to budget tracker adding on*/}
             </Card>
           </Col>
           
           <Col size="md-6 sm-12">
             <Card title="Donation to Local Businesses">
-              <LineChart />
+              <BarChart />
               {/* needs to call the graph that shows overall money that was donated similar to budget tracker */}
             </Card>
           </Col>

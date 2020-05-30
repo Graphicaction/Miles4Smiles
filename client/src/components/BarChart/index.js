@@ -5,16 +5,16 @@ import API from "../../utils/API";
 const BarChart = (props) => { 
   
   const state = {
-    labels: ['Sunday', 'Monday', 'Tuesday',
-             'Wednesday', 'Friday', 'Saturday'],
+    labels: [1,2,3,4,5,6,7],
+    //maybe rather have distances on x axis and render from data and have time one y axis and render from data?
     datasets: [
       {
         label: 'Races Completed',
         fill: false,
         // lineTension: 0.5,
-        backgroundColor: 'rgba(75,192,192,1)',
+        backgroundColor: '#d6947a',
         borderColor: 'rgba(0,0,0,1)',
-        borderWidth: 2,
+        borderWidth: 1,
         data: props.milesData
       }
     ]

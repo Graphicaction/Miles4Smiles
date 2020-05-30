@@ -35,15 +35,15 @@ const PostSignUpUserData =(props) => {
       AUTH.update(user._id,{
         city: formObject.city,
         state: formObject.state,
-        averageDistance: parseInt(formObject.distance),
-        averagePace: formObject.pace,
+        averageDistance: parseInt(formObject.averageDistance),
+        averagePace: formObject.averagePace,
         avatar: "",
         firstLogin: false
         })
         .then(res => {
           console.log(res.data);
           props.flip();
-        //   props.updateUserContext({ city: res.data.city, state: res.data.state });
+          // props.updateUserContext({ city: res.data.city, state: res.data.state, averagePace: res.data.averagePace, averageDistance: res.data.averageDistance });
         }
         )
     }
@@ -110,7 +110,7 @@ const PostSignUpUserData =(props) => {
                         <Col size="md-5">
                           <Input
                             onChange={handleInputChange}
-                            name="distance"
+                            name="averageDistance"
                             placeholder="3"
                             //value={formObject.distance}
                           />
@@ -126,7 +126,7 @@ const PostSignUpUserData =(props) => {
                         <Col size="md-5">
                           <Input
                             onChange={handleInputChange}
-                            name="pace"
+                            name="averagePace"
                             placeholder="9:50"
                             //value={formObject.pace}
                           />
@@ -140,7 +140,7 @@ const PostSignUpUserData =(props) => {
                 <br></br>
 
                 <FormBtn
-                  disabled={!(formObject.city && formObject.state && formObject.distance && formObject.pace)}
+                  disabled={!(formObject.city && formObject.state && formObject.averageDistance && formObject.averagePace)}
                   onClick={handleFormSubmit}
                 >
                 <i className="fa fa-paper-plane mr-2"></i>

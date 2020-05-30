@@ -1,10 +1,13 @@
 import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API";
+import AUTH from "../../utils/AUTH";
 import UserContext from "../../utils/UserContext";
 import { useAlert } from 'react-alert'
 
 function ChallengeForm(props) {
-    const { user } = useContext(UserContext);
+    //const { user } = useContext(UserContext);
+    const { user, users } = useContext(UserContext);
+    const [challengeData, setChallenges] = useState([]);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     const alert = useAlert();
@@ -13,6 +16,7 @@ function ChallengeForm(props) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
     };
+
 
     function handleChallengeSave(event) {
         event.preventDefault();
@@ -25,7 +29,7 @@ function ChallengeForm(props) {
             distance: formObject.cMiles,
             donatedAmount: donation,
             donor: "",
-            status:"inProgress"
+            status:"Waiting for Response"
         })
         .then(res => {
             alert.success('Challenge Saved!');
@@ -42,11 +46,22 @@ function ChallengeForm(props) {
             <form ref={challengeForm}>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Enter a user to challenge</label>
-                    {(!props.name) ?
-                    <input onChange={handleInputChange} name="oppUser" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>:
+                    {(props.name) ?
                     <input onChange={handleInputChange} name="oppUser" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={props.name} disabled></input>
-                    }               
-                    <small id="emailHelp" className="form-text text-muted">***Later this will be users db search***</small>
+                    : (   
+                        <>           
+                            <small id="emailHelp" className="form-text text-muted">***Later this will be users db search***</small>
+                            <label>Enter a user to challenge</label>
+                            <select className="form-control" id="usernameSelect" name="oppUser" onChange={handleInputChange}  placeholder="username">
+                                <option defaultValue>Choose...</option>
+                                {users.map((u, i) => (
+                                <option key={i} >{u.username}</option>
+                                    ))}
+                            </select>
+                        </>
+                    )}
+                    {/* <input  type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
+                    <small id="emailHelp" className="form-text text-muted">***Later this will be users db search***</small> */}
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Which Biz will you run for?</label>

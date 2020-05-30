@@ -3,7 +3,7 @@ import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import "./RunningStats.css"
 import Jdenticon from "react-jdenticon";
-import LineChart from "../LineChart";
+import BarChart from "../BarChart";
 import PieChart from "../PieChart";
 import { Col, Row, Container } from "../Grid";
 import { Card } from "../Card";
@@ -14,18 +14,19 @@ import DailyRunModal from "../DailyRunModal";
 import API from "../../utils/API";
 import AUTH from "../../utils/AUTH";
 import UserContext from "../../utils/UserContext";
+import UpdateUserModal from "../UpdateUserModal/UpdateUserModal";
 import RunningStatsContext from "../../utils/RunningStatsContext";
 
 
 function RunningStats() {
-  const { user, users } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   console.log("Context UserCard: ", user);
   // Setting our component's initial state for RunningStats and Challenges
   const [runningStats, setRunningStats] = useState([]);
   const [myChallenges, setMyChallenges] = useState([]);
   const [incomingChallenges, setIncomingChallenges] = useState([]);
   const [newChallenge, setNewChallenge] =useState(false);
-  // Setting our initial state for LineChart
+  // Setting our initial state for BarChart
   const [milesData, setMilesData] = useState([]);
   const [newRun, setNewRun] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -66,7 +67,7 @@ function RunningStats() {
     }
   }
 
-  function handleLineChart(){
+  function handleBarChart(){
     loadRunningStats();
   }
   // Loads all Challenges and sets them to Challenges
@@ -114,7 +115,10 @@ function RunningStats() {
 
   const handleUserUpdate =() =>{
     console.log("update!!")
-    console.log(user)
+    console.log(user);
+    return <UpdateUserModal/>
+
+
   }
 
   const handleUserDelete =(id) => {
@@ -149,10 +153,10 @@ function RunningStats() {
               <div className="card-header text-center">
                 <AlertProvider template={AlertTemplate} {...options}>
                     <RunningStatsContext.Provider>
-                      <DailyRunModal handleLineChart={handleLineChart} />
+                      <DailyRunModal handleBarChart={handleBarChart} />
                     </RunningStatsContext.Provider>
                     <ChallengeContext.Provider>
-                      <ChallengeModal handleChallenge={handleChallenge} />
+                      <ChallengeModal handleChallenge={handleChallenge} getChallenges={loadChallenges}/>
                     </ChallengeContext.Provider>
                 </AlertProvider>
                   </div>
@@ -164,8 +168,9 @@ function RunningStats() {
                   <p className="card-text pace">Average pace: {user.averagePace} /mile</p>
                   <p className="card-text distance">Typical distance: {user.averageDistance} miles</p>
                   <hr></hr>
-                  <button className="btn card-link updateBtn" onClick={handleUserUpdate}><i className="fa fa-edit mr-2"></i>Update</button>
-                  <button className="btn btn-light card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete</button>
+                  {/* <button className="btn card-link updateBtn" onClick={handleUserUpdate}><i className="fa fa-edit mr-2"></i>Update</button> */}
+                  <UpdateUserModal/>
+                  <button className="btn card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete User Account</button>
                 </div>
               </div>                
             </Card>
@@ -175,7 +180,7 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (newRun) ? (<LineChart milesData={milesData} />) : <h3>No races recorded yet</h3>
+              { (newRun) ? (<BarChart milesData={milesData} />) : <h3>No races recorded yet</h3>
               }
             </Card>
           </Col>

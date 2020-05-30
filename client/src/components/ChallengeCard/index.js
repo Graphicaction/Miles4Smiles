@@ -21,7 +21,7 @@ const ChallengeCard = (props) => {
                               <div className="modal-dialog" role="document">
                                 <div className="modal-content">
                                   <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Complete & submit challenge details below:</h5>
+                                    <h5 className="modal-title" id="exampleModalLabel">Submit Completed Challenge</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -75,9 +75,10 @@ const ChallengeCard = (props) => {
                             </>
                           )}
                           </div>
+                        {/* either render actual time or kick out
                         <div className="card-footer text-muted">
                             2 days ago
-                        </div>
+                        </div> */}
                       </div>
                     ))
                   }

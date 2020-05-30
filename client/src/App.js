@@ -9,6 +9,7 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import AUTH from './utils/AUTH';
 import UserContext from "./utils/UserContext";
+import About from "./pages/About/About"
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 
@@ -113,6 +114,7 @@ function App() {
                   <Welcome />
                 </UserContext.Provider>
               </Route>
+              <Route exact path="/about" component={About} />
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/mypage/:id">
                 <UserContext.Provider value={{user, users}}>
@@ -131,7 +133,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={() => <LoginForm login={login}/>} />
             <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
-
+            <Route exact path="/about" component={About} />
             <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
             <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
             <>

@@ -6,5 +6,5 @@ import Autocomplete from 'react-google-autocomplete';
       console.log(place);
     }}
     types={['(regions)']}
-    componentRestrictions={{country: "ru"}}
+    componentRestrictions={{country: "us"}}
 />

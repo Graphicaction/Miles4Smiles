@@ -11,7 +11,7 @@ function ChallengeForm(props) {
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     const alert = useAlert();
-    console.log("user who got challenged ", props.name);
+    
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -20,7 +20,11 @@ function ChallengeForm(props) {
 
     function handleChallengeSave(event) {
         event.preventDefault();
-        const challengers = [user.username, formObject.oppUser];
+        let challengers;
+        if(props.name){
+            challengers = [user.username, props.name];}
+        else{
+            challengers = [user.username, formObject.oppUser];}
         const donation = formObject.cMiles * formObject.cDonation;
         
         API.saveChallenge({
@@ -47,7 +51,7 @@ function ChallengeForm(props) {
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Enter a user to challenge</label>
                     {(props.name) ?
-                    <input onChange={handleInputChange} name="oppUser" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={props.name} disabled></input>
+                    <input name="oppUser" className="form-control" value={props.name} disabled></input>
                     : (   
                         <>           
                             <small id="emailHelp" className="form-text text-muted">***Later this will be users db search***</small>

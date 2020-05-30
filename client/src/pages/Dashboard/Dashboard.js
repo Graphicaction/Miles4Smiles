@@ -3,7 +3,7 @@ import "./Dashboard.css"
 import BarChart from "../../components/BarChart";
 import { Col, Row, Container } from "../../components/Grid";
 import { Card } from "../../components/Card";
-import CountUp from "react-countup";
+import AddDonation from "../../components/AddDonation";
 
 
 function Dashboard() {
@@ -42,8 +42,7 @@ function Dashboard() {
           </Col>
           <Col size="md-6 sm-6">
             <Card title="Overall Donation Amount " >
-               <p style={{ textAlign: "center", marginBottom:"0"}}>
-                 <CountUp duration={3} prefix="$" end={566}/></p>
+              <AddDonation />               
             </Card>
           </Col>
           </Row>

@@ -52,7 +52,7 @@ function SignupForm() {
       state:'',
 
     }).then(response => {
-      console.log(response.data)
+      // console.log(response.data)
       if (!response.data.error) {
         setRedirectTo('/');
       } else {

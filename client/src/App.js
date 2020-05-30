@@ -134,9 +134,11 @@ function App() {
 
             <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
             <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
+            <>
             <AlertProvider template={AlertTemplate} {...options}>
               <Route exact path="/signup" component={SignupForm} />
             </AlertProvider>
+            </>
           </Switch>
         </div>
         </>

@@ -106,7 +106,9 @@ findAll: (req, res)=>{
         })
       .then(dbModel => {
         console.log(dbModel);
-        res.json(dbModel);
+        db.User.findOne({ _id: req.params.id })
+        .then(response =>  res.json(response));
+       
       })
       .catch(err => res.status(422).json(err));
   },

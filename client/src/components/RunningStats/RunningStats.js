@@ -155,8 +155,8 @@ function RunningStats() {
                     <RunningStatsContext.Provider>
                       <DailyRunModal handleBarChart={handleBarChart} />
                     </RunningStatsContext.Provider>
-                    <ChallengeContext.Provider>
-                      <ChallengeModal handleChallenge={handleChallenge} getChallenges={loadChallenges}/>
+                    <ChallengeContext.Provider myChallenges={myChallenges} incomingChallenges={incomingChallenges}>
+                      <ChallengeModal handleChallenge={handleChallenge} />
                     </ChallengeContext.Provider>
                 </AlertProvider>
                   </div>

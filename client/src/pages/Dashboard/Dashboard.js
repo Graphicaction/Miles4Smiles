@@ -16,7 +16,7 @@ function Dashboard() {
   function loadChallenges() {
     API.getChallenges()
       .then(response => {
-       setChallenges(response.data);
+       setChallenges(response.data.challenges);
       })
       .catch(err => console.log(err));
       console.log(challenges);

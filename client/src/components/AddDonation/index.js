@@ -13,10 +13,10 @@ function AddDonation() {
     },[challenges])
 
     const getDonation = () => {
-        console.log(challenges);
+        console.log(challenges[0]);
         let donationAmount = 0;
         challenges.map(challenge => {
-            donationAmount += challenge.donatedAmount
+            donationAmount += challenge.donatedAmount;
         })
         setDonation(donationAmount);
         console.log(donation);

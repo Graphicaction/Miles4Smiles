@@ -2,14 +2,13 @@ import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API";
 import AUTH from "../../utils/AUTH";
 import UserContext from "../../utils/UserContext";
-import ChallengeContext from "../../utils/ChallengeContext"
+// import ChallengeContext from "../../utils/ChallengeContext"
 import Jdenticon from "react-jdenticon";
 import {Input} from "../Form";
 import {Row, Col} from "../Grid"
 
 function UpdateChallengeForm(props) {
     const { user } = useContext(UserContext);
-    const {myChallenges, } = useContext(ChallengeContext)
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
 
@@ -32,7 +31,7 @@ function UpdateChallengeForm(props) {
             .catch(err => {
                 console.log(err);
             });
-            if(formObject.loser == user.username){
+            if(formObject.loser === user.username){
                 const lost = user.challengesLost + 1;
                 AUTH.userUpdate(user._id, {challengesLost: lost})
                 .then(res => {

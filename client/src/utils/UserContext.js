@@ -10,9 +10,9 @@ const UserContext = React.createContext({
   firstlogin: "",
   challengesWon: "",
   challengesTied: "",
-  challegesLost: ""
+  challegesLost: "",
   // handleUpdates: () => {}
-  // update: (user)=> {
+  updateUser: ()=> {}
   //   return {
   //     ...user,
   //     city: user.city,

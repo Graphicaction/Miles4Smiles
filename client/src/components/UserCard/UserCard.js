@@ -26,10 +26,10 @@ const UserCard =() => {
   let usersToRender;
   if (users) {
     let display4usersOnly = users.slice(0, 5);
-    usersToRender = display4usersOnly.map((user, i )=> {
   return(
     <>
-
+    
+    {display4usersOnly.map((user, i)=> (
     <div key={i} className="card text-center">
       <div className="card-body ">
         <Jdenticon   className="avatar" size="48" value={user.username} float="right"></Jdenticon>
@@ -48,9 +48,9 @@ const UserCard =() => {
         <button  className="btn btn-light card-link ml-3"><i className="fa fa-envelope mr-2"></i>Contact</button>
       </div>
     </div>
+    ))}
     </>
     )
-  });
   } else {
     usersToRender ="Loading..."
   }

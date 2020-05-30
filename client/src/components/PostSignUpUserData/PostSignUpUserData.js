@@ -43,7 +43,7 @@ const PostSignUpUserData =(props) => {
         .then(res => {
           console.log(res.data);
           props.flip();
-          // props.updateUserContext({ city: res.data.city, state: res.data.state, averagePace: res.data.averagePace, averageDistance: res.data.averageDistance });
+          props.updateUser({ city: res.data.city, state: res.data.state, averagePace: res.data.averagePace, averageDistance: res.data.averageDistance });
         }
         )
     }
@@ -105,7 +105,7 @@ const PostSignUpUserData =(props) => {
 
                 <Row>
                   <Col size="md-6 sm-6">
-                    <label>How long is you usual run?</label>
+                    <label>How long is your usual run?</label>
                       <Row>
                         <Col size="md-5">
                           <Input

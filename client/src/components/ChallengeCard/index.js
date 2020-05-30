@@ -14,18 +14,22 @@ const ChallengeCard = (props) => {
                         <div className="card-body">
                           <h5 className="card-header">You Challenged {challenge.challengers[1]}</h5>
                           <p className="card-text">You challenged {challenge.challengers[1]} to do a {challenge.distance} miles run where the loser needs to donate ${challenge.donatedAmount} to {challenge.businessName}.</p>
+                          
                           { (challenge.status === "pending") && (
                             <>
-                            <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>
+                              
+                                <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>
                             <div className="modal fade" id={`updateModal${i}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div className="modal-dialog" role="document">
                                 <div className="modal-content">
                                   <div className="modal-header">
+                                    
                                     <h5 className="modal-title" id="exampleModalLabel">Submit Completed Challenge</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
+                                  
                                   <div className="modal-body">
                                     <UpdateChallengeForm id={challenge._id} handleChallenge={props.handleChallenge} />
                                   </div>
@@ -57,13 +61,13 @@ const ChallengeCard = (props) => {
                                 <div className="modal-dialog" role="document">
                                   <div className="modal-content">
                                     <div className="modal-header">
-                                      <h5 className="modal-title" id="exampleModalLabel">Complete & submit challenge details below:</h5>
+                                      <h5 className="modal-title text-center">Complete & submit challenge details below:</h5>
                                       <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
                                     <div className="modal-body">
-                                      <UpdateChallengeForm id={challenge._id} handleChallenge={props.handleChallenge} />
+                                      <UpdateChallengeForm id={challenge._id} handleChallenge={props.handleChallenge} challengers={challenge.challengers} business={challenge.businessName}/>
                                     </div>
                                   </div>
                                 </div>

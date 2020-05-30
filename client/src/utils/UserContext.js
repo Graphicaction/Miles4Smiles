@@ -11,6 +11,17 @@ const UserContext = React.createContext({
   challengesWon: "",
   challengesTied: "",
   challegesLost: ""
+  // handleUpdates: () => {}
+  // update: (user)=> {
+  //   return {
+  //     ...user,
+  //     city: user.city,
+  //     state: user.state,
+  //     averagePace: user.averagePace,
+  //     averageDistance: user.averageDistance
+
+    // }
+  // }
 });
 
 export default UserContext;

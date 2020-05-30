@@ -27,6 +27,7 @@ export default {
   //user update after first signup
   update: function(id, userData){
     console.log(userData);
+    console.log(id)
     return axios.put('/auth/signup/' + id, {userData});
   },
   userUpdate: function(id, data) {

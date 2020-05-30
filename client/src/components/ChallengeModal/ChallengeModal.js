@@ -17,7 +17,7 @@ function ChallengeModal(props) {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <ChallengeForm handleChallenge={props.handleChallenge} />
+                    <ChallengeForm handleChallenge={props.handleChallenge} getChallenges={props.loadChallenges}/>
                   </div>
                 </div>
               </div>

@@ -46,11 +46,12 @@ const Nav = (props) => {
               <Link to ={"/mypage/" +props.user._id} className="nav-link" >My Page</Link>
             </li>
           )
-          : (
-          <li className="nav-item">
-          <Link to ={"/"} className="nav-link" >Not Available</Link>
-        </li>
-          )
+          : null
+        //   (
+        //   <li className="nav-item">
+        //   <Link to ={"/"} className="nav-link" >Not Available</Link>
+        // </li>
+        //   )
         }
         </ul>
         {(props.user) ? (

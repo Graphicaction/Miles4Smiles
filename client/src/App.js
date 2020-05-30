@@ -18,38 +18,38 @@ function App() {
   let history = useHistory();
 
   
-  useEffect(() => {
-    console.log("getuser of App.js");
-    AUTH.getUser().then(response => {
-        console.log("App getuser ",response.data);
-        if (!response.data.user) {
-          setLoggedIn(false);
-          setUser(null);
-        } else {
-          setLoggedIn(true);
-          setUser(response.data.user);
-        }
-      });
-     return () => {
-        setLoggedIn(false);
-        setUser(null);
-      };
-  }, []);
+  // useEffect(() => {
+  //   console.log("getuser of App.js");
+  //   AUTH.getUser().then(response => {
+  //       console.log("App getuser ",response.data);
+  //       if (!response.data.user) {
+  //         setLoggedIn(false);
+  //         setUser(null);
+  //       } else {
+  //         setLoggedIn(true);
+  //         setUser(response.data.user);
+  //       }
+  //     });
+  //    return () => {
+  //       setLoggedIn(false);
+  //       setUser(null);
+  //     };
+  // }, []);
 
-  useEffect(() => {
-    console.log("getAllusers of App.js");
-    AUTH.getAllUsers().then(response => {
-        console.log("App getAllUsers ",response.data);
-        if (!response.data.users) {
-          setUsers(null);
-        } else {
-          setUsers(response.data.users);
-        };
-      });
-      return () => {
-        setUsers(null);
-      };
-    }, []);
+  // useEffect(() => {
+  //   console.log("getAllusers of App.js");
+  //   AUTH.getAllUsers().then(response => {
+  //       console.log("App getAllUsers ",response.data);
+  //       if (!response.data.users) {
+  //         setUsers(null);
+  //       } else {
+  //         setUsers(response.data.users);
+  //       };
+  //     });
+  //     return () => {
+  //       setUsers(null);
+  //     };
+  //   }, []);
 
 
 	const logout = (event) => {
@@ -65,15 +65,29 @@ function App() {
 		});
 	};
 
-	const login = (username, password) => {
-		AUTH.login(username, password).then(response => {
+  const login = (username, password) => {
+    AUTH.login(username, password).then(response => {
       console.log(response.data);
       if (response.status === 200) {
         // update the state
+        console.log(response.data.user);
         setUser(response.data.user);
         setLoggedIn(true);
-     
-      } 
+
+        console.log("getAllusers of App.js");
+        AUTH.getAllUsers().then(response => {
+          console.log("App getAllUsers ", response.data);
+          if (!response.data.users) {
+            setUsers(null);
+          } else {
+            console.log(response.data.users);
+            setUsers(response.data.users);
+          };
+        });
+        return () => {
+          setUsers(null);
+        };
+      }
     });
   };
   

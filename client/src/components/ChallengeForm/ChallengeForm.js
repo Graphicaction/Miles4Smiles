@@ -5,11 +5,10 @@ import { useAlert } from 'react-alert'
 
 function ChallengeForm(props) {
     const { user } = useContext(UserContext);
-    const [challengeData, setChallenges] = useState([]);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     const alert = useAlert();
-
+    console.log("user who got challenged ", props.name);
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -19,7 +18,6 @@ function ChallengeForm(props) {
         event.preventDefault();
         const challengers = [user.username, formObject.oppUser];
         const donation = formObject.cMiles * formObject.cDonation;
-        console.log("challengers array:",challengers);
         
         API.saveChallenge({
             challengers: challengers,
@@ -30,7 +28,6 @@ function ChallengeForm(props) {
             status:"inProgress"
         })
         .then(res => {
-            console.log(res.data);
             alert.success('Challenge Saved!');
             challengeForm.current.reset();
             props.handleChallenge();
@@ -45,7 +42,10 @@ function ChallengeForm(props) {
             <form ref={challengeForm}>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Enter a user to challenge</label>
-                    <input onChange={handleInputChange} name="oppUser" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
+                    {(!props.name) ?
+                    <input onChange={handleInputChange} name="oppUser" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>:
+                    <input onChange={handleInputChange} name="oppUser" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={props.name} disabled></input>
+                    }               
                     <small id="emailHelp" className="form-text text-muted">***Later this will be users db search***</small>
                 </div>
                 <div className="form-group">

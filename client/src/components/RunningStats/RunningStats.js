@@ -93,7 +93,7 @@ function RunningStats() {
       .catch(err => console.log(err));
   };
 
-  function handleChallenge(){
+  const handleChallenge = () => {
     loadChallenges();
   }
 

@@ -26,12 +26,12 @@ function ChallengeModal(props) {
     </>
     ):(
     <>
-      <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target="#exampleModal">Challenge!</button>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target="#challengeModal"><i className="fa fa-flag-checkered mr-2"/>Challenge a User</button>
+        <div className="modal fade" id="challengeModal" tabIndex="-1" role="dialog" aria-labelledby="challengeModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Create a challenge to support your favorite local business!</h5>
+                <h5 className="modal-title">Create a challenge to support your favorite local business!</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>

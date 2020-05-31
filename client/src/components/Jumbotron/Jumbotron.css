@@ -1,12 +1,15 @@
 .jumbotron{
   height: 200px;
-  color: whitesmoke;
-  text-shadow: 1px 1px 1px #ffd6ba;
+  color: black;
+  text-shadow: 1px 1px 1px whitesmoke;
   clear: both; 
   padding-top: 20px;
   text-align: center;
-  background-color: #89b0ae;
-  /* background-image: url("./bgIMG.jpg")!important; */
-  border-bottom: black 2px solid;
-  box-shadow: 3px 2px 3px #ccc
+  background: linear-gradient(#a2cabc, #ffe5d9);
+  /* background-color: #b7cfcd; */
+  /* background-color: #89b0ae; */
+  /* background-image: url("./jeremy-lapak-CVvFVQ_-oUg-unsplash.jpg")!important; */
+  background-size: cover;
+  /* border-bottom: black 2px solid; */
+  /* box-shadow: 3px 2px 3px #ccc */
 }

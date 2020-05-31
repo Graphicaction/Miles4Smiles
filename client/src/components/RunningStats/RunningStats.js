@@ -146,32 +146,44 @@ function RunningStats() {
           <Col size="md-6">
             <Card title="Update Your Information" style={{justifyContent:"center"}}>
               <div key= {user._id} className="card text-center">
-              <div className="card-header text-center">
                 <AlertProvider template={AlertTemplate} {...options}>
-                    <RunningStatsContext.Provider>
-                      <DailyRunModal handleBarChart={handleBarChart} />
-                    </RunningStatsContext.Provider>
-                    <ChallengeContext.Provider myChallenges={myChallenges} incomingChallenges={incomingChallenges}>
-                      <ChallengeModal handleChallenge={handleChallenge} />
-                    </ChallengeContext.Provider>
+                    <Row>
+                      <Col size="6">
+                        <RunningStatsContext.Provider>
+                          <DailyRunModal handleBarChart={handleBarChart} />
+                        </RunningStatsContext.Provider>
+                      </Col>
+                      <Col size="6">
+                        <ChallengeContext.Provider myChallenges={myChallenges} incomingChallenges={incomingChallenges}>
+                          <ChallengeModal handleChallenge={handleChallenge} />
+                        </ChallengeContext.Provider>
+                        </Col>
+                    </Row>
                 </AlertProvider>
-                  </div>
+                <hr></hr>
+                {/* <div className="card-header text-center"> */}
                 <div className="card-body ">
                   <Jdenticon className="avatar" size="48" value={user._id} float="right"></Jdenticon>
                   <h5 className="card-title justify-content-center">{user.username}</h5>
                   <h6 className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state}</h6>
                   <hr></hr>
-                  <p className="card-text pace">Average pace: {user.averagePace} /mile</p>
-                  <p className="card-text distance">Typical distance: {user.averageDistance} miles</p>
+                  <p className="card-text pace">Average Pace: {user.averagePace} mile</p>
+                  <p className="card-text distance">Typical Distance: {user.averageDistance} miles</p>
                   <hr></hr>
-                  {/* <button className="btn card-link updateBtn" onClick={handleUserUpdate}><i className="fa fa-edit mr-2"></i>Update</button> */}
-                  <UpdateUserModal/>
-                  <button className="btn card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete User Account</button>
+                  <Row>
+                    <Col size="6">
+                      <UpdateUserModal/>
+                    </Col>
+                    <Col size="6">
+                      <button className="btn card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete User Account</button>
+                    </Col>
+                  </Row>
                 </div>
               </div>                
             </Card>
           </Col>
         </Row>
+    
           
         <Row>
           <Col size="md-6 sm-12">
@@ -181,7 +193,7 @@ function RunningStats() {
             </Card>
           </Col>
           <Col size="md-6 sm-12">
-            <Card title="Past Challenges" style={{backgroundColor: "whitesmoke"}}>
+            <Card title="Past Challenges" >
               <PieChart />
             </Card>
           </Col>

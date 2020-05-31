@@ -7,9 +7,11 @@
 }
 
 .wereChallenged{
-  background-color: #ffe5d9!important
+  /* background-color: #ffe5d9!important */
+  border: 3px solid #d6947a!important
 }
 
 .areChallenging{
-  background-color:#ffe5d9!important
+  /* background-color:#ffe5d9!important; */
+border:3px solid #adcec0!important
 }

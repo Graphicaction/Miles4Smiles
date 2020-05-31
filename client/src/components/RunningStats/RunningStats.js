@@ -188,7 +188,7 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (newRun) ? (<BarChart milesData={milesData} />) : <p>No races recorded yet</p>
+              { (newRun) ? (<BarChart data={milesData} label="Races Completed" yLabelString="Km" xLabelString="Number of Races" />) : <p className="text-center">No races recorded yet</p>
               }
             </Card>
           </Col>

@@ -12,7 +12,7 @@ function BusinessBoard() {
     return (
         <div>
             <ul>{
-                challenges.map((challenge,i) => (i<5 && <li>{challenge.businessName}</li>))
+                challenges.map((challenge,i) => (i<5 && <li key={challenge._id}>{challenge.businessName}</li>))
             }</ul>
         </div>
   )

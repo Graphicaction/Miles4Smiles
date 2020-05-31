@@ -10,17 +10,24 @@ import API from "../../utils/API";
 
 function Dashboard() {
   const [challenges, setChallenges] = useState([]);
+  const [distanceData, setDistanceData] = useState([]);
 
   // Loads all Challenges and sets them to Challenges
   useEffect(() => {loadChallenges()},[])
   
   function loadChallenges() {
+    let allChallenges,dData = [];
     API.getChallenges()
       .then(response => {
-       setChallenges(response.data.challenges);
+        allChallenges = response.data.challenges;
+        allChallenges.map(challenge => {
+          dData.push(challenge.distance);
+        })
+        setChallenges(allChallenges);
+        setDistanceData(dData);
+        console.log(allChallenges[0].distance, distanceData);
       })
       .catch(err => console.log(err));
-      console.log(challenges);
   };
     return (
       <Container fluid>
@@ -28,7 +35,8 @@ function Dashboard() {
           <Row>
           <Col size="md-6 sm-12">
             <Card title="Challenges">
-              <BarChart />
+              { (distanceData) ? (<BarChart data={distanceData} label="Challenges Completed" yLabelString="Km" xLabelString="Number of Challenges" />) : <h3>No challenges recorded yet</h3>
+              }
               {/* needs to call the graph that shows overall miles ran similar to budget tracker adding on*/}
             </Card>
           </Col>
@@ -46,7 +54,8 @@ function Dashboard() {
          <Col  fluid size="md-6 sm-6">
           <Card title="Recently Supported Local Businesses">
               <ChallengeContext.Provider value={{challenges}}>
-                <BusinessBoard />
+                {challenges ? <BusinessBoard /> : <h3>No challenges recorded yet</h3>
+                }
               </ChallengeContext.Provider>
           </Card>
           </Col>

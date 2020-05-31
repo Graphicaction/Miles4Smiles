@@ -23,12 +23,12 @@ function UpdateForm() {
     function handleFormSubmit(event) {
         event.preventDefault();
  
-        if (formObject.averagePace || formObject.averageDistance || formObject.username|| formObject.password || formObject.city || formObject.state) {
+        if (formObject.averagePace && formObject.averageDistance) {
           AUTH.update(user._id,{
             // ...user,
             // username: formObject.username,
             // password: formObject.password,
-            averageDistance: parseInt(formObject.averageDistance),
+            averageDistance: (formObject.averageDistance),
             averagePace: parseInt(formObject.averagePace),
             // city: formObject.city,
             // state: formObject.state,
@@ -74,9 +74,9 @@ function UpdateForm() {
                   name="state"
                   placeholder="update state"
                 /> */}
-                <FormBtn
+                <FormBtn id="updateBtn"
                   onClick={handleFormSubmit} >
-                  Update my Data
+                  Update my User Account
                 </FormBtn>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>

@@ -1,5 +1,6 @@
 import React, {Fragment, useContext} from "react";
 import RunningStats from "../../components/RunningStats/RunningStats";
+import Jumbotron from "../../components/Jumbotron"
 import "./MyPage.css";
 import UserContext from "../../utils/UserContext";
 
@@ -15,13 +16,13 @@ const MyPage =() => {
     } else if (user.firstName) {
       greeting = (
         <Fragment>
-         Hello <strong>{user.firstName}, we are glad you are back  ! Here is an overview of your latest races and challenges.</strong>
+         <h4>Hello <strong>{user.firstName}, we are glad you are back  ! Here is an overview of your latest races and challenges.</strong></h4>
         </Fragment>
       )
     } else if (user.username) {
       greeting = (
         <Fragment>
-          Hello <strong>{user.username}, we are glad you are back ! Here is an overview of your latest races and challenges. </strong>
+          <h4>Hello <strong>{user.username}, we are glad you are back ! Here is an overview of your latest races and challenges. </strong></h4>
         </Fragment>
       )
     } 
@@ -29,7 +30,7 @@ const MyPage =() => {
     
   return(
     <>
-    <div className="alert alert-secondary text-center">{greeting}</div>
+    <div className="alert text-center" style={{background: "linear-gradient(#a2cabc, #FFF6F1)", borderBottom: "none"}}>{greeting}</div>
      <RunningStats />
     </>
   )

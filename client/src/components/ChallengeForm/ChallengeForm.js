@@ -1,8 +1,8 @@
 import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API";
-import AUTH from "../../utils/AUTH";
 import UserContext from "../../utils/UserContext";
 import { useAlert } from 'react-alert'
+import {Row, Col} from "../Grid"
 
 function ChallengeForm(props) {
     //const { user } = useContext(UserContext);
@@ -49,12 +49,12 @@ function ChallengeForm(props) {
         <>
             <form ref={challengeForm}>
                 <div className="form-group">
-                    <label>Select a user to challenge</label>
+                    <label>Select A User To Challenge</label>
                     {(props.name) ?
                     <input name="oppUser" className="form-control" value={props.name} disabled></input>
                     : (   
                         <>           
-                            {/* <label>Enter a user to challenge</label> */}
+                            <label>Select The User You Want to Challenge</label>
                             <select className="form-control" id="usernameSelect" name="oppUser" onChange={handleInputChange}  placeholder="username">
                                 <option defaultValue>Choose...</option>
                                 {users.map((u, i) => (
@@ -67,7 +67,7 @@ function ChallengeForm(props) {
                     <small id="emailHelp" className="form-text text-muted">***Later this will be users db search***</small> */}
                 </div>
                 <div className="form-group">
-                    <label>Which Biz will you run for?</label>
+                    <label>Which Business Will You Support?</label>
                     <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input>
                     <small className="form-text text-muted">***Later this will be Local Business API search***</small>
                 </div>
@@ -82,14 +82,25 @@ function ChallengeForm(props) {
                     </select>
                 </div> */}
                 <div className="form-group">
-                    <label>Let's talk milage 🏁</label>
-                    <input onChange={handleInputChange} name="cMiles" className="form-control form-control-sm" type="text" placeholder="Enter proposed challenge distance in miles"></input>
-                    <input onChange={handleInputChange} name="cDonation" className="form-control form-control-sm" type="text" placeholder="Enter donation amount per mile in USD"></input>
+                    <label>Let's Talk Milage 🏁</label>
+                    <Row>
+                        <Col size="6">
+                            <input onChange={handleInputChange} name="cMiles" className="form-control form-control-sm" type="text" placeholder="Distance in Miles"></input>
+                        </Col>
+                        <Col size="6">
+                            <input onChange={handleInputChange} name="cDonation" className="form-control form-control-sm" type="text" placeholder="$ Amount per Mile"></input>
+                        </Col>
+                    </Row>
                 </div>
-                <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal">Save challenge</button>
-                </div>
+                <hr></hr>                
+                <Row>
+                    <Col size="6">
+                        <button type="button" className="btn btn-secondary" data-dismiss="modal"><i className="fa fa-eject mr-2"/>Cancel</button>
+                    </Col>
+                    <Col size="6">
+                        <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal"><i className="fa fa-paper-plane mr-2"/>Send Challenge</button>
+                    </Col>
+                </Row>
             </form>
         </>
     )

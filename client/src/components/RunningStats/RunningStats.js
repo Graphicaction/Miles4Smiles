@@ -126,13 +126,14 @@ function RunningStats() {
     //add that immediately logged out
   }
 
+  // For duplicate user login alert:
   const options = {
     position: positions.TOP_CENTER,
     timeout: 2500,
     offset: '30px',
     transition: transitions.SCALE
   }
- 
+  
   let loggedInUser;
  if (user) {
     loggedInUser = { user }

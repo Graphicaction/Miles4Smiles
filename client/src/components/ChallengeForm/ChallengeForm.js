@@ -49,13 +49,12 @@ function ChallengeForm(props) {
         <>
             <form ref={challengeForm}>
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Enter a user to challenge</label>
+                    <label>Select a user to challenge</label>
                     {(props.name) ?
                     <input name="oppUser" className="form-control" value={props.name} disabled></input>
                     : (   
                         <>           
-                            <small id="emailHelp" className="form-text text-muted">***Later this will be users db search***</small>
-                            <label>Enter a user to challenge</label>
+                            {/* <label>Enter a user to challenge</label> */}
                             <select className="form-control" id="usernameSelect" name="oppUser" onChange={handleInputChange}  placeholder="username">
                                 <option defaultValue>Choose...</option>
                                 {users.map((u, i) => (
@@ -68,9 +67,9 @@ function ChallengeForm(props) {
                     <small id="emailHelp" className="form-text text-muted">***Later this will be users db search***</small> */}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Which Biz will you run for?</label>
+                    <label>Which Biz will you run for?</label>
                     <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input>
-                    <small id="emailHelp" className="form-text text-muted">***Later this will be Local Business API search***</small>
+                    <small className="form-text text-muted">***Later this will be Local Business API search***</small>
                 </div>
                 {/* <div className="form-group">
                     <label htmlFor="exampleFormControlSelect1">Select Biz type:</label>
@@ -83,7 +82,7 @@ function ChallengeForm(props) {
                     </select>
                 </div> */}
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Let's talk milage 🏁</label>
+                    <label>Let's talk milage 🏁</label>
                     <input onChange={handleInputChange} name="cMiles" className="form-control form-control-sm" type="text" placeholder="Enter proposed challenge distance in miles"></input>
                     <input onChange={handleInputChange} name="cDonation" className="form-control form-control-sm" type="text" placeholder="Enter donation amount per mile in USD"></input>
                 </div>

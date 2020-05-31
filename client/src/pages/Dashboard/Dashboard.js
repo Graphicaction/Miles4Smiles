@@ -11,21 +11,24 @@ import API from "../../utils/API";
 function Dashboard() {
   const [challenges, setChallenges] = useState([]);
   const [distanceData, setDistanceData] = useState([]);
-
+  const [donationData, setDonationData] = useState([]);
   // Loads all Challenges and sets them to Challenges
   useEffect(() => {loadChallenges()},[])
   
   function loadChallenges() {
-    let allChallenges,dData = [];
+    let allChallenges,dData, moneyData = [];
     API.getChallenges()
       .then(response => {
         allChallenges = response.data.challenges;
         allChallenges.map(challenge => {
           dData.push(challenge.distance);
-        })
+        });
+        allChallenges.map(challenge => {
+          moneyData.push(challenge.donatedAmount);
+        });
         setChallenges(allChallenges);
         setDistanceData(dData);
-        console.log(allChallenges[0].distance, distanceData);
+        setDonationData(moneyData);
       })
       .catch(err => console.log(err));
   };
@@ -43,7 +46,8 @@ function Dashboard() {
           
           <Col size="md-6 sm-12">
             <Card title="Donation to Local Businesses">
-              <BarChart />
+            { (donationData) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <h3>No donations recorded yet</h3>
+              }
               {/* needs to call the graph that shows overall money that was donated similar to budget tracker */}
             </Card>
           </Col>

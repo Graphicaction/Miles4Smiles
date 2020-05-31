@@ -148,12 +148,12 @@ function RunningStats() {
               <div key= {user._id} className="card text-center">
                 <AlertProvider template={AlertTemplate} {...options}>
                     <Row>
-                      <Col size="6">
+                      <Col size="lg-6 sm-12">
                         <RunningStatsContext.Provider>
                           <DailyRunModal handleBarChart={handleBarChart} />
                         </RunningStatsContext.Provider>
                       </Col>
-                      <Col size="6">
+                      <Col size="lg-6 sm-12">
                         <ChallengeContext.Provider myChallenges={myChallenges} incomingChallenges={incomingChallenges}>
                           <ChallengeModal handleChallenge={handleChallenge} />
                         </ChallengeContext.Provider>
@@ -171,10 +171,10 @@ function RunningStats() {
                   <p className="card-text distance">Typical Distance: {user.averageDistance} miles</p>
                   <hr></hr>
                   <Row>
-                    <Col size="6">
+                    <Col size="lg-6 sm-12">
                       <UpdateUserModal/>
                     </Col>
-                    <Col size="6">
+                    <Col size="lg-6 sm-12">
                       <button className="btn card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete User Account</button>
                     </Col>
                   </Row>
@@ -188,7 +188,7 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (newRun) ? (<BarChart data={milesData} label="Races Completed" yLabelString="Km" xLabelString="Number of Races" />) : <h3>No races recorded yet</h3>
+              { (newRun) ? (<BarChart data={milesData} label="Races Completed" yLabelString="Km" xLabelString="Number of Races" />) : <p className="text-center">No races recorded yet</p>
               }
             </Card>
           </Col>

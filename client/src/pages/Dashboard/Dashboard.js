@@ -40,7 +40,7 @@ function Dashboard() {
           <Row>
           <Col size="md-6 sm-12">
             <Card title="Challenges">
-              { (distanceData) ? (<BarChart data={distanceData} label="Challenges Completed" yLabelString="Km" xLabelString="Number of Challenges" />) : <h3>No challenges recorded yet</h3>
+              { (distanceData) ? (<BarChart data={distanceData} label="Challenges Completed" yLabelString="Km" xLabelString="Number of Challenges" />) : <p className="text-center">No challenges recorded yet</p>
               }
               {/* needs to call the graph that shows overall miles ran similar to budget tracker adding on*/}
             </Card>
@@ -48,7 +48,7 @@ function Dashboard() {
           
           <Col size="md-6 sm-12">
             <Card title="Donation to Local Businesses">
-            { (donationData[0]==0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <h3>No donations recorded yet</h3>
+            { (donationData[0]==0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <p className="text-center">No donations recorded yet</p>
               }
               {/* needs to call the graph that shows overall money that was donated similar to budget tracker */}
             </Card>
@@ -60,7 +60,7 @@ function Dashboard() {
          <Col  fluid size="md-6 sm-6">
           <Card title="Recently Supported Local Businesses">
               <ChallengeContext.Provider value={{challenges}}>
-                {challenges.length>0 ? <BusinessBoard /> : <h3>No businesses recorded yet</h3>
+                {challenges.length>0 ? <BusinessBoard /> : <p className="text-center">No businesses recorded yet</p>
                 }
               </ChallengeContext.Provider>
           </Card>
@@ -68,7 +68,7 @@ function Dashboard() {
           <Col size="md-6 sm-6">
             <Card title="Overall Donation Amount " >
               <ChallengeContext.Provider value={{challenges}}>
-                {challenges.length>0 ? <AddDonation /> : <h3>No challenges recorded yet</h3>
+                {challenges.length>0 ? <AddDonation /> : <p className="text-center">No challenges recorded yet</p>
                   }
               </ChallengeContext.Provider>
             </Card>

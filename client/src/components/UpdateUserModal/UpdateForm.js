@@ -28,7 +28,7 @@ function UpdateForm() {
             // ...user,
             // username: formObject.username,
             // password: formObject.password,
-            averageDistance: parseInt(formObject.averageDistance),
+            averageDistance: (formObject.averageDistance),
             averagePace: parseInt(formObject.averagePace),
             // city: formObject.city,
             // state: formObject.state,

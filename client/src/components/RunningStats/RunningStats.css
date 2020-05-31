@@ -1,15 +1,15 @@
 #start-challenge{
-  background-color: #d6947a!important;
+  background-color: #ffd6ba!important;
   margin: 20px
 }
 
 .deleteBtn{
-  background-color: #d6947a!important;
-  margin: 20px
+  color: #d67d7a!important;
+  /* margin: 20px */
 }
 
 .updateBtn{
-  background-color: #d6947a!important;
+  background-color: #89b0ae!important;
   margin: 20px
 
 }

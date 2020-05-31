@@ -1,13 +1,20 @@
 .logout {
   color: black;
-  background-color: #d6947a;
+  background-color:#ffd6ba;
+  box-shadow: none!important
 }
 
 .logout:hover {
   color: white;
-  background-color: #c46540;
+  background-color: #d6947a;
 }
 
 .greeting{
   color: white
 }
+
+.nav-link:hover{
+  color: #bee3db!important
+}
+
+

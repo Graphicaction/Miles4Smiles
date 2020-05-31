@@ -5,6 +5,7 @@ import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import Jumbotron from "../../components/Jumbotron/Jumbotron"
 import Axios from 'axios';
+import "./Login.css"
 // import Navbar from "../../components/Nav/Nav.js"
 //import bgIMG from "./bgIMG.jpg"
 // import M4S from "./M4S.png";
@@ -67,11 +68,11 @@ function LoginForm({login}) {
                   value={userObject.password}
                   onChange={handleChange}
                 />
-                <Link to="/signup" className="btn btn-primary">Register</Link>
+                <Link to="/signup" className="btn registerBtn">Register</Link>
                 <button onClick={googleDirect} className="btn btn-info ml-2"><i className="fa fa-google mr-2"></i>Sign in with Google</button>
                 <button onClick={githubDirect} className="btn btn-dark ml-2"><i className="fa fa-github mr-2"></i>Sign in with Github</button>
 
-                <FormBtn onClick={handleSubmit}>Login</FormBtn>
+                <FormBtn onClick={handleSubmit} style={{backgroundColor: "#89b0ae"}}>Login</FormBtn>
               </form>
             </Card>
       </Container>

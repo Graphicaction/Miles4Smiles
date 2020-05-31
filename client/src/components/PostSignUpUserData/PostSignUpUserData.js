@@ -59,7 +59,7 @@ const PostSignUpUserData =(props) => {
       <h3 className="display-4">Hello! </h3>
       <h5>We are so excited you want to support your local business!</h5>
       <hr></hr>
-      <p className="lead">To allow you to find runners with similar skills living close to you, we need some information from you before you can start to run for your local business!</p>
+      <p className="lead">To allow you to find runners with similar skills living close to you, we need some information from you!</p>
     {/* </div> */}
    </Jumbotron>
 

@@ -59,7 +59,7 @@ function UpdateChallengeForm(props) {
             <form ref={challengeForm}>
                 <div className="form-group text-center">
                     <label >Who lost and will donate to {props.business}?</label>
-                    {/* <label htmlFor="exampleInputEmail1">Who lost and will donate to {calculatedAmount} to {props.challenges.businessName}?</label> */}
+                    <br></br>
                     <br></br>
                     <Row>
                         <Col size="6">
@@ -85,10 +85,11 @@ function UpdateChallengeForm(props) {
                         {/* <input onChange={handleInputChange} name="loser" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input> */}
                     <small  className="form-text text-muted">Enter the user who ran the set distance at a slower pace.</small>
                 </div>
-                <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal">Submit challenge</button>
-                </div>
+                {/* <div className="modal-footer"> */}
+                <hr></hr>
+                    <button type="button" className="btn btn-secondary mr-5" data-dismiss="modal"><i className="fa fa-eject mr-2"/>Cancel</button>
+                    <button type="button" className="btn" onClick={handleChallengeSave} data-dismiss="modal" style={{backgroundColor: "#89b0ae"}}><i className="fa fa-paper-plane mr-2"/>Submit Challenge</button>
+                
             </form>
         </>
     )

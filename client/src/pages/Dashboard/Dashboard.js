@@ -16,19 +16,21 @@ function Dashboard() {
   useEffect(() => {loadChallenges()},[])
   
   function loadChallenges() {
-    let allChallenges,dData, moneyData = [];
+    let allChallenges=[], dData=[];
+    let moneyData = [];
     API.getChallenges()
       .then(response => {
         allChallenges = response.data.challenges;
+        //Adding distances into an array
         allChallenges.map(challenge => {
           dData.push(challenge.distance);
-        });
-        allChallenges.map(challenge => {
           moneyData.push(challenge.donatedAmount);
         });
+        console.log(dData,moneyData);
         setChallenges(allChallenges);
         setDistanceData(dData);
         setDonationData(moneyData);
+        console.log(donationData);
       })
       .catch(err => console.log(err));
   };
@@ -46,7 +48,7 @@ function Dashboard() {
           
           <Col size="md-6 sm-12">
             <Card title="Donation to Local Businesses">
-            { (donationData) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <h3>No donations recorded yet</h3>
+            { (donationData[0]==0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <h3>No donations recorded yet</h3>
               }
               {/* needs to call the graph that shows overall money that was donated similar to budget tracker */}
             </Card>
@@ -58,7 +60,7 @@ function Dashboard() {
          <Col  fluid size="md-6 sm-6">
           <Card title="Recently Supported Local Businesses">
               <ChallengeContext.Provider value={{challenges}}>
-                {challenges ? <BusinessBoard /> : <h3>No challenges recorded yet</h3>
+                {challenges.length>0 ? <BusinessBoard /> : <h3>No businesses recorded yet</h3>
                 }
               </ChallengeContext.Provider>
           </Card>
@@ -66,7 +68,8 @@ function Dashboard() {
           <Col size="md-6 sm-6">
             <Card title="Overall Donation Amount " >
               <ChallengeContext.Provider value={{challenges}}>
-                <AddDonation /> 
+                {challenges.length>0 ? <AddDonation /> : <h3>No challenges recorded yet</h3>
+                  }
               </ChallengeContext.Provider>
             </Card>
           </Col>

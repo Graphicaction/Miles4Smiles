@@ -4,6 +4,7 @@ import BarChart from "../../components/BarChart";
 import { Col, Row, Container } from "../../components/Grid";
 import { Card } from "../../components/Card";
 import AddDonation from "../../components/AddDonation";
+import BusinessBoard from "../../components/BusinessBoard";
 import ChallengeContext from "../../utils/ChallengeContext";
 import API from "../../utils/API";
 
@@ -44,14 +45,10 @@ function Dashboard() {
         <Row>
          <Col  fluid size="md-6 sm-6">
           <Card title="Recently Supported Local Businesses">
-              {/* dynamically render all businesses that were previously selected in challenges */}
-              <ul>
-                <li>Bos's Burger, Apex, NC, website</li>
-                <li>Lena's Lemons, Cary, NC, website </li>
-                <li>Rashmi's Radish, Durham, website</li>
-                <li>Rachel's Ramen, Chapel Hill, website</li>
-              </ul>
-            </Card>
+              <ChallengeContext.Provider value={{challenges}}>
+                <BusinessBoard />
+              </ChallengeContext.Provider>
+          </Card>
           </Col>
           <Col size="md-6 sm-6">
             <Card title="Overall Donation Amount " >
@@ -60,7 +57,7 @@ function Dashboard() {
               </ChallengeContext.Provider>
             </Card>
           </Col>
-          </Row>
+        </Row>
 
     </Container>
     );

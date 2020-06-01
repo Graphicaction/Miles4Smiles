@@ -8,8 +8,7 @@ import ChallengeModal from "../ChallengeModal/ChallengeModal";
 
 const UserCard =() => {
   const { user, users } = useContext(UserContext);
-  console.log("Context UserCard: ", user);
-  console.log( users);
+  const currentUser = user._id;
 
   const handleChallenge = () => {
     console.log("Challenge saved");
@@ -28,9 +27,8 @@ const UserCard =() => {
     let display4usersOnly = users.slice(0, 5);
   return(
     <>
-    
-    {display4usersOnly.map((user, i)=> (
-    <div key={i} className="card text-center">
+    {display4usersOnly.map(user => ( user._id !== currentUser && (
+    <div key={user._id} className="card text-center">
       <div className="card-body ">
         <Jdenticon className="avatar" size="48" value={user.username} float="right"></Jdenticon>
         <h5  className="card-title justify-content-center">{user.username}</h5>
@@ -43,12 +41,9 @@ const UserCard =() => {
         <AlertProvider template={AlertTemplate} {...options}>
           <ChallengeModal handleChallenge={handleChallenge} name={user.username} />
         </AlertProvider>
-        {/* <button  className="btn card-link challengeBtn"><i className="fa fa-flag-checkered mr-2"></i>Challenge</button> */}
-        {/* <button className="btn card-link challengeBtn"><i className="fa fa-flag-checkered mr-2"></i>Challenge</button> */}
-        {/* <button  className="btn btn-light card-link ml-3"><i className="fa fa-envelope mr-2"></i>Contact</button> */}
       </div>
     </div>
-    ))}
+    )))}
     </>
     )
   } else {

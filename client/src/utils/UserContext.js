@@ -12,7 +12,7 @@ const UserContext = React.createContext({
   challengesTied: "",
   challegesLost: "",
   // handleUpdates: () => {}
-  updateUser: ()=> {}
+  setUser: ()=> {}
   //   return {
   //     ...user,
   //     city: user.city,

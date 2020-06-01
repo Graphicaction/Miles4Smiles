@@ -24,13 +24,14 @@ function Dashboard() {
         //Adding distances into an array
         allChallenges.map(challenge => {
           dData.push(challenge.distance);
-          moneyData.push(challenge.donatedAmount);
+          if(challenge.status === "finish")
+            moneyData.push(challenge.donatedAmount);
         });
-        console.log(dData,moneyData);
+        console.log("my money data",moneyData);
+        setDonationData(moneyData);
         setChallenges(allChallenges);
         setDistanceData(dData);
-        setDonationData(moneyData);
-        console.log(donationData);
+        console.log("my donation data",donationData);
       })
       .catch(err => console.log(err));
   };
@@ -48,7 +49,7 @@ function Dashboard() {
           
           <Col size="md-6 sm-12">
             <Card title="Donation to Local Businesses">
-            { (donationData[0]==0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <p className="text-center">No donations recorded yet</p>
+            { (donationData[0] !== 0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <p className="text-center">No donations recorded yet</p>
               }
               {/* needs to call the graph that shows overall money that was donated similar to budget tracker */}
             </Card>

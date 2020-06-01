@@ -15,13 +15,12 @@ import AUTH from '../../utils/AUTH';
 
 const PostSignUpUserData =(props) => {
   //  Setting our component's initial state
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [formObject, setFormObject] = useState({});
   let firstLogin;
   const formEl = useRef(null);
   const id = user._id;
-  console.log(user._id)
-
+  
  const handleInputChange =(event) =>{
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
@@ -43,7 +42,7 @@ const PostSignUpUserData =(props) => {
         .then(res => {
           console.log(res.data);
           props.flip();
-          props.updateUser({ city: res.data.city, state: res.data.state, averagePace: res.data.averagePace, averageDistance: res.data.averageDistance });
+          setUser(res.data);
         }
         )
     }
@@ -86,20 +85,12 @@ const PostSignUpUserData =(props) => {
                   </Col>
                   <Col size="md-6 sm-6">
                     <label>What state do you live in?</label>
-                      {/* add usState data to select a state */}
-                          {/* <Input 
-                            onChange={handleInputChange}
-                            name="state"
-                            placeholder="NC"
-                          />  */}
-                           <select className="form-control" id="usStateSelect" name="state" onChange={handleInputChange}  placeholder="NC">
-                           <option defaultValue>Choose...</option>
-                           {usStates.map((states, i) =>(
-                            <option key={i} >{states.name}</option>
-                            ))}
-                          </select>
-
-             
+                      <select className="form-control" id="usStateSelect" name="state" onChange={handleInputChange}  placeholder="NC">
+                        <option defaultValue>Choose...</option>
+                        {usStates.map((states, i) =>(
+                        <option key={i} >{states.name}</option>
+                        ))}
+                      </select>
                   </Col>
                 </Row>
 

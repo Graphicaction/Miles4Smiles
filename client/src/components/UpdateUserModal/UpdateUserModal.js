@@ -6,7 +6,7 @@ function UpdateUserModal() {
 
   return (
     <>
-      <button type="button" className="btn" id="update-user" data-toggle="modal" data-target="#user" ><i className="fa fa-edit mr-2"/>Update User Account</button>
+      <button type="button" className="btn" id="update-user" data-toggle="modal" data-target="#user" ><i className="fa fa-edit mr-2"/>Update User</button>
             <div className="modal fade" id="user" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">

@@ -176,7 +176,7 @@ function RunningStats() {
                       <UpdateUserModal/>
                     </Col>
                     <Col size="lg-6 sm-12">
-                      <button className="btn card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete User Account</button>
+                      <button className="btn card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete User</button>
                     </Col>
                   </Row>
                 </div>

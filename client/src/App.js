@@ -20,46 +20,11 @@ function App() {
   const [firstLogin, setFirstLogin] = useState(false);
   let history = useHistory();
 
-  
-  // useEffect(() => {
-  //   console.log("getuser of App.js");
-  //   AUTH.getUser().then(response => {
-  //       console.log("App getuser ",response.data);
-  //       if (!response.data.user) {
-  //         setLoggedIn(false);
-  //         setUser(null);
-  //       } else {
-  //         setLoggedIn(true);
-  //         setUser(response.data.user);
-  //       }
-  //     });
-  //    return () => {
-  //       setLoggedIn(false);
-  //       setUser(null);
-  //     };
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log("getAllusers of App.js");
-  //   AUTH.getAllUsers().then(response => {
-  //       console.log("App getAllUsers ",response.data);
-  //       if (!response.data.users) {
-  //         setUsers(null);
-  //       } else {
-  //         setUsers(response.data.users);
-  //       };
-  //     });
-  //     return () => {
-  //       setUsers(null);
-  //     };
-  //   }, []);
-
-
-	const logout = (event) => {
+  const logout = (event) => {
     event.preventDefault();
     
 		AUTH.logout().then(response => {
-			// console.log(response.data);
+			// check for logout status and redirect
 			if (response.status === 200) {
 				setLoggedIn(false);
         setUser(null);
@@ -110,7 +75,7 @@ function App() {
           <div className="main-view">
             <Switch>
               <Route exact path="/welcome" >
-                <UserContext.Provider value={{user, users}}>
+                <UserContext.Provider value={{user, users, setUser}}>
                   <Welcome />
                 </UserContext.Provider>
               </Route>

@@ -65,6 +65,7 @@ const Welcome = (props) =>{
         setChallengersData(challengersData);
       })
       .catch(err => console.log(err));
+
   };
 //change user from first time to returning user
   const flip = ()=> {

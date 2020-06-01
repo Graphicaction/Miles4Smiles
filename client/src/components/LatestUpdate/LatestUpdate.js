@@ -12,11 +12,12 @@ function LatestUpdate() {
     return (
         <div>
             <ul>{
-                challenges.map((challenge,i) => (i<5 && 
-                <>
-                <li key={challenge._id}>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} race. {challenge.donor} lost and donated {challenge.donatedAmount} to support {challenge.businessName}. Thanks {challenge.donor}!</li>
-                <hr></hr>
-                </>
+                challenges.map((challenge,i) => (
+                  i<5 && 
+                    <>
+                    <li key={challenge._id}>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} race. {challenge.donor} lost and donated {challenge.donatedAmount} to support {challenge.businessName}. Thanks {challenge.donor}!</li>
+                    <hr></hr>
+                    </>
                 ))
             }</ul>
         </div>

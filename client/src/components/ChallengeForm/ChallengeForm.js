@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import UserContext from "../../utils/UserContext";
 import { useAlert } from 'react-alert'
 import {Row, Col} from "../Grid"
+import LocationSearchInput from "../../utils/GPlaces";
 
 function ChallengeForm(props) {
     //const { user } = useContext(UserContext);
@@ -45,11 +46,12 @@ function ChallengeForm(props) {
         })
     }
 
+    
+
     return (
         <>
             <form ref={challengeForm}>
                 <div className="form-group">
-                    <label>Select A User To Challenge</label>
                     {(props.name) ?
                     <input name="oppUser" className="form-control" value={props.name} disabled></input>
                     : (   
@@ -68,8 +70,9 @@ function ChallengeForm(props) {
                 </div>
                 <div className="form-group">
                     <label>Which Business Will You Support?</label>
-                    <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input>
-                    <small className="form-text text-muted">***Later this will be Local Business API search***</small>
+                    <LocationSearchInput/>
+                    {/* <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input>
+                    <small className="form-text text-muted">***Later this will be Local Business API search***</small> */}
                 </div>
                 {/* <div className="form-group">
                     <label htmlFor="exampleFormControlSelect1">Select Biz type:</label>

@@ -6,7 +6,9 @@ import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUs
 import {Card} from "../../components/Card"
 import { Row, Col, Container } from "../../components/Grid";
 import UserContext from "../../utils/UserContext";
-import AUTH from "../../utils/AUTH";
+import API from "../../utils/API";
+import LatestUpdate from "../../components/LatestUpdate/LatestUpdate"
+import ChallengeContext from "../../utils/ChallengeContext"
 // import ItemsCarousel from 'react-items-carousel';
 
 
@@ -16,17 +18,54 @@ const Welcome = (props) =>{
   // const chevronWidth = 40;
 // //we will need city,state to show only users from same location
 //   const [location, setLocation] = useState("");
- 
+  const [challenges, setChallenges] = useState([]);
+  const [distanceData, setDistanceData] = useState([]);
+  const [donatedAmountData, setDonatedAmountData] = useState([]);
+  const [donorData, setDonorData] = useState([]);
+  const [challengersData, setChallengersData] = useState([]);
   const [firstLogin, setFirstLogin] = useState(false);
   const { user } = useContext(UserContext);
  //setup to direct first time login user to different component before going to usual welcome
   console.log(user);
+  console.log(challenges);
+
   useEffect(()=>{
     if(user)
       setFirstLogin(user.firstLogin);
   }, [user]);
 
-
+  useEffect(() => {
+    loadChallenges()
+  }, [] )
+  
+  function loadChallenges() {
+    let allChallenges=[];
+    let distanceData=[];
+    let donatedAmountData = [];
+    let donorData =[];
+    let challengersData =[]
+  
+    API.getChallenges()
+      .then(response => {
+        allChallenges = response.data.challenges;
+        //Adding distances into an array
+        allChallenges.map(challenge => {
+          if (challenge.status === "finish"){
+          distanceData.push(challenge.distance);
+          donatedAmountData.push(challenge.donatedAmount)
+          donorData.push(challenge.donor);
+          challengersData.push(challenge.challengers)
+          }
+        })
+        console.log(distanceData,donatedAmountData, donorData, challengersData);
+        setChallenges(allChallenges);
+        setDistanceData(distanceData);
+        setDonatedAmountData(donatedAmountData);
+        setDonorData(donorData);
+        setChallengersData(challengersData);
+      })
+      .catch(err => console.log(err));
+  };
 //change user from first time to returning user
   const flip = ()=> {
     setFirstLogin(false);
@@ -76,10 +115,9 @@ const Welcome = (props) =>{
     <div>
 
     { firstLogin && (
+      //if it's a first time user and more info needs to be entered to complete the user data
      <div>
       <PostSignUpUserData id={user._id} flip={flip} updateUser={updateUser}/>
-
-       {/* <PostSignUpUserData id={user._id} flip={flip} updateUserContext={updateUserContext}/> */}
      </div>
     )}
     { !firstLogin && (
@@ -87,12 +125,10 @@ const Welcome = (props) =>{
     //if it's a returning user display this
     <div>
     <Jumbotron >
-    {/* <div className="container"> */}
       <h2 className="display-4">Miles 4 Smiles </h2>
       <hr></hr>
       <h3>We are so excited you are back again and want to continue to support your local business!</h3>
       <h3>Select a user close to your location and start a challenge!</h3>
-    {/* </div> */}
    </Jumbotron>
 
    <Row >
@@ -103,15 +139,20 @@ const Welcome = (props) =>{
 
    <Row>
 
-    <Col size="md-12 sm-12">
-      <Card title="Latest Updates">
-        {/* dynamically render the last challenges that occurred */}
+    <Col size="12">
+    <Card title="Latest Miles 4 Smiles Updates">
+      <ChallengeContext.Provider value={{challenges}}>
+        {challenges.length>0 ? <LatestUpdate /> : <p className="text-center">No businesses recorded yet</p>}
+      </ChallengeContext.Provider>
+    </Card>
+{/* <Card title="Latest Updates">
+        {/* dynamically render the last challenges that occurred 
         <ul>
           <li>Bob won against Sue and sue donated 34$ to Faulisi</li><hr></hr>
           <li>Bob won against Sue and sue donated 34$ to Faulisi</li><hr></hr>
           <li>Bob won against Sue and sue donated 34$ to Faulisi</li><hr></hr>
         </ul>
-      </Card>
+      </Card> */}
     </Col>
     </Row>
    </div>

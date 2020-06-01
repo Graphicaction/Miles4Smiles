@@ -26,7 +26,7 @@ function ChallengeModal(props) {
     </>
     ):(
     <>
-      <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target="#challengeModal"><i className="fa fa-flag-checkered mr-2"/>Challenge a User</button>
+      <button type="button" className="btn" id="start-challenge" data-toggle="modal" data-target="#challengeModal"><i className="fa fa-flag-checkered mr-2"/>Challenge</button>
         <div className="modal fade" id="challengeModal" tabIndex="-1" role="dialog" aria-labelledby="challengeModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">

@@ -22,9 +22,9 @@ function LatestUpdate() {
         <div>
             <ul>{
                 finishedChallenges.map((challenge, i) => (
-                  i<5 && 
+                  i<10 && 
                     <>
-                    <li key={i}>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} race. {challenge.donor} lost and donated {challenge.donatedAmount} to support {challenge.businessName}. Thanks {challenge.donor}!</li>
+                    <li key={i}>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} mile race. {challenge.donor} lost and donated ${challenge.donatedAmount} to {challenge.businessName}. Thanks {challenge.donor}!</li>
                     <hr></hr>
                     </>
                 ))

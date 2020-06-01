@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useContext} from "react";
-//import { Route} from 'react-router-dom';
 import UserCard from "../../components/UserCard/UserCard";
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import PostSignUpUserData from "../../components/PostSignUpUserData/PostSignUpUserData"
@@ -40,7 +39,6 @@ const Welcome = (props) =>{
   
   function loadChallenges() {
     let allChallenges=[];
-    let finishedChallenges=[];
     let distanceData=[];
     let donatedAmountData = [];
     let donorData =[];
@@ -142,17 +140,9 @@ const Welcome = (props) =>{
     <Col size="12">
     <Card title="Latest Miles 4 Smiles Updates">
       <ChallengeContext.Provider value={{challenges}}>
-        {challenges.length>0 ? <LatestUpdate /> : <p className="text-center">No businesses recorded yet</p>}
+        {challenges.length>0 ? <LatestUpdate /> : <p className="text-center">No completed challenge yet. You should start one!</p>}
       </ChallengeContext.Provider>
     </Card>
-{/* <Card title="Latest Updates">
-        {/* dynamically render the last challenges that occurred 
-        <ul>
-          <li>Bob won against Sue and sue donated 34$ to Faulisi</li><hr></hr>
-          <li>Bob won against Sue and sue donated 34$ to Faulisi</li><hr></hr>
-          <li>Bob won against Sue and sue donated 34$ to Faulisi</li><hr></hr>
-        </ul>
-      </Card> */}
     </Col>
     </Row>
    </div>

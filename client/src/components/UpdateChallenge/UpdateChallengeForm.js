@@ -2,7 +2,6 @@ import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API";
 import AUTH from "../../utils/AUTH";
 import UserContext from "../../utils/UserContext";
-// import ChallengeContext from "../../utils/ChallengeContext"
 import Jdenticon from "react-jdenticon";
 import {Input} from "../Form";
 import {Row, Col} from "../Grid"
@@ -20,12 +19,27 @@ function UpdateChallengeForm(props) {
 
     function handleChallengeSave(event) {
         event.preventDefault();
-        let userId = "";
+        let winnerId = "", loserId = "", winner = "", loser ="";
+        let won = 0, lost = 0;
         if(formObject.loser) {
+            //Getting the username of winner
+            if(formObject.loser === props.challengers[0]){
+                winner = props.challengers[1];
+                loser = props.challengers[0];  
+            }else {
+                winner = props.challengers[0];
+                loser = props.challengers[1];
+            }
+            //extracting the user id of winner 
             users.map(u => {
-                if(u.username === formObject.loser) 
-                    userId = u._id;
-                console.log("result user",userId);
+                if(u.username === winner) {
+                    winnerId = u._id;
+                    won = u.challengesWon + 1;
+                }
+                if(u.username === loser){
+                    loserId = u._id;
+                    lost = u.challengesLost + 1;
+                }
             })
             //Update challenge record with status and donor
             API.updateChallenge(props.id,{donor: formObject.loser, status: "finish"})
@@ -36,26 +50,21 @@ function UpdateChallengeForm(props) {
             .catch(err => {
                 console.log(err);
             });
-            //Update user record with challengeWon or lost
-            if(formObject.loser === user.username){
-                const lost = user.challengesLost + 1;
-                AUTH.userUpdate(user._id, {challengesLost: lost})
+            // //Update winner and loser (users) record with challengeWon or lost
+            AUTH.userUpdate(winnerId, {challengesWon: won})
                 .then(res => {
                     console.log(res);
                 })
                 .catch(err => {
                     console.log(err);
                 });
-            } else {
-                const won = user.challengesWon + 1;
-                AUTH.userUpdate(user._id, {challengesWon: won})
+            AUTH.userUpdate(loserId, {challengesLost: lost})
                 .then(res => {
                     console.log(res);
                 })
                 .catch(err => {
                     console.log(err);
                 });
-            }
         }
     }
 

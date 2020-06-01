@@ -20,7 +20,7 @@ const UserCard =() => {
     offset: '30px',
     transition: transitions.SCALE
   }
-  // later add that only users from certain location
+  // later add that only users if their pace match
  
   let usersToRender;
   if (users) {

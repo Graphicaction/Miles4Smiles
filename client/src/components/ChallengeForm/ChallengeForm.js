@@ -5,9 +5,7 @@ import { useAlert } from 'react-alert'
 import {Row, Col} from "../Grid"
 
 function ChallengeForm(props) {
-    //const { user } = useContext(UserContext);
     const { user, users } = useContext(UserContext);
-    const [challengeData, setChallenges] = useState([]);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     const alert = useAlert();
@@ -16,8 +14,7 @@ function ChallengeForm(props) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
     };
-
-
+    //Saving new challenge
     function handleChallengeSave(event) {
         event.preventDefault();
         let challengers;
@@ -56,14 +53,12 @@ function ChallengeForm(props) {
                             <label>Enter the User You Want to Challenge</label>
                             <select className="form-control" id="usernameSelect" name="oppUser" onChange={handleInputChange}  placeholder="username">
                                 <option defaultValue>Choose...</option>
-                                {users.map((u, i) => (
-                                <option key={i} >{u.username}</option>
+                                {users.map(u => (u._id !== user._id)&&(
+                                <option key={u._id} >{u.username}</option>
                                     ))}
                             </select>
                         </>
                     )}
-                    {/* <input  type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
-                    <small id="emailHelp" className="form-text text-muted">***Later this will be users db search***</small> */}
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Which Business will You Support?</label>

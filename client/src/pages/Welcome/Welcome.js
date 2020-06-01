@@ -40,6 +40,7 @@ const Welcome = (props) =>{
   
   function loadChallenges() {
     let allChallenges=[];
+    let finishedChallenges=[];
     let distanceData=[];
     let donatedAmountData = [];
     let donorData =[];
@@ -48,15 +49,13 @@ const Welcome = (props) =>{
     API.getChallenges()
       .then(response => {
         allChallenges = response.data.challenges;
-        //Adding distances into an array
         allChallenges.map(challenge => {
-          if (challenge.status === "finish"){
-          distanceData.push(challenge.distance);
-          donatedAmountData.push(challenge.donatedAmount)
-          donorData.push(challenge.donor);
-          challengersData.push(challenge.challengers)
-          }
-        })
+            distanceData.push(challenge.distance);
+            donatedAmountData.push(challenge.donatedAmount)
+            donorData.push(challenge.donor);
+            challengersData.push(challenge.challengers)
+            }
+          )
         console.log(distanceData,donatedAmountData, donorData, challengersData);
         setChallenges(allChallenges);
         setDistanceData(distanceData);

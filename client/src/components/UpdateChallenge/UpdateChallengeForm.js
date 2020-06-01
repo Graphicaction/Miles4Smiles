@@ -8,7 +8,7 @@ import {Input} from "../Form";
 import {Row, Col} from "../Grid"
 
 function UpdateChallengeForm(props) {
-    const { user } = useContext(UserContext);
+    const { user, users } = useContext(UserContext);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
 
@@ -19,10 +19,15 @@ function UpdateChallengeForm(props) {
     };
 
     function handleChallengeSave(event) {
-        console.log("this is the guy:", props.id, props.challengers);
-
         event.preventDefault();
+        let userId = "";
         if(formObject.loser) {
+            users.map(u => {
+                if(u.username === formObject.loser) 
+                    userId = u._id;
+                console.log("result user",userId);
+            })
+            //Update challenge record with status and donor
             API.updateChallenge(props.id,{donor: formObject.loser, status: "finish"})
             .then(res => {
                 challengeForm.current.reset();
@@ -31,6 +36,7 @@ function UpdateChallengeForm(props) {
             .catch(err => {
                 console.log(err);
             });
+            //Update user record with challengeWon or lost
             if(formObject.loser === user.username){
                 const lost = user.challengesLost + 1;
                 AUTH.userUpdate(user._id, {challengesLost: lost})

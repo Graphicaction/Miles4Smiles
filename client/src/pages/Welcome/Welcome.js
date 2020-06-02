@@ -8,13 +8,13 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 import LatestUpdate from "../../components/LatestUpdate/LatestUpdate"
 import ChallengeContext from "../../utils/ChallengeContext"
-// import ItemsCarousel from 'react-items-carousel';
+import ItemsCarousel from 'react-items-carousel';
 
 
 
 const Welcome = (props) =>{
-  // const [activeItemIndex, setActiveItemIndex] = useState(0);
-  // const chevronWidth = 40;
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const chevronWidth = 40;
 // //we will need city,state to show only users from same location
 //   const [location, setLocation] = useState("");
   const [challenges, setChallenges] = useState([]);
@@ -78,7 +78,7 @@ const Welcome = (props) =>{
     }
   
 //build user carousel
-  // function nextUser(userIndex) {
+  // function nextUsers(userIndex) {
   //   // Ensure that the user index stays within our range of users
   //   if (userIndex >= users.length) {
   //     userIndex = 0;
@@ -87,7 +87,7 @@ const Welcome = (props) =>{
   //   setUserIndex(userIndex);
   // }
 
-  // function previousUser(userIndex) {
+  // function previousUsers(userIndex) {
   //   // Ensure that the user index stays within our range of users
   //   if (userIndex < 0) {
   //     userIndex = users.length - 1;
@@ -130,9 +130,25 @@ const Welcome = (props) =>{
    </Jumbotron>
 
    <Row >
-    <div className="card-deck" style={{margin: "20px"}}>
-      <UserCard />
-    </div>
+   {/* <div class="container-fluid"> */}
+    {/* <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="9000">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox"> */}
+    <div className="card-deck justify-center" style={{margin: "20px"}}>
+      {/* <div className="col-md-3 carousel-item"> */}
+      <UserCard className="col-md-3 carousel-item"/>
+      </div>
+    {/* </div>
+    </div> */}
+        {/* <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <i className="fa fa-chevron-left fa-lg text-muted"></i>
+            <span className="sr-only">Previous</span>
+        </a>
+        <a className="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+            <i className="fa fa-chevron-right fa-lg text-muted"></i>
+            <span className="sr-only">Next</span>
+        </a> */}
+    {/* </div>
+</div> */}
    </Row>
 
    <Row>

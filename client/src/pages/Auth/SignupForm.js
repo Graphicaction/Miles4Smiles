@@ -4,7 +4,8 @@ import { Container } from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import AUTH from '../../utils/AUTH';
-import { useAlert } from 'react-alert'
+import validateSignup from "./validateSignup";
+import { useAlert } from 'react-alert';
 
 function SignupForm() {
   const alert = useAlert();
@@ -36,29 +37,33 @@ function SignupForm() {
   
 	const handleSubmit = (event) => {
     event.preventDefault();
-		AUTH.signup({
-      firstName: userObject.firstName,
-      lastName: userObject.lastName,
-      username: userObject.username,
-      password: userObject.password,
-      firstLogin: true,
-      avatar:'',
-      averagePace: '',
-      averageDistance: '',
-      challengesLost: '',
-      ChallengesTied: '',
-      challengesWon: '',
-      city:'',
-      state:'',
+    const valid = validateSignup(userObject.firstName && userObject.lastName && userObject.username && userObject.password);
+    if(valid) {
+      AUTH.signup({
+        firstName: userObject.firstName,
+        lastName: userObject.lastName,
+        username: userObject.username,
+        password: userObject.password,
+        firstLogin: true,
+        avatar:'',
+        averagePace: '',
+        averageDistance: '',
+        challengesLost: '',
+        ChallengesTied: '',
+        challengesWon: '',
+        city:'',
+        state:'',
 
-    }).then(response => {
-      // console.log(response.data)
-      if (!response.data.error) {
-        setRedirectTo('/');
-      } else {
-        alert.error('User already exists!');
-      }
-    });
+      }).then(response => {
+        if (!response.data.error) {
+          setRedirectTo('/');
+        } else {
+          alert.error('User already exists!');
+        }
+      });
+    } else {
+      console.log("Please enter all details in valid format!");
+    }
   };
   
   if (redirectTo) {

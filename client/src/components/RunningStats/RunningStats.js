@@ -21,13 +21,12 @@ import RunningStatsContext from "../../utils/RunningStatsContext";
 function RunningStats() {
   const { user } = useContext(UserContext);
   // Setting our component's initial state for RunningStats and Challenges
-  const [runningStats, setRunningStats] = useState([]);
   const [myChallenges, setMyChallenges] = useState([]);
   const [incomingChallenges, setIncomingChallenges] = useState([]);
-  const [newChallenge, setNewChallenge] =useState(false);
-  // Setting our initial state for BarChart
+ // Setting our initial state for BarChart and Piechart
   const [milesData, setMilesData] = useState([]);
   const [newRun, setNewRun] = useState(false);
+  const [pieData, setPieData] = useState(false);
   const [loading, setLoading] = useState(false);
   
   // Load all RunningStats and store them with setRunningStats
@@ -40,7 +39,6 @@ function RunningStats() {
   function loadRunningStats() {
     API.getRunningStats()
       .then(res => {
-        setRunningStats(res.data.runningStats);
         if(res.data.runningStats.length)
           setGraphData(res.data.runningStats);
       })
@@ -83,12 +81,12 @@ function RunningStats() {
               if(challenge.challengers[1]===user.username)
                 invitedChallenges.push(challenge);
             }
-          
+            if(challenge.status === "finish"){
+              setPieData(true);
+            }
           });
         setMyChallenges(startChallenges);
         setIncomingChallenges(invitedChallenges);
-        setNewChallenge(true);
-      
       })
       .catch(err => console.log(err));
   };
@@ -194,7 +192,7 @@ function RunningStats() {
           </Col>
           <Col size="md-6 sm-12">
             <Card title="Past Challenges" >
-              <PieChart />
+              { (pieData) && <PieChart /> }
             </Card>
           </Col>
         </Row>

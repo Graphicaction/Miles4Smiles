@@ -1,10 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
 import UserContext from "../../utils/UserContext";
-
-// import Autocomplete from "./components/Autocomplete/Autocomplete"
-// import Script from "react-load-script";
-// import { Redirect, Link } from 'react-router-dom';
-
 import { Col, Container, Row } from "../Grid";
 import Jumbotron from "../Jumbotron"
 import { Card } from "../Card";
@@ -40,7 +35,6 @@ const PostSignUpUserData =(props) => {
         firstLogin: false
         })
         .then(res => {
-          console.log(res.data);
           props.flip();
           setUser(res.data);
         }

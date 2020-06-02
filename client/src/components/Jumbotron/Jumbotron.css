@@ -1,8 +1,10 @@
 /* old version */
 .jumbotron{
   height: auto;
-  color: black;
-  /* text-shadow: 1px 1px 1px #FFF6F1; */
+  color: white;
+  font-size: 4rem;
+  /* color: black; */
+  text-shadow: 1px 1px 1px #a2cabc;
   clear: both; 
   padding-top: 20px;
   text-align: center;

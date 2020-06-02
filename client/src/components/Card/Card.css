@@ -6,17 +6,20 @@
 
 .card{
   box-shadow: 1px 1px 1px 1px #ccc; 
-  background-color: #FFFbf9!important;
+  background-color: #FFF6F1;
+  /* opacity: .9; */
+  /* background-color: #FFFbf9!important; */
   border-radius: 0!important;
   /* border: 2px #a2cabc solid; */
-  border: 3px solid transparent;
-  border-image: linear-gradient(to right, #a2cabc, #ffd6ba);
+  border: 2px solid transparent;
+  border-image: linear-gradient(to right, #a2cabc, #e1ede9);
   border-image-slice: 1; 
 } 
 
 .card-header{
   background-color: #adcec0;
-  /* color: whitesmoke; */
+  border-radius: 0!important;
+  color: whitesmoke;
   /* text-shadow: 1px 1px 1px #ffd6ba; */
  
 }
@@ -24,3 +27,27 @@
 h5{
   font-family: 'Raleway', sans-serif
 }
+
+.card:hover{
+  border: 2px solid transparent;
+  border-image: linear-gradient(to left, #a2cabc, #e1ede9);
+  border-image-slice: 1;
+  box-shadow: 1px 1px 5px 3px #ccc; 
+
+}
+
+/* .card{
+  box-shadow: 1px 1px 1px 1px #ccc; 
+  background-color: #9dcbb3!important;
+  border-radius: 0!important;
+  border: 7px solid transparent;
+  border-image: linear-gradient(to right, #84bea0, #fdf28c);
+  border-image-slice: 1; 
+} 
+
+.card-header{
+  background-color: #84bea0;
+  /* color: whitesmoke; */
+  /* text-shadow: 1px 1px 1px #ffd6ba;
+ 
+} */

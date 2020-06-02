@@ -130,12 +130,12 @@ const Welcome = (props) =>{
    </Jumbotron>
 
    <Row >
-   {/* <div class="container-fluid"> */}
+   <div class="container-fluid">
     {/* <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="9000">
         <div class="carousel-inner row w-100 mx-auto" role="listbox"> */}
     <div className="card-deck justify-center" style={{margin: "20px"}}>
       {/* <div className="col-md-3 carousel-item"> */}
-      <UserCard className="col-md-3 carousel-item"/>
+      <UserCard className="col-md-4 col-sm-12 col-lg-3 carousel-item"/>
       </div>
     {/* </div>
     </div> */}
@@ -147,8 +147,8 @@ const Welcome = (props) =>{
             <i className="fa fa-chevron-right fa-lg text-muted"></i>
             <span className="sr-only">Next</span>
         </a> */}
-    {/* </div>
-</div> */}
+    {/* </div>*/}
+  </div>
    </Row>
 
    <Row>

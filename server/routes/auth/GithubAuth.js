@@ -5,7 +5,7 @@ module.exports =(app) => {
   passport.authenticate('github', { scope: [ 'user:email' ] }));
  
 app.get('/auth/github/callback', 
-  passport.authenticate('github', { failureRedirect: '/login' }),
+  passport.authenticate('github', { failureRedirect: '/welcome' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/welcome');

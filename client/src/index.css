@@ -67,4 +67,17 @@ ul{
   ul{
     padding-inline-start: 20px
   }
+  .display-4{
+    font-size:2em
+  }
+  h3{
+    font-size: 1.4em
+  }
+  h5{
+    font-size: 1.3em!important
+  }
+  .jumbotron{
+    margin-bottom: 1px!important;
+    padding-bottom: 1px!important
+  }
 }

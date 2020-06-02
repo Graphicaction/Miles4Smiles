@@ -1,12 +1,13 @@
 .logout {
   color: black;
-  background-color:#ffd6ba;
+  /* background-color:#ffd6ba; */
+  background-color:#d67d7a;
   box-shadow: none!important
 }
 
 .logout:hover {
   color: white;
-  background-color: #d6947a;
+  background-color: #a2cabc;
 }
 
 .greeting{

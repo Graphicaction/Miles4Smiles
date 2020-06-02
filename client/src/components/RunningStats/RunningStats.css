@@ -1,6 +1,15 @@
-#start-challenge{
-  background-color: #ffd6ba!important;
-  /* margin: 20px */
+.start-challenge{
+  background-color: #a2cabc!important;
+  /* background-color: #ffd6ba!important;
+  background-color: #fdf28c!important; */
+
+}
+
+.start-challenge:hover{
+  background-color: #d67d7a!important;
+  /* background-color: #ffd6ba!important;
+  background-color: #fdf28c!important; */
+
 }
 
 .deleteBtn{
@@ -13,3 +22,4 @@
   margin: 20px
 
 }
+

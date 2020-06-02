@@ -1,14 +1,15 @@
 .accept{
-  background-color: #d6947a
+  background-color: #a2cabc
 }
 
 .deny{
-  color: #d6947a
+  background-color: #EECAC9!important;
+  color: black!important
 }
 
 .wereChallenged{
   /* background-color: #ffe5d9!important */
-  border: 3px solid #d6947a!important
+  border: 3px solid #EECAC9!important
 }
 
 .areChallenging{

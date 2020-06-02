@@ -4,22 +4,20 @@ html, body {
 body{
   margin: 0;
   padding: 0;
-  /* font-family: sans-serif; */
-  /* background-color: whitesmoke; */
-  background-color: rgba(255, 246,241, .9);
-  /* -color: #FFF6F1; */
+  background-color: rgba(217, 233,228, .9);
   font-family: 'Raleway', sans-serif;
   background: cover;
-  height: auto
-  /* height: auto */
-  /* background-repeat: repeat */
+  height: auto;
+  min-height: 1000px
+
 }
+
 html{
-  background: url(bg.jpeg) no-repeat center center fixed; 
+  background: url(bg.jpeg) no-repeat center center fixed ; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  /* background-size: cover; */
+
 
 }
 
@@ -81,3 +79,24 @@ ul{
     padding-bottom: 1px!important
   }
 }
+
+
+/* svg{
+  box-shadow: 1px 1px 2px 1px #ccc;
+  background-color:#fdfad0;
+  border: 3px solid transparent;
+  border-image: linear-gradient(to right, #84bea0, #fdf28c);
+  border-image-slice: 1;
+
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: rgba(253, 242,140, .9);
+  font-family: 'Raleway', sans-serif;
+  background: cover;
+  height: auto;
+  min-height: 1000px
+
+} */

@@ -30,7 +30,7 @@ const MyPage =() => {
     
   return(
     <>
-    <div className="alert text-center" style={{background: "linear-gradient(#a2cabc, #FFF6F1)", borderBottom: "none"}}>{greeting}</div>
+    <div className="alert text-center" style={{background: "transparent"}}>{greeting}</div>
      <RunningStats />
     </>
   )

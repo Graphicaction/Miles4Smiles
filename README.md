@@ -61,6 +61,10 @@ The heroku deployed link: <a href="https://miles4smiles.herokuapp.com/">Miles4Sm
 
 Pull requests are welcome. Code of Conduct: Standard (Fork, Clone, Commit, Push and Create Pull requests).
 
+## Credits
+
+Photo by RUN 4 FFWPU from Pexels
+
 ## Questions
 
 If you have any questions about the repo, open an issue.

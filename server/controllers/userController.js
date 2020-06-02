@@ -105,7 +105,6 @@ findAll: (req, res)=>{
           'challengesLost': 0
         })
       .then(dbModel => {
-        console.log(dbModel);
         db.User.findOne({ _id: req.params.id })
         .then(response =>  res.json(response));
        
@@ -118,8 +117,8 @@ findAll: (req, res)=>{
     db.User
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => {
-        console.log(dbModel);
-        res.json(dbModel);
+        db.User.findOne({ _id: req.params.id })
+        .then(response =>  res.json(response));
       })
       .catch(err => res.status(422).json(err));
   }

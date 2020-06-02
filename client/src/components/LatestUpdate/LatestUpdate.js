@@ -15,7 +15,7 @@ function LatestUpdate() {
         if (c.status==="finish"){
             finishedChallenges.push(c)
         }
-        console.log(finishedChallenges)
+        // console.log(finishedChallenges)
     })
 
     return (

@@ -78,7 +78,7 @@ const Welcome = (props) =>{
     }
   
 //build user carousel
-  // function nextUser(userIndex) {
+  // function nextUsers(userIndex) {
   //   // Ensure that the user index stays within our range of users
   //   if (userIndex >= users.length) {
   //     userIndex = 0;
@@ -87,7 +87,7 @@ const Welcome = (props) =>{
   //   setUserIndex(userIndex);
   // }
 
-  // function previousUser(userIndex) {
+  // function previousUsers(userIndex) {
   //   // Ensure that the user index stays within our range of users
   //   if (userIndex < 0) {
   //     userIndex = users.length - 1;
@@ -130,28 +130,25 @@ const Welcome = (props) =>{
    </Jumbotron>
 
    <Row >
-    <div className="card-deck" style={{margin: "20px"}}>
-    {/* <ItemsCarousel
-    infiniteLoop={false}
-    gutter={12}
-    activePosition={'center'}
-    chevronWidth={60}
-    disableSwipe={false}
-    alwaysShowChevrons={false}
-    numberOfCards={5}
-    slidesToScroll={2}
-    outsideChevron={true}
-    showSlither={false}
-    firstAndLastGutter={false}
-    activeItemIndex={activeItemIndex}
-    requestToChangeActive={value => setActiveItemIndex({ activeItemIndex: value })}
-    rightChevron={'>'}
-    leftChevron={'<'}
-  > */}
-      <UserCard />
-      {/* </ItemsCarousel> */}
-
-    </div>
+   {/* <div class="container-fluid"> */}
+    {/* <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="9000">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox"> */}
+    <div className="card-deck justify-center" style={{margin: "20px"}}>
+      {/* <div className="col-md-3 carousel-item"> */}
+      <UserCard className="col-md-3 carousel-item"/>
+      </div>
+    {/* </div>
+    </div> */}
+        {/* <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <i className="fa fa-chevron-left fa-lg text-muted"></i>
+            <span className="sr-only">Previous</span>
+        </a>
+        <a className="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+            <i className="fa fa-chevron-right fa-lg text-muted"></i>
+            <span className="sr-only">Next</span>
+        </a> */}
+    {/* </div>
+</div> */}
    </Row>
 
    <Row>

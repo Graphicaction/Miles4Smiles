@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import UserContext from "../../utils/UserContext";
 import { useAlert } from 'react-alert'
 import {Row, Col} from "../Grid"
+import LocationSearchInput from "../../utils/GPlaces";
 
 function ChallengeForm(props) {
     const { user, users } = useContext(UserContext);
@@ -42,6 +43,11 @@ function ChallengeForm(props) {
         })
     }
 
+    function handleCancel() {
+        challengeForm.current.reset();
+    }
+    
+
     return (
         <>
             <form ref={challengeForm}>
@@ -50,7 +56,7 @@ function ChallengeForm(props) {
                     <input name="oppUser" className="form-control" value={props.name} disabled></input>
                     : (   
                         <>           
-                            <label>Enter the User You Want to Challenge</label>
+                            <label>Select The User You Want to Challenge</label>
                             <select className="form-control" id="usernameSelect" name="oppUser" onChange={handleInputChange}  placeholder="username">
                                 <option defaultValue>Choose...</option>
                                 {users.map(u => (u._id !== user._id)&&(
@@ -61,9 +67,9 @@ function ChallengeForm(props) {
                     )}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Which Business will You Support?</label>
+                    <label>Which Business Will You Support?</label>
+                    {/* <LocationSearchInput/> */}
                     <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input>
-                    <small id="emailHelp" className="form-text text-muted">***Later this will be Local Business API search***</small>
                 </div>
                 {/* <div className="form-group">
                     <label htmlFor="exampleFormControlSelect1">Select Biz type:</label>
@@ -76,7 +82,7 @@ function ChallengeForm(props) {
                     </select>
                 </div> */}
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Let's Talk Milage 🏁</label>
+                    <label>Let's Talk Mileage 🏁</label>
                     <Row>
                         <Col size="6">
                             <input onChange={handleInputChange} name="cMiles" className="form-control form-control-sm" type="text" placeholder="Distance in Miles"></input>
@@ -89,7 +95,7 @@ function ChallengeForm(props) {
                 <hr></hr>                
                 <Row>
                     <Col size="6">
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal"><i className="fa fa-eject mr-2"/>Cancel</button>
+                        <button type="button" className="btn btn-secondary" onClick={handleCancel} data-dismiss="modal"><i className="fa fa-eject mr-2"/>Cancel</button>
                     </Col>
                     <Col size="6">
                         <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal"><i className="fa fa-paper-plane mr-2"/>Send Challenge</button>

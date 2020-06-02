@@ -58,7 +58,7 @@ app.use(
   })
 );
 
-// If its production environment!
+// If it's production environment!
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path');
 	// console.log('YOU ARE IN THE PRODUCTION ENV');

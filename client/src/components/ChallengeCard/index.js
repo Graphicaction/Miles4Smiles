@@ -15,7 +15,7 @@ const ChallengeCard = (props) => {
                         <div className="card-body">
                           <h5 className="card-title">You Challenged {challenge.challengers[1]}</h5>
                           <hr></hr>
-                          <p className="card-text">You challenged {challenge.challengers[1]} to do a {challenge.distance} miles run where the loser needs to donate ${challenge.donatedAmount} to {challenge.businessName}.</p>
+                          <p className="card-text">You challenged {challenge.challengers[1]} to do a {challenge.distance} mile run where the loser needs to donate ${challenge.donatedAmount} to {challenge.businessName}.</p>
                           
                           { (challenge.status === "pending") && (
                             <>
@@ -56,7 +56,7 @@ const ChallengeCard = (props) => {
                         <div className="card-body">
                           <h5 className="card-title">You Were Challenged By {challenge.challengers[0]}</h5>
                           <hr></hr>
-                          <p className="card-text">{challenge.challengers[0]} challenges you to do a {challenge.distance} miles race. The slower runner donates ${challenge.donatedAmount} to {challenge.businessName}.</p>
+                          <p className="card-text">{challenge.challengers[0]} challenges you to do a {challenge.distance} mile race. The slower runner donates ${challenge.donatedAmount} to {challenge.businessName}.</p>
                           {(challenge.status === "pending") ? (
                             <>
                               <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>

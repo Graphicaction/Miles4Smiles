@@ -1,0 +1,23 @@
+.about-jumbotron {
+    background: url("../../jumbotron-pic.jpg") no-repeat center center fixed;
+    height: 525px;
+    opacity: 55%;
+}
+
+.about-title {
+    font-size: 4rem;
+    color: white;
+}
+
+.about-container {
+    margin-top: 50px;
+}
+
+.card-body-about {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+h5 {
+    font-size: 1.50rem !important;
+}

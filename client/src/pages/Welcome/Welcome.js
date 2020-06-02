@@ -8,13 +8,13 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 import LatestUpdate from "../../components/LatestUpdate/LatestUpdate"
 import ChallengeContext from "../../utils/ChallengeContext"
-// import ItemsCarousel from 'react-items-carousel';
+import ItemsCarousel from 'react-items-carousel';
 
 
 
 const Welcome = (props) =>{
-  // const [activeItemIndex, setActiveItemIndex] = useState(0);
-  // const chevronWidth = 40;
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const chevronWidth = 40;
 // //we will need city,state to show only users from same location
 //   const [location, setLocation] = useState("");
   const [challenges, setChallenges] = useState([]);
@@ -131,7 +131,26 @@ const Welcome = (props) =>{
 
    <Row >
     <div className="card-deck" style={{margin: "20px"}}>
+    {/* <ItemsCarousel
+    infiniteLoop={false}
+    gutter={12}
+    activePosition={'center'}
+    chevronWidth={60}
+    disableSwipe={false}
+    alwaysShowChevrons={false}
+    numberOfCards={5}
+    slidesToScroll={2}
+    outsideChevron={true}
+    showSlither={false}
+    firstAndLastGutter={false}
+    activeItemIndex={activeItemIndex}
+    requestToChangeActive={value => setActiveItemIndex({ activeItemIndex: value })}
+    rightChevron={'>'}
+    leftChevron={'<'}
+  > */}
       <UserCard />
+      {/* </ItemsCarousel> */}
+
     </div>
    </Row>
 

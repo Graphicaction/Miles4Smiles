@@ -18,6 +18,8 @@ function App() {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState(null);
   const [firstLogin, setFirstLogin] = useState(false);
+  const [redirectTo, setRedirectTo] = useState(null);
+
   let history = useHistory();
 
   const logout = (event) => {
@@ -28,6 +30,7 @@ function App() {
 			if (response.status === 200) {
 				setLoggedIn(false);
         setUser(null);
+        setRedirectTo('/');
         history.push('/')
 			}
 		});

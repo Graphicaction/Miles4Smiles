@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
-import { Link } from 'react-router-dom';
+import React, { useState, Fragment } from "react";
+import { Redirect, Link } from 'react-router-dom';
 import './Nav.css';
 
 const Nav = (props) => {
+
   let greeting;
 
   if (!props.user) {
@@ -24,6 +25,7 @@ const Nav = (props) => {
 			</Fragment>
 		)
   } 
+
   
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark"> 

@@ -82,7 +82,7 @@ function App() {
               <Route exact path="/about" component={About} />
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/mypage/:id">
-                <UserContext.Provider value={{user, users}}>
+                <UserContext.Provider value={{user, users, setUser}}>
                   <MyPage />
                 </UserContext.Provider>
                 </Route>

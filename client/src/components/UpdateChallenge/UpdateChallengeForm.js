@@ -7,7 +7,7 @@ import {Input} from "../Form";
 import {Row, Col} from "../Grid"
 
 function UpdateChallengeForm(props) {
-    const { user, users } = useContext(UserContext);
+    const { user, users, setUser } = useContext(UserContext);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
 
@@ -53,14 +53,18 @@ function UpdateChallengeForm(props) {
             // //Update winner and loser (users) record with challengeWon or lost
             AUTH.userUpdate(winnerId, {challengesWon: won})
                 .then(res => {
-                    console.log(res);
+                    console.log("updated user ",res.data);
+                    if(winnerId === user._id)
+                        setUser(res.data)
                 })
                 .catch(err => {
                     console.log(err);
                 });
             AUTH.userUpdate(loserId, {challengesLost: lost})
                 .then(res => {
-                    console.log(res);
+                    console.log("updated user ", res.data);
+                    if(loserId === user._id)
+                        setUser(res.data)
                 })
                 .catch(err => {
                     console.log(err);

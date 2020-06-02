@@ -68,11 +68,11 @@ function LoginForm({login}) {
                   value={userObject.password}
                   onChange={handleChange}
                 />
-                <Link to="/signup" className="btn registerBtn">Register</Link>
+                <Link to="/signup" className="btn registerBtn"><i className="fa fa-user-plus mr-2"/>Register</Link>
                 <button onClick={googleDirect} className="btn btn-info ml-2"><i className="fa fa-google mr-2"></i>Sign in with Google</button>
                 <button onClick={githubDirect} className="btn btn-dark ml-2"><i className="fa fa-github mr-2"></i>Sign in with Github</button>
 
-                <FormBtn onClick={handleSubmit} style={{backgroundColor: "#89b0ae"}}>Login</FormBtn>
+                <FormBtn onClick={handleSubmit} style={{backgroundColor: "#89b0ae"}}><i className="fa fa-sign-in mr-2"/>Login</FormBtn>
               </form>
             </Card>
       </Container>

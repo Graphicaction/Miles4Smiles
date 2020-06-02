@@ -27,8 +27,8 @@ const UserCard =() => {
     let display4usersOnly = users.slice(0, 5);
   return(
     <>
-    {display4usersOnly.map(user => ( user._id !== currentUser && (
-    <div key={user._id} className="card text-center">
+    {display4usersOnly.map((user, i) => ( user._id !== currentUser && (
+    <div key={i} className="card text-center">
       <div className="card-body ">
         <Jdenticon className="avatar" size="48" value={user.username} float="right"></Jdenticon>
         <h5  className="card-title justify-content-center">{user.username}</h5>

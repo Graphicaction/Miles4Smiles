@@ -10,10 +10,7 @@ const UserCard =() => {
   const { user, users } = useContext(UserContext);
   const currentUser = user._id;
 
-  const handleChallenge = () => {
-    console.log("Challenge saved");
-  }
-
+  //Options for alert messages
   const options = {
     position: positions.TOP_CENTER,
     timeout: 2500,
@@ -39,7 +36,7 @@ const UserCard =() => {
         <p  className="card-text distance">Preferred Distance: {user.averageDistance} miles</p>
         <hr></hr>
         <AlertProvider template={AlertTemplate} {...options}>
-          <ChallengeModal handleChallenge={handleChallenge} name={user.username} />
+          <ChallengeModal name={user.username} />
         </AlertProvider>
       </div>
     </div>

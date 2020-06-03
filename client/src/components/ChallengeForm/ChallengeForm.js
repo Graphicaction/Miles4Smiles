@@ -19,6 +19,7 @@ function ChallengeForm(props) {
     function handleChallengeSave(event) {
         event.preventDefault();
         let challengers;
+        //assigning values in challengers array depending upon welcome / mypage call
         if(props.name){
             challengers = [user.username, props.name];}
         else{
@@ -36,7 +37,8 @@ function ChallengeForm(props) {
         .then(res => {
             alert.success('Challenge Saved!');
             challengeForm.current.reset();
-            props.handleChallenge();
+            if(props.handleChallenge)
+                props.handleChallenge();
         })
         .catch(err => {
             console.log(err);

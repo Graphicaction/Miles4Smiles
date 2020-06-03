@@ -17,7 +17,7 @@ function ChallengeModal(props) {
                 </button>
               </div>
               <div className="modal-body">
-                <ChallengeForm handleChallenge={props.handleChallenge} name={props.name} />
+                <ChallengeForm name={props.name} />
               </div>
             </div>
           </div>

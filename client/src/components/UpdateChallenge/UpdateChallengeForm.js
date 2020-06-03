@@ -22,7 +22,7 @@ function UpdateChallengeForm(props) {
         let winnerId = "", loserId = "", winner = "", loser ="";
         let won = 0, lost = 0;
         if(formObject.loser) {
-            //Getting the username of winner
+            //Getting the username of winner and loser
             if(formObject.loser === props.challengers[0]){
                 winner = props.challengers[1];
                 loser = props.challengers[0];  
@@ -30,7 +30,7 @@ function UpdateChallengeForm(props) {
                 winner = props.challengers[0];
                 loser = props.challengers[1];
             }
-            //extracting the user id of winner 
+            //extracting the userid and challengesWon/Lost of winner/Loser 
             users.map(u => {
                 if(u.username === winner) {
                     winnerId = u._id;
@@ -50,10 +50,9 @@ function UpdateChallengeForm(props) {
             .catch(err => {
                 console.log(err);
             });
-            // //Update winner and loser (users) record with challengeWon or lost
+            // Update winner and loser (users) record with challengeWon or lost
             AUTH.userUpdate(winnerId, {challengesWon: won})
                 .then(res => {
-                    console.log("updated user ",res.data);
                     if(winnerId === user._id)
                         setUser(res.data)
                 })
@@ -62,7 +61,6 @@ function UpdateChallengeForm(props) {
                 });
             AUTH.userUpdate(loserId, {challengesLost: lost})
                 .then(res => {
-                    console.log("updated user ", res.data);
                     if(loserId === user._id)
                         setUser(res.data)
                 })

@@ -3,7 +3,8 @@ import { Redirect, Link } from 'react-router-dom';
 import { Container} from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
-import Jumbotron from "../../components/Jumbotron/Jumbotron"
+import Jumbotron from "../../components/Jumbotron/Jumbotron";
+import validateLogin from "./validateLogin";
 import Axios from 'axios';
 import "./Login.css"
 // import Navbar from "../../components/Nav/Nav.js"
@@ -35,9 +36,12 @@ function LoginForm({login}) {
   }
 
 	const handleSubmit = (event) => {
-		event.preventDefault();
-		login(userObject.username, userObject.password);
-		setRedirectTo('/welcome');
+    event.preventDefault();
+    const valid = validateLogin(userObject.username && userObject.password);
+    if(valid) {
+      login(userObject.username, userObject.password);
+      setRedirectTo('/welcome');
+    }
 	};
 
   if (redirectTo) {

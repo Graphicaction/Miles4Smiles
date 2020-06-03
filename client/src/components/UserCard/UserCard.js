@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
-import "./UserCard.css"
+import "./UserCard.scss"
 import Jdenticon from "react-jdenticon";
 import UserContext from "../../utils/UserContext";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
@@ -28,7 +28,7 @@ const UserCard =() => {
   return(
     <>
     {display4usersOnly.map((user, i) => ( user._id !== currentUser && (
-    <div key={i} className="card text-center">
+    <div key={i} className="card text-center col-md-4 col-sm-12 col-lg-3">
       <div className="card-body ">
         <Jdenticon className="avatar" size="48" value={user.username} float="right"></Jdenticon>
         <h5  className="card-title justify-content-center">{user.username}</h5>

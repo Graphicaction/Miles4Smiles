@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { Redirect, Link } from 'react-router-dom';
-import './Nav.css';
+import './Nav.scss';
 
 const Nav = (props) => {
 
@@ -58,7 +58,7 @@ const Nav = (props) => {
         </ul>
         {(props.user) ? (
         <div className="float-right greeting">
-        {greeting} !<button className="btn ml-5 logout" onClick={props.logout}>Logout</button>
+        {greeting} !<button className="btn ml-5 logout" onClick={props.logout}><i className="fa fa-eject mr-2"/>Logout</button>
         </div>
         ) :(
           <div className="float-right greeting">

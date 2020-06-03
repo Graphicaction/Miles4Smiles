@@ -1,7 +1,8 @@
 import React from "react";
+import "./FormBtn.scss";
 
 export const FormBtn = props => (
-  <button {...props} style={{ float: "right", marginBottom: 10, backgroundColor:  "#F7882F"}} data-dismiss="modal" className="btn">
+  <button {...props} className="btn formBtn" data-dismiss="modal">
     {props.children}
   </button>
 );

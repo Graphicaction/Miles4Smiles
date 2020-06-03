@@ -2,7 +2,7 @@ import React from "react";
 import UpdateChallengeForm from "../UpdateChallenge/UpdateChallengeForm";
 import { Card } from "../Card";
 import {Row, Col} from "../Grid"
-import "./ChallengeCard.css"
+import "./ChallengeCard.scss"
 
 const ChallengeCard = (props) => {
     return(

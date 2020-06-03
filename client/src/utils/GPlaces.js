@@ -72,18 +72,17 @@ class LocationSearchInput extends React.Component {
     getPlaceDetails = (place, status) => {
         const request = {
             placeId: this.state.place_id,
-            fields: ['name', 'website', 'icon']
+            fields: ['name', 'website', 'icon', 'formatted_address']
         };
-        Axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${request.placeId}&fields=${request.fields}&key=${process.env.REACT_APP_GOOGLE_PLACES_KEY}`)
+        Axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=${request.placeId}&fields=${request.fields}&key=${process.env.REACT_APP_GOOGLE_PLACES_KEY}`)
             .then(response => {
-                console.log(response.result);
-                //here's an example URL: https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJiVHVD27krIkRdhY5AQt1a8k&fields=name,website,icon&key=AIzaSyDf6BJb4NLS_lFCMmirVy08Lz3x27FYE9s
-                // can set state with response once CORS error resolved...
-                // this.setState({
-                //     businessName: response.result.name,
-                //     businessUrl: response.result.website,
-                //     businessType: response.result.icon
-                // })
+                this.setState({
+                    address: response.data.result.formatted_address,
+                    businessName: response.data.result.name,
+                    businessUrl: response.data.result.website,
+                    businessType: response.data.result.icon
+                })
+                console.log(this.state)
             })
     }
 

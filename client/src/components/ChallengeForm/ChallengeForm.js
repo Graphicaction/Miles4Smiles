@@ -68,19 +68,9 @@ function ChallengeForm(props) {
                 </div>
                 <div className="form-group">
                     <label>Which Business Will You Support?</label>
-                    <LocationSearchInput/>
-                    {/* <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input> */}
+                    {/* <LocationSearchInput/> */}
+                    <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input>
                 </div>
-                {/* <div className="form-group">
-                    <label htmlFor="exampleFormControlSelect1">Select Biz type:</label>
-                    <select className="form-control" name="oppUser" id="exampleFormControlSelect1">
-                        <option>Retail</option>
-                        <option>Education</option>
-                        <option>Food/Beverage</option>
-                        <option>Tech</option>
-                        <option>Other</option>
-                    </select>
-                </div> */}
                 <div className="form-group">
                     <label>Let's Talk Mileage 🏁</label>
                     <Row>

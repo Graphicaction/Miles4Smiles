@@ -82,7 +82,7 @@ class LocationSearchInput extends React.Component {
                     businessUrl: response.data.result.website,
                     businessType: response.data.result.icon
                 })
-                console.log(this.state)
+                console.log("Selected business", this.state)
             })
     }
 

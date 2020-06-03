@@ -4,7 +4,9 @@ html, body {
 body{
   margin: 0;
   padding: 0;
-  background-color: rgba(217, 233,228, .9);
+  /* background-color: rgba(220, 199,170, .9); */
+
+  background-color: rgba(107, 122,143, .9);
   font-family: 'Raleway', sans-serif;
   background: cover;
   height: auto;
@@ -33,7 +35,7 @@ h1,h2,h3,h4,h5,h6,
 
 .btn{
   opacity: .8;
-  box-shadow: 3px 3px 3px #ccc;
+  box-shadow: 3px 3px 3px #6b7a8f;
   margin: 10px
 }
 
@@ -49,6 +51,11 @@ svg{
   box-shadow: 1px 1px 2px 1px #ccc;
   background-color:whitesmoke
 
+}
+
+.form-control{
+  /* background-color: rgba(247, 195,49, .1); */
+  border: solid 1px #f7c331;
 }
 
 ul{

@@ -27,34 +27,29 @@ function Dashboard() {
           if(challenge.status === "finish")
             moneyData.push(challenge.donatedAmount);
         });
-        console.log("my money data",moneyData);
+       //Setting donation data, distance data and all challenges to pass to child components
         setDonationData(moneyData);
         setChallenges(allChallenges);
         setDistanceData(dData);
-        console.log("my donation data",donationData);
       })
       .catch(err => console.log(err));
   };
     return (
       <Container fluid>
-        
-          <Row>
+        <Row>
           <Col size="md-6 sm-12">
             <Card title="Challenges">
               { (distanceData) ? (<BarChart data={distanceData} label="Challenges Completed" yLabelString="Km" xLabelString="Number of Challenges" />) : <p className="text-center">No challenges recorded yet</p>
               }
-              {/* needs to call the graph that shows overall miles ran similar to budget tracker adding on*/}
             </Card>
           </Col>
           
           <Col size="md-6 sm-12">
             <Card title="Donation to Local Businesses">
-            { (donationData[0] !== 0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <p className="text-center">No donations recorded yet</p>
+              { (donationData[0] !== 0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <p className="text-center">No donations recorded yet</p>
               }
-              {/* needs to call the graph that shows overall money that was donated similar to budget tracker */}
             </Card>
           </Col>
-          
         </Row>
 
         <Row>
@@ -70,7 +65,7 @@ function Dashboard() {
             <Card title="Overall Donation Amount " >
               <ChallengeContext.Provider value={{challenges}}>
                 {challenges.length>0 ? <AddDonation /> : <p className="text-center">No challenges recorded yet</p>
-                  }
+                }
               </ChallengeContext.Provider>
             </Card>
           </Col>

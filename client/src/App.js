@@ -44,11 +44,13 @@ function App() {
   }
 
   const login = (username, password) => {
+    let loginUser;
     AUTH.login(username, password).then(response => {
       if (response.status === 200) {
         // update the state
         setUser(response.data.user);
         setLoggedIn(true);
+        loginUser = true;
         //getting all users
         AUTH.getAllUsers().then(response => {
           if (!response.data.users) {
@@ -57,6 +59,7 @@ function App() {
             setUsers(response.data.users);
           };
         });
+        return loginUser;
         // return () => {
         //   setUsers(null);
         // };
@@ -68,9 +71,9 @@ function App() {
     })
     .catch(err => {
       console.log("Invalid user!");
-      return 0;
+      loginUser = false;
     });
-    return 1;
+    console.log(loginUser);
   };
   
 
@@ -105,7 +108,7 @@ function App() {
           <Switch>
             <>
             <AlertProvider template={AlertTemplate} {...options}>
-              <Route exact path="/" component={() => <LoginForm login={login}/>} />
+              <Route exact path="/" component={() => <LoginForm login={login} user={user} />} />
               <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
               <Route exact path="/about" component={About} />
               <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />

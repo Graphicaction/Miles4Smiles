@@ -12,7 +12,7 @@ import "./Login.css"
 //import bgIMG from "./bgIMG.jpg"
 // import M4S from "./M4S.png";
 
-function LoginForm({login}) {
+function LoginForm({login, user}) {
   const [userObject, setUserObject] = useState({
     username: '',
     password: ''
@@ -41,8 +41,9 @@ function LoginForm({login}) {
     event.preventDefault();
     const valid = validateLogin(userObject.username, userObject.password);
     if(valid) {
-      const validUser = login(userObject.username, userObject.password);
-      console.log(validUser);
+      login(userObject.username, userObject.password);
+      //Not solved for does not exists user!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      console.log(user);
       // if(!validUser){
       //   alert.success('User does not exists!');
       //   setUserObject({

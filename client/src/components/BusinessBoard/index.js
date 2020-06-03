@@ -3,20 +3,16 @@ import ChallengeContext from "../../utils/ChallengeContext";
 
 function BusinessBoard() {
     const { challenges } = useContext(ChallengeContext);
-    const [business, setBusiness] = useState("");
     
-    useEffect(()=>{
-        console.log(challenges);
-    },[challenges])
-
     return (
         <div>
             <ul>{
+                // Displaying upto 5 business names 
                 challenges.map((challenge,i) => (i<5 && 
-                <>
-                    <li key={challenge._id}>{challenge.businessName}</li>
+                <div key={challenge._id}>
+                    <li>{challenge.businessName}</li>
                     <hr></hr>
-                </>))
+                </div>))
             }</ul>
         </div>
   )

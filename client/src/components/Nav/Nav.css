@@ -1,7 +1,7 @@
 .logout {
   color: black;
   /* background-color:#ffd6ba; */
-  background-color:#d67d7a;
+  background-color:#f7882f;
   box-shadow: none!important
 }
 
@@ -15,7 +15,10 @@
 }
 
 .nav-link:hover{
-  color: #bee3db!important
+  color: #f7c331!important
 }
 
+.navbar{
+  background-color: transparent!important
+}
 

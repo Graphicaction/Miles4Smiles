@@ -30,7 +30,7 @@ const MyPage =() => {
     
   return(
     <>
-    <div className="alert text-center" style={{background: "transparent"}}>{greeting}</div>
+    <div className="alert text-center" style={{background: "transparent", color: "whitesmoke"}}>{greeting}</div>
      <RunningStats />
     </>
   )

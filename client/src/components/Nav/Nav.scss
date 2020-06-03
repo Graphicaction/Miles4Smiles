@@ -1,0 +1,29 @@
+@import "../../variables.scss";
+
+.logout {
+  color: $fontColor1;
+  /* background-color:#ffd6ba; */
+  background-color: $primaryColor2;
+  opacity: .8;
+  box-shadow: none!important
+}
+
+.logout:hover {
+  color: $fontColor2;
+  background-color:$primaryColor2;
+  opacity: 1;
+}
+
+.greeting{
+  color: $navAndJumboFont
+}
+
+.nav-link:hover{
+  color: $primaryColor3!important
+}
+
+.navbar{
+  background-color: transparent!important;
+  color: $navAndJumboFont
+}
+

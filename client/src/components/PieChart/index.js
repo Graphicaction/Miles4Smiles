@@ -23,12 +23,12 @@ const PieChart = () => {
 		datasets: [{
 			data: [wonData, lostData],
 			backgroundColor: [
-			'#e1f6e7',
-			'#f2ded6',
+			'#2a9d8f',
+			'#f7882f',
 			],
 			hoverBackgroundColor: [
-			'#FF6384',
-			'#36A2EB',
+			'#0ca08f',
+			'#cc3e07',
 			]
 		}]
 	};

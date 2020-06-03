@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css"
+import "./Card.scss"
 
 export const Card = (props) => (
   <div className="card mt-5 shadow mb-5 bg-gray rounded" >

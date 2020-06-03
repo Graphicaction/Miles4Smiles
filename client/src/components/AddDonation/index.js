@@ -1,6 +1,7 @@
 import React, {useState, useContext, useEffect} from "react";
 import CountUp from "react-countup";
 import ChallengeContext from "../../utils/ChallengeContext";
+import "./AddDonation.scss";
 
 function AddDonation() {
     const { challenges } = useContext(ChallengeContext);

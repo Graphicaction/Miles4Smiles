@@ -1,22 +1,26 @@
+@import"../../variables.scss";
+
 /* old version */
 .jumbotron{
   height: auto;
-  color: white;
+  color:$navAndJumboFont;
   font-size: 4rem;
-  /* color: black; */
-  text-shadow: 1px 1px 1px #a2cabc;
+  text-shadow: 1px 1px 1px $primaryColor1;
   clear: both; 
   padding-top: 20px;
   text-align: center;
+  margin-bottom: auto;
+  background-color: transparent!important;
+
+
   /* background: linear-gradient(#a2cabc, #FFF6F1); */
   /* background-color: #fff6f1; */
-  background-color: transparent!important;
   /* background-image: url("./jeremy-lapak-CVvFVQ_-oUg-unsplash.jpg")!important; */
   /* background-size: cover; */
   /* border-bottom: black 2px solid; */
   /* box-shadow: 3px 2px 3px #ccc */
   /* opacity: .8;*/
-  margin-bottom: auto;
+  
 }
 
 /* new version */
@@ -25,6 +29,6 @@
   font-size: 4rem;
   opacity: .6;
   text-align: center;
-  background: url("../../jumbotron-pic.jpg") no-repeat center center fixed;
+  background: url("bgIMG.jpg") no-repeat center center fixed;
   height: 350px;
 } */

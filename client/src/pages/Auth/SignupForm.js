@@ -6,7 +6,7 @@ import { Input, FormBtn } from '../../components/Form';
 import AUTH from '../../utils/AUTH';
 import validateSignup from "./validateSignup";
 import { useAlert } from 'react-alert';
-import "./Login.css"
+import "./Login.scss"
 
 
 function SignupForm() {
@@ -111,7 +111,7 @@ function SignupForm() {
                 value={userObject.confirmPassword}
                 onChange={handleChange}
               />
-              <Link to="/" className="btn" style={{backgroundColor: "#F7882F", color: "black"}}>Login</Link>
+              <Link to="/" className="btn loginBtn" >Login</Link>
               <FormBtn onClick={handleSubmit}>Register</FormBtn>
             </form>
           </Card>

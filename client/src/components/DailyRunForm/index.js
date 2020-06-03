@@ -4,7 +4,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
-import "./dailyRunForm.css";
+import BarChart from "../BarChart";
+import "./dailyRunForm.scss";
 import { useAlert } from 'react-alert'
 import {Row, Col} from "../Grid"
 

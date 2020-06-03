@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
-import "./RunningStats.css"
+import "./RunningStats.scss"
 import Jdenticon from "react-jdenticon";
 import BarChart from "../BarChart";
 import PieChart from "../PieChart";

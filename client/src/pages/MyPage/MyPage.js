@@ -1,7 +1,7 @@
 import React, {Fragment, useContext} from "react";
 import RunningStats from "../../components/RunningStats/RunningStats";
 import Jumbotron from "../../components/Jumbotron"
-import "./MyPage.css";
+import "./MyPage.scss";
 import UserContext from "../../utils/UserContext";
 
 

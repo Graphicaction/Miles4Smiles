@@ -7,7 +7,6 @@ import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import validateLogin from "./validateLogin";
-import Axios from 'axios';
 import "./Login.scss";
 
 function LoginForm({login, user}) {

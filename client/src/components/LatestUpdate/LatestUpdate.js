@@ -15,18 +15,17 @@ function LatestUpdate() {
         if (c.status==="finish"){
             finishedChallenges.push(c)
         }
-        // console.log(finishedChallenges)
     })
 
     return (
         <div>
             <ul>{
                 finishedChallenges.map((challenge, i) => (
-                  i<10 && 
-                    <>
-                    <li key={i}>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} mile race. {challenge.donor} lost and donated ${challenge.donatedAmount} to {challenge.businessName}. Thanks {challenge.donor}!</li>
+                  (i<10) && 
+                    <div key={challenge._id}>
+                    <li>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} mile race. {challenge.donor} lost and donated ${challenge.donatedAmount} to {challenge.businessName}. Thanks {challenge.donor}!</li>
                     <hr></hr>
-                    </>
+                    </div>
                 ))
             }</ul>
         </div>

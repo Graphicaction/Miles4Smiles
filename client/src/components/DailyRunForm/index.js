@@ -5,7 +5,7 @@ import moment from "moment";
 import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
 import BarChart from "../BarChart";
-import "./dailyRunForm.css";
+import "./dailyRunForm.scss";
 import { useAlert } from 'react-alert'
 import {Row, Col} from "../Grid"
 

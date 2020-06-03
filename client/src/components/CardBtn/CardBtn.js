@@ -1,5 +1,5 @@
 import React from "react";
-import "./CardBtn.css";
+import "./CardBtn.scss";
 
 const CardBtn = props => (
   <button

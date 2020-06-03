@@ -6,7 +6,7 @@ import { Input, FormBtn } from '../../components/Form';
 import AUTH from '../../utils/AUTH';
 import validateSignup from "./validateSignup";
 import { useAlert } from 'react-alert';
-import "./Login.css"
+import "./Login.scss"
 
 
 function SignupForm() {

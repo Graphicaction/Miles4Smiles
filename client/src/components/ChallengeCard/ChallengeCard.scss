@@ -1,0 +1,20 @@
+@import "../../variables.scss";
+
+.accept{
+  background-color: $green1;
+}
+
+.deny{
+  background-color: $orange1!important;
+  color: black!important
+}
+
+.wereChallenged{
+  /* background-color: #ffe5d9!important */
+  border: 1px solid $primaryColor2!important
+}
+
+.areChallenging{
+  /* background-color:#ffe5d9!important; */
+border:1px solid $primaryColor1!important
+}

@@ -5,7 +5,7 @@ import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import Jumbotron from "../../components/Jumbotron/Jumbotron"
 import Axios from 'axios';
-import "./Login.css"
+import "./Login.scss"
 // import Navbar from "../../components/Nav/Nav.js"
 //import bgIMG from "./bgIMG.jpg"
 // import M4S from "./M4S.png";

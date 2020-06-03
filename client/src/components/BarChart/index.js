@@ -11,7 +11,10 @@ const BarChart = (props) => {
         label: props.label,
         fill: false,
         // lineTension: 0.5,
-        backgroundColor: '#f7c331',
+        backgroundColor: [
+          '#6b7a8f',
+          '#f7c331',
+        ],
         borderColor: '#6b7a8f',
         borderWidth: 2,
         data: props.data

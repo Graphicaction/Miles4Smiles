@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import "./Dashboard.css"
+import "./Dashboard.scss"
 import BarChart from "../../components/BarChart";
 import { Col, Row, Container } from "../../components/Grid";
 import { Card } from "../../components/Card";

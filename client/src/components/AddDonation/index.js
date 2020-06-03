@@ -1,6 +1,7 @@
 import React, {useState, useContext, useEffect} from "react";
 import CountUp from "react-countup";
 import ChallengeContext from "../../utils/ChallengeContext";
+import "./AddDonation.scss";
 
 function AddDonation() {
     const { challenges } = useContext(ChallengeContext);
@@ -24,8 +25,8 @@ function AddDonation() {
 
     return (
         <div>
-            <p style={{ textAlign: "center", marginBottom:"0"}}>
-            <CountUp duration={3} prefix="$" end={donation}/></p>
+            <h3 style={{ textAlign: "center", marginBottom:"0"}}>
+            <CountUp duration={3} prefix="$" end={donation}/></h3>
         </div>
   )
 }

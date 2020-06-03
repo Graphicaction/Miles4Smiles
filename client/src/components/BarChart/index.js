@@ -13,7 +13,11 @@ const BarChart = (props) => {
         // lineTension: 0.5,
         backgroundColor: [
           '#6b7a8f',
-          '#f7c331',
+          '#f7882f',
+          '#6b7a8f',
+          '#f7882f',
+          '#6b7a8f',
+          '#f7882f',
         ],
         borderColor: '#6b7a8f',
         borderWidth: 2,

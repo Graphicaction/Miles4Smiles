@@ -37,10 +37,20 @@ function Dashboard() {
   };
     return (
       <Container fluid>
-        
+        <Row fluid>
+         {/* <Col size="12"> */}
+            <Card title="Overall Amount Of Financial Support For Local Businesses" >
+              <ChallengeContext.Provider value={{challenges}}>
+                {challenges.length>0 ? <AddDonation /> : <p className="text-center">No challenges recorded yet</p>
+                  }
+              </ChallengeContext.Provider>
+            </Card>
+          {/* </Col> */}
+        </Row>
+
           <Row>
           <Col size="md-6 sm-12">
-            <Card title="Challenges">
+            <Card title="Completed Challenges">
               { (distanceData) ? (<BarChart data={distanceData} label="Challenges Completed" yLabelString="Km" xLabelString="Number of Challenges" />) : <p className="text-center">No challenges recorded yet</p>
               }
               {/* needs to call the graph that shows overall miles ran similar to budget tracker adding on*/}
@@ -48,7 +58,7 @@ function Dashboard() {
           </Col>
           
           <Col size="md-6 sm-12">
-            <Card title="Donation to Local Businesses">
+            <Card title="The Supported Local Businesses">
             { (donationData[0] !== 0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <p className="text-center">No donations recorded yet</p>
               }
               {/* needs to call the graph that shows overall money that was donated similar to budget tracker */}
@@ -58,7 +68,7 @@ function Dashboard() {
         </Row>
 
         <Row>
-         <Col  fluid size="md-6 sm-6">
+         <Col  fluid size="12">
           <Card title="Recently Supported Local Businesses">
               <ChallengeContext.Provider value={{challenges}}>
                 {challenges.length>0 ? <BusinessBoard /> : <p className="text-center">No businesses recorded yet</p>
@@ -66,14 +76,7 @@ function Dashboard() {
               </ChallengeContext.Provider>
           </Card>
           </Col>
-          <Col size="md-6 sm-6">
-            <Card title="Overall Donation Amount " >
-              <ChallengeContext.Provider value={{challenges}}>
-                {challenges.length>0 ? <AddDonation /> : <p className="text-center">No challenges recorded yet</p>
-                  }
-              </ChallengeContext.Provider>
-            </Card>
-          </Col>
+         
         </Row>
 
     </Container>

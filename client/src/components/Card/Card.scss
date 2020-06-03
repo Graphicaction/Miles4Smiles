@@ -14,13 +14,15 @@
   /* opacity: .9; */
   /* background-color: #FFFbf9!important; */
   border-radius: 25px!important;
-  border: 1px solid $primaryColor3;
+  // border: 1px solid $primaryColor3;
   /*border-image: linear-gradient(to right, #f7c331, #dcc7aa);
   border-image-slice: 1;  */
 } 
 
 .card-header{
-  background-color: $primaryColor3;
+  background-image: $gradientOrange!important;
+
+  // background-color: rgba($primaryColor3, .8);
   border-radius: 25px!important;
   color: $fontColor1;
   /* text-shadow: 1px 1px 1px #ffd6ba; */

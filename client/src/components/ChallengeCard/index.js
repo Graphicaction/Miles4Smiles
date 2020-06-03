@@ -6,7 +6,7 @@ import "./ChallengeCard.css"
 
 const ChallengeCard = (props) => {
     return(
-        <Card title="My Challenges">
+        <>
               {props.myChallenges.length>0 && (
                 <>
                   {props.myChallenges.map((challenge, i) => ( 
@@ -48,7 +48,7 @@ const ChallengeCard = (props) => {
                   ))}
                 </>
               )}
-              {props.incomingChallenges.length>0 ? (
+              {props.incomingChallenges.length>0 && (
                 <>
                   {
                     props.incomingChallenges.map((challenge,i) => (
@@ -96,8 +96,8 @@ const ChallengeCard = (props) => {
                       </div>
                   ))}
                 </>
-              ):<h3>No pending challenges</h3>}
-      </Card>
+              )}
+      </>
     );
 }
 

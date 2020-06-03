@@ -130,7 +130,7 @@ const Welcome = (props) =>{
    </Jumbotron>
 
    <Row >
-   <div class="container-fluid">
+   <div className="container-fluid">
     {/* <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="9000">
         <div class="carousel-inner row w-100 mx-auto" role="listbox"> */}
     <div className="card-deck justify-center" style={{margin: "20px"}}>

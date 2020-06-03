@@ -37,10 +37,13 @@ function LoginForm({login}) {
 
 	const handleSubmit = (event) => {
     event.preventDefault();
-    const valid = validateLogin(userObject.username && userObject.password);
+    const valid = validateLogin(userObject.username, userObject.password);
     if(valid) {
       login(userObject.username, userObject.password);
       setRedirectTo('/welcome');
+    } else
+    {
+      console.log("Please enter all fields!");
     }
 	};
 

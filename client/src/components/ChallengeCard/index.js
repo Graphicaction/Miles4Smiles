@@ -48,11 +48,11 @@ const ChallengeCard = (props) => {
                   ))}
                 </>
               )}
-              {props.incomingChallenges.length>0 && (
+              {props.incomingChallenges.length>0 ? (
                 <>
                   {
                     props.incomingChallenges.map((challenge,i) => (
-                      <div className="card text-center wereChallenged">
+                      <div className="card text-center wereChallenged" key={challenge._id}>
                         <div className="card-body">
                           <h5 className="card-title">You Were Challenged By {challenge.challengers[0]}</h5>
                           <hr></hr>
@@ -96,7 +96,7 @@ const ChallengeCard = (props) => {
                       </div>
                   ))}
                 </>
-        )}
+              ):<h3>No pending challenges</h3>}
       </Card>
     );
 }

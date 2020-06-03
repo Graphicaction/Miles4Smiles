@@ -135,7 +135,7 @@ const Welcome = (props) =>{
         <div class="carousel-inner row w-100 mx-auto" role="listbox"> */}
     <div className="card-deck justify-center" style={{margin: "20px"}}>
       {/* <div className="col-md-3 carousel-item"> */}
-      <UserCard className="col-md-4 col-sm-12 col-lg-3 carousel-item"/>
+      <UserCard className=" carousel-item"/>
       </div>
     {/* </div>
     </div> */}

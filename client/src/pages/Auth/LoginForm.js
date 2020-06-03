@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import Axios from 'axios';
+import { useAlert } from 'react-alert';
 import { Container} from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import validateLogin from "./validateLogin";
-import Axios from 'axios';
 import "./Login.css"
 // import Navbar from "../../components/Nav/Nav.js"
 //import bgIMG from "./bgIMG.jpg"
@@ -17,7 +18,8 @@ function LoginForm({login}) {
     password: ''
   });
   const [redirectTo, setRedirectTo] = useState(null);
-
+  const alert = useAlert();
+  
 	const handleChange = (event) => {
 		setUserObject({
       ...userObject,
@@ -39,11 +41,21 @@ function LoginForm({login}) {
     event.preventDefault();
     const valid = validateLogin(userObject.username, userObject.password);
     if(valid) {
-      login(userObject.username, userObject.password);
-      setRedirectTo('/welcome');
+      const validUser = login(userObject.username, userObject.password);
+      console.log(validUser);
+      // if(!validUser){
+      //   alert.success('User does not exists!');
+      //   setUserObject({
+      //     username: "",
+      //     password: ""
+      //   });
+      // }
+      // else {
+        setRedirectTo('/welcome');
+      // }
     } else
     {
-      console.log("Please enter all fields!");
+      alert.success('Invalid User!');
     }
 	};
 

@@ -1,8 +1,8 @@
 import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API";
 import UserContext from "../../utils/UserContext";
-import { useAlert } from 'react-alert'
-import {Row, Col} from "../Grid"
+import { useAlert } from 'react-alert';
+import {Row, Col} from "../Grid";
 import LocationSearchInput from "../../utils/GPlaces";
 
 function ChallengeForm(props) {

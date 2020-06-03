@@ -1,7 +1,6 @@
 import React from "react";
 import ChallengeForm from "../../components/ChallengeForm/ChallengeForm";
 
-
 function ChallengeModal(props) {
   return (
     <>

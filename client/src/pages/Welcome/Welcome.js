@@ -25,9 +25,7 @@ const Welcome = (props) =>{
   const [firstLogin, setFirstLogin] = useState(false);
   const { user } = useContext(UserContext);
  //setup to direct first time login user to different component before going to usual welcome
-  console.log(user);
-  console.log(challenges);
-
+ 
   useEffect(()=>{
     if(user)
       setFirstLogin(user.firstLogin);
@@ -54,7 +52,6 @@ const Welcome = (props) =>{
             challengersData.push(challenge.challengers)
             }
           )
-        console.log(distanceData,donatedAmountData, donorData, challengersData);
         setChallenges(allChallenges);
         setDistanceData(distanceData);
         setDonatedAmountData(donatedAmountData);

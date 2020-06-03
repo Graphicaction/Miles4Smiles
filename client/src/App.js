@@ -45,28 +45,32 @@ function App() {
 
   const login = (username, password) => {
     AUTH.login(username, password).then(response => {
-      console.log(response.data);
       if (response.status === 200) {
         // update the state
-        console.log(response.data.user);
         setUser(response.data.user);
         setLoggedIn(true);
-
-        console.log("getAllusers of App.js");
+        //getting all users
         AUTH.getAllUsers().then(response => {
-          console.log("App getAllUsers ", response.data);
           if (!response.data.users) {
             setUsers(null);
           } else {
-            console.log(response.data.users);
             setUsers(response.data.users);
           };
         });
-        return () => {
-          setUsers(null);
-        };
-      }
+        // return () => {
+        //   setUsers(null);
+        // };
+      } 
+      // else {
+      //   setUser(null);
+      //   setLoggedIn(false);
+      // }
+    })
+    .catch(err => {
+      console.log("Invalid user!");
+      return 0;
     });
+    return 1;
   };
   
 
@@ -96,16 +100,16 @@ function App() {
       )}
       { !loggedIn && (
         <>
-      <Nav login={login}/>
+        <Nav login={login}/>
         <div className="auth-wrapper">
           <Switch>
-            <Route exact path="/" component={() => <LoginForm login={login}/>} />
-            <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
-            <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
             <>
             <AlertProvider template={AlertTemplate} {...options}>
+              <Route exact path="/" component={() => <LoginForm login={login}/>} />
+              <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
+              <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
               <Route exact path="/signup" component={SignupForm} />
             </AlertProvider>
             </>

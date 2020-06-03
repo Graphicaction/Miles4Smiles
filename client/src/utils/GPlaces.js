@@ -1,7 +1,6 @@
 import React from 'react';
 // import Script from 'react-load-script';
 import PlacesAutocomplete, {
-  geocodeByAddress,
   getLatLng,
   geocodeByPlaceId
 } from 'react-places-autocomplete';
@@ -61,14 +60,6 @@ class LocationSearchInput extends React.Component {
         this.setState({ address });
     };
 
-    // handleBusinessChange = event => {
-    //     console.log()
-    //     event.preventDefault();
-    //     const { name, value } = event.target;
-    //     this.setState({ [name]: value }, () => console.log("Business change", value))
-        
-    // }
-
     getPlaceDetails = (place, status) => {
         const request = {
             placeId: this.state.place_id,
@@ -108,11 +99,10 @@ class LocationSearchInput extends React.Component {
                 value={this.state.address}
                 onChange={this.handleChange}
                 onSelect={this.handleSelect}
-                googleCallbackName="initMap"
             >
             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
-                <input name="cBusiness" value={this.state.cBusiness} onChange={this.handleBusinessChange}
+                <input name="cBusiness" value={this.state.businessName} onChange={this.handleBusinessChange}
                 {...getInputProps({
                     placeholder: 'Search Local Business...',
                     className: 'location-search-input',

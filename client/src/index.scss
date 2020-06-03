@@ -1,15 +1,9 @@
 @import "./variables.scss";
 
-.body{
-  font-family:  $mainFontFamily;
-
-}
 body{
-  // background-color: $primaryColor1;
+  font-family:  $mainFontFamily;
   margin: 0;
   padding: 0;
-  /* background-color: rgba(220, 199,170, .9); */
-
   background-color: rgba($primaryColor1, .9);
   font-family: 'Raleway', sans-serif;
   background: cover;
@@ -63,7 +57,7 @@ svg{
 
 .form-control{
   /* background-color: rgba(247, 195,49, .1); */
-  border: solid 1px #f7c331;
+  border: solid 1px $primaryColor3;
 }
 
 ul{
@@ -71,21 +65,21 @@ ul{
 }
 
 @media(max-width: 400px){
-  .card-body{
-    padding: 5px;
-  }
+  // .card-body{
+  //   padding: 5px;
+  // }
   .container{
     padding: 1px
   }
   ul{
     padding-inline-start: 20px
   }
-  .display-4{
-    font-size:2em
-  }
-  h3{
-    font-size: 1.4em
-  }
+  // .display-4{
+  //   font-size:2em
+  // }
+  // h3{
+  //   font-size: 1.4em
+  // }
   h5{
     font-size: 1.3em!important
   }

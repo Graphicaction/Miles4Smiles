@@ -72,7 +72,7 @@ function LoginForm({login}) {
                 <button onClick={googleDirect} className="btn btn-info ml-2"><i className="fa fa-google mr-2"></i>Sign in with Google</button>
                 <button onClick={githubDirect} className="btn btn-dark ml-2"><i className="fa fa-github mr-2"></i>Sign in with Github</button>
 
-                <FormBtn onClick={handleSubmit} style={{backgroundColor: "#89b0ae"}}><i className="fa fa-sign-in mr-2"/>Login</FormBtn>
+                <FormBtn onClick={handleSubmit} className="loginBtn"><i className="fa fa-sign-in mr-2"/>Login</FormBtn>
               </form>
             </Card>
       </Container>

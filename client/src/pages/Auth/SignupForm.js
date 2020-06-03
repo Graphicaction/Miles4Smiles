@@ -111,7 +111,7 @@ function SignupForm() {
                 value={userObject.confirmPassword}
                 onChange={handleChange}
               />
-              <Link to="/" className="btn" style={{backgroundColor: "#F7882F", color: "black"}}>Login</Link>
+              <Link to="/" className="btn loginBtn" >Login</Link>
               <FormBtn onClick={handleSubmit}>Register</FormBtn>
             </form>
           </Card>

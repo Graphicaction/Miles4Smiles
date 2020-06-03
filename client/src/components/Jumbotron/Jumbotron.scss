@@ -1,9 +1,11 @@
+@import"../../variables.scss";
+
 /* old version */
 .jumbotron{
   height: auto;
-  color: white;
+  color:$navAndJumboFont;
   font-size: 4rem;
-  text-shadow: 1px 1px 1px #a2cabc;
+  text-shadow: 1px 1px 1px $primaryColor1;
   clear: both; 
   padding-top: 20px;
   text-align: center;

@@ -1,24 +1,27 @@
+@import "../../variables.scss";
+
+
 .start-challenge{
-  background-color: #f7c331!important;
+  background-color: $primaryColor3!important;
   /* background-color: #ffd6ba!important;
   background-color: #fdf28c!important; */
 
 }
 
 .start-challenge:hover{
-  background-color: #F7882F!important;
+  background-color: $primaryColor2!important;
   /* background-color: #ffd6ba!important;
   background-color: #fdf28c!important; */
 
 }
 
 .deleteBtn{
-  color: #d67d7a!important;
+  color: $orange-red;
   /* margin: 20px */
 }
 
 .updateBtn{
-  background-color: #89b0ae!important;
+  background-color: $primaryColor4!important;
   margin: 20px
 
 }

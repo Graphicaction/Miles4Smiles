@@ -6,10 +6,13 @@ import {Row, Col} from "../Grid";
 import LocationSearchInput from "../../utils/GPlaces";
 
 function ChallengeForm(props) {
+    // const challengeBiz =  useState({});
     const { user, users } = useContext(UserContext);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     const alert = useAlert();
+
+    // console.log(challengeBiz)
     
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -70,8 +73,8 @@ function ChallengeForm(props) {
                 </div>
                 <div className="form-group">
                     <label>Which Business Will You Support?</label>
-                    {/* <LocationSearchInput/> */}
-                    <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input>
+                    <LocationSearchInput/>
+                    {/* <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input> */}
                 </div>
                 <div className="form-group">
                     <label>Let's Talk Mileage 🏁</label>

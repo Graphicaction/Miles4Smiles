@@ -24,8 +24,9 @@ class LocationSearchInput extends React.Component {
     this.loadGoogleMaps(() => {
         // Work to do after the library loads.
         this.setState({ googleMapsReady: true });
-            });
-    }
+        console.log('google maps ready:', this.state.googleMapsReady)
+    });
+  }
 
     componentWillUnmount() {
         // unload script when needed to avoid multiple google scripts loaded warning
@@ -34,7 +35,6 @@ class LocationSearchInput extends React.Component {
 
     loadGoogleMaps = callback => {
         const existingScript = document.getElementById("googlePlacesScript");
-        // const key = `${process.env.GOOGLE_PLACES_KEY}`;
         if (!existingScript) {
             const script = document.createElement("script");
             script.src =
@@ -44,6 +44,7 @@ class LocationSearchInput extends React.Component {
             //action to do after a script is loaded in our case setState
             script.onload = () => {
                 if (callback) callback();
+                console.log("script loaded")
             };
         }
         if (existingScript && callback) callback();

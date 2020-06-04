@@ -30,10 +30,21 @@ h1,h2,h3,h4,h5,h6,
   font-family: 'Raleway', sans-serif;
 }
 
+.form-control{
+  border-radius: $borderRadius;
+}
+
 .btn{
   opacity: .8;
   box-shadow: 3px 3px 3px $primaryColor1;
-  margin: 10px
+  margin: 10px;
+  transition: 0.5s;
+  border-radius:$borderRadius;
+  // padding:15px;
+    // border: 3px solid transparent;
+    // border-image: $gradientOrange;
+    // border-image-slice: 1; 
+  
 }
 
 .btn:hover{
@@ -46,7 +57,8 @@ a:hover{
 
 svg{
   box-shadow: 1px 1px 2px 1px $primaryColor1;
-  background-color:whitesmoke
+  background-color:whitesmoke;
+  // border-radius: $borderRadius;
 
 }
 
@@ -80,7 +92,8 @@ ul{
   }
   .jumbotron{
     margin-bottom: 1px!important;
-    padding-bottom: 1px!important
+    padding-bottom: 1px!important;
+    border-bottom: 1px black solid;
   }
 }
 

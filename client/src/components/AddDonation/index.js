@@ -22,8 +22,8 @@ function AddDonation() {
     //Using count up to show animation for displaying donation amount
     return (
         <div>
-            <p style={{ textAlign: "center", marginBottom:"0"}}>
-            <CountUp duration={4} prefix="$" end={donation}/></p>
+            <h5 style={{ textAlign: "center", marginBottom:"0"}}>
+            <CountUp duration={4} prefix="$" end={donation}/></h5>
         </div>
   )
 }

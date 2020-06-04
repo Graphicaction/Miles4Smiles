@@ -13,8 +13,20 @@ router.put('/signup/:id', userController.update);
 router.put('/user/:id', userController.userUpdate);
 router.delete('/user/:id', userController.deleteUser)
 
-router.get("/google", passport.authenticate('google', {
+
+//google Oauth
+router.get("/google/auth", passport.authenticate('google', {
   scope: ['profile', 'email']
   }))
+router.post('/login', userController.auth, passport.authenticate('google'), userController.authenticate);
+
+router.get("/auth/google/callback", passport.authenticate('google'));
+router.get("/logout", (req, res) =>{
+    req.logout();
+    res.send(req.user);
+  }) 
+router.get('/user/:id', (req, res) => {
+    res.send(req.user)
+  })
 
 module.exports = router;

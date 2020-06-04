@@ -28,7 +28,7 @@ const UserCard =() => {
     <CarouselProvider
     naturalSlideWidth={100}
     naturalSlideHeight={125}
-    totalSlides={3}
+    totalSlides={6}
     >
    <Slider> 
     {display4usersOnly.map((user, i) => ( user._id !== currentUser && (
@@ -51,8 +51,8 @@ const UserCard =() => {
     </Slide>
     )))}
     </Slider>
-    <ButtonBack>Back</ButtonBack>
-    <ButtonNext>Next</ButtonNext>
+    <ButtonBack><i className="fa fa-chevron-left fa-lg"/></ButtonBack>
+    <ButtonNext><i className="fa fa-chevron-right fa-lg"/></ButtonNext>
     </CarouselProvider>
    
     )

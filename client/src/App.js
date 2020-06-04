@@ -84,19 +84,23 @@ function App() {
           <Nav user={user} logout={logout}/>
           <div className="main-view">
             <Switch>
-              <Route exact path="/welcome" >
-                <UserContext.Provider value={{user, users, setUser}}>
-                  <Welcome />
-                </UserContext.Provider>
-              </Route>
-              <Route exact path="/about" component={About} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/mypage/:id">
-                <UserContext.Provider value={{user, users, setUser}}>
-                  <MyPage />
-                </UserContext.Provider>
+              <>
+            ` <AlertProvider template={AlertTemplate} {...options}>
+                <Route exact path="/welcome" >
+                  <UserContext.Provider value={{user, users, setUser}}>
+                    <Welcome />
+                  </UserContext.Provider>
                 </Route>
-              <Route component={NoMatch} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/mypage/:id">
+                  <UserContext.Provider value={{user, users, setUser}}>
+                    <MyPage />
+                  </UserContext.Provider>
+                  </Route>
+                <Route component={NoMatch} />
+              </AlertProvider>
+              </>
             </Switch>
           </div>
         </div>

@@ -6,8 +6,8 @@ import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
 import "./dailyRunForm.scss";
 import validateRun from "./validateRun";
-import { useAlert } from 'react-alert'
-import {Row, Col} from "../Grid"
+import { useAlert } from 'react-alert';
+import {Row, Col} from "../Grid";
 
 function DailyRunForm(props) {
   const [formObject, setFormObject] = useState({

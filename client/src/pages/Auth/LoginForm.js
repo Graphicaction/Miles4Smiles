@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import Axios from 'axios';
+import AUTH from "../../utils/AUTH";
 import { useAlert } from 'react-alert';
 import { Container} from '../../components/Grid';
 import { Card } from '../../components/Card';
@@ -26,13 +27,13 @@ function LoginForm({login, user}) {
   
   const googleDirect = (event) =>{
     event.preventDefault();
-    Axios.get("/auth/google")
+    AUTH.getGoogle()
   }
 
-  const githubDirect =(event) => {
-    event.preventDefault();
-    Axios.get("/auth/github")
-  }
+  // const githubDirect =(event) => {
+  //   event.preventDefault();
+  //   AUTH.getGithub("/auth/github")
+  // }
 
 	const handleSubmit = (event) => {
     event.preventDefault();
@@ -86,8 +87,8 @@ function LoginForm({login, user}) {
                   onChange={handleChange}
                 />
                 <Link to="/signup" className="btn registerBtn"><i className="fa fa-user-plus mr-2"/>Register</Link>
-                <button onClick={googleDirect} className="btn btn-info ml-2"><i className="fa fa-google mr-2"></i>Sign in with Google</button>
-                <button onClick={githubDirect} className="btn btn-dark ml-2"><i className="fa fa-github mr-2"></i>Sign in with Github</button>
+                <button onClick={googleDirect} className="btn btn-info googleBtn ml-2"><i className="fa fa-google mr-2"></i>Sign in with Google</button>
+                {/* <button onClick={githubDirect} className="btn btn-dark githubBtn ml-2"><i className="fa fa-github mr-2"></i>Sign in with Github</button> */}
 
                 <FormBtn onClick={handleSubmit} className="loginBtn"><i className="fa fa-sign-in mr-2"/>Login</FormBtn>
               </form>

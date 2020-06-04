@@ -6,8 +6,11 @@ $orange-red: #cc3e07;
 $fontColor1: black;
 $fontColor2: whitesmoke;
 
+
+
 $navAndJumboFont: whitesmoke;
 
+$borderRadius: 18px;
 $primaryColor1: #6b7a8f;
 // $primaryColor2: #f7882f;
 // $primaryColor3: #f7c331;
@@ -20,8 +23,10 @@ $primaryColor3: #f7882f;
 // $primaryColor4: #2a9d8f;
 
 $gradientOrange: linear-gradient(to bottom right, $primaryColor3, $primaryColor2);
-
-
+$gradientOrange2: linear-gradient(to top left, $primaryColor3, $primaryColor2);
+$gradientBlue: linear-gradient(to top left, #37D5D6, #3c3fcc);
+$gradientBlack: linear-gradient(to top left, whitesmoke, black);
+$gradientPink: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%);
 
 $mainFontFamily: 'Raleway', sans-serif;
 

@@ -3,6 +3,8 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
 const User = mongoose.model('User');
 const keys = require("../config/keys");
+const db = require("../models");
+
 
 //place mongo generated id in the cookie
 passport.serializeUser((user, done) =>{
@@ -25,7 +27,7 @@ passport.use(
       proxy: true
     }, 
     (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleId : profile.id })
+      db.User.findOne({ googleId : profile.id })
       .then((existingUser)=>{
         //if already signed up with that googleid no new user
         if(existingUser){
@@ -34,7 +36,7 @@ passport.use(
           console.log("accessToken", accessToken);
           console.log("refresh Token", refreshToken);
           console.log("profile", profile);
-          new User({ 
+          new db.User({ 
             googleId: profile.id,
             firstName: profile.name.givenName,
             lastName: profile.name.familyName,

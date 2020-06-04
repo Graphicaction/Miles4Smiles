@@ -35,7 +35,7 @@ const PieChart = () => {
   
     return (
       	<div>
-		  {(user.challengesWon===0 && user.challengesLost===0) ? <h3> No challenges completed yet!</h3> : <Pie data={data} /> }
+		  {(user.challengesWon===0 && user.challengesLost===0) ? <h5 className="text-center"> No challenges completed yet!</h5> : <Pie data={data} /> }
 		</div>
     );
   

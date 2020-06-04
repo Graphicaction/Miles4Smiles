@@ -143,7 +143,7 @@ function RunningStats() {
             <Card title="My Challenges">
               {(myChallenges.length || incomingChallenges.length)?
                 <ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} handleChallenge={handleChallenge} handleChallengeChange={handleChallengeChange} />
-                :<h3>No pending challenges</h3>
+                :<h5 className="text-center">No pending challenges</h5>
               }
             </Card>
           </Col>
@@ -192,7 +192,7 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (newRun) ? (<BarChart data={milesData} label="Races Completed" yLabelString="Km" xLabelString="Number of Races" />) : <h3>No races recorded yet</h3>
+              { (newRun) ? (<BarChart data={milesData} label="Races Completed" yLabelString="Km" xLabelString="Number of Races" />) : <h5 className="text-center">No races recorded yet</h5>
               }
             </Card>
           </Col>

@@ -4,8 +4,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import { Input, FormBtn } from "../Form";
 import API from "../../utils/API";
-import BarChart from "../BarChart";
 import "./dailyRunForm.scss";
+import validateRun from "./validateRun";
 import { useAlert } from 'react-alert'
 import {Row, Col} from "../Grid"
 
@@ -32,20 +32,27 @@ function DailyRunForm(props) {
     function handleFormSubmit(event) {
         event.preventDefault();
         const formatteddate = moment(date).format('YYYY-MM-DD'); 
+        const validParams = validateRun(formObject.distance,formatteddate,formObject.totalTime);
         // const pace = formObject.distance / formObject.totalTime;
-        if (formObject.distance && formObject.totalTime) {
-          API.saveRunningStat({
-            // pace: pace,
-            distance: formObject.distance,
-            date: formObject.formatteddate,
-            totalTime: formObject.totalTime
-          })
-            .then(res => {
-              formEl.current.reset();
-              alert.success('Race Saved!');
-              props.handleBarChart();
+        if(validParams){
+          if (formObject.distance && formObject.totalTime) {
+            API.saveRunningStat({
+              // pace: pace,
+              distance: formObject.distance,
+              date: formatteddate,
+              totalTime: formObject.totalTime
             })
-            .catch(err => console.log(err));
+              .then(res => {
+                formEl.current.reset();
+                formObject.distance = "";
+                formObject.totalTime = "";
+                alert.success('Race Saved!');
+                props.handleBarChart();
+              })
+              .catch(err => console.log(err));
+          }
+        } else {
+          alert.success("Please enter valid input");
         }
       };
       //returns race run form

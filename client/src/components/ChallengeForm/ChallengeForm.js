@@ -20,7 +20,7 @@ function ChallengeForm(props) {
     function handleChallengeSave(event) {
         event.preventDefault();
         let challengers;
-        //assigning values in challengers array depending upon welcome / mypage call
+        //assigning values in challengers array depending upon welcome / mypage call and validating inputs
         let valid;
         if(props.name){
             challengers = [user.username, props.name];
@@ -109,7 +109,7 @@ function ChallengeForm(props) {
                         <button type="button" className="btn btn-secondary" onClick={handleCancel} data-dismiss="modal"><i className="fa fa-eject mr-2"/>Cancel</button>
                     </Col>
                     <Col size="6">
-                        <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal"><i className="fa fa-paper-plane mr-2"/>Send Challenge</button>
+                        <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal" disabled={!(formObject.oppUser && formObject.cBusiness && formObject.cMiles && formObject.cDonation)}><i className="fa fa-paper-plane mr-2"/>Send Challenge</button>
                     </Col>
                 </Row>
             </form>

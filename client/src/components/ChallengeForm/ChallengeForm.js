@@ -1,8 +1,8 @@
 import React, { useState, useRef, useContext } from "react";
 import API from "../../utils/API";
 import UserContext from "../../utils/UserContext";
-import { useAlert } from 'react-alert'
-import {Row, Col} from "../Grid"
+import { useAlert } from 'react-alert';
+import {Row, Col} from "../Grid";
 import LocationSearchInput from "../../utils/GPlaces";
 
 function ChallengeForm(props) {
@@ -19,6 +19,7 @@ function ChallengeForm(props) {
     function handleChallengeSave(event) {
         event.preventDefault();
         let challengers;
+        //assigning values in challengers array depending upon welcome / mypage call
         if(props.name){
             challengers = [user.username, props.name];}
         else{
@@ -36,7 +37,8 @@ function ChallengeForm(props) {
         .then(res => {
             alert.success('Challenge Saved!');
             challengeForm.current.reset();
-            props.handleChallenge();
+            if(props.handleChallenge)
+                props.handleChallenge();
         })
         .catch(err => {
             console.log(err);

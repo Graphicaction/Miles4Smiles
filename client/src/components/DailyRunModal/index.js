@@ -6,7 +6,7 @@ function DailyRunModal(props) {
 
   return (
     <>
-      <button type="button" className="btn start-challenge" data-toggle="modal" data-target="#runModal"><i className="fa fa-stopwatch-20 mr-2"/>Log a Race</button>
+      <button type="button" className="btn start-challenge" data-toggle="modal" data-target="#runModal"><i className="fa fa-history mr-2"/>Log a Race</button>
             <div className="modal fade" id="runModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">

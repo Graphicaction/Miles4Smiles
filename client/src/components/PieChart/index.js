@@ -23,19 +23,19 @@ const PieChart = () => {
 		datasets: [{
 			data: [wonData, lostData],
 			backgroundColor: [
-			'#e1f6e7',
-			'#f2ded6',
+			'#2a9d8f',
+			'#f7882f',
 			],
 			hoverBackgroundColor: [
-			'#FF6384',
-			'#36A2EB',
+			'#0ca08f',
+			'#cc3e07',
 			]
 		}]
 	};
   
     return (
       	<div>
-		  {(user.challengesWon===0 && user.challengesLost===0) ? <p className="text-center"> No challenges completed yet!</p> : <Pie data={data} /> }
+		  {(user.challengesWon===0 && user.challengesLost===0) ? <h3> No challenges completed yet!</h3> : <Pie data={data} /> }
 		</div>
     );
   

@@ -2,11 +2,11 @@ import React from "react";
 import UpdateChallengeForm from "../UpdateChallenge/UpdateChallengeForm";
 import { Card } from "../Card";
 import {Row, Col} from "../Grid"
-import "./ChallengeCard.css"
+import "./ChallengeCard.scss"
 
 const ChallengeCard = (props) => {
     return(
-        <Card title="My Challenges">
+        <>
               {props.myChallenges.length>0 && (
                 <>
                   {props.myChallenges.map((challenge, i) => ( 
@@ -52,7 +52,7 @@ const ChallengeCard = (props) => {
                 <>
                   {
                     props.incomingChallenges.map((challenge,i) => (
-                      <div className="card text-center wereChallenged">
+                      <div className="card text-center wereChallenged" key={challenge._id}>
                         <div className="card-body">
                           <h5 className="card-title">You Were Challenged By {challenge.challengers[0]}</h5>
                           <hr></hr>
@@ -96,8 +96,8 @@ const ChallengeCard = (props) => {
                       </div>
                   ))}
                 </>
-        )}
-      </Card>
+              )}
+      </>
     );
 }
 

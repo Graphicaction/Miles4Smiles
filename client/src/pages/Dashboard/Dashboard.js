@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import "./Dashboard.css"
+import "./Dashboard.scss"
 import BarChart from "../../components/BarChart";
 import { Col, Row, Container } from "../../components/Grid";
 import { Card } from "../../components/Card";
@@ -27,38 +27,44 @@ function Dashboard() {
           if(challenge.status === "finish")
             moneyData.push(challenge.donatedAmount);
         });
-        console.log("my money data",moneyData);
+       //Setting donation data, distance data and all challenges to pass to child components
         setDonationData(moneyData);
         setChallenges(allChallenges);
         setDistanceData(dData);
-        console.log("my donation data",donationData);
       })
       .catch(err => console.log(err));
   };
     return (
       <Container fluid>
-        
-          <Row>
-          <Col size="md-6 sm-12">
-            <Card title="Challenges">
-              { (distanceData) ? (<BarChart data={distanceData} label="Challenges Completed" yLabelString="Km" xLabelString="Number of Challenges" />) : <p className="text-center">No challenges recorded yet</p>
-              }
-              {/* needs to call the graph that shows overall miles ran similar to budget tracker adding on*/}
+        <Row fluid>
+         {/* <Col size="12"> */}
+            <Card title="Overall Amount Of Financial Support For Local Businesses" >
+              <ChallengeContext.Provider value={{challenges}}>
+                {challenges.length>0 ? <AddDonation /> : <p className="text-center">No challenges recorded yet</p>
+                  }
+              </ChallengeContext.Provider>
             </Card>
-          </Col>
+          {/* </Col> */}
+        </Row>
+
+          <Row>
+            <Col size="md-6 sm-12">
+              <Card title="Completed Challenges">
+                { (distanceData) ? (<BarChart data={distanceData} label="Challenges Completed" yLabelString="Km" xLabelString="Number of Challenges" />) : <p className="text-center">No challenges recorded yet</p>
+                }
+              </Card>
+            </Col>
           
           <Col size="md-6 sm-12">
-            <Card title="Donation to Local Businesses">
+            <Card title="The Supported Local Businesses">
             { (donationData[0] !== 0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <p className="text-center">No donations recorded yet</p>
               }
-              {/* needs to call the graph that shows overall money that was donated similar to budget tracker */}
             </Card>
           </Col>
-          
         </Row>
 
         <Row>
-         <Col  fluid size="md-6 sm-6">
+         <Col  fluid size="12">
           <Card title="Recently Supported Local Businesses">
               <ChallengeContext.Provider value={{challenges}}>
                 {challenges.length>0 ? <BusinessBoard /> : <p className="text-center">No businesses recorded yet</p>
@@ -66,17 +72,8 @@ function Dashboard() {
               </ChallengeContext.Provider>
           </Card>
           </Col>
-          <Col size="md-6 sm-6">
-            <Card title="Overall Donation Amount " >
-              <ChallengeContext.Provider value={{challenges}}>
-                {challenges.length>0 ? <AddDonation /> : <p className="text-center">No challenges recorded yet</p>
-                  }
-              </ChallengeContext.Provider>
-            </Card>
-          </Col>
         </Row>
-
-    </Container>
+  </Container>
     );
   }
 

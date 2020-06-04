@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import Axios from 'axios';
+import { useAlert } from 'react-alert';
 import { Container} from '../../components/Grid';
 import { Card } from '../../components/Card';
 import { Input, FormBtn } from '../../components/Form';
-import Jumbotron from "../../components/Jumbotron/Jumbotron"
-import Axios from 'axios';
-import "./Login.scss"
-// import Navbar from "../../components/Nav/Nav.js"
-//import bgIMG from "./bgIMG.jpg"
-// import M4S from "./M4S.png";
+import Jumbotron from "../../components/Jumbotron/Jumbotron";
+import validateLogin from "./validateLogin";
+import "./Login.scss";
 
-function LoginForm({login}) {
+function LoginForm({login, user}) {
   const [userObject, setUserObject] = useState({
     username: '',
     password: ''
   });
   const [redirectTo, setRedirectTo] = useState(null);
-
+  const alert = useAlert();
+  
 	const handleChange = (event) => {
 		setUserObject({
       ...userObject,
@@ -35,9 +35,26 @@ function LoginForm({login}) {
   }
 
 	const handleSubmit = (event) => {
-		event.preventDefault();
-		login(userObject.username, userObject.password);
-		setRedirectTo('/welcome');
+    event.preventDefault();
+    const valid = validateLogin(userObject.username, userObject.password);
+    if(valid) {
+      login(userObject.username, userObject.password);
+      //Not solved for does not exists user!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      console.log(user);
+      // if(!validUser){
+      //   alert.success('User does not exists!');
+      //   setUserObject({
+      //     username: "",
+      //     password: ""
+      //   });
+      // }
+      // else {
+        setRedirectTo('/welcome');
+      // }
+    } else
+    {
+      alert.success('Invalid User!');
+    }
 	};
 
   if (redirectTo) {

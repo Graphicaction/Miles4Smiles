@@ -32,7 +32,6 @@ function DailyRunForm(props) {
     function handleFormSubmit(event) {
         event.preventDefault();
         const formatteddate = moment(date).format('YYYY-MM-DD'); 
-        console.log("Date is", formatteddate);
         // const pace = formObject.distance / formObject.totalTime;
         if (formObject.distance && formObject.totalTime) {
           API.saveRunningStat({
@@ -49,6 +48,7 @@ function DailyRunForm(props) {
             .catch(err => console.log(err));
         }
       };
+      //returns race run form
     return (
         <>
             <form ref={formEl}>
@@ -86,15 +86,7 @@ function DailyRunForm(props) {
               </div>
               </Col>
               </Row>
-                {/* <Input
-                  onChange={handleInputChange}
-                  label="5K"
-                  name="distance"
-                  placeholder="Distance (required)"
-                  type="radio"
-                  value="5"
-                /> */}
-                <div className="form-group">
+              <div className="form-group">
                 <DatePicker
                   onChange={date => onDateChange('date', date)}
                   name="date"

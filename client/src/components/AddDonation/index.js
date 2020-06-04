@@ -7,8 +7,6 @@ function AddDonation() {
     const { challenges } = useContext(ChallengeContext);
     const [donation, setDonation] = useState(0);
     
-    console.log(challenges);
-
     useEffect(()=>{
         getDonation();
     },[challenges])
@@ -20,13 +18,12 @@ function AddDonation() {
                 donationAmount += challenge.donatedAmount;
         })
         setDonation(donationAmount);
-        console.log(donation);
     }
-
+    //Using count up to show animation for displaying donation amount
     return (
         <div>
-            <h3 style={{ textAlign: "center", marginBottom:"0"}}>
-            <CountUp duration={3} prefix="$" end={donation}/></h3>
+            <p style={{ textAlign: "center", marginBottom:"0"}}>
+            <CountUp duration={4} prefix="$" end={donation}/></p>
         </div>
   )
 }

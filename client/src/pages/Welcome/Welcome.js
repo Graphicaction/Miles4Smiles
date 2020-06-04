@@ -25,9 +25,7 @@ const Welcome = (props) =>{
   const [firstLogin, setFirstLogin] = useState(false);
   const { user } = useContext(UserContext);
  //setup to direct first time login user to different component before going to usual welcome
-  console.log(user);
-  console.log(challenges);
-
+ 
   useEffect(()=>{
     if(user)
       setFirstLogin(user.firstLogin);
@@ -54,7 +52,6 @@ const Welcome = (props) =>{
             challengersData.push(challenge.challengers)
             }
           )
-        console.log(distanceData,donatedAmountData, donorData, challengersData);
         setChallenges(allChallenges);
         setDistanceData(distanceData);
         setDonatedAmountData(donatedAmountData);
@@ -130,7 +127,7 @@ const Welcome = (props) =>{
    </Jumbotron>
 
    <Row >
-   <div class="container-fluid">
+   <div className="container-fluid">
     {/* <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="9000">
         <div class="carousel-inner row w-100 mx-auto" role="listbox"> */}
     <div className="card-deck justify-center" style={{margin: "20px"}}>

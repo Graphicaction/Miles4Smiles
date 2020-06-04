@@ -140,7 +140,12 @@ function RunningStats() {
       <Container fluid>
         <Row>
           <Col size="md-6 sm-12">
-            <ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} handleChallenge={handleChallenge} handleChallengeChange={handleChallengeChange} />
+            <Card title="My Challenges">
+              {(myChallenges.length || incomingChallenges.length)?
+                <ChallengeCard myChallenges={myChallenges} incomingChallenges={incomingChallenges} handleChallenge={handleChallenge} handleChallengeChange={handleChallengeChange} />
+                :<h3>No pending challenges</h3>
+              }
+            </Card>
           </Col>
           <Col size="md-6">
             <Card title="Update Your Information" style={{justifyContent:"center"}}>
@@ -187,7 +192,7 @@ function RunningStats() {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (newRun) ? (<BarChart data={milesData} label="Races Completed" yLabelString="Km" xLabelString="Number of Races" />) : <p className="text-center">No races recorded yet</p>
+              { (newRun) ? (<BarChart data={milesData} label="Races Completed" yLabelString="Km" xLabelString="Number of Races" />) : <h3>No races recorded yet</h3>
               }
             </Card>
           </Col>

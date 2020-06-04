@@ -19,27 +19,21 @@ const ChallengeCard = (props) => {
                           
                           { (challenge.status === "pending") && (
                             <>
-                              
-                                <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>
+                            <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>
                             <div className="modal fade" id={`updateModal${i}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div className="modal-dialog" role="document">
                                 <div className="modal-content">
                                   <div className="modal-header">
-                                    
                                     <h5 className="modal-title" id="exampleModalLabel">Submit Completed Challenge</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
-                                  
                                   <div className="modal-body">
                                     <UpdateChallengeForm id={challenge._id} handleChallenge={props.handleChallenge} challengers={challenge.challengers} business={challenge.businessName} />
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="modal-body">
-                              <UpdateChallengeForm id={challenge._id} handleChallenge={props.handleChallenge} challengers={challenge.challengers} business={challenge.businessName} />
                             </div>
                             </>
                           )}
@@ -75,9 +69,6 @@ const ChallengeCard = (props) => {
                                   </div>
                                 </div>
                               </div>
-                              {/* <div className="modal-body">
-                                <UpdateChallengeForm id={challenge._id} handleChallenge={props.handleChallenge} challengers={challenge.challengers} business={challenge.businessName}/>
-                              </div> */}
                             </>
                           ):(   
                           <div>

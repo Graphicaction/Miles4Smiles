@@ -130,7 +130,7 @@ const Welcome = (props) =>{
    <div className="container-fluid">
     {/* <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="9000">
         <div class="carousel-inner row w-100 mx-auto" role="listbox"> */}
-    <div className="card-deck justify-center" style={{margin: "20px"}}>
+    <div className="card-deck d-flex justify-content-center" style={{margin: "20px"}}>
       {/* <div className="col-md-3 carousel-item"> */}
       <UserCard className=" carousel-item"/>
       </div>

@@ -105,7 +105,7 @@ function UpdateChallengeForm(props) {
                 {/* <div className="modal-footer"> */}
                 <hr></hr>
                     <button type="button" className="btn btn-secondary mr-5" data-dismiss="modal"><i className="fa fa-eject mr-2"/>Cancel</button>
-                    <button type="button" className="btn" onClick={handleChallengeSave} data-dismiss="modal" style={{backgroundColor: "#89b0ae"}}><i className="fa fa-paper-plane mr-2"/>Submit Challenge</button>
+                    <button type="button" className="btn" onClick={handleChallengeSave} data-dismiss="modal" style={{backgroundColor: "#89b0ae"}} disabled={!(formObject.loser)}><i className="fa fa-paper-plane mr-2"/>Submit Challenge</button>
                 
             </form>
         </>

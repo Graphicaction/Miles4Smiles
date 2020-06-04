@@ -4,6 +4,7 @@ import UserContext from "../../utils/UserContext";
 import { useAlert } from 'react-alert';
 import {Row, Col} from "../Grid";
 import LocationSearchInput from "../../utils/GPlaces";
+import validateChallenge from "./validateChallenge";
 
 function ChallengeForm(props) {
     const {challengeBiz} =  useState({});
@@ -23,34 +24,42 @@ function ChallengeForm(props) {
     function handleChallengeSave(event) {
         event.preventDefault();
         let challengers;
-        //assigning values in challengers array depending upon welcome / mypage call
+        //assigning values in challengers array depending upon welcome / mypage call and validating inputs
+        let valid;
         if(props.name){
-            challengers = [user.username, props.name];}
+            challengers = [user.username, props.name];
+            valid = validateChallenge(props.name,formObject.cMiles,formObject.cDonation,formObject.cBusiness);
+        }
         else{
-            challengers = [user.username, formObject.oppUser];}
+            challengers = [user.username, formObject.oppUser];
+            valid = validateChallenge(formObject.oppUser,formObject.cMiles,formObject.cDonation,formObject.cBusiness);
+        }
         const donation = formObject.cMiles * formObject.cDonation;
-        
-        API.saveChallenge({
-            challengers: challengers,
-            // businessName: this.state.businessName,
-            businessName: formObject.cBusiness,
-            distance: formObject.cMiles,
-            donatedAmount: donation,
-            donor: "",
-            status:"Waiting for Response",
-            // businessLocation: this.state.address,
-            // businessUrl: this.state.businessUrl,
-            // businessType: this.state.businessType
-        })
-        .then(res => {
-            alert.success('Challenge Saved!');
-            challengeForm.current.reset();
-            if(props.handleChallenge)
-                props.handleChallenge();
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        if(valid){
+            API.saveChallenge({
+                challengers: challengers,
+                // businessName: this.state.businessName,
+                businessName: formObject.cBusiness,
+                distance: formObject.cMiles,
+                donatedAmount: donation,
+                donor: "",
+                status:"Waiting for Response",
+                // businessLocation: this.state.address,
+                // businessUrl: this.state.businessUrl,
+                // businessType: this.state.businessType
+            })
+            .then(res => {
+                alert.success('Challenge Saved!');
+                challengeForm.current.reset();
+                if(props.handleChallenge)
+                    props.handleChallenge();
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        } else {
+            alert.success("Please enter valid inputs!");
+        }
     }
 
     function handleCancel() {
@@ -98,7 +107,7 @@ function ChallengeForm(props) {
                         <button type="button" className="btn btn-secondary" onClick={handleCancel} data-dismiss="modal"><i className="fa fa-eject mr-2"/>Cancel</button>
                     </Col>
                     <Col size="6">
-                        <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal"><i className="fa fa-paper-plane mr-2"/>Send Challenge</button>
+                        <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal" disabled={!(formObject.oppUser && formObject.cBusiness && formObject.cMiles && formObject.cDonation)}><i className="fa fa-paper-plane mr-2"/>Send Challenge</button>
                     </Col>
                 </Row>
             </form>

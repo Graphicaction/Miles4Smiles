@@ -38,6 +38,14 @@ app.use(session({
 // })
 // );
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
+
 // Passport
 app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
@@ -47,25 +55,23 @@ require("./passport/GoogleStrategy");
 require('./routes/auth/Googleauth')(app);
 
 //Github OAuth
-require("./passport/GithubStrategy");
-require('./routes/auth/GithubAuth')(app);
+// require("./passport/GithubStrategy");
+// require('./routes/auth/GithubAuth')(app);
 
 //get rid of cors
 // app.use(function(req, res) {
-//   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+//   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); 
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-
-
 // });
 
 
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000", // allow to server to accept request from different origin
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true // allow session cookie from browser to pass through
-//   })
-// );
+app.use(
+  cors({
+    origin: "http://localhost:3000", // allow to server to accept request from different origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true // allow session cookie from browser to pass through
+  })
+);
 
 // If it's production environment!
 if (process.env.NODE_ENV === 'production') {

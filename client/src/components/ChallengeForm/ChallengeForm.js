@@ -6,18 +6,19 @@ import {Row, Col} from "../Grid";
 import LocationSearchInput from "../../utils/GPlaces";
 
 function ChallengeForm(props) {
-    // const challengeBiz =  useState({});
+    const {challengeBiz} =  useState({});
     const { user, users } = useContext(UserContext);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     const alert = useAlert();
 
-    // console.log(challengeBiz)
+    console.log(challengeBiz);
     
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
     };
+
     //Saving new challenge
     function handleChallengeSave(event) {
         event.preventDefault();
@@ -31,11 +32,15 @@ function ChallengeForm(props) {
         
         API.saveChallenge({
             challengers: challengers,
+            // businessName: this.state.businessName,
             businessName: formObject.cBusiness,
             distance: formObject.cMiles,
             donatedAmount: donation,
             donor: "",
-            status:"Waiting for Response"
+            status:"Waiting for Response",
+            // businessLocation: this.state.address,
+            // businessUrl: this.state.businessUrl,
+            // businessType: this.state.businessType
         })
         .then(res => {
             alert.success('Challenge Saved!');

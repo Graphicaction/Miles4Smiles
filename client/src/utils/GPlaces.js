@@ -44,7 +44,6 @@ class LocationSearchInput extends React.Component {
             //action to do after a script is loaded in our case setState
             script.onload = () => {
                 if (callback) callback();
-                console.log("script loaded")
             };
         }
         if (existingScript && callback) callback();

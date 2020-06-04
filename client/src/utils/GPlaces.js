@@ -24,7 +24,7 @@ class LocationSearchInput extends React.Component {
     this.loadGoogleMaps(() => {
         // Work to do after the library loads.
         this.setState({ googleMapsReady: true });
-        console.log('google maps ready:', this.state.googleMapsReady)
+        // console.log('google maps ready:', this.state.googleMapsReady)
     });
   }
 
@@ -73,7 +73,8 @@ class LocationSearchInput extends React.Component {
                     businessUrl: response.data.result.website,
                     businessType: response.data.result.icon
                 })
-                console.log("Selected business", this.state)
+                // console.log("Selected business", this.state)
+                this.props.handleBusiness(this.state.address, this.state.businessName, this.state.businessUrl, this.state.businessType)
             })
     }
 
@@ -83,7 +84,6 @@ class LocationSearchInput extends React.Component {
             getLatLng(results[0]);
             // this.state.query to update the components value once a suggestion is selected ??
             this.setState({ place_id });
-            console.log("Place ID:", this.state.place_id);
             this.getPlaceDetails();
         })
         .catch(error => console.error('Error', error));

@@ -7,18 +7,26 @@ import LocationSearchInput from "../../utils/GPlaces";
 import validateChallenge from "./validateChallenge";
 
 function ChallengeForm(props) {
-    const {challengeBiz} =  useState({});
+    const [address, setAddress] =  useState();
+    const [businessName, setBusinessName] =  useState();
+    const [businessUrl, setBusinessUrl] =  useState();
+    const [businessType, setBusinessType] =  useState();
     const { user, users } = useContext(UserContext);
     const [formObject, setFormObject] = useState([]);
     const challengeForm = useRef(null);
     const alert = useAlert();
-
-    console.log(challengeBiz);
     
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
     };
+
+    const handleBusiness = (address, businessName, businessUrl, businessType) => {
+       setAddress(address);
+       setBusinessName(businessName);
+       setBusinessUrl(businessUrl);
+       setBusinessType(businessType);
+    }
 
     //Saving new challenge
     function handleChallengeSave(event) {
@@ -38,15 +46,14 @@ function ChallengeForm(props) {
         if(valid){
             API.saveChallenge({
                 challengers: challengers,
-                // businessName: this.state.businessName,
-                businessName: formObject.cBusiness,
+                businessName: businessName,
                 distance: formObject.cMiles,
                 donatedAmount: donation,
                 donor: "",
                 status:"Waiting for Response",
-                // businessLocation: this.state.address,
-                // businessUrl: this.state.businessUrl,
-                // businessType: this.state.businessType
+                businessLocation: address,
+                businessUrl: businessUrl,
+                businessType: businessType
             })
             .then(res => {
                 alert.success('Challenge Saved!');
@@ -87,8 +94,7 @@ function ChallengeForm(props) {
                 </div>
                 <div className="form-group">
                     <label>Which Business Will You Support?</label>
-                    <LocationSearchInput/>
-                    {/* <input onChange={handleInputChange} name="cBusiness" className="form-control" type="text" placeholder="Enter business name"></input> */}
+                    <LocationSearchInput handleBusiness={handleBusiness}/>
                 </div>
                 <div className="form-group">
                     <label>Let's Talk Mileage 🏁</label>
@@ -107,7 +113,7 @@ function ChallengeForm(props) {
                         <button type="button" className="btn btn-secondary" onClick={handleCancel} data-dismiss="modal"><i className="fa fa-eject mr-2"/>Cancel</button>
                     </Col>
                     <Col size="6">
-                        <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal" disabled={!(formObject.oppUser && formObject.cBusiness && formObject.cMiles && formObject.cDonation)}><i className="fa fa-paper-plane mr-2"/>Send Challenge</button>
+                        <button type="button" className="btn btn-success" onClick={handleChallengeSave} data-dismiss="modal" disabled={!(formObject.cMiles && formObject.cDonation)}><i className="fa fa-paper-plane mr-2"/>Send Challenge</button>
                     </Col>
                 </Row>
             </form>

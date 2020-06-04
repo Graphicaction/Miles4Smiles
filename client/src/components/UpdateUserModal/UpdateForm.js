@@ -1,9 +1,9 @@
-import React, {useState, useRef, useContext} from "react"
+import React, {useState, useRef, useContext} from "react";
+import { useAlert } from 'react-alert';
 import AUTH from "../../utils/AUTH"
 import {Input, FormBtn} from "../Form";
 import UserContext from "../../utils/UserContext";
-
-
+import validateUpdate from './validateUpdate';
 
 function UpdateForm() {
   const { user } = useContext(UserContext);
@@ -14,31 +14,31 @@ function UpdateForm() {
     averageDistance: "",
   });
   const formEl = useRef(null);
+  const alert = useAlert();
 
-    function handleInputChange(event) {
-      const { name, value } = event.target;
-      setFormObject({...formObject, [name]: value})
-    };
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({...formObject, [name]: value})
+  };
     
     function handleFormSubmit(event) {
         event.preventDefault();
- 
-        if (formObject.averagePace && formObject.averageDistance) {
-          AUTH.update(user._id,{
-            ...user,
-            // username: formObject.username,
-            // password: formObject.password,
-            averageDistance: (formObject.averageDistance),
-            averagePace: parseInt(formObject.averagePace),
-            // city: formObject.city,
-            // state: formObject.state,
-          })
-            .then(res => {
-              console.log(res.data)
-              formEl.current.reset();
-              setSaved(true);
+        const validUpdate = validateUpdate(formObject.averageDistance, formObject.averagePace);
+        if(validUpdate){
+          if (formObject.averagePace && formObject.averageDistance) {
+            AUTH.userUpdate(user._id,{
+              averageDistance: (formObject.averageDistance),
+              averagePace: parseInt(formObject.averagePace),
             })
-            .catch(err => console.log(err));
+              .then(res => {
+                console.log(res.data)
+                formEl.current.reset();
+                setSaved(true);
+              })
+              .catch(err => console.log(err));
+          }
+        }else {
+          alert.success("Please enter numbers only!");
         }
       };
     return (
@@ -75,6 +75,7 @@ function UpdateForm() {
                   placeholder="update state"
                 /> */}
                 <FormBtn id="updateBtn"
+                  disabled={!(formObject.averageDistance && formObject.averagePace)}
                   onClick={handleFormSubmit} >
                   Update my User Account
                 </FormBtn>

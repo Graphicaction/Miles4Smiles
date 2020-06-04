@@ -4,6 +4,7 @@ import UserContext from "../../utils/UserContext";
 import { useAlert } from 'react-alert';
 import {Row, Col} from "../Grid";
 import LocationSearchInput from "../../utils/GPlaces";
+import validateChallenge from "./validateChallenge";
 
 function ChallengeForm(props) {
     const { user, users } = useContext(UserContext);
@@ -20,29 +21,37 @@ function ChallengeForm(props) {
         event.preventDefault();
         let challengers;
         //assigning values in challengers array depending upon welcome / mypage call
+        let valid;
         if(props.name){
-            challengers = [user.username, props.name];}
+            challengers = [user.username, props.name];
+            valid = validateChallenge(props.name,formObject.cMiles,formObject.cDonation,formObject.cBusiness);
+        }
         else{
-            challengers = [user.username, formObject.oppUser];}
+            challengers = [user.username, formObject.oppUser];
+            valid = validateChallenge(formObject.oppUser,formObject.cMiles,formObject.cDonation,formObject.cBusiness);
+        }
         const donation = formObject.cMiles * formObject.cDonation;
-        
-        API.saveChallenge({
-            challengers: challengers,
-            businessName: formObject.cBusiness,
-            distance: formObject.cMiles,
-            donatedAmount: donation,
-            donor: "",
-            status:"Waiting for Response"
-        })
-        .then(res => {
-            alert.success('Challenge Saved!');
-            challengeForm.current.reset();
-            if(props.handleChallenge)
-                props.handleChallenge();
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        if(valid){
+            API.saveChallenge({
+                challengers: challengers,
+                businessName: formObject.cBusiness,
+                distance: formObject.cMiles,
+                donatedAmount: donation,
+                donor: "",
+                status:"Waiting for Response"
+            })
+            .then(res => {
+                alert.success('Challenge Saved!');
+                challengeForm.current.reset();
+                if(props.handleChallenge)
+                    props.handleChallenge();
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        } else {
+            alert.success("Please enter valid inputs!");
+        }
     }
 
     function handleCancel() {

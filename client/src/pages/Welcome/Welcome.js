@@ -122,7 +122,7 @@ const Welcome = (props) =>{
     <Col size="12">
     <Card title="Latest Miles 4 Smiles Updates">
       <ChallengeContext.Provider value={{challenges}}>
-        {challenges.length>0 ? <LatestUpdate /> : <p className="text-center">No completed challenge yet. You should start one!</p>}
+        {challenges.length>0 ? <LatestUpdate /> : (<p className="text-center">No completed challenge yet. You should start one!</p>)}
       </ChallengeContext.Provider>
     </Card>
     </Col>

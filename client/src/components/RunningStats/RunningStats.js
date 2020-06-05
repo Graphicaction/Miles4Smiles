@@ -198,7 +198,7 @@ function RunningStats() {
           </Col>
           <Col size="md-6 sm-12">
             <Card title="Past Challenges" >
-              { (pieData) && <PieChart /> }
+              { (pieData) && <PieChart /> } : <h5 className="text-center">No races lost or won yet</h5>
             </Card>
           </Col>
         </Row>

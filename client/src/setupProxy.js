@@ -10,7 +10,7 @@ module.exports = function (app){
     app.use(
       ["/api","/auth", "/auth/google"],
       createProxyMiddleware({
-        target: "https://miles4smiles.herokuapp.com"
+        target: "https://miles4smiles.herokuapp.com/"
       })
     )
   }

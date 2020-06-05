@@ -9,17 +9,17 @@ const About = () =>{
     <AboutJumbotron/>
     <Row>
       <Col size="sm-12 md-6 lg-3">
-        <Card title="Step 1 &#9205;">
+        <Card title="Step 1">
           <div className="card-body-about">Create a Miles4Smiles account to get started. You can even use M4S to log your race times.</div>
         </Card>
       </Col>
       <Col size="sm-12 md-6 lg-3">
-        <Card title="Step 2 &#9205;">
+        <Card title="Step 2">
           <div className="card-body-about">Click the "Challenge" button to compete against a friend or any other M4S user. Here you'll choose a distance to race and the lucky local business to support.</div>
         </Card>
       </Col>
       <Col size="sm-12 md-6 lg-3">
-        <Card title="Step 3 &#9205;">
+        <Card title="Step 3">
           <div className="card-body-about">If accepted, each challenger must run the selected distance. Remember-- the slower runner pays up! GO GO GO!</div>
         </Card>
       </Col>

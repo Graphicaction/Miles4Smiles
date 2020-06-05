@@ -78,7 +78,7 @@ const ChallengeCard = (props) => {
                                 <button className="btn accept" onClick={() => props.handleChallengeChange(challenge._id,"accept")}>Accept Challenge</button>
                               </Col>
                               <Col size="6">
-                                <button className="btn btn-secondary deny" onClick={() => props.handleChallengeChange(challenge._id,"deny")}>Deny Challenge</button>
+                                <button className="btn deny" onClick={() => props.handleChallengeChange(challenge._id,"deny")}>Deny Challenge</button>
                               </Col>
                             </Row>
                           </div>

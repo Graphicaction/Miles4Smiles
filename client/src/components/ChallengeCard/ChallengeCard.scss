@@ -1,20 +1,25 @@
 @import "../../variables.scss";
 
 .accept{
-  background-color: $green1;
+  // background-image: $gradientGreen;
+  border-color: $green1;
+  // background-color: lighten($green1, 30%)
+  color: $green1
 }
 
 .deny{
-  background-color: $orange1!important;
-  color: black!important
+  // background-image: $gradientRed;
+  border-color: $orange-red;
+  // background-color: lighten($orange-red, 20%);
+  color: $orange-red
 }
 
 .wereChallenged{
   /* background-color: #ffe5d9!important */
-  border: 1px solid $primaryColor2!important
+  border: 1px solid $primaryColor3!important
 }
 
 .areChallenging{
   /* background-color:#ffe5d9!important; */
-border:1px solid $primaryColor1!important
+border:1px solid $primaryColor2!important
 }

@@ -8,7 +8,7 @@ function BusinessBoard() {
         <div>
             <ul>{
                 // Displaying upto 5 business names 
-                challenges.map((challenge,i) => (i<5 && 
+                challenges.slice(0).reverse().map((challenge,i) => (i<5 && 
                 <div key={challenge._id}>
                     <li>{challenge.businessName}</li>
                     <hr></hr>

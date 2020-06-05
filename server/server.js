@@ -51,12 +51,10 @@ app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
 
 // // //Google OAuth
-// require("./passport/GoogleStrategy");
-// require('./routes/auth/Googleauth')(app);
+require("./passport/GoogleStrategy");
+require('./routes/auth/Googleauth')(app);
 
-//Github OAuth
-// require("./passport/GithubStrategy");
-// require('./routes/auth/GithubAuth')(app);
+
 
 //get rid of cors
 // app.use(function(req, res) {
@@ -65,13 +63,13 @@ app.use(passport.session()); // will call the deserializeUser
 // });
 
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // allow to server to accept request from different origin
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true // allow session cookie from browser to pass through
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000", // allow to server to accept request from different origin
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true // allow session cookie from browser to pass through
+//   })
+// );
 
 // If it's production environment!
 if (process.env.NODE_ENV === 'production') {

@@ -52,7 +52,7 @@ function DailyRunForm(props) {
               .catch(err => console.log(err));
           }
         } else {
-          alert.success("Please enter valid input");
+          alert.error("Please enter valid input");
         }
       };
       //returns race run form

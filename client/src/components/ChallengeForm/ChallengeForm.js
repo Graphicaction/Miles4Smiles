@@ -65,7 +65,7 @@ function ChallengeForm(props) {
                 console.log(err);
             })
         } else {
-            alert.success("Please enter valid inputs!");
+            alert.error("Please enter valid inputs!");
         }
     }
 

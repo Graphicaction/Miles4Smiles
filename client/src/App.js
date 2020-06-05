@@ -57,15 +57,13 @@ function App() {
             setUsers(response.data.users);
           };
         });
+        //callback(1);
       } 
       })
       .catch(err => {
-        console.log("Invalid user!");
+        console.log("User does not exists!");
+        //callback(0);
       });
-      if(!user)
-        return 0;
-      else
-        return 1;
   };
   
 

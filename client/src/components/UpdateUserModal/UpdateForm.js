@@ -34,9 +34,11 @@ function UpdateForm() {
             })
               .then(res => {
                 console.log(res.data)
-                formEl.current.reset();
                 setSaved(true);
-                setUserUpdate(res.data)
+                setUserUpdate(true);
+                console.log(userUpdate)
+                formEl.current.reset();
+                
               })
               .catch(err => console.log(err));
           }

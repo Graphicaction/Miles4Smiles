@@ -57,18 +57,15 @@ function App() {
             setUsers(response.data.users);
           };
         });
-       // return () => {
-        //   setUsers(null);
-        // };
       } 
-      // else {
-      //   setUser(null);
-      //   setLoggedIn(false);
-      // }
-    })
-    .catch(err => {
-      console.log("Invalid user!");
-    });
+      })
+      .catch(err => {
+        console.log("Invalid user!");
+      });
+      if(!user)
+        return 0;
+      else
+        return 1;
   };
   
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import Axios from 'axios';
-import AUTH from "../../utils/AUTH";
 import { useAlert } from 'react-alert';
 import { Container} from '../../components/Grid';
 import { Card } from '../../components/Card';
@@ -50,7 +49,7 @@ function LoginForm({login, user}) {
       // }
     } else
     {
-      alert.success('Invalid User!');
+      alert.error('Invalid User!');
     }
 	};
 

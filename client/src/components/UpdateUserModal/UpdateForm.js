@@ -8,7 +8,7 @@ import { PromiseProvider } from "mongoose";
 
 function UpdateForm() {
   const { user } = useContext(UserContext);
-  // const [userUpdate, setUserUpdate] = useState(false);
+  const [userUpdate, setUserUpdate] = useState(false);
   // const [user, setUser]= useState([]);
   const [isSaved, setSaved] = useState(false);
   const [formObject, setFormObject] = useState({
@@ -36,13 +36,12 @@ function UpdateForm() {
                 console.log(res.data)
                 formEl.current.reset();
                 setSaved(true);
-                // setUser(res.data)
-                // props.
+                setUserUpdate(res.data)
               })
               .catch(err => console.log(err));
           }
         }else {
-          alert.success("Please enter numbers only!");
+          alert.error("Please enter numbers only!");
         }
       };
     return (

@@ -4,10 +4,12 @@ import AUTH from "../../utils/AUTH"
 import {Input, FormBtn} from "../Form";
 import UserContext from "../../utils/UserContext";
 import validateUpdate from './validateUpdate';
+import { PromiseProvider } from "mongoose";
 
 function UpdateForm() {
   const { user } = useContext(UserContext);
-
+  // const [userUpdate, setUserUpdate] = useState(false);
+  // const [user, setUser]= useState([]);
   const [isSaved, setSaved] = useState(false);
   const [formObject, setFormObject] = useState({
     averagePace: "",
@@ -27,13 +29,15 @@ function UpdateForm() {
         if(validUpdate){
           if (formObject.averagePace && formObject.averageDistance) {
             AUTH.userUpdate(user._id,{
-              averageDistance: (formObject.averageDistance),
+              averageDistance: parseInt(formObject.averageDistance),
               averagePace: parseInt(formObject.averagePace),
             })
               .then(res => {
                 console.log(res.data)
                 formEl.current.reset();
                 setSaved(true);
+                // setUser(res.data)
+                // props.
               })
               .catch(err => console.log(err));
           }

@@ -73,37 +73,6 @@ const Welcome = (props) =>{
     console.log(newData)
     // props.updateUser(newData);
     }
-  
-//build user carousel
-  // function nextUsers(userIndex) {
-  //   // Ensure that the user index stays within our range of users
-  //   if (userIndex >= users.length) {
-  //     userIndex = 0;
-  //   }
-  //   setUser(users[userIndex]);
-  //   setUserIndex(userIndex);
-  // }
-
-  // function previousUsers(userIndex) {
-  //   // Ensure that the user index stays within our range of users
-  //   if (userIndex < 0) {
-  //     userIndex = users.length - 1;
-  //   }
-  //   setUser(users[userIndex]);
-  //   setUserIndex(userIndex);
-  // }
-
-  // function handleUserBtnClick(event) {
-  //   // Get the title of the clicked button
-  //   const btnName = event.target.getAttribute("data-value");
-  //   if (btnName === "next") {
-  //     const newUserIndex = userIndex + 1;
-  //     nextUser(newUserIndex);
-  //   } else {
-  //     const newUserIndex = userIndex - 1;
-  //     previousUser(newUserIndex);
-  //   }
-  // }
  
     
   return(

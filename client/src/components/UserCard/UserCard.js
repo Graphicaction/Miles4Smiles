@@ -5,6 +5,8 @@ import "./UserCard.scss"
 import Jdenticon from "react-jdenticon";
 import UserContext from "../../utils/UserContext";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css'
 
 const UserCard =() => {
   const { user, users } = useContext(UserContext);
@@ -24,9 +26,21 @@ const UserCard =() => {
     let display4usersOnly = users.slice(0, 5);
   return(
     <>
+    {/* <CarouselProvider */}
+  {/* //   naturalSlideWidth={33}
+  //   naturalSlideHeight={33}
+  //   totalSlides={3}
+  //   // hasMasterSpinner={true}
+  //   // interval={5000}
+  //   // touchEnabled={true}
+  //   // visibleSlides={4}
+  //   // children={}
+  //   > */}
+  {/* //  <Slider>  */}
     {display4usersOnly.map((user, i) => ( user._id !== currentUser && (
-    <div key={i} className="card text-center col-md-4 col-sm-12 col-lg-3">
-      <div className="card-body ">
+    // <Slide index={i}>
+      <div key={i} className="card text-center">
+        <div className="card-body ">
         <Jdenticon className="avatar" size="48" value={user.username} float="right"></Jdenticon>
         <h5  className="card-title justify-content-center">{user.username}</h5>
 
@@ -40,8 +54,14 @@ const UserCard =() => {
         </AlertProvider>
       </div>
     </div>
+    // </Slide>
     )))}
-    </>
+    {/* </Slider>
+    <Dot />
+    <ButtonBack><i className="fa fa-chevron-left fa-lg"/></ButtonBack>
+    <ButtonNext><i className="fa fa-chevron-right fa-lg"/></ButtonNext>
+    </CarouselProvider> */}
+   </>
     )
   } else {
     usersToRender ="Loading..."

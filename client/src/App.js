@@ -17,8 +17,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState(null);
-  const [firstLogin, setFirstLogin] = useState(false);
-  const [redirectTo, setRedirectTo] = useState(null);
+ const [redirectTo, setRedirectTo] = useState(null);
 
   let history = useHistory();
 
@@ -44,13 +43,12 @@ function App() {
   }
 
   const login = (username, password) => {
-    let loginUser;
+    
     AUTH.login(username, password).then(response => {
       if (response.status === 200) {
         // update the state
         setUser(response.data.user);
         setLoggedIn(true);
-        loginUser = true;
         //getting all users
         AUTH.getAllUsers().then(response => {
           if (!response.data.users) {
@@ -59,21 +57,15 @@ function App() {
             setUsers(response.data.users);
           };
         });
-        return loginUser;
-        // return () => {
-        //   setUsers(null);
-        // };
       } 
-      // else {
-      //   setUser(null);
-      //   setLoggedIn(false);
-      // }
-    })
-    .catch(err => {
-      console.log("Invalid user!");
-      loginUser = false;
-    });
-    console.log(loginUser);
+      })
+      .catch(err => {
+        console.log("Invalid user!");
+      });
+      if(!user)
+        return 0;
+      else
+        return 1;
   };
   
 
@@ -98,7 +90,6 @@ function App() {
                     <MyPage />
                   </UserContext.Provider>
                   </Route>
-                <Route component={NoMatch} />
               </AlertProvider>
               </>
             </Switch>

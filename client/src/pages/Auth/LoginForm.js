@@ -39,11 +39,11 @@ function LoginForm({login, user}) {
     event.preventDefault();
     const valid = validateLogin(userObject.username, userObject.password);
     if(valid) {
-      login(userObject.username, userObject.password);
+      const validUser = login(userObject.username, userObject.password);
       //Not solved for does not exists user!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      console.log(user);
+      console.log(validUser);
       // if(!validUser){
-      //   alert.success('User does not exists!');
+      //   alert.success('User doeot s nexists!');
       //   setUserObject({
       //     username: "",
       //     password: ""

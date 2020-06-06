@@ -41,8 +41,10 @@ const BarChart = (props) => {
             scales:{
               yAxes: [{
                 ticks:{
+                  callback: function(value, index, values) {
+                    return props.yAxesTick + value;},
                   suggestedMin: 0,
-                  suggestedMax: 42
+                  suggestedMax: props.yAxesMax
                 },
                 scaleLabel: {
                   display: true,

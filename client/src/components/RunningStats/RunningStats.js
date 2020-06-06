@@ -202,7 +202,7 @@ function RunningStats(props) {
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Races">
-              { (newRun) ? (<BarChart data={milesData} label="Races Completed" yLabelString="Km" xLabelString="Number of Races" />) : <h5 className="text-center">No races recorded yet</h5>
+              { (newRun) ? (<BarChart data={milesData} label="Races Completed" yAxesTick="" yAxesMax="45" yLabelString="Distance Run (Km)" xLabelString="Number of Races" />) : <h5 className="text-center">No races recorded yet</h5>
               }
             </Card>
           </Col>

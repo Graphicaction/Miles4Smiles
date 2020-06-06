@@ -11,6 +11,7 @@ body{
   min-height: 1300px
 }
 
+
 html{
   height:100%;
   background: url(bg.jpeg) no-repeat center center fixed ; 
@@ -77,13 +78,16 @@ ul{
     padding-inline-start: 20px
   }
 
+  h3{
+    // font-size: 
+  }
+
   h5{
     font-size: 1.3em!important
   }
   .jumbotron{
     margin-bottom: 1px!important;
     padding-bottom: 1px!important;
-    border-bottom: 1px black solid;
   }
 }
 

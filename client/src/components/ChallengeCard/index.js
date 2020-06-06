@@ -19,7 +19,7 @@ const ChallengeCard = (props) => {
                           
                           { (challenge.status === "pending") && (
                             <>
-                            <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>
+                            <button href="#" className="btn enterOutcome mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>
                             <div className="modal fade" id={`updateModal${i}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div className="modal-dialog" role="document">
                                 <div className="modal-content">
@@ -53,7 +53,7 @@ const ChallengeCard = (props) => {
                           <p className="card-text">{challenge.challengers[0]} challenges you to do a {challenge.distance} mile race. The slower runner donates ${challenge.donatedAmount} to {challenge.businessName}.</p>
                           {(challenge.status === "pending") ? (
                             <>
-                              <button href="#" className="btn accept mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>
+                              <button href="#" className="btn enterOutcome mr-5" id="update-challenge" data-toggle="modal" data-target={`#updateModal${i}`} >Enter Challenge Outcome</button>
                               <div className="modal fade" id={`updateModal${i}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div className="modal-dialog" role="document">
                                   <div className="modal-content">

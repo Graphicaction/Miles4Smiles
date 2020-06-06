@@ -29,8 +29,8 @@ function UpdateForm() {
         if(validUpdate){
           if (formObject.averagePace && formObject.averageDistance) {
             AUTH.userUpdate(user._id,{
-              averageDistance: parseInt(formObject.averageDistance),
-              averagePace: parseInt(formObject.averagePace),
+              averageDistance: formObject.averageDistance,
+              averagePace: formObject.averagePace
             })
               .then(res => {
                 console.log(res.data)

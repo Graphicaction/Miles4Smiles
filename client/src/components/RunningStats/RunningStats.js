@@ -180,7 +180,7 @@ function RunningStats(props) {
                   <h5 className="card-title justify-content-center">{user.username}</h5>
                   <h6 className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state}</h6>
                   <hr></hr>
-                  <p className="card-text pace">Average Pace: {user.averagePace} mile</p>
+                  <p className="card-text pace">Average Pace: {user.averagePace} /mile</p>
                   <p className="card-text distance">Typical Distance: {user.averageDistance} miles</p>
                   {/* </>)} */}
                   <hr></hr>

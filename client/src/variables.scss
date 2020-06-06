@@ -1,7 +1,8 @@
 $green1: #2a9d8f;
 $orange1: #d6947a;
 $orange-red: #cc3e07;
-
+// $accept: 
+// $deny:
 
 $fontColor1: black;
 $fontColor2: whitesmoke;
@@ -22,11 +23,14 @@ $primaryColor2: #f7c331;
 $primaryColor3: #f7882f;
 // $primaryColor4: #2a9d8f;
 
-$gradientOrange: linear-gradient(to bottom right, $primaryColor3, $primaryColor2);
+$gradientOrange: linear-gradient(to right, $primaryColor3 0%, $primaryColor2 60%, $primaryColor3 100%);
 $gradientOrange2: linear-gradient(to top left, $primaryColor3, $primaryColor2);
 $gradientBlue: linear-gradient(to top left, #37D5D6, #3c3fcc);
 $gradientBlack: linear-gradient(to top left, whitesmoke, black);
 $gradientPink: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%);
+$gradientGreen: linear-gradient(to bottom right, $primaryColor1 0%,  $primaryColor1 50%,$primaryColor2 100% );
+$gradientRed: linear-gradient(to bottom right, $orange-red 0%, $orange-red 50%,$primaryColor2 100%);
 
+$gradient3: linear-gradient(to right, #fa6c9f 0%, #ffe140 80%, #ffe140 100%);
 $mainFontFamily: 'Raleway', sans-serif;
 

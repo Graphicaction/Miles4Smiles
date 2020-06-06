@@ -21,8 +21,8 @@ function App() {
 
   let history = useHistory();
 
-  const logout = (event) => {
-    event.preventDefault();
+  const logout = () => {
+    // event.preventDefault();
     
 		AUTH.logout().then(response => {
 			// check for logout status and redirect
@@ -85,7 +85,7 @@ function App() {
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/mypage/:id">
                   <UserContext.Provider value={{user, users, setUser}}>
-                    <MyPage />
+                    <MyPage logout={logout}/>
                   </UserContext.Provider>
                   </Route>
               </AlertProvider>
@@ -104,7 +104,8 @@ function App() {
               <Route exact path="/" component={() => <LoginForm login={login} user={user} />} />
               <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              {/* <Route exact path="/dashboard" component={() => <LoginForm login={login} />} /> */}
               <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
               <Route exact path="/signup" component={SignupForm} />
             </AlertProvider>

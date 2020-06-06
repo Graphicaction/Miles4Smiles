@@ -74,10 +74,10 @@ const ChallengeCard = (props) => {
                           <div>
                             <hr></hr>
                             <Row>
-                              <Col size="6">
+                              <Col size="lg-6 sm-12">
                                 <button className="btn accept" onClick={() => props.handleChallengeChange(challenge._id,"accept")}>Accept Challenge</button>
                               </Col>
-                              <Col size="6">
+                              <Col size="lg-6 sm-12">
                                 <button className="btn deny" onClick={() => props.handleChallengeChange(challenge._id,"deny")}>Deny Challenge</button>
                               </Col>
                             </Row>

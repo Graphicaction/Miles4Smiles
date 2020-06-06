@@ -2,7 +2,7 @@ import React from "react";
 import DailyRunForm from "../../components/DailyRunForm";
 import UpdateForm from "./UpdateForm";
 
-function UpdateUserModal() {
+function UpdateUserModal(props) {
 
   return (
     <>
@@ -17,7 +17,7 @@ function UpdateUserModal() {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <UpdateForm />
+                    <UpdateForm handleUserUpdate={props.handleUserUpdate}/>
                   </div>
                 </div>
               </div>

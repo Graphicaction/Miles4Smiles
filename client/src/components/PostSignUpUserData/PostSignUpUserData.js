@@ -40,6 +40,7 @@ const PostSignUpUserData =(props) => {
           firstLogin: false
           })
           .then(res => {
+            console.log(res.data);
             props.flip();
             setUser(res.data);
           }

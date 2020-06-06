@@ -6,10 +6,8 @@ import UserContext from "../../utils/UserContext";
 import validateUpdate from './validateUpdate';
 import { PromiseProvider } from "mongoose";
 
-function UpdateForm() {
-  const { user } = useContext(UserContext);
-  const [userUpdate, setUserUpdate] = useState(false);
-  // const [user, setUser]= useState([]);
+function UpdateForm(props) {
+  const { user, setUser } = useContext(UserContext);
   const [isSaved, setSaved] = useState(false);
   const [formObject, setFormObject] = useState({
     averagePace: "",
@@ -35,8 +33,8 @@ function UpdateForm() {
               .then(res => {
                 console.log(res.data)
                 setSaved(true);
-                setUserUpdate(true);
-                console.log(userUpdate)
+                setUser(res.data);
+                props.handleUserUpdate();
                 formEl.current.reset();
                 
               })

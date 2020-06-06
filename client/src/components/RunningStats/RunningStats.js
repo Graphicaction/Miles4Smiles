@@ -29,6 +29,7 @@ function RunningStats(props) {
   const [newRun, setNewRun] = useState(false);
   const [pieData, setPieData] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [updateUser, setUpdateUser] = useState(true);
 
 
   let history = useHistory();
@@ -116,13 +117,10 @@ function RunningStats(props) {
   }
 
   const handleUserUpdate =() =>{
-    console.log("update!!")
-    console.log(user);
-    return <UpdateUserModal/>
+    setUpdateUser(true);
   }
 
   const handleUserDelete =(_id) => {
-    console.log(user._id)
     props.logout();
     AUTH.deleteUser(user._id)
     .then(response =>{
@@ -174,25 +172,26 @@ function RunningStats(props) {
                     </Row>
                 </AlertProvider>
                 <hr></hr>
-                {/* { (userUpdate) ? ( <> */}
-                <div className="card-body ">
-                  <Jdenticon className="avatar" size="48" value={user._id} float="right"></Jdenticon>
-                  <h5 className="card-title justify-content-center">{user.username}</h5>
-                  <h6 className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state}</h6>
-                  <hr></hr>
-                  <p className="card-text pace">Average Pace: {user.averagePace} mile</p>
-                  <p className="card-text distance">Typical Distance: {user.averageDistance} miles</p>
-                  {/* </>)} */}
-                  <hr></hr>
-                  <Row>
-                    <Col size="lg-6 sm-12">
-                      <UpdateUserModal/>
-                    </Col>
-                    <Col size="lg-6 sm-12">
-                      <button className="btn card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete User</button>
-                    </Col>
-                  </Row>
-                </div>
+                {(updateUser) &&
+                  (<div className="card-body ">
+                    <Jdenticon className="avatar" size="48" value={user._id} float="right"></Jdenticon>
+                    <h5 className="card-title justify-content-center">{user.username}</h5>
+                    <h6 className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state}</h6>
+                    <hr></hr>
+                    <p className="card-text pace">Average Pace: {user.averagePace} mile</p>
+                    <p className="card-text distance">Typical Distance: {user.averageDistance} miles</p>
+                    {/* </>)} */}
+                    <hr></hr>
+                    <Row>
+                      <Col size="lg-6 sm-12">
+                        <UpdateUserModal handleUserUpdate={handleUserUpdate}/>
+                      </Col>
+                      <Col size="lg-6 sm-12">
+                        <button className="btn card-link deleteBtn ml-3"onClick={handleUserDelete}><i className="fa fa-trash mr-2"></i>Delete User</button>
+                      </Col>
+                    </Row>
+                  </div>)
+                }
               </div>                
             </Card>
           </Col>

@@ -1,9 +1,8 @@
-import React, {useState, useContext, useEffect} from "react";
+import React, { useContext, useEffect} from "react";
 import ChallengeContext from "../../utils/ChallengeContext";
 
 function LatestUpdate() {
     const { challenges } = useContext(ChallengeContext);
-    // const [finishedChallenges, setFinishedChallenges]= useState([]);
     
     useEffect(()=>{
         console.log(challenges);
@@ -20,10 +19,10 @@ function LatestUpdate() {
     return (
         <div>
             <ul>{
-                finishedChallenges.map((challenge, i) => (
-                  (i<10) && 
-                    <div key={challenge._id}>
-                    <li>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} mile race. {challenge.donor} lost and donated ${challenge.donatedAmount} to {challenge.businessName}. Thanks {challenge.donor}!</li>
+                finishedChallenges.slice(0).reverse().map((challenge, i) => (
+                //   (i<5) && 
+                    <div key={i}>
+                    <li>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} mile race. {challenge.donor} lost and donated ${challenge.donatedAmount} to <a href={challenge.businessUrl}>{challenge.businessName}</a> <img src={challenge.businessType} height="20px" width="20px" alt="businessIcon"/>. Thanks {challenge.donor}!</li>
                     <hr></hr>
                     </div>
                 ))

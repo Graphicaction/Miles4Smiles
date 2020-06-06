@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import {  useHistory } from 'react-router-dom';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import "./RunningStats.scss"
@@ -18,7 +19,7 @@ import UpdateUserModal from "../UpdateUserModal/UpdateUserModal";
 import RunningStatsContext from "../../utils/RunningStatsContext";
 
 
-function RunningStats() {
+function RunningStats(props) {
   const { user } = useContext(UserContext);
   // Setting our component's initial state for RunningStats and Challenges
   const [myChallenges, setMyChallenges] = useState([]);
@@ -28,6 +29,10 @@ function RunningStats() {
   const [newRun, setNewRun] = useState(false);
   const [pieData, setPieData] = useState(false);
   const [loading, setLoading] = useState(false);
+
+
+  let history = useHistory();
+
   
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
@@ -116,12 +121,16 @@ function RunningStats() {
     return <UpdateUserModal/>
   }
 
-  const handleUserDelete =(id) => {
+  const handleUserDelete =(_id) => {
     console.log(user._id)
+    props.logout();
     AUTH.deleteUser(user._id)
-    .then(res => console.log("user deleted"))
+    .then(response =>{
+    if (response.status === 200) {
+      console.log("user deleted");
+      }
+    })
     .catch(err => console.log(err));
-    //add that immediately logged out
   }
 
   // For duplicate user login alert:
@@ -165,7 +174,7 @@ function RunningStats() {
                     </Row>
                 </AlertProvider>
                 <hr></hr>
-                {/* <div className="card-header text-center"> */}
+                {/* { (userUpdate) ? ( <> */}
                 <div className="card-body ">
                   <Jdenticon className="avatar" size="48" value={user._id} float="right"></Jdenticon>
                   <h5 className="card-title justify-content-center">{user.username}</h5>
@@ -173,6 +182,7 @@ function RunningStats() {
                   <hr></hr>
                   <p className="card-text pace">Average Pace: {user.averagePace} mile</p>
                   <p className="card-text distance">Typical Distance: {user.averageDistance} miles</p>
+                  {/* </>)} */}
                   <hr></hr>
                   <Row>
                     <Col size="lg-6 sm-12">
@@ -198,7 +208,7 @@ function RunningStats() {
           </Col>
           <Col size="md-6 sm-12">
             <Card title="Past Challenges" >
-              { (pieData) && <PieChart /> } : <h5 className="text-center">No races lost or won yet</h5>
+              { (pieData) ? <PieChart /> : <h5 className="text-center">No races lost or won yet</h5>}
             </Card>
           </Col>
         </Row>

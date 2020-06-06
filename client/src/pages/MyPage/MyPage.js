@@ -3,10 +3,11 @@ import RunningStats from "../../components/RunningStats/RunningStats";
 import Jumbotron from "../../components/Jumbotron"
 import "./MyPage.scss";
 import UserContext from "../../utils/UserContext";
+import { PromiseProvider } from "mongoose";
 
 
 
-const MyPage =() => {
+const MyPage =(props) => {
   const { user } = useContext(UserContext);
 
     let greeting;
@@ -31,7 +32,7 @@ const MyPage =() => {
   return(
     <>
     <div className="alert text-center" style={{background: "transparent", color: "whitesmoke"}}>{greeting}</div>
-     <RunningStats />
+     <RunningStats logout={props.logout} />
     </>
   )
 }

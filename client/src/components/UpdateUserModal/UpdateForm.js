@@ -4,11 +4,9 @@ import AUTH from "../../utils/AUTH"
 import {Input, FormBtn} from "../Form";
 import UserContext from "../../utils/UserContext";
 import validateUpdate from './validateUpdate';
-import { PromiseProvider } from "mongoose";
 
 function UpdateForm(props) {
   const { user, setUser } = useContext(UserContext);
-  const [isSaved, setSaved] = useState(false);
   const [formObject, setFormObject] = useState({
     averagePace: "",
     averageDistance: "",
@@ -31,8 +29,6 @@ function UpdateForm(props) {
               averagePace: parseInt(formObject.averagePace),
             })
               .then(res => {
-                console.log(res.data)
-                setSaved(true);
                 setUser(res.data);
                 props.handleUserUpdate();
                 formEl.current.reset();
@@ -47,17 +43,7 @@ function UpdateForm(props) {
     return (
         <>
             <form ref={formEl}>
-                {/* <Input
-                  onChange={handleInputChange}
-                  name="username"
-                  placeholder="update username"
-                />
                 <Input
-                  onChange={handleInputChange}
-                  name="password"
-                  placeholder="update password"
-                /> */}
-                    <Input
                   onChange={handleInputChange}
                   name="averageDistance"
                   placeholder="update average distance in miles"
@@ -67,16 +53,6 @@ function UpdateForm(props) {
                   name="averagePace"
                   placeholder="update average pace per mile"
                 />    
-                {/* <Input
-                  onChange={handleInputChange}
-                  name="city"
-                  placeholder="update city"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="state"
-                  placeholder="update state"
-                /> */}
                 <FormBtn id="updateBtn"
                   disabled={!(formObject.averageDistance && formObject.averagePace)}
                   onClick={handleFormSubmit} >
@@ -84,8 +60,7 @@ function UpdateForm(props) {
                 </FormBtn>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
-            {isSaved}
-        </>
+       </>
     )
 }
 

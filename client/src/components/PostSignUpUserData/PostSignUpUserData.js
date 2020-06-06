@@ -8,7 +8,6 @@ import { Input, FormBtn } from "../Form";
 import usStates from "../usStates";
 import AUTH from '../../utils/AUTH';
 import validatePostData from "./validatePostData";
-// import Welcome from '../../pages/Welcome';
 
 const PostSignUpUserData =(props) => {
   //  Setting our component's initial state
@@ -16,15 +15,13 @@ const PostSignUpUserData =(props) => {
   const [formObject, setFormObject] = useState({});
   let firstLogin;
   const formEl = useRef(null);
-  const id = user._id;
   const alert = useAlert();
   
  const handleInputChange =(event) =>{
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
   };
-  // const [redirectTo, setRedirectTo] = useState(null);
-
+  
   const handleFormSubmit = (event) => {
     event.preventDefault();
     //Updating user data when first login
@@ -40,7 +37,6 @@ const PostSignUpUserData =(props) => {
           firstLogin: false
           })
           .then(res => {
-            console.log(res.data);
             props.flip();
             setUser(res.data);
           }
@@ -53,19 +49,15 @@ const PostSignUpUserData =(props) => {
 
 
   return(
-    <>
- 
-   <Jumbotron >
-    {/* <div className="container"> */}
-      <h3 className="display-4">Hello! </h3>
-      <h5>We are so excited you want to support your local business!</h5>
-      <hr></hr>
-      <p className="lead">To allow you to find runners with similar skills living close to you, we need some information from you!</p>
-    {/* </div> */}
-   </Jumbotron>
+  <>
+    <Jumbotron >
+        <h3 className="display-4">Hello! </h3>
+        <h5>We are so excited you want to support your local business!</h5>
+        <hr></hr>
+        <p className="lead">To allow you to find runners with similar skills living close to you, we need some information from you!</p>
+      </Jumbotron>
 
    <Container>
-      {/* <Row> */}
         <Col size="md-12 sm-12">
           <Card title="Please answer these questions to set up a user profile.">
               <form ref={formEl}>
@@ -73,17 +65,11 @@ const PostSignUpUserData =(props) => {
                   <Col size="md-6 sm-12">
              
                     <label>What city do you live in?</label>
-                    {/* <Row>
-                        <Col size="md-9"> */}
-                    {/* add google autocomplete */}
-                          <Input 
-                            onChange={handleInputChange}
-                            name="city"
-                            placeholder="Raleigh"
-                            //value={formObject.city}
-                          /> 
-                        {/* </Col>
-                    </Row> */}
+                    <Input 
+                      onChange={handleInputChange}
+                      name="city"
+                      placeholder="Raleigh"
+                    /> 
                   </Col>
                   <Col size="md-6 sm-6">
                     <label>What state do you live in?</label>
@@ -105,7 +91,6 @@ const PostSignUpUserData =(props) => {
                             onChange={handleInputChange}
                             name="averageDistance"
                             placeholder="3"
-                            //value={formObject.distance}
                           />
                         </Col>
                         <Col size="md-3">
@@ -121,8 +106,7 @@ const PostSignUpUserData =(props) => {
                             onChange={handleInputChange}
                             name="averagePace"
                             placeholder="9:50"
-                            //value={formObject.pace}
-                          />
+                         />
                         </Col>
                         <Col size="md-3">
                           <label>min/mile</label>
@@ -134,16 +118,15 @@ const PostSignUpUserData =(props) => {
 
                 <FormBtn
                   disabled={!(formObject.city && formObject.state && formObject.averageDistance && formObject.averagePace)}
-                  onClick={handleFormSubmit}
-                >
-                <i className="fa fa-paper-plane mr-2"></i>
-                  Submit
-              </FormBtn>
+                  onClick={handleFormSubmit}>
+                  <i className="fa fa-paper-plane mr-2"></i>
+                    Submit
+                </FormBtn>
             </form>
          </Card>
        </Col> 
     </Container>
-    </>
+  </>
   )
 }
 

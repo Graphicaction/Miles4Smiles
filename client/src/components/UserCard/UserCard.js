@@ -37,9 +37,11 @@ const UserCard =() => {
   //   // children={}
   //   > */}
   {/* //  <Slider>  */}
+  
     {display4usersOnly.map((user, i) => ( user._id !== currentUser && (
     // <Slide index={i}>
-      <div key={i} className="card text-center">
+    // <div key={i} className="">
+      <div key={i} className="card text-center carousel-item col-md-3" data-slide={i}>
         <div className="card-body ">
         <Jdenticon className="avatar" size="48" value={user.username} float="right"></Jdenticon>
         <h5  className="card-title justify-content-center">{user.username}</h5>
@@ -54,8 +56,11 @@ const UserCard =() => {
         </AlertProvider>
       </div>
     </div>
+    // </div>
     // </Slide>
     )))}
+
+
     {/* </Slider>
     <Dot />
     <ButtonBack><i className="fa fa-chevron-left fa-lg"/></ButtonBack>

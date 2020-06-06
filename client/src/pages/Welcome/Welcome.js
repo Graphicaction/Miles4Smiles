@@ -9,6 +9,7 @@ import API from "../../utils/API";
 import LatestUpdate from "../../components/LatestUpdate/LatestUpdate"
 import ChallengeContext from "../../utils/ChallengeContext"
 import ItemsCarousel from 'react-items-carousel';
+import "./welcome.scss";
 
 
 
@@ -66,6 +67,27 @@ const Welcome = (props) =>{
     setFirstLogin(false);
   }
 
+//   $('#cardCarousel').on('slide.bs.carousel', function (e) {
+
+//     var $e = $(e.relatedTarget);
+//     var idx = $e.index();
+//     var itemsPerSlide = 3;
+//     var totalItems = $('.carousel-item').length;
+    
+//     if (idx >= totalItems-(itemsPerSlide-1)) {
+//         var it = itemsPerSlide - (totalItems - idx);
+//         for (var i=0; i<it; i++) {
+//             // append slides to end
+//             if (e.direction=="left") {
+//                 $('.carousel-item').eq(i).appendTo('.carousel-inner');
+//             }
+//             else {
+//                 $('.carousel-item').eq(0).appendTo('.carousel-inner');
+//             }
+//         }
+//     }
+// });
+
  
 
   //update react context
@@ -97,14 +119,14 @@ const Welcome = (props) =>{
 
    <Row >
    <div className="container-fluid">
-    {/* <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="9000">
-        <div class="carousel-inner row w-100 mx-auto" role="listbox"> */}
-    <div className="card-deck d-flex justify-content-center" style={{margin: "20px"}}>
+  <div id="cardCarousel" className="carousel slide" data-ride="carousel" data-interval="9000">
+    <div className="carousel-inner row w-100 mx-auto" role="listbox">
+    {/* <div className="card-deck d-flex justify-content-center" style={{margin: "20px"}}> */}
       {/* <div className="col-md-3 carousel-item"> */}
-      <UserCard className=" carousel-item"/>
+      <UserCard />
       </div>
-    {/* </div>
-    </div> */}
+    </div>
+    </div>
         {/* <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
             <i className="fa fa-chevron-left fa-lg text-muted"></i>
             <span className="sr-only">Previous</span>
@@ -114,7 +136,7 @@ const Welcome = (props) =>{
             <span className="sr-only">Next</span>
         </a> */}
     {/* </div>*/}
-  </div>
+  {/* </div> */}
    </Row>
 
    <Row>

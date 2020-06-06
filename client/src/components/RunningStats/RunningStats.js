@@ -147,6 +147,17 @@ function RunningStats(props) {
   return(
     <>
       <Container fluid>
+      <Row>
+          <Col size="12">
+            <Card title="Donations I have to Complete">
+              {/* {challenges.map}
+              { (if(loserId === user._id)) ? (<BarChart data={milesData} label="Races Completed" yLabelString="Km" xLabelString="Number of Races" />) : <h5 className="text-center">No donations due</h5>
+              } */}
+            </Card>
+          </Col>
+
+        </Row>
+
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Challenges">

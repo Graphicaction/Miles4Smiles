@@ -111,8 +111,8 @@ function SignupForm() {
                 value={userObject.confirmPassword}
                 onChange={handleChange}
               />
-              <Link to="/" className="btn loginBtn" >Login</Link>
-              <FormBtn onClick={handleSubmit}>Register</FormBtn>
+              <Link to="/" className="btn loginBtn"><i className="fa fa-undo mr-2"></i>Return to Login</Link>
+              <FormBtn onClick={handleSubmit}><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</FormBtn>
             </form>
           </Card>
     </Container>

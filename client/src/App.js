@@ -106,7 +106,8 @@ function App() {
               <Route exact path="/" component={() => <LoginForm login={login} user={user} />} />
               <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/dashboard" component={() => <LoginForm login={login} />} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              {/* <Route exact path="/dashboard" component={() => <LoginForm login={login} />} /> */}
               <Route exact path="/mypage/:id" component={() => <LoginForm login={login}/>} />
               <Route exact path="/signup" component={SignupForm} />
             </AlertProvider>

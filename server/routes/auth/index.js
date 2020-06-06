@@ -18,7 +18,7 @@ router.delete('/user/:id', userController.deleteUser)
 router.get("/google/auth", passport.authenticate('google', {
   scope: ['profile', 'email']
   }))
-router.post('/login', userController.auth, passport.authenticate('google'), userController.authenticate);
+// router.post('/login', userController.auth, passport.authenticate('google'), userController.authenticate);
 
 router.get("/auth/google/callback", passport.authenticate('google'));
 router.get("/logout", (req, res) =>{

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
+import { useAlert } from 'react-alert';
 import UserContext from "../../utils/UserContext";
 import { Col, Container, Row } from "../Grid";
 import Jumbotron from "../Jumbotron"
@@ -6,6 +7,7 @@ import { Card } from "../Card";
 import { Input, FormBtn } from "../Form";
 import usStates from "../usStates";
 import AUTH from '../../utils/AUTH';
+import validatePostData from "./validatePostData";
 // import Welcome from '../../pages/Welcome';
 
 const PostSignUpUserData =(props) => {
@@ -15,6 +17,7 @@ const PostSignUpUserData =(props) => {
   let firstLogin;
   const formEl = useRef(null);
   const id = user._id;
+  const alert = useAlert();
   
  const handleInputChange =(event) =>{
     const { name, value } = event.target;
@@ -25,22 +28,26 @@ const PostSignUpUserData =(props) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     //Updating user data when first login
-    if (formObject.city) {
-      AUTH.update(user._id,{
-        city: formObject.city,
-        state: formObject.state,
-        averageDistance: parseInt(formObject.averageDistance),
-        averagePace: formObject.averagePace,
-        avatar: "",
-        firstLogin: false
-        })
-        .then(res => {
-          props.flip();
-          setUser(res.data);
-        }
-        )
+    const valid = validatePostData(formObject.city, formObject.state, formObject.averageDistance, formObject.averagePace);
+    if(valid){
+      if (formObject.city) {
+        AUTH.update(user._id,{
+          city: formObject.city,
+          state: formObject.state,
+          averageDistance: parseInt(formObject.averageDistance),
+          averagePace: formObject.averagePace,
+          avatar: "",
+          firstLogin: false
+          })
+          .then(res => {
+            props.flip();
+            setUser(res.data);
+          }
+          )
+      }
+    }else {
+      alert.error("Please enter valid data");
     }
-
   };
 
 

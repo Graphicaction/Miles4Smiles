@@ -58,6 +58,9 @@ function ChallengeForm(props) {
             .then(res => {
                 alert.success('Challenge Saved!');
                 challengeForm.current.reset();
+                formObject.cMiles = "";
+                formObject.cDonation = "";
+                formObject.cBusiness = "";
                 if(props.handleChallenge)
                     props.handleChallenge();
             })

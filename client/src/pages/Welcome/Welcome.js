@@ -11,13 +11,8 @@ import ChallengeContext from "../../utils/ChallengeContext"
 import ItemsCarousel from 'react-items-carousel';
 import "./welcome.scss";
 
-
-
 const Welcome = (props) =>{
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 40;
-// //we will need city,state to show only users from same location
-//   const [location, setLocation] = useState("");
   const [challenges, setChallenges] = useState([]);
   const [distanceData, setDistanceData] = useState([]);
   const [donatedAmountData, setDonatedAmountData] = useState([]);

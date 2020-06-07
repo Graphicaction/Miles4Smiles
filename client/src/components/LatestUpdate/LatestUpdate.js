@@ -22,7 +22,7 @@ function LatestUpdate() {
                 finishedChallenges.slice(0).reverse().map((challenge, i) => (
                 //   (i<5) && 
                     <div key={i}>
-                    <li>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} mile race. {challenge.donor} lost and donated ${challenge.donatedAmount} to <a href={challenge.businessUrl}>{challenge.businessName}</a> <img src={challenge.businessType} height="20px" width="20px" alt="businessIcon"/>. Thanks {challenge.donor}!</li>
+                    <li>{challenge.challengers[0]} and {challenge.challengers[1]} ran a {challenge.distance} mile race. {challenge.donor} lost and donated ${challenge.donatedAmount} to <a href={challenge.businessUrl} target="_blank">{challenge.businessName}</a>. Thanks {challenge.donor}!</li>
                     <hr></hr>
                     </div>
                 ))

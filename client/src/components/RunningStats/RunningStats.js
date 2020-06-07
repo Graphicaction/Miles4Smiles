@@ -17,6 +17,7 @@ import AUTH from "../../utils/AUTH";
 import UserContext from "../../utils/UserContext";
 import UpdateUserModal from "../UpdateUserModal/UpdateUserModal";
 import RunningStatsContext from "../../utils/RunningStatsContext";
+import ViewLosses from "../ViewLosses/ViewLosses";
 
 
 function RunningStats(props) {
@@ -24,6 +25,7 @@ function RunningStats(props) {
   // Setting our component's initial state for RunningStats and Challenges
   const [myChallenges, setMyChallenges] = useState([]);
   const [incomingChallenges, setIncomingChallenges] = useState([]);
+  const [myLosses, setMyLosses] = useState([]);
  // Setting our initial state for BarChart and Piechart
   const [milesData, setMilesData] = useState([]);
   const [newRun, setNewRun] = useState(false);
@@ -78,6 +80,7 @@ function RunningStats(props) {
       .then(res => {
         const startChallenges = []; 
         const invitedChallenges = [];
+        const losses = [];
         res.data.challenges.map( challenge => {
           // Extracting the challenges started by or challenged to the current user
             if(challenge.status!=="finish"){
@@ -86,12 +89,18 @@ function RunningStats(props) {
               if(challenge.challengers[1]===user.username)
                 invitedChallenges.push(challenge);
             }
-            if(challenge.status === "finish"){
+            if(challenge.status === "finish" || "donated"){
               setPieData(true);
+              if(challenge.status === "finish") {
+                if(challenge.donor === user.username) {
+                  losses.push(challenge);
+                }
+              }
             }
           });
         setMyChallenges(startChallenges);
         setIncomingChallenges(invitedChallenges);
+        setMyLosses(losses);
       })
       .catch(err => console.log(err));
   };
@@ -116,8 +125,6 @@ function RunningStats(props) {
   }
 
   const handleUserUpdate =() =>{
-    console.log("update!!")
-    console.log(user);
     return <UpdateUserModal/>
   }
 
@@ -147,6 +154,14 @@ function RunningStats(props) {
   return(
     <>
       <Container fluid>
+      <Row fluid>
+         {/* <Col size="12"> */}
+            <Card title="Don't forget to donate!" >
+                {myLosses.length>0 ? <ViewLosses losses={myLosses} /> : <p className="text-center">No challenges lost yet.</p>
+                  }
+            </Card>
+          {/* </Col> */}
+        </Row>
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Challenges">

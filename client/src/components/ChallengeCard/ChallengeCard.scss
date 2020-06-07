@@ -1,24 +1,24 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
-.accept{
+.accept {
   border-color: $green1;
-  color: $green1
+  color: $green1;
 }
 
-.deny{
+.deny {
   border-color: $orange-red;
-  color: $orange-red
+  color: $orange-red;
 }
 
-.wereChallenged{
-  border: 1px solid $primaryColor3!important
+.wereChallenged {
+  border: 1px solid $primaryColor3 !important;
 }
 
-.areChallenging{
-border:1px solid $primaryColor2!important
+.areChallenging {
+  border: 1px solid $primaryColor2 !important;
 }
 
-.enterOutcome{
+.enterOutcome {
   background-image: $gradientOrange;
-  margin: 0
+  margin: 0;
 }

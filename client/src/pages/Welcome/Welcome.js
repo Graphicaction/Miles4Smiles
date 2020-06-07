@@ -10,7 +10,6 @@ import LatestUpdate from '../../components/LatestUpdate/LatestUpdate';
 import ChallengeContext from '../../utils/ChallengeContext';
 
 const Welcome = (props) => {
-  const chevronWidth = 40;
   const [challenges, setChallenges] = useState([]);
   const [distanceData, setDistanceData] = useState([]);
   const [donatedAmountData, setDonatedAmountData] = useState([]);

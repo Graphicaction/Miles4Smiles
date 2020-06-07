@@ -22,9 +22,10 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
+      passReqToCallback: true,
       proxy: true,
     },
-    (accessToken, refreshToken, profile, done) => {
+    (request, accessToken, refreshToken, profile, done) => {
       db.User.findOne({ googleId: profile.id }).then((existingUser) => {
         //if already signed up with that googleid no new user
         if (existingUser) {

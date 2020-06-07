@@ -23,7 +23,11 @@ function BusinessBoard() {
                         width="20px"
                         alt="businessIcon"
                       />{' '}
-                      <a href={challenge.businessUrl} target="_blank">
+                      <a
+                        href={challenge.businessUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {challenge.businessName}
                       </a>{' '}
                       located at {challenge.businessLocation}

@@ -42,6 +42,8 @@ const UserCard = () => {
           nextLabel={'Next'}
           prevLabel={'Previous'}
           touch={true}
+          slide={false}
+          data-interval={false}
           className="d-flex justify-content-center row"
         >
           {users.map(
@@ -50,7 +52,7 @@ const UserCard = () => {
                 <Carousel.Item
                   key={index}
                   className="col-lg-3 col-md-4 col-sm-12 "
-                  data-slide={index}
+                  // data-slide={index}
                 >
                   <div className="card text-center d-block mx-auto">
                     <div className="card-body">

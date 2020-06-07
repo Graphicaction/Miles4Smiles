@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import Axios from 'axios';
 import { useAlert } from 'react-alert';
 import { Container } from '../../components/Grid';
 import { Card } from '../../components/Card';

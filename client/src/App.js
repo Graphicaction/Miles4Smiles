@@ -10,8 +10,6 @@ import Nav from './components/Nav';
 import AUTH from './utils/AUTH';
 import UserContext from './utils/UserContext';
 import About from './pages/About/About';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert';
-import AlertTemplate from 'react-alert-template-basic';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,12 +33,31 @@ function App() {
     });
   };
 
-  const options = {
-    position: positions.TOP_CENTER,
-    timeout: 2500,
-    offset: '30px',
-    transition: transitions.SCALE,
-  };
+  // const CustomAlertTemplate = ({ style, options, message, close }) => (
+  //   <div style={{
+  //       color: 'black',
+  //       backgroundColor: '#f7c331',
+  //       borderRadius: '18px',
+  //       padding: '12px',
+  //       fontSize: '1.15rem'
+  //       }}>
+  //     {options.type === 'info' && info}
+  //     {options.type === 'success' && success}
+  //     {options.type === 'error' && alert}
+  //     {message}
+  //     {/* <button onClick={close}>X</button> */}
+  //   </div>
+  // )
+
+  // const info = (<i class="fa fa-info" aria-hidden="true"></i>)
+  // const alert = (<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>);
+  // const success = (<i class="fa fa-check" aria-hidden="true"></i>);
+
+  // const options = {
+  //   position: positions.TOP_CENTER,
+  //   timeout: 4000,
+  //   transition: transitions.FADE,
+  // }
 
   const login = (username, password, result) => {
     AUTH.login(username, password)
@@ -73,21 +90,18 @@ function App() {
           <div className="main-view">
             <Switch>
               <>
-                `{' '}
-                <AlertProvider template={AlertTemplate} {...options}>
-                  <Route exact path="/welcome">
-                    <UserContext.Provider value={{ user, users, setUser }}>
-                      <Welcome />
-                    </UserContext.Provider>
-                  </Route>
-                  <Route exact path="/about" component={About} />
-                  <Route exact path="/dashboard" component={Dashboard} />
-                  <Route exact path="/mypage/:id">
-                    <UserContext.Provider value={{ user, users, setUser }}>
-                      <MyPage logout={logout} />
-                    </UserContext.Provider>
-                  </Route>
-                </AlertProvider>
+                <Route exact path="/welcome">
+                  <UserContext.Provider value={{ user, users, setUser }}>
+                    <Welcome />
+                  </UserContext.Provider>
+                </Route>
+                <Route exact path="/about" component={About} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/mypage/:id">
+                  <UserContext.Provider value={{ user, users, setUser }}>
+                    <MyPage logout={logout} />
+                  </UserContext.Provider>
+                </Route>
               </>
             </Switch>
           </div>
@@ -99,29 +113,27 @@ function App() {
           <div className="auth-wrapper">
             <Switch>
               <>
-                <AlertProvider template={AlertTemplate} {...options}>
-                  <Route
-                    exact
-                    path="/"
-                    component={() => (
-                      <LoginForm login={login} user={user} logout={logout} />
-                    )}
-                  />
-                  <Route
-                    exact
-                    path="/welcome"
-                    component={() => <LoginForm login={login} />}
-                  />
-                  <Route exact path="/about" component={About} />
-                  <Route exact path="/dashboard" component={Dashboard} />
-                  {/* <Route exact path="/dashboard" component={() => <LoginForm login={login} />} /> */}
-                  <Route
-                    exact
-                    path="/mypage/:id"
-                    component={() => <LoginForm login={login} />}
-                  />
-                  <Route exact path="/signup" component={SignupForm} />
-                </AlertProvider>
+                <Route
+                  exact
+                  path="/"
+                  component={() => (
+                    <LoginForm login={login} user={user} logout={logout} />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/welcome"
+                  component={() => <LoginForm login={login} />}
+                />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                {/* <Route exact path="/dashboard" component={() => <LoginForm login={login} />} /> */}
+                <Route
+                  exact
+                  path="/mypage/:id"
+                  component={() => <LoginForm login={login} />}
+                />
+                <Route exact path="/signup" component={SignupForm} />
               </>
             </Switch>
           </div>

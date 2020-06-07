@@ -1,25 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert';
-import AlertTemplate from 'react-alert-template-basic';
 import Jdenticon from 'react-jdenticon';
 import UserContext from '../../utils/UserContext';
 import ChallengeModal from '../ChallengeModal/ChallengeModal';
+import { useAlert } from 'react-alert';
 import Carousel from 'react-bootstrap/Carousel';
 import './UserCard.scss';
 
 const UserCard = () => {
   const { user, users } = useContext(UserContext);
   const [index, setIndex] = useState();
-
+  const alert = useAlert();
   const currentUser = user._id;
 
-  //Options for alert messages
-  const options = {
-    position: positions.TOP_CENTER,
-    timeout: 2500,
-    offset: '30px',
-    transition: transitions.SCALE,
-  };
   // later add that only users if their pace match
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -77,9 +69,7 @@ const UserCard = () => {
                         Preferred Distance: {user.averageDistance} miles
                       </p>
                       <hr></hr>
-                      <AlertProvider template={AlertTemplate} {...options}>
-                        <ChallengeModal name={user.username} />
-                      </AlertProvider>
+                      <ChallengeModal name={user.username} />
                     </div>
                   </div>
                 </Carousel.Item>

@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import './RunningStats.scss';
@@ -33,9 +32,7 @@ function RunningStats(props) {
   const [milesData, setMilesData] = useState([]);
   const [newRun, setNewRun] = useState(false);
   const [pieData, setPieData] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [updateUser, setUpdateUser] = useState(true);
-  let history = useHistory();
 
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
@@ -67,7 +64,6 @@ function RunningStats(props) {
       }
       setMilesData([...graphData]);
       setNewRun(true);
-      setLoading(true);
     }
   };
 

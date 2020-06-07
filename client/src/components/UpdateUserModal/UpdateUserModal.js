@@ -1,5 +1,4 @@
 import React from 'react';
-import DailyRunForm from '../../components/DailyRunForm';
 import UpdateForm from './UpdateForm';
 
 function UpdateUserModal(props) {

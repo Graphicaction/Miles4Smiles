@@ -9,7 +9,7 @@ const About = () => {
       <AboutJumbotron />
       <Row>
         <Col size="sm-12 md-6 lg-3">
-          <Card title="Step 1: Register">
+          <Card title="Getting Started">
             <div className="card-body-about">
               Setup a Miles4Smiles account to get started. You can even use M4S
               to log your race times.
@@ -17,7 +17,7 @@ const About = () => {
           </Card>
         </Col>
         <Col size="sm-12 md-6 lg-3">
-          <Card title="Step 2: Challenge">
+          <Card title="Challenge Users to Support Local Businesses ">
             <div className="card-body-about">
               Click the "Challenge" button to compete against a friend or any
               other M4S user. Here you'll choose a distance to race and the
@@ -26,7 +26,7 @@ const About = () => {
           </Card>
         </Col>
         <Col size="sm-12 md-6 lg-3">
-          <Card title="Step 3: Race">
+          <Card title="RUN for your local business">
             <div className="card-body-about">
               If accepted, each challenger must run the selected distance.
               Remember-- the slower runner pays up! GO GO GO!
@@ -34,7 +34,7 @@ const About = () => {
           </Card>
         </Col>
         <Col size="sm-12 md-6 lg-3">
-          <Card title="Step 4: Donate">
+          <Card title="Log Outcome - Loser Donates">
             <div className="card-body-about">
               After running, log the faster competitor as the winner! The
               challenger who lost will be redirected to the business's website

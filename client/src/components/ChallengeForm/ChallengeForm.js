@@ -6,6 +6,7 @@ import { Row, Col } from '../Grid';
 import LocationSearchInput from '../../utils/GPlaces';
 import validateChallenge from './validateChallenge';
 
+
 function ChallengeForm(props) {
   const [address, setAddress] = useState();
   const [businessName, setBusinessName] = useState();

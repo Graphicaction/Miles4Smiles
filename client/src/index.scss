@@ -67,6 +67,10 @@ ul {
   list-style-type: square;
 }
 
+#reactAlert {
+  background-image: $gradientOrange2;
+}
+
 @media (max-width: 400px) {
   .container {
     padding: 1px;

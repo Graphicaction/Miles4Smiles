@@ -13,8 +13,19 @@ function LossCard(props) {
   //         })
   // }
 
+  // const handleMarkDonated = (id) => {
+  //     // Updates the challenge status to "donated"
+  //         API.updateChallenge(id, {status: "donated"})
+  //         .then(res => {
+  //             console.log("updated to donated")
+  //         })
+  //         .catch(err => {
+  //             console.log(err);
+  //         })
+  // }
+
   return (
-    <div className="col-12" key={props.id}>
+    <div className="col-12">
       <div className="card-body">
         {/* <h5 className="card-title">You lost a challenge to {props.loss.challengers[1]}</h5>   */}
         <a
@@ -35,7 +46,7 @@ function LossCard(props) {
           type="button"
           data-target={props.key}
           style={{ backgroundColor: '#89b0ae' }}
-          className="btn mr-5 btn-donated"
+          className="btn btn-donated"
           aria-label="Close"
         >
           <i className="fa fa-check-square-o" aria-hidden="true"></i> Mark as

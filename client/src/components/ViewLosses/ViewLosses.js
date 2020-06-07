@@ -4,8 +4,6 @@ import LossCard from "./LossCard";
 
 function ViewLosses(props) {
     const losses = props.losses;
-
-
     return (
         <>
         <div className="row">

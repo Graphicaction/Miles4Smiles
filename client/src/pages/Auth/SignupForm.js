@@ -64,7 +64,7 @@ function SignupForm() {
         }
       });
     } else {
-      console.log("Please enter all details in valid format!");
+      alert.error("Please enter all details in valid format!");
     }
   };
   

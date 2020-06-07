@@ -6,12 +6,14 @@ import UserContext from "../../utils/UserContext";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import Carousel from 'react-bootstrap/Carousel';
 import "./UserCard.scss"
+// import 'bootstrap/dist/css/bootstrap.min.css'
+
 import {Col} from "../Grid"
 
 
 const UserCard =() => {
   const { user, users } = useContext(UserContext);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState();
 
   const currentUser = user._id;
 
@@ -34,11 +36,11 @@ const UserCard =() => {
 
   return(
     <>
-    <Carousel activeIndex={index} onSelect={handleSelect} >
+    <Carousel activeIndex={index} onSelect={handleSelect} keyboard={true} nextLabel={"Next"} prevLabel={"Previous"} touch={true} >
      {display4usersOnly.map((user, index) => ( user._id !== currentUser && (
-      <Carousel.Item key={index} className="col-lg-3 col-sm-12 col-md-3 d-block w-100 card text-center" data-slide={index}>
-        {/* <div  className="card text-center" data-slide={index}> */}
-          <div className="card-body">
+      <Carousel.Item key={index} className="col-lg-3 col-md-4 col-sm-12 " data-slide={index}>
+          <div className= "card text-center d-block mx-auto">
+           <div className="card-body">
             <Jdenticon className="avatar" size="48" value={user.username} float="right"></Jdenticon>
             <h5  className="card-title justify-content-center">{user.username}</h5>
             <h6  className="card-subtitle mb-2 text-muted"><i className="fa fa-location"></i>{user.city}, {user.state} </h6>
@@ -50,7 +52,7 @@ const UserCard =() => {
               <ChallengeModal name={user.username} />
             </AlertProvider>
           </div>
-        {/* </div> */}
+        </div>
       </Carousel.Item>
       )))}
       

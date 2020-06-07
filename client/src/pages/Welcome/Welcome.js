@@ -62,25 +62,6 @@ const Welcome = (props) =>{
     setFirstLogin(false);
   }
 
-// // Activate Carousel
-// const handleCarouselChangeRight=()=>{
-//   document.getElementById("myCarousel").carousel("next")
-// }
-// const handleCarouselChangeLeft=()=>{
-//   document.getElementById("myCarousel").carousel("prev")
-// }
-// // $("#myCarousel").carousel();
-
-
-
-// // // Enable Carousel Controls
-// // $(".left").click(function(){
-// //   $("#myCarousel").carousel("prev");
-// // });
-
-
-
-
 
   //update react context
   const updateUser =(newData) => {
@@ -110,37 +91,12 @@ const Welcome = (props) =>{
    </Jumbotron>
 
    <Row>
-   <div className="container-fluid ">
-         {/* <div className="card-deck d-flex justify-content-center" style={{margin: "20px"}}> */}
-
-
-     <UserCard />
-     {/* </div> */}
-   {/* <div id="myCarousel" className="carousel slide" data-ride="carousel"> */}
-  
-  {/* <div id="cardCarousel" className="carousel slide" data-ride="carousel" data-interval="9000" onSlide> */}
-    {/* <div className="carousel-inner card-deck d-flex row w-100 mx-auto" role="listbox"> */}
-      {/* <div className="col-md-3 carousel-item"> */}
-      {/* <UserCard /> */}
-      {/* </div>
-  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" onClick={handleCarouselChangeLeft}>
-            <i className="fa fa-chevron-left text-muted"></i>
-            <span className="sr-only">Previous</span>
-        </a>
-        <a className="carousel-control-next text-faded" href="#myCarousel" role="button" data-slide="next" onClick={handleCarouselChangeRight}>
-            <i className="fa fa-chevron-right fa-lg text-muted"></i>
-            <span className="sr-only">Next</span>
-        </a> 
-
-    </div> */}
-        
-    {/* </div>*/}
-  {/* </div> */}
-  </div>
+    <div className="container-fluid">
+      <UserCard />
+     </div>
    </Row>
 
    <Row>
-
     <Col size="12">
     <Card title="Latest Miles 4 Smiles Updates">
       <ChallengeContext.Provider value={{challenges}}>

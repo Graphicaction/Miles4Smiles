@@ -113,10 +113,6 @@ function App() {
         </div>
         </>
       )}
-
-      {/* not used yet therefore commented out */}
-      {/* <Location />  */}
-       {/* <GeoMap />   */}
        
     </div>
   );

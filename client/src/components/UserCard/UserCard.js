@@ -6,9 +6,6 @@ import UserContext from "../../utils/UserContext";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import Carousel from 'react-bootstrap/Carousel';
 import "./UserCard.scss"
-// import 'bootstrap/dist/css/bootstrap.min.css'
-
-import {Col} from "../Grid"
 
 
 const UserCard =() => {

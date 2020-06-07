@@ -53,7 +53,6 @@ function LoginForm({login, user, logout}) {
   } else {
     return (
       <>
-      {/* <Navbar /> */}
       <Jumbotron>
       <h2 className="display-4">Miles 4 Smiles </h2>
       <hr></hr>

@@ -17,13 +17,7 @@
   border: 1px solid black
 }
 
-.card-body-about {
-  height: 140px;
-}
 
-.btn-biz {
-  width: 100%;
-}
 
 .btn-biz:hover {
   background-color: darken($color: #DDDFE2, $amount: 20);
@@ -34,12 +28,6 @@
   padding: 5px;
 }
 
-.btn-donated {
-  margin-left: 25% !important;
-}
-// .carousel-item{
-//  display: inline-block!important
-// }
 
 @media (min-width: 768px) {
 

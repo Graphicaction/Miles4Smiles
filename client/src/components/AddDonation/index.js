@@ -3,6 +3,7 @@ import CountUp from "react-countup";
 import ChallengeContext from "../../utils/ChallengeContext";
 import "./AddDonation.scss";
 
+//Overall amount of donations, calculated by adding all finished challenges and the donation amount
 function AddDonation() {
     const { challenges } = useContext(ChallengeContext);
     const [donation, setDonation] = useState(0);

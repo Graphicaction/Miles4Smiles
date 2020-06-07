@@ -1,7 +1,7 @@
 import React from "react";
 import DailyRunForm from "../../components/DailyRunForm";
 
-
+// opens when user clicks "log a race" and contains DailyRunForm.js
 function DailyRunModal(props) {
 
   return (

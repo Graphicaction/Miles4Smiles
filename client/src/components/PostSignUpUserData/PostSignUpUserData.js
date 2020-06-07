@@ -9,6 +9,7 @@ import usStates from "../usStates";
 import AUTH from '../../utils/AUTH';
 import validatePostData from "./validatePostData";
 
+//is used for first log in ever to collect more user and wont appear again on next log in
 const PostSignUpUserData =(props) => {
   //  Setting our component's initial state
   const { user, setUser } = useContext(UserContext);

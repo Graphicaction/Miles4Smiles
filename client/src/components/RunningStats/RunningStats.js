@@ -19,6 +19,8 @@ import UpdateUserModal from "../UpdateUserModal/UpdateUserModal";
 import RunningStatsContext from "../../utils/RunningStatsContext";
 import ViewLosses from "../ViewLosses/ViewLosses";
 
+// inside of mypage page includes all personal user information about last races, challenges coming in and going out, allows 
+// update and delete user data, log a race, see what donations still need to be done and how many challenges were won/lost
 
 function RunningStats(props) {
   const { user } = useContext(UserContext);
@@ -33,11 +35,8 @@ function RunningStats(props) {
   const [pieData, setPieData] = useState(false);
   const [loading, setLoading] = useState(false);
   const [updateUser, setUpdateUser] = useState(true);
-
-
   let history = useHistory();
 
-  
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
     loadRunningStats();
@@ -156,12 +155,10 @@ function RunningStats(props) {
     <>
       <Container fluid>
       <Row fluid>
-         {/* <Col size="12"> */}
-            <Card title="Don't forget to donate" >
+            <Card title="Don't forget to donate" className="col-lg-12 col-sm-12" >
                 {myLosses.length>0 ? <ViewLosses losses={myLosses} /> : <p className="text-center">No challenges lost yet.</p>
                   }
             </Card>
-          {/* </Col> */}
         </Row>
         <Row>
           <Col size="md-6 sm-12">
@@ -198,7 +195,6 @@ function RunningStats(props) {
                     <hr></hr>
                     <p className="card-text pace">Average Pace: {user.averagePace} /mile</p>
                     <p className="card-text distance">Typical Distance: {user.averageDistance} miles</p>
-                    {/* </>)} */}
                     <hr></hr>
                     <Row>
                       <Col size="lg-6 sm-12">

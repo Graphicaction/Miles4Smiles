@@ -1,6 +1,5 @@
 import React from "react";
 import UpdateChallengeForm from "../UpdateChallenge/UpdateChallengeForm";
-import { Card } from "../Card";
 import {Row, Col} from "../Grid"
 import "./ChallengeCard.scss"
 
@@ -10,7 +9,7 @@ const ChallengeCard = (props) => {
               {props.myChallenges.length>0 && (
                 <>
                   {props.myChallenges.map((challenge, i) => ( 
-                    //Challenges created by you
+                    //Challenges created by logged in user
                     <div className="card text-center areChallenging" key={challenge._id} style={{backgroundColor: "#f3faf9"}}>
                         <div className="card-body">
                           <h5 className="card-title">You Challenged {challenge.challengers[1]}</h5>
@@ -42,6 +41,7 @@ const ChallengeCard = (props) => {
                   ))}
                 </>
               )}
+              {/* challenges were logged in user was challenged */}
               {props.incomingChallenges.length>0 && (
                 <>
                   {

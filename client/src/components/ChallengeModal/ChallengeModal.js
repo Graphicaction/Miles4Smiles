@@ -1,12 +1,13 @@
 import React from "react";
 import ChallengeForm from "../../components/ChallengeForm/ChallengeForm";
 
+//Modal that includes the Challenge Form and is nested in Runningstats.js and Usercard.js
 function ChallengeModal(props) {
   return (
     <>
     {(props.name) ? (
       <>
-        <button type="button" className="btn start-challenge" data-toggle="modal" data-target={`#exampleModal${props.name}`}><i className ="fa fa-flag-checkered mr-2"/>Start a Challenge!</button>
+        <button type="button" className="btn start-challenge" data-toggle="modal" data-target={`#exampleModal${props.name}`}><i className ="fa fa-flag-checkered mr-2"/>Challenge User!</button>
           <div className="modal fade" id={`exampleModal${props.name}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
@@ -25,7 +26,7 @@ function ChallengeModal(props) {
     </>
     ):(
     <>
-      <button type="button" className="btn start-challenge" data-toggle="modal" data-target="#challengeModal"><i className="fa fa-flag-checkered mr-2"/>Start a Challenge</button>
+      <button type="button" className="btn start-challenge" data-toggle="modal" data-target="#challengeModal"><i className="fa fa-flag-checkered mr-2"/>Challenge User</button>
         <div className="modal fade" id="challengeModal" tabIndex="-1" role="dialog" aria-labelledby="challengeModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">

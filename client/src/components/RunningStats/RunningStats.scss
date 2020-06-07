@@ -3,21 +3,22 @@
 
 .start-challenge{
   background-image: $gradientOrange;
-  /* background-color: #ffd6ba!important;
-  background-color: #fdf28c!important; */
+
 
 }
 
 .start-challenge:hover{
   background-image: $gradientOrange2;
-  /* background-color: #ffd6ba!important;
-  background-color: #fdf28c!important; */
+}
 
+.btn-biz {
+  width: 100%;
+  background-color: $primaryColor2;
+  color:  $fontColor1!important
 }
 
 .deleteBtn{
   color: $orange-red;
-  /* margin: 20px */
 }
 
 .updateBtn{

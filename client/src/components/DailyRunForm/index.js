@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
@@ -9,6 +9,7 @@ import validateRun from "./validateRun";
 import { useAlert } from 'react-alert';
 import {Row, Col} from "../Grid";
 
+//Used in DailyRun Modal and appears when "log a race" in mypage is clicked
 function DailyRunForm(props) {
   const [formObject, setFormObject] = useState({
     pace:0,
@@ -33,11 +34,9 @@ function DailyRunForm(props) {
         event.preventDefault();
         const formatteddate = moment(date).format('YYYY-MM-DD'); 
         const validParams = validateRun(formObject.distance,formatteddate,formObject.totalTime);
-        // const pace = formObject.distance / formObject.totalTime;
         if(validParams){
           if (formObject.distance && formObject.totalTime) {
             API.saveRunningStat({
-              // pace: pace,
               distance: formObject.distance,
               date: formatteddate,
               totalTime: formObject.totalTime

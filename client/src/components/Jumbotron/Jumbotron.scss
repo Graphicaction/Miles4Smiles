@@ -1,6 +1,5 @@
 @import"../../variables.scss";
 
-/* old version */
 .jumbotron{
   height: auto;
   color:$navAndJumboFont;
@@ -11,25 +10,6 @@
   text-align: center;
   margin-bottom: auto;
   background-color: transparent!important;
-  // border-bottom: 1px black solid;
 
-
-  /* background: linear-gradient(#a2cabc, #FFF6F1); */
-  /* background-color: #fff6f1; */
-  /* background-image: url("./jeremy-lapak-CVvFVQ_-oUg-unsplash.jpg")!important; */
-  /* background-size: cover; */
-  /* border-bottom: black 2px solid; */
-  /* box-shadow: 3px 2px 3px #ccc */
-  /* opacity: .8;*/
   
 }
-
-/* new version */
-/* .jumbotron{
-  color: white;
-  font-size: 4rem;
-  opacity: .6;
-  text-align: center;
-  background: url("bgIMG.jpg") no-repeat center center fixed;
-  height: 350px;
-} */

@@ -42,7 +42,7 @@ function App() {
     transition: transitions.SCALE
   }
 
-  const login = (username, password) => {
+  const login = (username, password, result) => {
     
     AUTH.login(username, password).then(response => {
       if (response.status === 200) {
@@ -57,12 +57,11 @@ function App() {
             setUsers(response.data.users);
           };
         });
-        //callback(1);
+        result(1);
       } 
       })
       .catch(err => {
-        console.log("User does not exists!");
-        //callback(0);
+        result(0);
       });
   };
   
@@ -101,7 +100,7 @@ function App() {
           <Switch>
             <>
             <AlertProvider template={AlertTemplate} {...options}>
-              <Route exact path="/" component={() => <LoginForm login={login} user={user} />} />
+              <Route exact path="/" component={() => <LoginForm login={login} user={user} logout={logout} />} />
               <Route exact path="/welcome" component={() => <LoginForm login={login}/>} />
               <Route exact path="/about" component={About} />
               <Route exact path="/dashboard" component={Dashboard} />

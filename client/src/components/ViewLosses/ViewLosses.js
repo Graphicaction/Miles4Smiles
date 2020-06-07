@@ -9,11 +9,16 @@ function ViewLosses(props) {
     return (
         <>
         <div className="row">
+            <div className="col-12 text-center justify-content-center">
             {props.losses.map((loss, i) => ( 
-                <LossCard loss={loss} id={loss._id} lossId={i}/>
+                <>
+                <LossCard key={i} loss={loss} id={loss._id} lossId={i} />
+                <hr></hr>
+                </>
             ))}
+            </div>
         </div>
-        </>
+       </>
   )
 }
 

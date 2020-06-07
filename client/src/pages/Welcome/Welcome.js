@@ -90,7 +90,7 @@ const Welcome = (props) =>{
       <h3>Select and challenge a user who runs at a similar pace than you do!</h3>
    </Jumbotron>
 
-   <Row>
+   <Row className="d-flex justify-content-center">
     <Container fluid>
       <UserCard />
      </Container>

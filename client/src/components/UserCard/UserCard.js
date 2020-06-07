@@ -33,7 +33,7 @@ const UserCard =() => {
 
   return(
     <>
-    <Carousel activeIndex={index} onSelect={handleSelect} keyboard={true} nextLabel={"Next"} prevLabel={"Previous"} touch={true} >
+    <Carousel activeIndex={index} onSelect={handleSelect} keyboard={true} nextLabel={"Next"} prevLabel={"Previous"} touch={true} className="d-flex justify-content-center">
      {display4usersOnly.map((user, index) => ( user._id !== currentUser && (
       <Carousel.Item key={index} className="col-lg-3 col-md-4 col-sm-12 " data-slide={index}>
           <div className= "card text-center d-block mx-auto">

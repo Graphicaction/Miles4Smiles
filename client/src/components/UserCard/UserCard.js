@@ -27,7 +27,7 @@ const UserCard = () => {
 
     return (
       <>
-        <Carousel
+        {/* <Carousel
           activeIndex={index}
           onSelect={handleSelect}
           keyboard={true}
@@ -37,45 +37,49 @@ const UserCard = () => {
           slide={false}
           data-interval={false}
           className="d-flex justify-content-center row"
-        >
+        > */}
+
+        <div className="flex-container flex py-2">
+          {/* <div className="d-flex flex-row flex-nowrap"> */}
           {users.map(
             (user, index) =>
               user._id !== currentUser && (
-                <Carousel.Item
-                  key={index}
-                  className="col-lg-3 col-md-4 col-sm-12 "
-                  // data-slide={index}
-                >
-                  <div className="card text-center d-block mx-auto">
-                    <div className="card-body">
-                      <Jdenticon
-                        className="avatar"
-                        size="48"
-                        value={user.username}
-                        float="right"
-                      ></Jdenticon>
-                      <h5 className="card-title justify-content-center">
-                        {user.username}
-                      </h5>
-                      <h6 className="card-subtitle mb-2 text-muted">
-                        <i className="fa fa-location"></i>
-                        {user.city}, {user.state}{' '}
-                      </h6>
-                      <hr></hr>
-                      <p className="card-text pace">
-                        Average Pace: {user.averagePace} /mile
-                      </p>
-                      <p className="card-text distance">
-                        Preferred Distance: {user.averageDistance} miles
-                      </p>
-                      <hr></hr>
-                      <ChallengeModal name={user.username} />
-                    </div>
+                // <Carousel.Item
+                //   key={index}
+                //   className="col-lg-3 col-md-4 col-sm-12 "
+                //   // data-slide={index}
+                // >
+                <div className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item ">
+                  <div className="card-body">
+                    <Jdenticon
+                      className="avatar"
+                      size="48"
+                      value={user.username}
+                      float="right"
+                    ></Jdenticon>
+                    <h5 className="card-title justify-content-center">
+                      {user.username}
+                    </h5>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      <i className="fa fa-location"></i>
+                      {user.city}, {user.state}{' '}
+                    </h6>
+                    <hr></hr>
+                    <p className="card-text pace">
+                      Average Pace: {user.averagePace} /mile
+                    </p>
+                    <p className="card-text distance">
+                      Preferred Distance: {user.averageDistance} miles
+                    </p>
+                    <hr></hr>
+                    <ChallengeModal name={user.username} />
                   </div>
-                </Carousel.Item>
+                </div>
+                // {/* </Carousel.Item> */}
               )
           )}
-        </Carousel>
+          {/* </Carousel> */}
+        </div>
       </>
     );
   } else {

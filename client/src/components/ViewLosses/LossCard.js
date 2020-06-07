@@ -15,7 +15,7 @@ function LossCard(props) {
     // }
 
     return (
-        <div className="col-12" key={props.id}>
+        <div className="col-12">
             <div className="card-body">
                 {/* <h5 className="card-title">You lost a challenge to {props.loss.challengers[1]}</h5>   */}
                 <a href={props.loss.businessUrl} target="_blank" className="btn btn-biz" id="update-challenge"><i className="fa fa-arrow-right"/> {props.loss.businessName}</a>

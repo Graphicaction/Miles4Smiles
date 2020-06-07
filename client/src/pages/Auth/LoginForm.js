@@ -9,7 +9,7 @@ import Jumbotron from "../../components/Jumbotron/Jumbotron";
 import validateLogin from "./validateLogin";
 import "./Login.scss";
 
-function LoginForm({login, user}) {
+function LoginForm({login, user, logout}) {
   const [userObject, setUserObject] = useState({
     username: '',
     password: ''
@@ -34,19 +34,13 @@ function LoginForm({login, user}) {
     event.preventDefault();
     const valid = validateLogin(userObject.username, userObject.password);
     if(valid) {
-      const validUser = login(userObject.username, userObject.password);
-      //Not solved for does not exists user!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      console.log(validUser);
-      // if(!validUser){
-      //   alert.success('User doeot s nexists!');
-      //   setUserObject({
-      //     username: "",
-      //     password: ""
-      //   });
-      // }
-      // else {
-        setRedirectTo('/welcome');
-      // }
+      login(userObject.username, userObject.password, function(result){
+        if(result === 0){
+          alert.error("User does not exists!");
+          logout();
+        }
+      });
+      setRedirectTo('/welcome');
     } else
     {
       alert.error('Invalid User!');

@@ -8,7 +8,8 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 import LatestUpdate from "../../components/LatestUpdate/LatestUpdate"
 import ChallengeContext from "../../utils/ChallengeContext"
-import ItemsCarousel from 'react-items-carousel';
+// import Carousel from 'react-bootstrap/Carousel';
+
 
 const Welcome = (props) =>{
   const chevronWidth = 40;
@@ -61,7 +62,6 @@ const Welcome = (props) =>{
     setFirstLogin(false);
   }
 
- 
 
   //update react context
   const updateUser =(newData) => {
@@ -90,30 +90,13 @@ const Welcome = (props) =>{
       <h3>Select and challenge a user who runs at a similar pace than you do!</h3>
    </Jumbotron>
 
-   <Row >
-   <div className="container-fluid">
-    {/* <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="9000">
-        <div class="carousel-inner row w-100 mx-auto" role="listbox"> */}
-    <div className="card-deck d-flex justify-content-center" style={{margin: "20px"}}>
-      {/* <div className="col-md-3 carousel-item"> */}
-      <UserCard className=" carousel-item"/>
-      </div>
-    {/* </div>
-    </div> */}
-        {/* <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-            <i className="fa fa-chevron-left fa-lg text-muted"></i>
-            <span className="sr-only">Previous</span>
-        </a>
-        <a className="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-            <i className="fa fa-chevron-right fa-lg text-muted"></i>
-            <span className="sr-only">Next</span>
-        </a> */}
-    {/* </div>*/}
-  </div>
+   <Row>
+    <Container fluid>
+      <UserCard />
+     </Container>
    </Row>
 
    <Row>
-
     <Col size="12">
     <Card title="Latest Miles 4 Smiles Updates">
       <ChallengeContext.Provider value={{challenges}}>

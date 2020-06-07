@@ -4,13 +4,9 @@ import AUTH from "../../utils/AUTH"
 import {Input, FormBtn} from "../Form";
 import UserContext from "../../utils/UserContext";
 import validateUpdate from './validateUpdate';
-import { PromiseProvider } from "mongoose";
 
-function UpdateForm() {
-  const { user } = useContext(UserContext);
-  const [userUpdate, setUserUpdate] = useState(false);
-  // const [user, setUser]= useState([]);
-  const [isSaved, setSaved] = useState(false);
+function UpdateForm(props) {
+  const { user, setUser } = useContext(UserContext);
   const [formObject, setFormObject] = useState({
     averagePace: "",
     averageDistance: "",
@@ -33,10 +29,8 @@ function UpdateForm() {
               averagePace: formObject.averagePace
             })
               .then(res => {
-                console.log(res.data)
-                setSaved(true);
-                setUserUpdate(true);
-                console.log(userUpdate)
+                setUser(res.data);
+                props.handleUserUpdate();
                 formEl.current.reset();
                 
               })
@@ -49,17 +43,7 @@ function UpdateForm() {
     return (
         <>
             <form ref={formEl}>
-                {/* <Input
-                  onChange={handleInputChange}
-                  name="username"
-                  placeholder="update username"
-                />
                 <Input
-                  onChange={handleInputChange}
-                  name="password"
-                  placeholder="update password"
-                /> */}
-                    <Input
                   onChange={handleInputChange}
                   name="averageDistance"
                   placeholder="update average distance in miles"
@@ -69,16 +53,6 @@ function UpdateForm() {
                   name="averagePace"
                   placeholder="update average pace per mile"
                 />    
-                {/* <Input
-                  onChange={handleInputChange}
-                  name="city"
-                  placeholder="update city"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="state"
-                  placeholder="update state"
-                /> */}
                 <FormBtn id="updateBtn"
                   disabled={!(formObject.averageDistance && formObject.averagePace)}
                   onClick={handleFormSubmit} >
@@ -86,8 +60,7 @@ function UpdateForm() {
                 </FormBtn>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
-            {isSaved}
-        </>
+       </>
     )
 }
 

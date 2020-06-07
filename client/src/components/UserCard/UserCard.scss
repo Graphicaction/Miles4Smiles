@@ -25,8 +25,13 @@
   width: 100%;
 }
 
+.btn-biz:hover {
+  background-color: darken($color: #DDDFE2, $amount: 20);
+}
+
 .card-text {
   text-align: center;
+  padding: 5px;
 }
 
 .btn-donated {

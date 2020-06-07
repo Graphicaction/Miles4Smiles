@@ -10,7 +10,7 @@ function BusinessBoard() {
                 // Displaying upto 5 business names 
                 challenges.slice(0).reverse().map((challenge,i) => (i<5 && 
                 <div key={challenge._id}>
-                    <li><a href={challenge.businessUrl}>{challenge.businessName}</a> <img src={challenge.businessType} height="20px" width="20px" alt="businessIcon"/> in {challenge.businessLocation}</li>
+                    <li><img src={challenge.businessType} height="20px" width="20px" alt="businessIcon"/> <a href={challenge.businessUrl} target="_blank">{challenge.businessName}</a> located at {challenge.businessLocation}</li>
                     <hr></hr>
                 </div>))
             }</ul>

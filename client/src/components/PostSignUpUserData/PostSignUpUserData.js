@@ -54,7 +54,7 @@ const PostSignUpUserData =(props) => {
         <h3 className="display-4">Hello! </h3>
         <h5>We are so excited you want to support your local business!</h5>
         <hr></hr>
-        <p className="lead">To allow you to find runners with similar skills living close to you, we need some information from you!</p>
+        <p className="lead">To allow us to find runners with similar skills living close to you, we need some information from you!</p>
       </Jumbotron>
 
    <Container>
@@ -94,7 +94,7 @@ const PostSignUpUserData =(props) => {
                           />
                         </Col>
                         <Col size="md-3">
-                          <label>Miles</label>
+                          <label>miles</label>
                         </Col>
                       </Row>
                     </Col>
@@ -109,7 +109,7 @@ const PostSignUpUserData =(props) => {
                          />
                         </Col>
                         <Col size="md-3">
-                          <label>min/mile</label>
+                          <label>/mile</label>
                         </Col>
                       </Row>
                     </Col>

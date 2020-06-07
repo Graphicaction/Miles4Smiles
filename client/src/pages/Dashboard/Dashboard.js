@@ -49,15 +49,15 @@ function Dashboard() {
 
           <Row>
             <Col size="md-6 sm-12">
-              <Card title="Completed Challenges">
-                { (distanceData) ? (<BarChart data={distanceData} label="Challenges Completed" yLabelString="Km" xLabelString="Number of Challenges" />) : <p className="text-center">No challenges recorded yet</p>
+              <Card title="The Distance M4S Runners Go For Our Community">
+                { (distanceData) ? (<BarChart data={distanceData} label="Challenge" yAxesTick="" yAxesMax="20" yLabelString="Distance Run (Mi)" xLabelString="Recent Challenges" />) : <p className="text-center">No challenges recorded yet</p>
                 }
               </Card>
             </Col>
           
           <Col size="md-6 sm-12">
-            <Card title="The Supported Local Businesses">
-            { (donationData[0] !== 0) ? (<BarChart data={donationData} label="Donations Completed" yLabelString="$" xLabelString="Number of Donations" />) : <p className="text-center">No donations recorded yet</p>
+            <Card title="Real Donations in Action">
+            { (donationData[0] !== 0) ? (<BarChart data={donationData} label="Donations Completed" yAxesTick="$" yAxesMax="100" yLabelString="Money Donated (USD)" xLabelString="Recently Completed Challenges" />) : <p className="text-center">No donations recorded yet</p>
               }
             </Card>
           </Col>

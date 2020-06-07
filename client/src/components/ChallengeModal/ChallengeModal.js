@@ -6,7 +6,7 @@ function ChallengeModal(props) {
     <>
     {(props.name) ? (
       <>
-        <button type="button" className="btn start-challenge" data-toggle="modal" data-target={`#exampleModal${props.name}`}><i className ="fa fa-flag-checkered mr-2"/>Challenge a User!</button>
+        <button type="button" className="btn start-challenge" data-toggle="modal" data-target={`#exampleModal${props.name}`}><i className ="fa fa-flag-checkered mr-2"/>Start a Challenge!</button>
           <div className="modal fade" id={`exampleModal${props.name}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
@@ -25,7 +25,7 @@ function ChallengeModal(props) {
     </>
     ):(
     <>
-      <button type="button" className="btn start-challenge" data-toggle="modal" data-target="#challengeModal"><i className="fa fa-flag-checkered mr-2"/>Challenge User</button>
+      <button type="button" className="btn start-challenge" data-toggle="modal" data-target="#challengeModal"><i className="fa fa-flag-checkered mr-2"/>Start a Challenge</button>
         <div className="modal fade" id="challengeModal" tabIndex="-1" role="dialog" aria-labelledby="challengeModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">

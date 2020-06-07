@@ -80,7 +80,7 @@ function DailyRunForm(props) {
               <div className="radio">
                 <label>
                   <Input type="radio" value="21"name="distance"  onChange={handleInputChange}/>
-                  21K Half Marathon
+                  Half Marathon
                 </label>
               </div>
               </Col>
@@ -88,7 +88,7 @@ function DailyRunForm(props) {
               <div className="radio">
                 <label>
                   <Input type="radio" value="42"name="distance" onChange={handleInputChange}/>
-                  42K Marathon
+                  Marathon
                 </label>
               </div>
               </Col>
@@ -99,7 +99,7 @@ function DailyRunForm(props) {
                   name="date"
                   className="form-control"
                   selected={date}
-                  placeholder="Date(required)"
+                  placeholder="Date (required)"
                 />
                 </div>
                 <Input
@@ -109,8 +109,7 @@ function DailyRunForm(props) {
                 />
                 <FormBtn
                   disabled={!(formObject.distance && formObject.totalTime)}
-                  onClick={handleFormSubmit} >
-                  Submit race
+                  onClick={handleFormSubmit}> <i className="fa fa-floppy-o" aria-hidden="true"></i> Submit race
                 </FormBtn>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>

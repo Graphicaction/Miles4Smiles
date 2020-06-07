@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
-import {  useHistory } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from "react";
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import "./RunningStats.scss"
@@ -33,9 +32,8 @@ function RunningStats(props) {
   const [milesData, setMilesData] = useState([]);
   const [newRun, setNewRun] = useState(false);
   const [pieData, setPieData] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [updateUser, setUpdateUser] = useState(true);
-  let history = useHistory();
+ 
 
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
@@ -68,7 +66,6 @@ function RunningStats(props) {
       }
     setMilesData([...graphData]);
     setNewRun(true);
-    setLoading(true);
     }
   }
 
@@ -147,8 +144,7 @@ function RunningStats(props) {
     offset: '30px',
     transition: transitions.SCALE
   }
-  console.log(challenges)
-  let loggedInUser;
+ let loggedInUser;
  if (user) {
     loggedInUser = { user }
   return(
@@ -156,8 +152,7 @@ function RunningStats(props) {
       <Container fluid>
       <Row fluid>
             <Card title="Don't forget to donate" className="col-lg-12 col-sm-12" >
-                {myLosses.length>0 ? <ViewLosses losses={myLosses} /> : <p className="text-center">No challenges lost yet.</p>
-                  }
+                {myLosses.length>0 ? <ViewLosses losses={myLosses} /> : <h3>No challenges lost yet.</h3>}
             </Card>
         </Row>
         <Row>

@@ -1,11 +1,7 @@
 import React, {Fragment, useContext} from "react";
 import RunningStats from "../../components/RunningStats/RunningStats";
-import Jumbotron from "../../components/Jumbotron"
 import "./MyPage.scss";
 import UserContext from "../../utils/UserContext";
-import { PromiseProvider } from "mongoose";
-
-
 
 const MyPage =(props) => {
   const { user } = useContext(UserContext);

@@ -157,7 +157,7 @@ function RunningStats(props) {
       <Container fluid>
       <Row fluid>
          {/* <Col size="12"> */}
-            <Card title="Don't forget to donate!" >
+            <Card title="Don't forget to donate" >
                 {myLosses.length>0 ? <ViewLosses losses={myLosses} /> : <p className="text-center">No challenges lost yet.</p>
                   }
             </Card>

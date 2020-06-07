@@ -21,6 +21,7 @@ import RunningStatsContext from "../../utils/RunningStatsContext";
 
 function RunningStats(props) {
   const { user } = useContext(UserContext);
+  const { challenges } = useContext(ChallengeContext);
   // Setting our component's initial state for RunningStats and Challenges
   const [myChallenges, setMyChallenges] = useState([]);
   const [incomingChallenges, setIncomingChallenges] = useState([]);
@@ -138,13 +139,22 @@ function RunningStats(props) {
     offset: '30px',
     transition: transitions.SCALE
   }
-  
+  console.log(challenges)
   let loggedInUser;
  if (user) {
     loggedInUser = { user }
   return(
     <>
       <Container fluid>
+      <Row>
+          <Col size="12">
+            <Card title="Donations I have to Complete">
+            
+            </Card>
+          </Col>
+
+        </Row>
+
         <Row>
           <Col size="md-6 sm-12">
             <Card title="My Challenges">

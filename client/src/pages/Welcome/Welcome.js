@@ -8,8 +8,8 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 import LatestUpdate from "../../components/LatestUpdate/LatestUpdate"
 import ChallengeContext from "../../utils/ChallengeContext"
-import ItemsCarousel from 'react-items-carousel';
-import "./welcome.scss";
+// import Carousel from 'react-bootstrap/Carousel';
+
 
 const Welcome = (props) =>{
   const chevronWidth = 40;
@@ -62,28 +62,25 @@ const Welcome = (props) =>{
     setFirstLogin(false);
   }
 
-//   $('#cardCarousel').on('slide.bs.carousel', function (e) {
+// // Activate Carousel
+// const handleCarouselChangeRight=()=>{
+//   document.getElementById("myCarousel").carousel("next")
+// }
+// const handleCarouselChangeLeft=()=>{
+//   document.getElementById("myCarousel").carousel("prev")
+// }
+// // $("#myCarousel").carousel();
 
-//     var $e = $(e.relatedTarget);
-//     var idx = $e.index();
-//     var itemsPerSlide = 3;
-//     var totalItems = $('.carousel-item').length;
-    
-//     if (idx >= totalItems-(itemsPerSlide-1)) {
-//         var it = itemsPerSlide - (totalItems - idx);
-//         for (var i=0; i<it; i++) {
-//             // append slides to end
-//             if (e.direction=="left") {
-//                 $('.carousel-item').eq(i).appendTo('.carousel-inner');
-//             }
-//             else {
-//                 $('.carousel-item').eq(0).appendTo('.carousel-inner');
-//             }
-//         }
-//     }
-// });
 
- 
+
+// // // Enable Carousel Controls
+// // $(".left").click(function(){
+// //   $("#myCarousel").carousel("prev");
+// // });
+
+
+
+
 
   //update react context
   const updateUser =(newData) => {
@@ -112,26 +109,34 @@ const Welcome = (props) =>{
       <h3>Select and challenge a user who runs at a similar pace than you do!</h3>
    </Jumbotron>
 
-   <Row >
-   <div className="container-fluid">
-  <div id="cardCarousel" className="carousel slide" data-ride="carousel" data-interval="9000">
-    <div className="carousel-inner row w-100 mx-auto" role="listbox">
-    {/* <div className="card-deck d-flex justify-content-center" style={{margin: "20px"}}> */}
+   <Row>
+   <div className="container-fluid ">
+         {/* <div className="card-deck d-flex justify-content-center" style={{margin: "20px"}}> */}
+
+
+     <UserCard />
+     {/* </div> */}
+   {/* <div id="myCarousel" className="carousel slide" data-ride="carousel"> */}
+  
+  {/* <div id="cardCarousel" className="carousel slide" data-ride="carousel" data-interval="9000" onSlide> */}
+    {/* <div className="carousel-inner card-deck d-flex row w-100 mx-auto" role="listbox"> */}
       {/* <div className="col-md-3 carousel-item"> */}
-      <UserCard />
-      </div>
-    </div>
-    </div>
-        {/* <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-            <i className="fa fa-chevron-left fa-lg text-muted"></i>
+      {/* <UserCard /> */}
+      {/* </div>
+  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" onClick={handleCarouselChangeLeft}>
+            <i className="fa fa-chevron-left text-muted"></i>
             <span className="sr-only">Previous</span>
         </a>
-        <a className="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+        <a className="carousel-control-next text-faded" href="#myCarousel" role="button" data-slide="next" onClick={handleCarouselChangeRight}>
             <i className="fa fa-chevron-right fa-lg text-muted"></i>
             <span className="sr-only">Next</span>
-        </a> */}
+        </a> 
+
+    </div> */}
+        
     {/* </div>*/}
   {/* </div> */}
+  </div>
    </Row>
 
    <Row>

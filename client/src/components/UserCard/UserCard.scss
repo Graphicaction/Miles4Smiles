@@ -29,6 +29,11 @@
     display: inline-block;
   }
 
+  .carousel-inner {
+    display: inline-flex;
+    justify-content: center;
+  }
+
   .carousel-inner
     .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
   .carousel-inner

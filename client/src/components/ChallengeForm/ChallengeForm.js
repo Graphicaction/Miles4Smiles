@@ -27,7 +27,6 @@ function ChallengeForm(props) {
        setBusinessUrl(businessUrl);
        setBusinessType(businessType);
     }
-    // console.log(businessName, address, businessUrl, businessType)
 
     //Saving new challenge
     function handleChallengeSave(event) {

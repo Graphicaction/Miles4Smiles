@@ -1,6 +1,7 @@
 import React from "react";
 import "../Jumbotron/AboutJumbotron.scss";
 
+//Jumbotron used in About Page
 const AboutJumbotron = ({ children }) => (
 
     <div className="jumbotron jumbotron-fluid about-jumbotron">

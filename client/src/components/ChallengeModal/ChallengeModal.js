@@ -1,6 +1,7 @@
 import React from "react";
 import ChallengeForm from "../../components/ChallengeForm/ChallengeForm";
 
+//Modal that includes the Challenge Form and is nested in Runningstats.js and Usercard.js
 function ChallengeModal(props) {
   return (
     <>

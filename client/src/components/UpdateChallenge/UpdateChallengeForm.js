@@ -6,6 +6,7 @@ import Jdenticon from "react-jdenticon";
 import {Input} from "../Form";
 import {Row, Col} from "../Grid"
 
+//form to accept, deny or log challenge outcomes, nested inside Update ChallengeModal
 function UpdateChallengeForm(props) {
     const { user, users, setUser } = useContext(UserContext);
     const [formObject, setFormObject] = useState([]);
@@ -99,10 +100,8 @@ function UpdateChallengeForm(props) {
                             </div>
                         </Col>
                     </Row>
-                        {/* <input onChange={handleInputChange} name="loser" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input> */}
                     <small  className="form-text text-muted">Enter the user who ran the set distance at a slower pace.</small>
                 </div>
-                {/* <div className="modal-footer"> */}
                 <hr></hr>
                     <button type="button" className="btn btn-secondary mr-5" data-dismiss="modal"><i className="fa fa-eject mr-2"/>Cancel</button>
                     <button type="button" className="btn" onClick={handleChallengeSave} data-dismiss="modal" style={{backgroundColor: "#89b0ae"}} disabled={!(formObject.loser)}><i className="fa fa-paper-plane mr-2"/>Submit Challenge</button>

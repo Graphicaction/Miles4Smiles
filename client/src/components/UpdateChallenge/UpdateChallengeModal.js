@@ -2,6 +2,7 @@ import React from "react";
 import UpdateChallengeForm from "../../components/UpdateChallengeForm/UpdateChallengeForm";
 import { PromiseProvider } from "mongoose";
 
+// inside of challenge cards
 function UpdateChallengeModal(props) {
 
   return (

@@ -8,7 +8,6 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 import LatestUpdate from "../../components/LatestUpdate/LatestUpdate"
 import ChallengeContext from "../../utils/ChallengeContext"
-// import Carousel from 'react-bootstrap/Carousel';
 
 
 const Welcome = (props) =>{
@@ -90,7 +89,8 @@ const Welcome = (props) =>{
       <h3>Select and challenge a user who runs at a similar pace than you do!</h3>
    </Jumbotron>
 
-   <Row className="d-flex justify-content-center">
+      {/* shows all users apart from logged in user himself and lets logged in user challenge them */}
+   <Row >
     <Container fluid>
       <UserCard />
      </Container>

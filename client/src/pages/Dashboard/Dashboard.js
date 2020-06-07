@@ -37,14 +37,12 @@ function Dashboard() {
     return (
       <Container fluid>
         <Row fluid>
-         {/* <Col size="12"> */}
             <Card title="Overall Amount Of Financial Support For Local Businesses" >
               <ChallengeContext.Provider value={{challenges}}>
                 {challenges.length>0 ? <AddDonation /> : <p className="text-center">No challenges recorded yet</p>
                   }
               </ChallengeContext.Provider>
             </Card>
-          {/* </Col> */}
         </Row>
 
           <Row>

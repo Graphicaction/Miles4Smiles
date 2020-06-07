@@ -58,6 +58,7 @@ function SignupForm() {
 
       }).then(response => {
         if (!response.data.error) {
+          alert.success('Welcome! New user is ready for login!')
           setRedirectTo('/');
         } else {
           alert.error('User already exists!');
@@ -112,7 +113,7 @@ function SignupForm() {
                 onChange={handleChange}
               />
               <Link to="/" className="btn loginBtn"><i className="fa fa-undo mr-2"></i>Return to Login</Link>
-              <FormBtn onClick={handleSubmit}><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</FormBtn>
+              <FormBtn onClick={handleSubmit}><i className="fa fa-floppy-o" aria-hidden="true"></i> Save</FormBtn>
             </form>
           </Card>
     </Container>

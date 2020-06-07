@@ -32,7 +32,7 @@ function UpdateForm(props) {
                 setUser(res.data);
                 props.handleUserUpdate();
                 formEl.current.reset();
-                
+                alert.success('User info updated successfully!')
               })
               .catch(err => console.log(err));
           }

@@ -36,7 +36,7 @@ function LoginForm({login, user, logout}) {
     if(valid) {
       login(userObject.username, userObject.password, function(result){
         if(result === 0){
-          alert.error("User does not exist!");
+          alert.error('User does not exist! Try again or register instead.');
           // logout();
           setRedirectTo('/');
         }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import {  useHistory } from 'react-router-dom';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
+import { useAlert } from 'react-alert';
 import "./RunningStats.scss"
 import Jdenticon from "react-jdenticon";
 import BarChart from "../BarChart";
@@ -34,7 +33,7 @@ function RunningStats(props) {
   const [loading, setLoading] = useState(false);
   const [updateUser, setUpdateUser] = useState(true);
 
-
+  const alert = useAlert();
   let history = useHistory();
 
   
@@ -141,13 +140,6 @@ function RunningStats(props) {
     .catch(err => console.log(err));
   }
 
-  // For duplicate user login alert:
-  const options = {
-    position: positions.TOP_CENTER,
-    timeout: 2500,
-    offset: '30px',
-    transition: transitions.SCALE
-  }
   console.log(challenges)
   let loggedInUser;
  if (user) {
@@ -175,7 +167,6 @@ function RunningStats(props) {
           <Col size="md-6">
             <Card title="Update Your Information" style={{justifyContent:"center"}}>
               <div key= {user._id} className="card text-center">
-                <AlertProvider template={AlertTemplate} {...options}>
                     <Row>
                       <Col size="lg-6 sm-12">
                         <RunningStatsContext.Provider>
@@ -188,7 +179,6 @@ function RunningStats(props) {
                         </ChallengeContext.Provider>
                         </Col>
                     </Row>
-                </AlertProvider>
                 <hr></hr>
                 {(updateUser) &&
                   (<div className="card-body ">

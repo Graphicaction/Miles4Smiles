@@ -91,9 +91,9 @@ const Welcome = (props) =>{
    </Jumbotron>
 
    <Row>
-    <div className="container-fluid">
+    <Container fluid>
       <UserCard />
-     </div>
+     </Container>
    </Row>
 
    <Row>

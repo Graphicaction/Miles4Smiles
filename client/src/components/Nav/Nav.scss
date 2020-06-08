@@ -1,29 +1,28 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 .logout {
   color: $fontColor1;
   /* background-color:#ffd6ba; */
   background-image: $gradientOrange;
-  opacity: .8;
-  box-shadow: none!important
+  opacity: 0.8;
+  box-shadow: none !important;
 }
 
 .logout:hover {
   color: $fontColor2;
-  background-color:$primaryColor2;
+  background-color: $primaryColor2;
   opacity: 1;
 }
 
-.greeting{
-  color: $navAndJumboFont
+.greeting {
+  color: $navAndJumboFont;
 }
 
-.nav-link:hover{
-  color: $primaryColor3!important
+.nav-link:hover {
+  color: $primaryColor3 !important;
 }
 
-.navbar{
-  background-color: transparent!important;
-  color: $navAndJumboFont
+.navbar {
+  background-color: transparent !important;
+  color: $navAndJumboFont;
 }
-

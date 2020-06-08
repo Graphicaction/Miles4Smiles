@@ -1,29 +1,24 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
-
-.start-challenge{
+.start-challenge {
   background-image: $gradientOrange;
-
-
 }
 
-.start-challenge:hover{
+.start-challenge:hover {
   background-image: $gradientOrange2;
 }
 
 .btn-biz {
   width: 100%;
   background-color: $primaryColor2;
-  color:  $fontColor1!important
+  color: $fontColor1 !important;
 }
 
-.deleteBtn{
+.deleteBtn {
   color: $orange-red;
 }
 
-.updateBtn{
-  background-color: $primaryColor4!important;
-  margin: 20px
-
+.updateBtn {
+  background-color: $primaryColor4 !important;
+  margin: 20px;
 }
-

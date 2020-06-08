@@ -1,22 +1,20 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
+.card {
+  background-color: rgba($primaryColor5, 0.8) !important;
+  border-radius: $borderRadius !important;
+}
 
-
-.card{
-  background-color:rgba($primaryColor5, .8)!important;
-  border-radius: $borderRadius!important;
-} 
-
-.card-header{
-  background-image: $gradientOrange!important;
-  border-radius: $borderRadius!important;
+.card-header {
+  background-image: $gradientOrange !important;
+  border-radius: $borderRadius !important;
   color: $fontColor1;
 }
 
-h5{
-  font-family: 'Raleway', sans-serif
+h5 {
+  font-family: 'Raleway', sans-serif;
 }
 
-.card:hover{
-  background-color:rgba($primaryColor5, .9)!important;
+.card:hover {
+  background-color: rgba($primaryColor5, 0.9) !important;
 }

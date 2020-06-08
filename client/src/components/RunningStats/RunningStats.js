@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
-import AlertTemplate from 'react-alert-template-basic';
 import './RunningStats.scss';
 import Jdenticon from 'react-jdenticon';
 import BarChart from '../BarChart';
@@ -182,23 +181,21 @@ function RunningStats(props) {
                 style={{ justifyContent: 'center' }}
               >
                 <div key={user._id} className="card text-center">
-                  <AlertProvider template={AlertTemplate} {...options}>
-                    <Row>
-                      <Col size="lg-6 sm-12">
-                        <RunningStatsContext.Provider>
-                          <DailyRunModal handleBarChart={handleBarChart} />
-                        </RunningStatsContext.Provider>
-                      </Col>
-                      <Col size="lg-6 sm-12">
-                        <ChallengeContext.Provider
-                          myChallenges={myChallenges}
-                          incomingChallenges={incomingChallenges}
-                        >
-                          <ChallengeModal handleChallenge={handleChallenge} />
-                        </ChallengeContext.Provider>
-                      </Col>
-                    </Row>
-                  </AlertProvider>
+                  <Row>
+                    <Col size="lg-6 sm-12">
+                      <RunningStatsContext.Provider>
+                        <DailyRunModal handleBarChart={handleBarChart} />
+                      </RunningStatsContext.Provider>
+                    </Col>
+                    <Col size="lg-6 sm-12">
+                      <ChallengeContext.Provider
+                        myChallenges={myChallenges}
+                        incomingChallenges={incomingChallenges}
+                      >
+                        <ChallengeModal handleChallenge={handleChallenge} />
+                      </ChallengeContext.Provider>
+                    </Col>
+                  </Row>
                   <hr></hr>
                   {updateUser && (
                     <div className="card-body ">

@@ -28,13 +28,13 @@ router.delete('/user/:id', userController.deleteUser);
 // router.post('/login', userController.auth, passport.authenticate('google'), userController.authenticate);
 
 // router.get("/auth/google/callback", passport.authenticate('google'));
-router.get('/logout', (req, res) => {
-  req.logout();
-  res.send(req.user);
-});
-router.get('/user/:id', (req, res) => {
-  res.send(req.user);
-});
+// router.get('/logout', (req, res) => {
+//   req.logout();
+//   res.send(req.user);
+// });
+// router.get('/user/:id', (req, res) => {
+//   res.send(req.user);
+// });
 
 router.use('/', googleRoutes);
 

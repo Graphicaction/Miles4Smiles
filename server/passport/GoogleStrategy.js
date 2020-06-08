@@ -7,12 +7,14 @@ const db = require('../models');
 
 //place mongo generated id in the cookie
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, user.googleId);
+  console.log('serialize');
 });
 //get id out of cookie
-passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
+passport.deserializeUser((googleId, done) => {
+  db.User.findById(googleId).then((user) => {
     done(null, user);
+    console.log('deseralize');
   });
 });
 

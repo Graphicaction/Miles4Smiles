@@ -3,19 +3,19 @@ import Jdenticon from 'react-jdenticon';
 import UserContext from '../../utils/UserContext';
 import ChallengeModal from '../ChallengeModal/ChallengeModal';
 import { useAlert } from 'react-alert';
-import Carousel from 'react-bootstrap/Carousel';
+// import Carousel from 'react-bootstrap/Carousel';
 import './UserCard.scss';
 
 const UserCard = () => {
   const { user, users } = useContext(UserContext);
-  const [index, setIndex] = useState();
+  // const [index, setIndex] = useState();
   const alert = useAlert();
   const currentUser = user._id;
 
   // later add that only users if their pace match
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
+  // const handleSelect = (selectedIndex, e) => {
+  //   setIndex(selectedIndex);
+  // };
 
   let usersToRender;
 

@@ -23,11 +23,16 @@ function LoginForm({ login, user, logout }) {
     });
   };
 
-  const googleDirect = () => {
+  const handleGoogleDirect = () => {
     // setRedirectTo('/auth/google');
-    console.log(user);
-    // };
-    // login(user.username, user.);
+    console.log('test');
+    // console.log(user);
+    // login(user.username, user.password, (result) => {
+    //   if (result === 0) {
+    //     alert.error('User does not exist! Try again or register instead.');
+    //     setRedirectTo('/');
+    //   }
+    // });
     // setRedirectTo('/welcome');
   };
 
@@ -81,7 +86,7 @@ function LoginForm({ login, user, logout }) {
               </Link>
               <a
                 href="/auth/google/"
-                // onClick={googleDirect}
+                onClick={handleGoogleDirect}
                 className="btn btn-info googleBtn ml-2"
               >
                 <i className="fa fa-google mr-2"></i>Sign in with Google

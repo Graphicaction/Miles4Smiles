@@ -41,10 +41,9 @@ passport.use(
             googleId: profile.id,
             firstName: profile.name.givenName,
             lastName: profile.name.familyName,
-            username: profile.givenName,
+            username: profile.name.givenName,
             password: profile.id,
             firstLogin: true,
-            // password:""
           })
             .save()
             .then((user) => done(null, user));

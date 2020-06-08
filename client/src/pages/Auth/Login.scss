@@ -1,14 +1,11 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
-.registerBtn{
+.registerBtn {
   background-color: $fontColor2;
-  color: $fontColor1
-}
-
-.loginBtn{
-  background-color: $primaryColor3;
   color: $fontColor1;
 }
 
-
-
+.loginBtn {
+  background-color: $primaryColor3;
+  color: $fontColor1;
+}

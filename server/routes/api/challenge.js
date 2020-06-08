@@ -1,14 +1,15 @@
-const router = require("express").Router();
-const challengeController =  require("../../controllers/challengeController");
+const router = require('express').Router();
+const challengeController = require('../../controllers/challengeController');
 
 // Matches with "/api/challenges"
-router.route("/")
+router
+  .route('/')
   .get(challengeController.findAll)
   .post(challengeController.create);
 
 // Matches with "/api/challenges/:id"
 router
-  .route("/:id")
+  .route('/:id')
   .get(challengeController.findById)
   .put(challengeController.update)
   .delete(challengeController.remove);

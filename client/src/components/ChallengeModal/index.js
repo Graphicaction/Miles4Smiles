@@ -1,1 +1,1 @@
-export * from "./ChallengeModal";
+export * from './ChallengeModal';

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import './RunningStats.scss';
 import Jdenticon from 'react-jdenticon';
 import BarChart from '../BarChart';
@@ -134,14 +133,7 @@ function RunningStats(props) {
       .catch((err) => console.log(err));
   };
 
-  // For duplicate user login alert:
-  const options = {
-    position: positions.TOP_CENTER,
-    timeout: 2500,
-    offset: '30px',
-    transition: transitions.SCALE,
-  };
-  console.log(challenges);
+  // console.log(challenges)
   let loggedInUser;
   if (user) {
     loggedInUser = { user };
@@ -154,7 +146,10 @@ function RunningStats(props) {
               className="col-lg-12 col-sm-12"
             >
               {myLosses.length > 0 ? (
-                <ViewLosses losses={myLosses} />
+                <ViewLosses
+                  losses={myLosses}
+                  handleChallenge={handleChallenge}
+                />
               ) : (
                 <h5 className="text-center">No challenges lost yet.</h5>
               )}

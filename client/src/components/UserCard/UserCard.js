@@ -20,7 +20,19 @@ const UserCard = () => {
   let usersToRender;
 
   if (users) {
-    // const chunks=[];
+    let minPace, maxPace;
+    maxPace = parseInt(user.averagePace) + 1; 
+    minPace = parseInt(user.averagePace) - 1; 
+    const similarPaceUsers = [], otherUsers = [];
+    users.map(challenger => {
+      if(challenger._id != currentUser){
+        const avgPace = parseInt(challenger.averagePace);
+        if((avgPace >= minPace) && (avgPace <= maxPace))
+          similarPaceUsers.push(challenger);
+        else
+          otherUsers.push(challenger);
+      }
+    })
     //    while(user.length > 0){
     //         chunks.push(user.splice(0, 3))};
     //         chunks.map()
@@ -41,9 +53,46 @@ const UserCard = () => {
 
         <div className="flex-container flex py-2">
           {/* <div className="d-flex flex-row flex-nowrap"> */}
-          {users.map(
+          {similarPaceUsers.map(
             (user, index) =>
-              user._id !== currentUser && (
+              (
+                // <Carousel.Item
+                //   key={index}
+                //   className="col-lg-3 col-md-4 col-sm-12 "
+                //   // data-slide={index}
+                // >
+                <div className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item ">
+                  <div className="card-body">
+                    <Jdenticon
+                      className="avatar"
+                      size="48"
+                      value={user.username}
+                      float="right"
+                    ></Jdenticon>
+                    <h5 className="card-title justify-content-center">
+                      {user.username}
+                    </h5>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      <i className="fa fa-location"></i>
+                      {user.city}, {user.state}{' '}
+                    </h6>
+                    <hr></hr>
+                    <p className="card-text pace">
+                      Average Pace: {user.averagePace} /mile
+                    </p>
+                    <p className="card-text distance">
+                      Preferred Distance: {user.averageDistance} miles
+                    </p>
+                    <hr></hr>
+                    <ChallengeModal name={user.username} />
+                  </div>
+                </div>
+                // {/* </Carousel.Item> */}
+              )
+          )}
+          {otherUsers.map(
+            (user, index) =>
+              (
                 // <Carousel.Item
                 //   key={index}
                 //   className="col-lg-3 col-md-4 col-sm-12 "
@@ -86,7 +135,8 @@ const UserCard = () => {
       </>
     );
   } else {
-    usersToRender = 'Loading...';
+    // usersToRender = 'Loading...';
+    return(<div><h1>No other users found</h1></div>)
   }
   return <>{usersToRender}</>;
 };

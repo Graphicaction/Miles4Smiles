@@ -49,7 +49,7 @@ function ChallengeForm(props) {
         formObject.oppUser,
         formObject.cMiles,
         formObject.cDonation,
-        formObject.cBusiness
+        businessName
       );
     }
     const donation = formObject.cMiles * formObject.cDonation;

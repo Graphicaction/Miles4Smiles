@@ -31,6 +31,7 @@ passport.use(
       db.User.findOne({ googleId: profile.id }).then((existingUser) => {
         //if already signed up with that googleid no new user
         if (existingUser) {
+          console.log(existingUser);
           done(null, existingUser);
         } else {
           console.log('accessToken', accessToken);
@@ -40,7 +41,8 @@ passport.use(
             googleId: profile.id,
             firstName: profile.name.givenName,
             lastName: profile.name.familyName,
-            username: profile.displayName,
+            username: profile.givenName,
+            password: profile.id,
             firstLogin: true,
             // password:""
           })

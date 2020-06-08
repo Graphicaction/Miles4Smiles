@@ -1,5 +1,6 @@
 const passport = require('passport');
 const router = require('express').Router();
+const userController = require('../../controllers/userController');
 require('../../passport/GoogleStrategy');
 
 module.exports = router;
@@ -14,7 +15,9 @@ router.get(
 router.get(
   '/google/callback',
   passport.authenticate('google', {
+    failureRedirect: '/',
     successRedirect: '/',
-    failureRedirect: '/login',
-  })
+  }),
+  passport.authenticate('local'),
+  userController.googleLogin
 );

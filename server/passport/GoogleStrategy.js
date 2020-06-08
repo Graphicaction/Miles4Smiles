@@ -49,7 +49,12 @@ passport.use(
             .save()
             .then((user) => done(null, user));
         }
-      });
+      }),
+        (err) => {
+          if (err) {
+            return done(err);
+          }
+        };
     }
   )
 );

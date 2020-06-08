@@ -197,7 +197,7 @@ function RunningStats(props) {
                       <Jdenticon
                         className="avatar"
                         size="48"
-                        value={user._id}
+                        value={user.username}
                         float="right"
                       ></Jdenticon>
                       <h5 className="card-title justify-content-center">

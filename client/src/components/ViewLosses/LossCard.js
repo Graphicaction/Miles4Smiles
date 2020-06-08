@@ -42,7 +42,7 @@ function LossCard(props) {
           style={{ backgroundColor: '#89b0ae' }}
           className="btn btn-donated"
           aria-label="Close"
-          onClick={handleMarkDonated(props.id)}
+          // onClick={handleMarkDonated(props.id)}
         >
           <i className="fa fa-check-square-o" aria-hidden="true"></i> Mark as
           Donated

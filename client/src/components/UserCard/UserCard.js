@@ -20,7 +20,17 @@ const UserCard = () => {
   let usersToRender;
 
   if (users) {
-    // const chunks=[];
+    let minPace, maxPace;
+    maxPace = parseInt(user.averagePace) + 1; 
+    minPace = parseInt(user.averagePace) - 1; 
+    const similarPaceUsers=[];
+    users.map(challenger => {
+      if(challenger._id != currentUser){
+        const avgPace = parseInt(challenger.averagePace);
+        if((avgPace >= minPace) && (avgPace <= maxPace))
+          similarPaceUsers.push(challenger);
+      }
+    })
     //    while(user.length > 0){
     //         chunks.push(user.splice(0, 3))};
     //         chunks.map()
@@ -41,9 +51,9 @@ const UserCard = () => {
 
         <div className="flex-container flex py-2">
           {/* <div className="d-flex flex-row flex-nowrap"> */}
-          {users.map(
+          {similarPaceUsers.map(
             (user, index) =>
-              user._id !== currentUser && (
+              (
                 // <Carousel.Item
                 //   key={index}
                 //   className="col-lg-3 col-md-4 col-sm-12 "

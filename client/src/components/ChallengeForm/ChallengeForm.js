@@ -37,11 +37,11 @@ function ChallengeForm(props) {
         let valid;
         if(props.name){
             challengers = [user.username, props.name];
-            valid = validateChallenge(props.name,formObject.cMiles,formObject.cDonation,formObject.cBusiness);
+            valid = validateChallenge(props.name,formObject.cMiles,formObject.cDonation,businessName);
         }
         else{
             challengers = [user.username, formObject.oppUser];
-            valid = validateChallenge(formObject.oppUser,formObject.cMiles,formObject.cDonation,formObject.cBusiness);
+            valid = validateChallenge(formObject.oppUser,formObject.cMiles,formObject.cDonation,businessName);
         }
         const donation = formObject.cMiles * formObject.cDonation;
         if(valid){

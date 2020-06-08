@@ -141,7 +141,7 @@ function RunningStats(props) {
     .catch(err => console.log(err));
   }
 
-  console.log(challenges)
+  // console.log(challenges)
   let loggedInUser;
  if (user) {
     loggedInUser = { user }

@@ -2,32 +2,26 @@ import React, { useState, useContext, useEffect } from 'react';
 import API from '../../utils/API';
 
 function LossCard(props) {
-  // const handleMarkDonated = (id) => {
-  //     // Updates the challenge status to "donated"
-  //         API.updateChallenge(id, {status: "donated"})
-  //         .then(res => {
-  //             console.log("updated to donated")
-  //         })
-  //         .catch(err => {
-  //             console.log(err);
-  //         })
-  // }
 
-  // const handleMarkDonated = (id) => {
-  //     // Updates the challenge status to "donated"
-  //         API.updateChallenge(id, {status: "donated"})
-  //         .then(res => {
-  //             console.log("updated to donated")
-  //         })
-  //         .catch(err => {
-  //             console.log(err);
-  //         })
-  // }
+  // Updates the challenge status to "donated"
+  const MarkDonated = (id) => {
+      API.updateChallenge(id, {status: "donated"})
+      .then(res => {
+          console.log("updated challenge status to donated")
+          props.handleChallenge()
+      })
+      .catch(err => {
+          console.log(err);
+      })
+  }
+
+  const handleMarkDonated = (id) => {
+    MarkDonated(id)
+  }
 
   return (
     <div className="col-12">
       <div className="card-body">
-        {/* <h5 className="card-title">You lost a challenge to {props.loss.challengers[1]}</h5>   */}
         <a
           href={props.loss.businessUrl}
           target="_blank"
@@ -48,6 +42,7 @@ function LossCard(props) {
           style={{ backgroundColor: '#89b0ae' }}
           className="btn btn-donated"
           aria-label="Close"
+          // onClick={handleMarkDonated(props.id)}
         >
           <i className="fa fa-check-square-o" aria-hidden="true"></i> Mark as
           Donated

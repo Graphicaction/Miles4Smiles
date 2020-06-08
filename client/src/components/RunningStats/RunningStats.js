@@ -146,7 +146,7 @@ function RunningStats(props) {
               className="col-lg-12 col-sm-12"
             >
               {myLosses.length > 0 ? (
-                <ViewLosses losses={myLosses} />
+                <ViewLosses losses={myLosses} handleChallenge={handleChallenge}/>
               ) : (
                 <h5 className="text-center">No challenges lost yet.</h5>
               )}

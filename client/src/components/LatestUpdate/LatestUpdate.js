@@ -30,7 +30,7 @@ function LatestUpdate() {
                     {challenge.challengers[0]} and {challenge.challengers[1]}{' '}
                     ran a {challenge.distance} mile race. {challenge.donor} lost
                     and donated ${challenge.donatedAmount} to{' '}
-                    <a href={challenge.businessUrl} target="_blank">
+                    <a href={challenge.businessUrl} target="_blank" rel="noopener noreferrer">
                       {challenge.businessName}
                     </a>
                     . Thanks {challenge.donor}!

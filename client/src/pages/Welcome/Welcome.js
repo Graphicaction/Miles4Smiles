@@ -58,7 +58,7 @@ const Welcome = (props) => {
 
   //update react context
   const updateUser = (newData) => {
-    console.log(newData);
+    // console.log(newData);
     // props.updateUser(newData);
   };
 

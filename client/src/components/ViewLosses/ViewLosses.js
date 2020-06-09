@@ -1,9 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
-import API from '../../utils/API';
+import React from 'react';
 import LossCard from './LossCard';
 
 function ViewLosses(props) {
-  const losses = props.losses;
   return (
     <>
       <div className="row">

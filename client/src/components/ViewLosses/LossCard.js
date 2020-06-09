@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React from 'react';
 import API from '../../utils/API';
 
 function LossCard(props) {
@@ -25,6 +25,7 @@ function LossCard(props) {
         <a
           href={props.loss.businessUrl}
           target="_blank"
+          rel="noopener noreferrer"
           className="btn btn-biz"
           id="update-challenge"
         >

@@ -4,6 +4,7 @@ import AUTH from '../../utils/AUTH';
 import { Input, FormBtn } from '../Form';
 import UserContext from '../../utils/UserContext';
 import validateUpdate from './validateUpdate';
+import './Update.scss';
 
 function UpdateForm(props) {
   const { user, setUser } = useContext(UserContext);
@@ -63,11 +64,7 @@ function UpdateForm(props) {
         >
           Update my User Account
         </FormBtn>
-        <button
-          type="button"
-          className="btn btn-secondary"
-          data-dismiss="modal"
-        >
+        <button type="button" className="btn userUpdate" data-dismiss="modal">
           Cancel
         </button>
       </form>

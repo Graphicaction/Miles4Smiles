@@ -77,16 +77,15 @@ function RunningStats(props) {
         const donated = [];
         res.data.challenges.forEach((challenge) => {
           // Extracting the challenges started by or challenged to the current user
-          if(challenge.status === 'donated') 
-            setPieData(true);
-            donated.push(challenge);
+          if (challenge.status === 'donated') setPieData(true);
+          donated.push(challenge);
           if (challenge.status !== 'finish') {
-            if(challenge.status === 'donated') {
+            if (challenge.status === 'donated') {
             } else {
               if (challenge.challengers[0] === user.username)
-              startChallenges.push(challenge);
-            if (challenge.challengers[1] === user.username)
-              invitedChallenges.push(challenge);
+                startChallenges.push(challenge);
+              if (challenge.challengers[1] === user.username)
+                invitedChallenges.push(challenge);
             }
           }
           if (challenge.status === 'finish') {
@@ -157,7 +156,9 @@ function RunningStats(props) {
                   handleChallenge={handleChallenge}
                 />
               ) : (
-                <h5 className="text-center">No lost challenges pending donation- great work!</h5>
+                <h5 className="text-center">
+                  No lost challenges pending donation- great work!
+                </h5>
               )}
             </Card>
           </Row>
@@ -232,7 +233,7 @@ function RunningStats(props) {
                             className="btn card-link deleteBtn ml-3"
                             onClick={handleUserDelete}
                           >
-                            <i className="fa fa-trash mr-2"></i>Delete User
+                            <i className="fa fa-trash mr-2"></i>Delete Account
                           </button>
                         </Col>
                       </Row>

@@ -28,6 +28,8 @@
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   .card {
     display: inline-block;
@@ -167,3 +169,9 @@
 //     visibility: visible;
 //   }
 // }
+
+@media (max-width: 400px) {
+  .usercard {
+    width: 80%;
+  }
+}

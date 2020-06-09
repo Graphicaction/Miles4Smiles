@@ -50,8 +50,8 @@ const UserCard = () => {
             //   // data-slide={index}
             // >
             <div
-              key={index}
-              className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item "
+              className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item"
+              key={user._id}
             >
               <div className="card-body">
                 <Jdenticon
@@ -87,8 +87,8 @@ const UserCard = () => {
             //   // data-slide={index}
             // >
             <div
-              key={index}
-              className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item "
+              className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item"
+              key={user._id}
             >
               <div className="card-body">
                 <Jdenticon

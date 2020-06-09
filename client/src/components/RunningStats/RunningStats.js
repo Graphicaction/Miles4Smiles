@@ -21,7 +21,6 @@ import ViewLosses from '../ViewLosses/ViewLosses';
 
 function RunningStats(props) {
   const { user } = useContext(UserContext);
-  const { challenges } = useContext(ChallengeContext);
   // Setting our component's initial state for RunningStats and Challenges
   const [myChallenges, setMyChallenges] = useState([]);
   const [incomingChallenges, setIncomingChallenges] = useState([]);
@@ -111,7 +110,7 @@ function RunningStats(props) {
   };
 
   const handleChallengeChange = (id, reply) => {
-    if (reply == 'accept') {
+    if (reply === 'accept') {
       API.updateChallenge(id, { status: 'pending' })
         .then((res) => {
           loadChallenges();

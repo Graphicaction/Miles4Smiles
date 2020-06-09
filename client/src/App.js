@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Welcome from './pages/Welcome/Welcome';
 import Dashboard from './pages/Dashboard';
 import MyPage from './pages/MyPage/MyPage';
-import NoMatch from './pages/NoMatch';
 import Nav from './components/Nav';
 import AUTH from './utils/AUTH';
 import UserContext from './utils/UserContext';

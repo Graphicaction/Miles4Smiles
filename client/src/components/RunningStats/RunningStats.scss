@@ -27,7 +27,7 @@
 }
 
 .btn-donated {
-  background-color: $primaryColor1 !important;
+  background-image: $gradientBluePurple !important;
 }
 
 .btn-biz {
@@ -40,6 +40,11 @@
 }
 
 .deleteBtn {
+  color: $fontColor1;
+}
+
+.deleteBtn:hover {
+  box-shadow: $redShadow;
   color: $orange-red;
 }
 

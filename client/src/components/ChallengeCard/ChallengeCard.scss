@@ -1,12 +1,14 @@
 @import '../../variables.scss';
 
 .accept {
-  border-color: $green1;
-  color: $green1;
+  // border-color: $green1;
+  // color: $green1;
+  background-image: $gradientBluePurple;
+  color: $fontColor2;
 }
 
-.deny {
-  border-color: $orange-red;
+.deny:hover {
+  box-shadow: $redShadow;
   color: $orange-red;
 }
 

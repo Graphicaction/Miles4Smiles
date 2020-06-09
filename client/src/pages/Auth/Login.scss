@@ -5,6 +5,11 @@
   color: $fontColor1;
 }
 
+.registerBtn:hover {
+  background-image: $gradientOrangeHover;
+  color: $fontColor1;
+}
+
 .loginBtn {
   background-image: $gradientOrange;
   color: $fontColor1;

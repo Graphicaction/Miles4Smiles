@@ -9,9 +9,14 @@
 }
 
 .logout:hover {
-  color: $fontColor2;
-  background-color: $primaryColor2;
+  // color: $fontColor2;
+  background-image: $gradientOrangeHover;
+  // background-color: $primaryColor2;
   opacity: 1;
+
+  .fa-eject {
+    color: $orange-red;
+  }
 }
 
 .greeting {
@@ -19,7 +24,7 @@
 }
 
 .nav-link:hover {
-  color: $primaryColor3 !important;
+  color: $primaryColor2 !important;
 }
 
 .navbar {

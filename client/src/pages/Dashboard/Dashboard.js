@@ -27,7 +27,7 @@ function Dashboard() {
         //Adding distances into an array
         allChallenges.map((challenge) => {
           dData.push(challenge.distance);
-          if (challenge.status === 'finish')
+          if (challenge.status === 'donated')
             moneyData.push(challenge.donatedAmount);
         });
         //Setting donation data, distance data and all challenges to pass to child components

@@ -21,26 +21,19 @@ const cors = require('cors');
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use(
   session({
-    secret: process.env.APP_SECRET || 'this is the default passphrase',
+    secret: process.env.APP_SECRET || [keys.APP_SECRET],
     store: new MongoStore({ mongooseConnection: dbConnection }),
     resave: false,
     saveUninitialized: false,
+    //store cookie for 30days
+    cookie: ({ maxAge: 30 * 24 * 60 * 60 * 1000 } && process.env.SECURE) || {
+      secure: false,
+    },
   })
 );
-// app.use(
-//   session({
-//     secret: process.env.APP_SECRET || [keys.APP_SECRET],
-//     store: new MongoStore({ mongooseConnection: dbConnection }),
-//     resave: false,
-//     saveUninitialized: false,
-//     //store cookie for 30days
-//     cookie: ({ maxAge: 30 * 24 * 60 * 60 * 1000 } && process.env.SECURE) || {
-//       secure: false,
-//     },
-//   })
-// );
 
 // Passport
 app.use(passport.initialize());

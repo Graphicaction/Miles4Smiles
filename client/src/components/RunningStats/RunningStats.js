@@ -21,7 +21,6 @@ import ViewLosses from '../ViewLosses/ViewLosses';
 
 function RunningStats(props) {
   const { user } = useContext(UserContext);
-  const { challenges } = useContext(ChallengeContext);
   // Setting our component's initial state for RunningStats and Challenges
   const [myChallenges, setMyChallenges] = useState([]);
   const [incomingChallenges, setIncomingChallenges] = useState([]);
@@ -51,7 +50,7 @@ function RunningStats(props) {
   const setGraphData = (data) => {
     let graphData = [];
     if (data.length) {
-      data.map((result) => {
+      data.forEach((result) => {
         graphData.push(result.distance);
       });
       //If no data for the day put 0
@@ -76,7 +75,7 @@ function RunningStats(props) {
         const invitedChallenges = [];
         const losses = [];
         const donated = [];
-        res.data.challenges.map((challenge) => {
+        res.data.challenges.forEach((challenge) => {
           // Extracting the challenges started by or challenged to the current user
           if (challenge.status === 'donated') setPieData(true);
           donated.push(challenge);
@@ -110,7 +109,7 @@ function RunningStats(props) {
   };
 
   const handleChallengeChange = (id, reply) => {
-    if (reply == 'accept') {
+    if (reply === 'accept') {
       API.updateChallenge(id, { status: 'pending' })
         .then((res) => {
           loadChallenges();

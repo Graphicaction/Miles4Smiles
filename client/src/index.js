@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { render } from 'react-dom';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import './index.scss';
 import { BrowserRouter } from 'react-router-dom';

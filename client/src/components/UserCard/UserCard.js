@@ -1,22 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Jdenticon from 'react-jdenticon';
 import UserContext from '../../utils/UserContext';
 import ChallengeModal from '../ChallengeModal/ChallengeModal';
-import { useAlert } from 'react-alert';
 // import Carousel from 'react-bootstrap/Carousel';
 import './UserCard.scss';
 
 const UserCard = () => {
   const { user, users } = useContext(UserContext);
-  const alert = useAlert();
   const currentUser = user._id;
 
   const handleScrollLeft = () => {
-    scrollLeft(document.getElementById('animate-me'), -300, 1000);
+    scrollLeft(document.getElementById('animate-scroll'), -300, 1000);
   };
 
   const handleScrollRight = () => {
-    scrollLeft(document.getElementById('animate-me'), 300, 1000);
+    scrollLeft(document.getElementById('animate-scroll'), 300, 1000);
   };
 
   const scrollLeft = (element, change, duration) => {
@@ -56,8 +54,8 @@ const UserCard = () => {
     minPace = parseInt(user.averagePace) - 1;
     const similarPaceUsers = [],
       otherUsers = [];
-    users.map((challenger) => {
-      if (challenger._id != currentUser) {
+    users.forEach((challenger) => {
+      if (challenger._id !== currentUser) {
         const avgPace = parseInt(challenger.averagePace);
         if (avgPace >= minPace && avgPace <= maxPace)
           similarPaceUsers.push(challenger);
@@ -83,7 +81,7 @@ const UserCard = () => {
         > */}
 
         <div className="row fluid">
-          <div className="flex-container flex py-2 " id="animate-me">
+          <div className="flex-container flex py-2 " id="animate-scroll">
             {/* <div className="d-flex flex-row flex-nowrap"> */}
             {similarPaceUsers.map((user, index) => (
               // <Carousel.Item
@@ -173,14 +171,12 @@ const UserCard = () => {
       </>
     );
   } else {
-    // usersToRender = 'Loading...';
     return (
       <div>
         <h1>No other users found</h1>
       </div>
     );
   }
-  return <>{usersToRender}</>;
 };
 
 export default UserCard;

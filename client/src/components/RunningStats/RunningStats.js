@@ -75,15 +75,22 @@ function RunningStats(props) {
         const startChallenges = [];
         const invitedChallenges = [];
         const losses = [];
+        const donated = [];
         res.data.challenges.map((challenge) => {
           // Extracting the challenges started by or challenged to the current user
+          if(challenge.status === 'donated') 
+            setPieData(true);
+            donated.push(challenge);
           if (challenge.status !== 'finish') {
-            if (challenge.challengers[0] === user.username)
+            if(challenge.status === 'donated') {
+            } else {
+              if (challenge.challengers[0] === user.username)
               startChallenges.push(challenge);
             if (challenge.challengers[1] === user.username)
               invitedChallenges.push(challenge);
+            }
           }
-          if (challenge.status === 'finish' || 'donated') {
+          if (challenge.status === 'finish') {
             setPieData(true);
             if (challenge.status === 'finish') {
               if (challenge.donor === user.username) {
@@ -151,7 +158,7 @@ function RunningStats(props) {
                   handleChallenge={handleChallenge}
                 />
               ) : (
-                <h5 className="text-center">No challenges lost yet.</h5>
+                <h5 className="text-center">No lost challenges pending donation- great work!</h5>
               )}
             </Card>
           </Row>

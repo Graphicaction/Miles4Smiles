@@ -53,6 +53,82 @@ const UserCard = () => {
 
         <div className="flex-container flex py-2">
           {/* <div className="d-flex flex-row flex-nowrap"> */}
+<<<<<<< HEAD
+          {similarPaceUsers.map(
+            (user, index) =>
+              (
+                // <Carousel.Item
+                //   key={index}
+                //   className="col-lg-3 col-md-4 col-sm-12 "
+                //   // data-slide={index}
+                // >
+                <div className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item" key={user._id}>
+                  <div className="card-body">
+                    <Jdenticon
+                      className="avatar"
+                      size="48"
+                      value={user.username}
+                      float="right"
+                    ></Jdenticon>
+                    <h5 className="card-title justify-content-center">
+                      {user.username}
+                    </h5>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      <i className="fa fa-location"></i>
+                      {user.city}, {user.state}{' '}
+                    </h6>
+                    <hr></hr>
+                    <p className="card-text pace">
+                      Average Pace: {user.averagePace} /mile
+                    </p>
+                    <p className="card-text distance">
+                      Preferred Distance: {user.averageDistance} miles
+                    </p>
+                    <hr></hr>
+                    <ChallengeModal name={user.username} />
+                  </div>
+                </div>
+                // {/* </Carousel.Item> */}
+              )
+          )}
+          {otherUsers.map(
+            (user, index) =>
+              (
+                // <Carousel.Item
+                //   key={index}
+                //   className="col-lg-3 col-md-4 col-sm-12 "
+                //   // data-slide={index}
+                // >
+                <div className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item" key={user._id}>
+                  <div className="card-body">
+                    <Jdenticon
+                      className="avatar"
+                      size="48"
+                      value={user.username}
+                      float="right"
+                    ></Jdenticon>
+                    <h5 className="card-title justify-content-center">
+                      {user.username}
+                    </h5>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      <i className="fa fa-location"></i>
+                      {user.city}, {user.state}{' '}
+                    </h6>
+                    <hr></hr>
+                    <p className="card-text pace">
+                      Average Pace: {user.averagePace} /mile
+                    </p>
+                    <p className="card-text distance">
+                      Preferred Distance: {user.averageDistance} miles
+                    </p>
+                    <hr></hr>
+                    <ChallengeModal name={user.username} />
+                  </div>
+                </div>
+                // {/* </Carousel.Item> */}
+              )
+          )}
+=======
           {similarPaceUsers.map((user, index) => (
             // <Carousel.Item
             //   key={index}
@@ -127,6 +203,7 @@ const UserCard = () => {
             </div>
             // {/* </Carousel.Item> */}
           ))}
+>>>>>>> c05090c398dd2e97fe35aeee677fd9ee7a87b2d9
           {/* </Carousel> */}
         </div>
       </>

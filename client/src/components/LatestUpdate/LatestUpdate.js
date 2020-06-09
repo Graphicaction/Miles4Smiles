@@ -6,7 +6,6 @@ function LatestUpdate() {
   const { challenges } = useContext(ChallengeContext);
 
   useEffect(() => {
-    console.log(challenges);
   }, [challenges]);
 
   let finishedChallenges = [];

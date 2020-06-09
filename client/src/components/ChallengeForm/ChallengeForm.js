@@ -122,7 +122,7 @@ function ChallengeForm(props) {
           <LocationSearchInput handleBusiness={handleBusiness} />
         </div>
         <div className="form-group">
-          <label>Let's Talk Mileage 🏁</label>
+          <label>Let's Talk Mileage <span role="img" aria-label="checkeredflag">🏁</span></label>
           <Row>
             <Col size="6">
               <input

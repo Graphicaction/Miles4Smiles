@@ -21,6 +21,6 @@ router.put('/signup/:id', userController.update);
 router.put('/user/:id', userController.userUpdate);
 router.delete('/user/:id', userController.deleteUser);
 
-router.use('/', googleRoutes);
+// router.use('/', googleRoutes);
 
 module.exports = router;

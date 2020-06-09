@@ -1,4 +1,4 @@
-import React, { Component, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Pie } from 'react-chartjs-2';
 import UserContext from '../../utils/UserContext';
 

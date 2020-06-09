@@ -14,7 +14,7 @@ function Dashboard() {
   const [donationData, setDonationData] = useState([]);
   // Loads all Challenges and sets them to Challenges
   useEffect(() => {
-    loadChallenges();
+    loadChallenges()
   }, []);
 
   function loadChallenges() {
@@ -25,9 +25,9 @@ function Dashboard() {
       .then((response) => {
         allChallenges = response.data.challenges;
         //Adding distances into an array
-        allChallenges.map((challenge) => {
+        allChallenges.forEach((challenge) => {
           dData.push(challenge.distance);
-          if (challenge.status === 'finish')
+          if (challenge.status === 'donated')
             moneyData.push(challenge.donatedAmount);
         });
         //Setting donation data, distance data and all challenges to pass to child components

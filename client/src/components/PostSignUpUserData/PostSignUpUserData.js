@@ -14,7 +14,6 @@ const PostSignUpUserData = (props) => {
   //  Setting our component's initial state
   const { user, setUser } = useContext(UserContext);
   const [formObject, setFormObject] = useState({});
-  // let firstLogin;
   const formEl = useRef(null);
   const alert = useAlert();
 
@@ -47,7 +46,7 @@ const PostSignUpUserData = (props) => {
         });
       }
     } else {
-      alert.error('Please enter valid data');
+      alert.error('Please enter valid/all data');
     }
   };
 

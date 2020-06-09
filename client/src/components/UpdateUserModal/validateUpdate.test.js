@@ -7,6 +7,11 @@ describe('validate search query', () => {
     expect(input).toBe(1);
   });
 
+  it(`should have function validateUpdate pass input that have valid characters`, () => {
+    const input = validateUpdate(10, "1:10");
+    expect(input).toBe(1);
+  });
+
   it('should have function validateUpdate pass input that is empty', () => {
     const input = validateUpdate('', '');
     expect(input).toBe(0);

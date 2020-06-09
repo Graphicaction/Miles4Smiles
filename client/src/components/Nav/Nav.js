@@ -1,5 +1,5 @@
-import React, { useState, Fragment } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import {Link } from 'react-router-dom';
 import './Nav.scss';
 
 const Nav = (props) => {

@@ -37,7 +37,7 @@ const Welcome = (props) => {
     API.getChallenges()
       .then((response) => {
         allChallenges = response.data.challenges;
-        allChallenges.map((challenge) => {
+        allChallenges.forEach((challenge) => {
           distanceData.push(challenge.distance);
           donatedAmountData.push(challenge.donatedAmount);
           donorData.push(challenge.donor);

@@ -21,6 +21,7 @@ const cors = require('cors');
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use(
   session({
     secret: process.env.APP_SECRET || [keys.APP_SECRET],

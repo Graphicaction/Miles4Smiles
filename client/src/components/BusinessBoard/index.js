@@ -6,7 +6,7 @@ function BusinessBoard() {
 
   return (
     <div>
-      <ul>
+      <ul className="fa-ul">
         {
           // Displaying up to 5 business names of businesses that were supported already in reverse order
           challenges
@@ -17,6 +17,7 @@ function BusinessBoard() {
                 i < 5 && (
                   <div key={challenge._id}>
                     <li>
+                      <i className="fa fa-dollar-sign" />
                       <img
                         src={challenge.businessType}
                         height="20px"

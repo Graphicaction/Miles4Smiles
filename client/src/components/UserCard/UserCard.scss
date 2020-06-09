@@ -68,6 +68,11 @@
   white-space: normal;
 }
 
+.chevronBtn {
+  margin: 0 10px !important;
+  padding: 1px 10px;
+}
+
 .chevronBtn:hover {
   background-image: $gradientOrange;
 }

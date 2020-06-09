@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 const Nav = (props) => {
@@ -25,7 +25,6 @@ const Nav = (props) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link to="/welcome" className="navbar-brand">
         Miles 4 Smiles
-        {/* <img src="./M4S.png" width="30" height="30" alt="logo" /> */}
       </Link>
       <button
         className="navbar-toggler"
@@ -50,20 +49,13 @@ const Nav = (props) => {
               Dashboard
             </Link>
           </li>
-          {
-            props.user ? (
-              <li className="nav-item">
-                <Link to={'/mypage/' + props.user._id} className="nav-link">
-                  My Page
-                </Link>
-              </li>
-            ) : null
-            //   (
-            //   <li className="nav-item">
-            //   <Link to ={"/"} className="nav-link" >Not Available</Link>
-            // </li>
-            //   )
-          }
+          {props.user ? (
+            <li className="nav-item">
+              <Link to={'/mypage/' + props.user._id} className="nav-link">
+                My Page
+              </Link>
+            </li>
+          ) : null}
         </ul>
         {props.user ? (
           <div className="float-right greeting">

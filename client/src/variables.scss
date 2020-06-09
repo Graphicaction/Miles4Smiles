@@ -29,10 +29,12 @@ $gradientGreen: linear-gradient(
   $primaryColor2 100%
 );
 $gradientRed: linear-gradient(
-  to bottom right,
+  to right,
   $orange-red 0%,
-  $orange-red 50%,
+  $orange-red 10%,
   $primaryColor2 100%
 );
 $gradient3: linear-gradient(to right, #fa6c9f 0%, #ffe140 80%, #ffe140 100%);
 $mainFontFamily: 'Raleway', sans-serif;
+
+$boxShadow1: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);

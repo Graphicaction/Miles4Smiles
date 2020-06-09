@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const userController = require('../../controllers/userController');
 
-// Matches with "/api/user"
+// Matches with "/api/users"
 router.route('/').get(userController.findAll);
 
 // Matches with "/api/user/:id"
@@ -9,5 +9,3 @@ router.route('/:id').get(userController.findById).put(userController.update);
 // .delete(userController.deleteUser);
 
 module.exports = router;
-
-// can this file be deleted?

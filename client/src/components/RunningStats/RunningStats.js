@@ -146,7 +146,10 @@ function RunningStats(props) {
               className="col-lg-12 col-sm-12"
             >
               {myLosses.length > 0 ? (
-                <ViewLosses losses={myLosses} handleChallenge={handleChallenge}/>
+                <ViewLosses
+                  losses={myLosses}
+                  handleChallenge={handleChallenge}
+                />
               ) : (
                 <h5 className="text-center">No challenges lost yet.</h5>
               )}
@@ -173,28 +176,28 @@ function RunningStats(props) {
                 style={{ justifyContent: 'center' }}
               >
                 <div key={user._id} className="card text-center">
-                    <Row>
-                      <Col size="lg-6 sm-12">
-                        <RunningStatsContext.Provider>
-                          <DailyRunModal handleBarChart={handleBarChart} />
-                        </RunningStatsContext.Provider>
-                      </Col>
-                      <Col size="lg-6 sm-12">
-                        <ChallengeContext.Provider
-                          myChallenges={myChallenges}
-                          incomingChallenges={incomingChallenges}
-                        >
-                          <ChallengeModal handleChallenge={handleChallenge} />
-                        </ChallengeContext.Provider>
-                      </Col>
-                    </Row>
+                  <Row>
+                    <Col size="lg-6 sm-12">
+                      <RunningStatsContext.Provider>
+                        <DailyRunModal handleBarChart={handleBarChart} />
+                      </RunningStatsContext.Provider>
+                    </Col>
+                    <Col size="lg-6 sm-12">
+                      <ChallengeContext.Provider
+                        myChallenges={myChallenges}
+                        incomingChallenges={incomingChallenges}
+                      >
+                        <ChallengeModal handleChallenge={handleChallenge} />
+                      </ChallengeContext.Provider>
+                    </Col>
+                  </Row>
                   <hr></hr>
                   {updateUser && (
                     <div className="card-body ">
                       <Jdenticon
                         className="avatar"
                         size="48"
-                        value={user._id}
+                        value={user.username}
                         float="right"
                       ></Jdenticon>
                       <h5 className="card-title justify-content-center">

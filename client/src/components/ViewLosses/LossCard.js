@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from 'react';
 import API from '../../utils/API';
 
 function LossCard(props) {
-
   // Updates the challenge status to "donated"
   // const MarkDonated = (id) => {
   //     API.updateChallenge(id, {status: "donated"})

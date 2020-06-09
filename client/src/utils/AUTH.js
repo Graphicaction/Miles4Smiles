@@ -33,7 +33,7 @@ export default {
   userUpdate: function (id, data) {
     return axios.put('/auth/user/' + id, data);
   },
-  getGoogle: function () {
-    return axios.get('auth/google');
-  },
+  // googleLogin: function (username, password) {
+  //   return axios.post('/auth/login', { username, passowrd });
+  // },
 };

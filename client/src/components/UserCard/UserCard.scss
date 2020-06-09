@@ -22,6 +22,8 @@
   padding: 5px;
 }
 
+//horizontal scroll
+
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -51,6 +53,10 @@
 }
 .flex-item {
   flex: 0 0 auto;
+}
+
+.modal {
+  white-space: normal;
 }
 
 // .horizontal-scrollable > .row {

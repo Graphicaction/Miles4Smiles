@@ -1,11 +1,11 @@
 @import '../../variables.scss';
 
 .registerBtn {
-  background-color: $fontColor2;
+  background-image: $gradientOrange;
   color: $fontColor1;
 }
 
 .loginBtn {
-  background-color: $primaryColor3;
+  background-image: $gradientOrange;
   color: $fontColor1;
 }

@@ -30,10 +30,8 @@ const BarChart = (props) => {
       <Bar
         data={state}
         options={{
-          title: {
-            display: true,
-            fontSize: 20,
-          },
+          responsive: true,
+          maintainAspectRatio: false,
           legend: {
             display: true,
             position: 'top',

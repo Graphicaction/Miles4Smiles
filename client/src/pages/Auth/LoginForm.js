@@ -23,18 +23,10 @@ function LoginForm({ login, user, logout }) {
     });
   };
 
-  const handleGoogleDirect = () => {
-    // setRedirectTo('/auth/google');
-    console.log('test');
-    // console.log(user);
-    // login(user.username, user.password, (result) => {
-    //   if (result === 0) {
-    //     alert.error('User does not exist! Try again or register instead.');
-    //     setRedirectTo('/');
-    //   }
-    // });
-    // setRedirectTo('/welcome');
-  };
+  // const handleGoogleDirect = () => {
+  //   // setRedirectTo('/auth/google');
+  //   console.log('test');
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -84,13 +76,13 @@ function LoginForm({ login, user, logout }) {
                 <i className="fa fa-user-plus mr-2" />
                 Register
               </Link>
-              <a
+              {/* <a
                 href="/auth/google/"
                 onClick={handleGoogleDirect}
                 className="btn btn-info googleBtn ml-2"
               >
                 <i className="fa fa-google mr-2"></i>Sign in with Google
-              </a>
+              </a> */}
 
               <FormBtn onClick={handleSubmit} className="loginBtn">
                 <i className="fa fa-sign-in mr-2" />

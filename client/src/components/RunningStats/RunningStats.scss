@@ -8,10 +8,35 @@
   background-image: $gradientOrange2;
 }
 
+@keyframes shadow-pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba($primaryColor3, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 25px rgba($primaryColor3, 0);
+  }
+}
+
+@keyframes shadow-pulse-big {
+  0% {
+    box-shadow: 0 0 0 0px rgba($primaryColor2, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 50px rgba($primaryColor2, 0);
+  }
+}
+
+.btn-donated {
+  background-color: $primaryColor1 !important;
+}
+
 .btn-biz {
-  width: 100%;
-  background-color: $primaryColor2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  background-image: $gradientOrange;
   color: $fontColor1 !important;
+  animation: shadow-pulse 1s infinite;
 }
 
 .deleteBtn {

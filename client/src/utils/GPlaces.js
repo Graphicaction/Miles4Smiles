@@ -1,5 +1,4 @@
 import React from 'react';
-// import Script from 'react-load-script';
 import PlacesAutocomplete, {
   getLatLng,
   geocodeByPlaceId,
@@ -20,15 +19,21 @@ class LocationSearchInput extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     // Script is loaded here and state is set to true after loading
     this.loadGoogleMaps(() => {
       // Work to do after the library loads.
+      if (this._isMounted) {
       this.setState({ googleMapsReady: true });
       // console.log('google maps ready:', this.state.googleMapsReady)
+      } else {
+        console.log('google script has un-mounted')
+      }
     });
   }
 
   componentWillUnmount() {
+    this._isMounted = false;
     // unload script when needed to avoid multiple google scripts loaded warning
     this.unloadGoogleMaps();
   }
@@ -52,6 +57,7 @@ class LocationSearchInput extends React.Component {
     let googlePlacesScript = document.getElementById('googlePlacesScript');
     if (googlePlacesScript) {
       googlePlacesScript.remove();
+      window.google = {}
     }
   };
 

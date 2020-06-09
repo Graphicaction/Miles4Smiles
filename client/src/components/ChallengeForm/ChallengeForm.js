@@ -6,7 +6,6 @@ import { Row, Col } from '../Grid';
 import LocationSearchInput from '../../utils/GPlaces';
 import validateChallenge from './validateChallenge';
 
-
 function ChallengeForm(props) {
   const [address, setAddress] = useState();
   const [businessName, setBusinessName] = useState();
@@ -122,7 +121,12 @@ function ChallengeForm(props) {
           <LocationSearchInput handleBusiness={handleBusiness} />
         </div>
         <div className="form-group">
-          <label>Let's Talk Mileage <span role="img" aria-label="checkeredflag">🏁</span></label>
+          <label>
+            Let's Talk Mileage{' '}
+            <span role="img" aria-label="checkeredflag">
+              🏁
+            </span>
+          </label>
           <Row>
             <Col size="6">
               <input
@@ -160,7 +164,7 @@ function ChallengeForm(props) {
           <Col size="6">
             <button
               type="button"
-              className="btn btn-success"
+              className="btn sendChallenge"
               onClick={handleChallengeSave}
               data-dismiss="modal"
               disabled={!(formObject.cMiles && formObject.cDonation)}

@@ -57,10 +57,10 @@ const Welcome = (props) => {
   };
 
   //update react context
-  const updateUser = (newData) => {
-    // console.log(newData);
-    // props.updateUser(newData);
-  };
+  // const updateUser = (newData) => {
+  // console.log(newData);
+  // props.updateUser(newData);
+  // };
 
   return (
     <div>
@@ -70,7 +70,7 @@ const Welcome = (props) => {
           <PostSignUpUserData
             id={user._id}
             flip={flip}
-            updateUser={updateUser}
+            // updateUser={updateUser}
           />
         </div>
       )}
@@ -85,8 +85,9 @@ const Welcome = (props) => {
               support your local business!
             </h3>
             <h3>
-              Select and challenge a user who runs at a similar pace than you do
-              or scroll through all users!
+              Select and challenge a highlighted user if you want to compete
+              with a user who runs at a similar pace or scroll through all
+              users.
             </h3>
           </Jumbotron>
 

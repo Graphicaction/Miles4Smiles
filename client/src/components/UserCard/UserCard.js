@@ -161,10 +161,10 @@ const UserCard = () => {
           </div>
         </div>
         <div className="row fluid justify-content-center">
-          <button className="btn float-left" onClick={handleScrollLeft}>
+          <button className="btn chevronBtn" onClick={handleScrollLeft}>
             <i className=" fa fa-chevron-left m-2" />{' '}
           </button>
-          <button className="btn float-right" onClick={handleScrollRight}>
+          <button className="btn chevronBtn" onClick={handleScrollRight}>
             <i className=" fa fa-chevron-right m-2" />{' '}
           </button>
         </div>

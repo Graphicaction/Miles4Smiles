@@ -1,6 +1,8 @@
 $green1: #2a9d8f;
 $orange1: #d6947a;
 $orange-red: #cc3e07;
+$purple: #8363a1;
+$blue: #74a8c3;
 $fontColor1: black;
 $fontColor2: whitesmoke;
 
@@ -12,10 +14,10 @@ $primaryColor3: #f7882f;
 $primaryColor4: #dcc7aa;
 $primaryColor5: whitesmoke;
 
-$gradientBluePurple: linear-gradient(135deg, #8363a1 0%, #74a8c3 100%);
+$gradientBluePurple: linear-gradient(135deg, $purple 0%, $blue 100%);
 $gradientWhitePurple: linear-gradient(
   135deg,
-  #8363a1 4%,
+  $purple 4%,
   whitesmoke 60,
   whitesmoke 100%
 );
@@ -50,4 +52,6 @@ $gradient3: linear-gradient(to right, #fa6c9f 0%, #ffe140 80%, #ffe140 100%);
 $mainFontFamily: 'Raleway', sans-serif;
 
 $boxShadow1: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
-$redShadow: 0 4px 10px 0 #cc3e07, 0 4px 20px 0 #cc3e07;
+$boxShadow2: 0 4px 10px 0 rgba($purple, 0.2), 0 4px 20px 0 rgba($purple, 0.19);
+
+$redShadow: 0 2px 6px 0 #cc3e07, 0 2px 8px 0 #cc3e07;

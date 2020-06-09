@@ -7,9 +7,17 @@
   color: $fontColor2;
 }
 
+.accept:hover {
+  .fa-check {
+    color: $green1;
+  }
+}
+
 .deny:hover {
   box-shadow: $redShadow;
-  color: $orange-red;
+  .fa-ban {
+    color: $orange-red;
+  }
 }
 
 .wereChallenged {

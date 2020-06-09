@@ -17,6 +17,24 @@ const PostSignUpUserData = (props) => {
   const formEl = useRef(null);
   const alert = useAlert();
 
+  const paceSelector = [
+    '6:00',
+    '6:30',
+    '7:00',
+    '7:30',
+    '8:00',
+    '8:30',
+    '9:00',
+    '9:30',
+    '10:00',
+    '10:30',
+    '11:00',
+    '11:30',
+    '12:00',
+    '12:30',
+    '13:00',
+  ];
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
@@ -94,7 +112,7 @@ const PostSignUpUserData = (props) => {
 
               <Row>
                 <Col size="md-6 sm-6">
-                  <label>How long is your usual run?</label>
+                  <label>How far do you usually run?</label>
                   <Row>
                     <Col size="md-5">
                       <Input
@@ -112,11 +130,23 @@ const PostSignUpUserData = (props) => {
                   <label>How fast do you run a mile?</label>
                   <Row>
                     <Col size="md-5">
-                      <Input
+                      <select
+                        className="form-control"
+                        id="paceSelector"
+                        name="averagePace"
+                        onChange={handleInputChange}
+                        placeholder="9:30"
+                      >
+                        <option defaultValue>Choose...</option>
+                        {paceSelector.map((pace, i) => (
+                          <option key={i}>{pace}</option>
+                        ))}
+                      </select>
+                      {/* <Input
                         onChange={handleInputChange}
                         name="averagePace"
                         placeholder="9:50"
-                      />
+                      /> */}
                     </Col>
                     <Col size="md-3">
                       <label>/mile</label>

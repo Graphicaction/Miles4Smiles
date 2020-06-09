@@ -45,10 +45,19 @@
 
 .deleteBtn:hover {
   box-shadow: $redShadow;
-  color: $orange-red;
+  .fa-trash {
+    color: $orange-red;
+  }
 }
 
 .updateBtn {
   background-color: $primaryColor4 !important;
   margin: 20px;
+}
+
+.updateUser:hover {
+  box-shadow: $boxShadow2;
+  .fa-edit {
+    color: $fontColor1;
+  }
 }

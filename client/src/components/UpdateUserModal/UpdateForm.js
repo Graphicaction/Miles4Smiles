@@ -15,12 +15,30 @@ function UpdateForm(props) {
   const formEl = useRef(null);
   const alert = useAlert();
 
-  function handleInputChange(event) {
+  const paceSelector = [
+    '6:00',
+    '6:30',
+    '7:00',
+    '7:30',
+    '8:00',
+    '8:30',
+    '9:00',
+    '9:30',
+    '10:00',
+    '10:30',
+    '11:00',
+    '11:30',
+    '12:00',
+    '12:30',
+    '13:00',
+  ];
+
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
-  }
+  };
 
-  function handleFormSubmit(event) {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     const validUpdate = validateUpdate(
       formObject.averageDistance,
@@ -43,7 +61,7 @@ function UpdateForm(props) {
     } else {
       alert.error('Please enter numbers only!');
     }
-  }
+  };
   return (
     <>
       <form ref={formEl}>
@@ -52,11 +70,18 @@ function UpdateForm(props) {
           name="averageDistance"
           placeholder="update average distance in miles"
         />
-        <Input
-          onChange={handleInputChange}
+        <select
+          className="form-control"
+          id="paceSelector"
           name="averagePace"
+          onChange={handleInputChange}
           placeholder="update average pace per mile"
-        />
+        >
+          <option defaultValue>Choose...</option>
+          {paceSelector.map((pace, i) => (
+            <option key={i}>{pace}</option>
+          ))}
+        </select>
         <FormBtn
           id="updateBtn"
           disabled={!(formObject.averageDistance && formObject.averagePace)}

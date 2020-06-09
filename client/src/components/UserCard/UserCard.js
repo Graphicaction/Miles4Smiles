@@ -61,7 +61,7 @@ const UserCard = () => {
             // >
             <div
               key={index}
-              className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item "
+              className="card usercard d-flex col-lg-3 col-md-4 col-sm-10 text-center flex-item "
             >
               <div className="card-body">
                 <Jdenticon
@@ -98,7 +98,7 @@ const UserCard = () => {
             // >
             <div
               key={index}
-              className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item "
+              className="card usercard col-lg-3 col-md-4 col-sm-12 text-center flex-item "
             >
               <div className="card-body">
                 <Jdenticon

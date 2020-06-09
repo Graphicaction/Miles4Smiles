@@ -58,6 +58,10 @@ h6,
   box-shadow: inset $boxShadow1;
 }
 
+a {
+  // color: lighten($orange-red, 20%);
+  font-weight: bold;
+}
 a:hover {
   color: black;
 }
@@ -72,6 +76,7 @@ ul {
 }
 
 #reactAlert {
+  margin: 10px;
   background-image: $gradientOrange2;
 }
 

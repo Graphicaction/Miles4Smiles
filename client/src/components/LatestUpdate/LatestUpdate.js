@@ -9,9 +9,9 @@ function LatestUpdate() {
   }, [challenges]);
 
   let finishedChallenges = [];
-
+  //getting challenges with finish or donated status
   challenges.map((c) => {
-    if (c.status === 'finish') {
+    if (c.status === 'finish' || c.status === 'donated') {
       finishedChallenges.push(c);
     }
   });

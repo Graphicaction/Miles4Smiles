@@ -153,6 +153,7 @@ const ChallengeCard = (props) => {
                             props.handleChallengeChange(challenge._id, 'accept')
                           }
                         >
+                          <i className="fa fa-check mr-2" />
                           Accept Challenge
                         </button>
                       </Col>
@@ -163,6 +164,7 @@ const ChallengeCard = (props) => {
                             props.handleChallengeChange(challenge._id, 'deny')
                           }
                         >
+                          <i className="fa fa-ban mr-2" />
                           Deny Challenge
                         </button>
                       </Col>

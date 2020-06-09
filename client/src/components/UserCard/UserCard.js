@@ -8,14 +8,8 @@ import './UserCard.scss';
 
 const UserCard = () => {
   const { user, users } = useContext(UserContext);
-  // const [index, setIndex] = useState();
   const alert = useAlert();
   const currentUser = user._id;
-
-  // later add that only users if their pace match
-  // const handleSelect = (selectedIndex, e) => {
-  //   setIndex(selectedIndex);
-  // };
 
   const handleScrollLeft = () => {
     scrollLeft(document.getElementById('animate-me'), -300, 1000);

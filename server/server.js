@@ -28,9 +28,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     //store cookie for 30days
-    cookie: ({ maxAge: 30 * 24 * 60 * 60 * 1000 } && process.env.SECURE) || {
-      secure: false,
-    },
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 },
   })
 );
 

@@ -25,7 +25,7 @@ function Dashboard() {
       .then((response) => {
         allChallenges = response.data.challenges;
         //Adding distances into an array
-        allChallenges.map((challenge) => {
+        allChallenges.forEach((challenge) => {
           dData.push(challenge.distance);
           if (challenge.status === 'donated')
             moneyData.push(challenge.donatedAmount);

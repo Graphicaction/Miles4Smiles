@@ -15,7 +15,7 @@ const UserCard = () => {
     minPace = parseInt(user.averagePace) - 1;
     const similarPaceUsers = [],
       otherUsers = [];
-    users.map((challenger) => {
+    users.forEach((challenger) => {
       if (challenger._id !== currentUser) {
         const avgPace = parseInt(challenger.averagePace);
         if (avgPace >= minPace && avgPace <= maxPace)

@@ -35,7 +35,7 @@ function UpdateChallengeForm(props) {
         loser = props.challengers[1];
       }
       //extracting the userid and challengesWon/Lost of winner/Loser
-      users.map((u) => {
+      users.forEach((u) => {
         if (u.username === winner) {
           winnerId = u._id;
           won = u.challengesWon + 1;

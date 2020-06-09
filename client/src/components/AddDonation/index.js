@@ -14,7 +14,7 @@ function AddDonation() {
 
   const getDonation = () => {
     let donationAmount = 0;
-    challenges.map((challenge) => {
+    challenges.forEach((challenge) => {
       if (challenge.status === 'donated')
         donationAmount += challenge.donatedAmount;
     });

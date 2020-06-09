@@ -50,7 +50,7 @@ function RunningStats(props) {
   const setGraphData = (data) => {
     let graphData = [];
     if (data.length) {
-      data.map((result) => {
+      data.forEach((result) => {
         graphData.push(result.distance);
       });
       //If no data for the day put 0
@@ -75,7 +75,7 @@ function RunningStats(props) {
         const invitedChallenges = [];
         const losses = [];
         const donated = [];
-        res.data.challenges.map((challenge) => {
+        res.data.challenges.forEach((challenge) => {
           // Extracting the challenges started by or challenged to the current user
           if(challenge.status === 'donated') 
             setPieData(true);

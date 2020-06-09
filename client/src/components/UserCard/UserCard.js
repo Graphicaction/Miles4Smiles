@@ -61,7 +61,7 @@ const UserCard = () => {
                 //   className="col-lg-3 col-md-4 col-sm-12 "
                 //   // data-slide={index}
                 // >
-                <div className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item ">
+                <div className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item" key={user._id}>
                   <div className="card-body">
                     <Jdenticon
                       className="avatar"
@@ -98,7 +98,7 @@ const UserCard = () => {
                 //   className="col-lg-3 col-md-4 col-sm-12 "
                 //   // data-slide={index}
                 // >
-                <div className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item ">
+                <div className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item" key={user._id}>
                   <div className="card-body">
                     <Jdenticon
                       className="avatar"

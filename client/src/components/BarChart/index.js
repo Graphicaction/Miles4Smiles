@@ -31,7 +31,7 @@ const BarChart = (props) => {
         data={state}
         options={{
           responsive: true,
-          maintainAspectRatio: false,
+          // maintainAspectRatio: false,
           legend: {
             display: true,
             position: 'top',

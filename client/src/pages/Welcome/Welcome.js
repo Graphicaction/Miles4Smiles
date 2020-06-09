@@ -85,8 +85,8 @@ const Welcome = (props) => {
               support your local business!
             </h3>
             <h3>
-              Select and challenge a user who runs at a similar pace than you
-              do!
+              Select and challenge a user who runs at a similar pace than you do
+              or scroll through all users!
             </h3>
           </Jumbotron>
 

@@ -34,8 +34,12 @@ h6,
   font-family: 'Raleway', sans-serif;
 }
 
-.form-control {
+.form-control,
+.location-search-input {
   border-radius: $borderRadius;
+  border: solid 1px $primaryColor3;
+  font-size: 0.9rem;
+  padding: 0.375rem 1rem;
 }
 
 .btn {
@@ -59,10 +63,6 @@ svg {
   background-color: whitesmoke;
 }
 
-.form-control {
-  border: solid 1px $primaryColor3;
-}
-
 ul {
   list-style-type: square;
 }
@@ -80,7 +80,7 @@ ul {
   }
 
   h3 {
-    // font-size:
+    font-size: 1.5rem;
   }
 
   h5 {

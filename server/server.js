@@ -2,14 +2,12 @@
 if (process.env.NODE_ENV !== 'production') {
   console.log('loading dev environments');
   require('dotenv').config();
-  // process.env.DEV_PROXY;
 }
 require('dotenv').config();
 
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
-//const cookieSession = require('cookie-session');
 const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db'); // loads our connection to the mongo database
 const routes = require('./routes');
@@ -25,49 +23,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   session({
-    secret: process.env.APP_SECRET || 'this is the default passphrase',
+    secret: process.env.APP_SECRET || [keys.APP_SECRET],
     store: new MongoStore({ mongooseConnection: dbConnection }),
     resave: false,
     saveUninitialized: false,
+    //store cookie for 30days
+    cookie: ({ maxAge: 30 * 24 * 60 * 60 * 1000 } && process.env.SECURE) || {
+      secure: false,
+    },
   })
 );
-
-// app.use(
-//   cookieSession({
-//     //save cookie for 30days
-//     maxAge: 30 * 24 * 60 * 60 * 1000,
-//     keys: process.env.COOKIE_KEY || [keys.COOKIE_KEY],
-//   })
-// );
-
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'YOUR-DOMAIN.TLD'); // update to match the domain you will make the request from
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  next();
-});
 
 // Passport
 app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
-
-// // //Google OAuth
-
-//get rid of cors
-// app.use(function(req, res) {
-//   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-// });
-
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000", // allow to server to accept request from different origin
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true // allow session cookie from browser to pass through
-//   })
-// );
 
 // If it's production environment!
 if (process.env.NODE_ENV === 'production') {

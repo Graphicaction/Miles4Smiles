@@ -23,6 +23,11 @@ function LoginForm({ login, user, logout }) {
     });
   };
 
+  // const handleGoogleDirect = () => {
+  //   // setRedirectTo('/auth/google');
+  //   console.log('test');
+  // };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const valid = validateLogin(userObject.username, userObject.password);
@@ -71,9 +76,13 @@ function LoginForm({ login, user, logout }) {
                 <i className="fa fa-user-plus mr-2" />
                 Register
               </Link>
-              <a href="/auth/google" className="btn btn-info googleBtn ml-2">
+              {/* <a
+                href="/auth/google/"
+                onClick={handleGoogleDirect}
+                className="btn btn-info googleBtn ml-2"
+              >
                 <i className="fa fa-google mr-2"></i>Sign in with Google
-              </a>
+              </a> */}
 
               <FormBtn onClick={handleSubmit} className="loginBtn">
                 <i className="fa fa-sign-in mr-2" />

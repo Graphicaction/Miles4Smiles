@@ -7,12 +7,14 @@ const db = require('../models');
 
 //place mongo generated id in the cookie
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, user.googleId);
+  console.log('serialize');
 });
 //get id out of cookie
-passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
+passport.deserializeUser((googleId, done) => {
+  db.User.findById(googleId).then((user) => {
     done(null, user);
+    console.log('deseralize');
   });
 });
 
@@ -29,6 +31,7 @@ passport.use(
       db.User.findOne({ googleId: profile.id }).then((existingUser) => {
         //if already signed up with that googleid no new user
         if (existingUser) {
+          console.log(existingUser);
           done(null, existingUser);
         } else {
           console.log('accessToken', accessToken);
@@ -38,14 +41,19 @@ passport.use(
             googleId: profile.id,
             firstName: profile.name.givenName,
             lastName: profile.name.familyName,
-            username: profile.displayName,
+            username: profile.name.givenName,
+            password: profile.id,
             firstLogin: true,
-            // password:""
           })
             .save()
             .then((user) => done(null, user));
         }
-      });
+      }),
+        (err) => {
+          if (err) {
+            return done(err);
+          }
+        };
     }
   )
 );

@@ -11,4 +11,9 @@ describe('validate search query', () => {
     const input = validateLogin('', '');
     expect(input).toBe(0);
   });
+
+  it('should have function validateLogin pass input that is empty', () => {
+    const input = validateLogin('t1', '');
+    expect(input).toBe(0);
+  });
 });

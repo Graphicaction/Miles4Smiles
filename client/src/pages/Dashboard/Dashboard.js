@@ -14,7 +14,7 @@ function Dashboard() {
   const [donationData, setDonationData] = useState([]);
   // Loads all Challenges and sets them to Challenges
   useEffect(() => {
-    loadChallenges();
+    loadChallenges()
   }, []);
 
   function loadChallenges() {

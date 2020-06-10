@@ -53,9 +53,9 @@ The heroku deployed link: <a href="https://miles4smiles.herokuapp.com/">Miles4Sm
 ## Test:
 
 ```
-    npm run jest
+    client/npm run test
 ```
-<!-- ![Screenshot](/public/assets/images/testScreen.png "test-screen") -->
+![Screenshot](client/public/images/testScreen.png "test-screen")
 
 ## Contribution
 

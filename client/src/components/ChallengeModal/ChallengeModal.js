@@ -93,7 +93,7 @@ function ChallengeModal(props) {
                 <div className="modal-body">
                   { challengeReadyState ?  <ChallengeForm  
                     handleChallenge={props.handleChallenge}
-                    getChallenges={props.loadChallenges}
+                    // getChallenges={props.loadChallenges}
                   /> : (<i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>) }
                 </div>
               </div>

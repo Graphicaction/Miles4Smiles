@@ -28,9 +28,9 @@ function ChallengeForm(props) {
     setBusinessType(businessType);
   };
 
-  // const clearBusiness = () => {
-  //   businessName = ""
-  // }
+  const clearBusiness = () => {
+    setAddress('');
+  }
 
   //Saving new challenge
   function handleChallengeSave(event) {
@@ -73,8 +73,9 @@ function ChallengeForm(props) {
           challengeForm.current.reset();
           formObject.cMiles = '';
           formObject.cDonation = '';
-          // clearBusiness();
           if (props.handleChallenge) props.handleChallenge();
+          // clearBusiness('');
+          // console.log(address);
         })
         .catch((err) => {
           console.log(err);
@@ -122,7 +123,7 @@ function ChallengeForm(props) {
         </div>
         <div className="form-group">
           <label>Which Business Will You Support?</label>
-          <LocationSearchInput handleBusiness={handleBusiness}/>
+          <LocationSearchInput handleBusiness={handleBusiness} clearBusiness={clearBusiness}/>
         </div>
         <div className="form-group">
           <label>

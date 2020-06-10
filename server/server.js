@@ -14,6 +14,7 @@ const routes = require('./routes');
 const passport = require('./passport');
 const keys = require('./config/keys');
 const app = express();
+const compression = require('compression');
 const PORT = process.env.PORT || 3001;
 
 // Middlewares
@@ -36,6 +37,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
 
+app.use(compression());
 // If it's production environment!
 if (process.env.NODE_ENV === 'production') {
   const path = require('path');

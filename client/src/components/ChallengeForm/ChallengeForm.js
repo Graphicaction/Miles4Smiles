@@ -5,6 +5,7 @@ import { useAlert } from 'react-alert';
 import { Row, Col } from '../Grid';
 import LocationSearchInput from '../../utils/GPlaces';
 import validateChallenge from './validateChallenge';
+import './Challenge.scss';
 
 function ChallengeForm(props) {
   const [address, setAddress] = useState();

@@ -169,7 +169,7 @@ const UserCard = () => {
   } else {
     return (
       <div>
-        <h1>No other users found</h1>
+        <h5 className="text-center">No other users found</h5>
       </div>
     );
   }

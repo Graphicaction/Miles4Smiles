@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Jumbotron/AboutJumbotron.scss';
+import './AboutJumbotron.scss';
 
 //Jumbotron used in About Page
 const AboutJumbotron = ({ children }) => (

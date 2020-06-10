@@ -65,9 +65,10 @@ class LocationSearchInput extends React.Component {
     // console.log(googlePlacesScript);
     if (this.state.script) {
       this.state.script.remove();
-      // window.google = {}
+      window.google = {}
       this.setState({address: ''})
-      console.log('Google Maps scripts unloaded');
+      console.log('Google Maps script unloaded');
+      console.log(this.state.address);
     }
   };
 

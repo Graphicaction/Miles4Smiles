@@ -28,7 +28,8 @@ So that I can raise money for local businesses plus awareness for a healthy life
 
 ## Description
 
-React Application that allows runners to connect, compete and create challenges that lead to donations to local businesses in their area. 
+React Application that allows runners to connect, compete and create challenges that lead to donations to local businesses in their area.
+In a period of economic lockdown and social isolation it can be difficult to find motivation to get out and be active. Especially during the Covid-19 pandemic, this application looks to promote a healthy lifestyle while also advocating for local businesses. Users can register to compete against other athletes where the slower runner donates a pledged amount to a selected business, in addition to just using the app to log their recent race paces.  
 
 ## Installation
 
@@ -63,7 +64,9 @@ Pull requests are welcome. Code of Conduct: Standard (Fork, Clone, Commit, Push 
 
 ## Credits
 
-Photo by RUN 4 FFWPU from Pexels
+About page photo by RUN 4 FFWPU from Pexels
+Google Maps <a href="https://cloud.google.com/maps-platform/places/">Places</a> API
+
 
 ## Questions
 

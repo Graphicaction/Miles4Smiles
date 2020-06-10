@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useState } from 'react';
 import ChallengeForm from '../../components/ChallengeForm/ChallengeForm';
 
 //Modal that includes the Challenge Form and is nested in Runningstats.js and Usercard.js
 function ChallengeModal(props) {
+  const [challengeReadyState, setChallengeReadyState] = useState();
+  //Quick timeout to initialize Google Maps script for Challenge Form
+  const setChallengeReady = () => {
+    setTimeout(() => {
+      setChallengeReadyState('true');
+    }, 550)
+  }
+
   return (
     <>
       {props.name ? (
@@ -11,6 +19,7 @@ function ChallengeModal(props) {
             type="button"
             className="btn start-challenge"
             data-toggle="modal"
+            onClick={setChallengeReady}
             data-target={`#exampleModal${props.name}`}
           >
             <i className="fa fa-flag-checkered mr-2" />
@@ -40,7 +49,7 @@ function ChallengeModal(props) {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <ChallengeForm name={props.name} />
+                  { challengeReadyState ? <ChallengeForm name={props.name}/> : (<i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>) }
                 </div>
               </div>
             </div>
@@ -53,6 +62,7 @@ function ChallengeModal(props) {
             className="btn start-challenge"
             data-toggle="modal"
             data-target="#challengeModal"
+            onClick={setChallengeReady}
           >
             <i className="fa fa-flag-checkered mr-2" />
             Challenge User
@@ -81,10 +91,10 @@ function ChallengeModal(props) {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <ChallengeForm
+                  { challengeReadyState ?  <ChallengeForm  
                     handleChallenge={props.handleChallenge}
-                    getChallenges={props.loadChallenges}
-                  />
+                    // getChallenges={props.loadChallenges}
+                  /> : (<i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>) }
                 </div>
               </div>
             </div>

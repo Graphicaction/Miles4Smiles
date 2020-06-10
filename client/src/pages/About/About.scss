@@ -1,0 +1,99 @@
+@import '../../variables.scss';
+
+.devInfo {
+  // position: fixed;
+  // bottom: 2%;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.fa-linkedin {
+  font-size: 40px;
+  color: rgba(black, 1);
+  padding-top: 3px;
+  // padding: 0 20px;
+  // margin-right: 20%;
+}
+
+.fa-github {
+  font-size: 50px;
+  color: rgba(black, 1);
+  // padding: 0 20px;
+  // margin-left: 20%;
+}
+
+.fa-github:hover,
+.fa-linkedin:hover {
+  color: rgba(black, 1);
+}
+
+.linkBody {
+  // padding: 0 0 20px 0 !important;
+  padding: 0 !important;
+}
+
+.devImg {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-img-top {
+  height: 50% !important;
+  // width: 50% !important;
+  vertical-align: middle !important;
+  border-radius: 18px !important;
+}
+
+.devName {
+  padding: 5px 25px;
+}
+
+.card-img-overlay {
+  bottom: 0 !important;
+  top: 92%;
+  padding: 0;
+}
+
+.btn-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 10px;
+  margin: 5px;
+  text-align: center;
+  // background-color: rgba(whitesmoke, 0.7);
+  background-image: $gradientOrange;
+  // border: 1px solid black;
+  box-shadow: $boxShadow1;
+}
+
+.dev {
+  padding: 10px;
+  margin-top: 0px;
+  color: #000 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.dev:hover {
+  background-color: rgba($fontColor2, 0.2) !important;
+}
+
+@media screen and(max-width:1100px) {
+  .devName {
+    font-size: 0.9em !important;
+  }
+
+  .btn-circle {
+    width: 30px;
+    height: 30px;
+  }
+  .fa-linkedin {
+    font-size: 25px;
+  }
+
+  .fa-github {
+    font-size: 30px;
+  }
+}

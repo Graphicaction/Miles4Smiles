@@ -38,37 +38,36 @@ function SignupForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const valid = validateSignup(
-      userObject.firstName &&
-        userObject.lastName &&
-        userObject.username &&
-        userObject.password
-    );
-    if (valid) {
-      AUTH.signup({
-        firstName: userObject.firstName,
-        lastName: userObject.lastName,
-        username: userObject.username,
-        password: userObject.password,
-        firstLogin: true,
-        avatar: '',
-        averagePace: '',
-        averageDistance: '',
-        challengesLost: '',
-        ChallengesTied: '',
-        challengesWon: '',
-        city: '',
-        state: '',
-      }).then((response) => {
-        if (!response.data.error) {
-          alert.success('Welcome! New user is ready for login!');
-          setRedirectTo('/');
-        } else {
-          alert.error('User already exists!');
-        }
-      });
-    } else {
-      alert.error('Please enter all details in valid format!');
+    if(userObject.password !== userObject.confirmPassword)
+      alert.error("Password and Confirm Password are different!");
+    else {
+      const valid = validateSignup(userObject.firstName, userObject.lastName , userObject.username, userObject.password, userObject.confirmPassword);
+      if (valid) {
+        AUTH.signup({
+          firstName: userObject.firstName,
+          lastName: userObject.lastName,
+          username: userObject.username,
+          password: userObject.password,
+          firstLogin: true,
+          avatar: '',
+          averagePace: '',
+          averageDistance: '',
+          challengesLost: '',
+          ChallengesTied: '',
+          challengesWon: '',
+          city: '',
+          state: '',
+        }).then((response) => {
+          if (!response.data.error) {
+            alert.success('Welcome! New user is ready for login!');
+            setRedirectTo('/');
+          } else {
+            alert.error('User already exists!');
+          }
+        });
+      } else {
+        alert.error('Please enter valid data!');
+      }
     }
   };
 

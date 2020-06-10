@@ -2,15 +2,18 @@ import React from 'react';
 import { Card } from '../../components/Card';
 import { Row, Col } from '../../components/Grid';
 import AboutJumbotron from '../../components/Jumbotron/AboutJumbotron';
+import Developers from '../../components/Developers/Developers';
+import './About.scss';
 
 const About = () => {
   return (
     <>
       <AboutJumbotron />
-      <Row>
+
+      <Row className="mb-5">
         <Col size="sm-12 md-6 lg-3">
           <Card title="Getting Started">
-            <div className="card-body-about">
+            <div className="card-body-about ">
               Setup a Miles4Smiles account to get started. You can even use M4S
               to log your race times.
             </div>
@@ -43,6 +46,16 @@ const About = () => {
           </Card>
         </Col>
       </Row>
+
+      <div className="container-fluid devInfo">
+        <Row fluid>
+          <h5 className="text-center devHeader">The Developers</h5>
+          <hr></hr>
+        </Row>
+        <div className="row justify-content-center">
+          <Developers />
+        </div>
+      </div>
     </>
   );
 };

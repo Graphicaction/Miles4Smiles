@@ -22,8 +22,6 @@ const UserCard = () => {
       currentTime = 0,
       increment = 20;
 
-    console.log(start);
-
     let animateScroll = function () {
       currentTime += increment;
       const val = Math.easeInOutQuad(currentTime, start, change, duration);

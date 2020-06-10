@@ -72,7 +72,9 @@ const PostSignUpUserData = (props) => {
     <>
       <Jumbotron>
         <h3 className="display-4">Hello! </h3>
-        <h5>We are so excited you want to support your local business!</h5>
+        <h5 className="postSignUpHeader">
+          We are so excited you want to support your local business!
+        </h5>
         <hr></hr>
         <p className="lead">
           To allow us to find runners with similar skills living close to you,

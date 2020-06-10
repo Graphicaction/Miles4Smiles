@@ -70,7 +70,6 @@ function ChallengeForm(props) {
           challengeForm.current.reset();
           formObject.cMiles = '';
           formObject.cDonation = '';
-          formObject.cBusiness = '';
           if (props.handleChallenge) props.handleChallenge();
         })
         .catch((err) => {

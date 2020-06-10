@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const passport = require('../../passport');
 const userController = require('../../controllers/userController');
-// const googleRoutes = require('./Googleauth');
+//const googleRoutes = require('./Googleauth');
+
+// console.log(googleRoutes);
 
 // this route is just used to get the user basic info
 router.get('/user', userController.getUser);

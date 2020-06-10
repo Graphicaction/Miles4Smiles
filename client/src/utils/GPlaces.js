@@ -17,19 +17,19 @@ class LocationSearchInput extends React.Component {
       businessType: '',
     };
   }
-
+  
   componentDidMount() {
     this._isMounted = true;
     // Script is loaded here and state is set to true after loading
-    this.loadGoogleMaps(() => {
-      // Work to do after the library loads.
-      if (this._isMounted) {
-      this.setState({ googleMapsReady: true });
-      // console.log('google maps ready:', this.state.googleMapsReady)
-      } else {
-        console.log('google script has un-mounted')
-      }
-    });
+      this.loadGoogleMaps(() => {
+        // Work to do after the library loads.
+        if (this._isMounted) {
+          this.setState({ googleMapsReady: true });
+          // console.log('google maps ready:', this.state.googleMapsReady)
+        } else {
+          console.log('google script has un-mounted')
+        }
+      });
   }
 
   componentWillUnmount() {
@@ -39,18 +39,18 @@ class LocationSearchInput extends React.Component {
   }
 
   loadGoogleMaps = (callback) => {
-    const existingScript = document.getElementById('googlePlacesScript');
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_PLACES_KEY}&libraries=places`;
-      script.id = 'googleMaps';
-      document.body.appendChild(script);
-      //action to do after a script is loaded in our case setState
-      script.onload = () => {
-        if (callback) callback();
-      };
+      const existingScript = document.getElementById('googlePlacesScript');
+      if (!existingScript) {
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_PLACES_KEY}&libraries=places`;
+          script.id = 'googleMaps';
+          document.body.appendChild(script);
+          //action to do after a script is loaded in our case setState
+          script.onload = () => {
+            if (callback) callback();
+          };
+      if (existingScript && callback) callback();
     }
-    if (existingScript && callback) callback();
   };
 
   unloadGoogleMaps = () => {
@@ -86,6 +86,7 @@ class LocationSearchInput extends React.Component {
         this.state.businessType
       );
     });
+    // this.props.clearBusiness();
   };
 
   handleSelect = (address, place_id) => {

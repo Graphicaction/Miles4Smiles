@@ -15,7 +15,6 @@ const passport = require('./passport');
 const keys = require('./config/keys');
 const app = express();
 const PORT = process.env.PORT || 3001;
-const cors = require('cors');
 
 // Middlewares
 app.use(morgan('dev'));
@@ -28,8 +27,8 @@ app.use(
     store: new MongoStore({ mongooseConnection: dbConnection }),
     resave: false,
     saveUninitialized: false,
-    //store cookie for 30days
-    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 },
+    // //store cookie for 30days
+    // cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 },
   })
 );
 

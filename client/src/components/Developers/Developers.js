@@ -27,7 +27,7 @@ const Developers = () => {
       {developers.map((dev, i) => (
         <div key={i} className="col-lg-3 col-md-4 col-sm-6">
           <div className="card dev">
-            <div className="card">
+            <div className="card imgCard">
               <img className="card-img-top" alt={dev.name} src={dev.image} />
               <h5 className="text-center devName">{dev.name}</h5>
               <div className="card-img-overlay">

@@ -1,13 +1,18 @@
 import React from 'react';
 import { Card } from '../../components/Card';
-import { Row, Col } from '../../components/Grid';
+import { Row, Col, Container } from '../../components/Grid';
 import AboutJumbotron from '../../components/Jumbotron/AboutJumbotron';
+import Developers from '../../components/Developers/Developers';
+import './About.scss';
 
 const About = () => {
   return (
     <>
       <AboutJumbotron />
-      <Row>
+
+      <span className="msg-icon">So nice</span>
+
+      <Row className="mb-5">
         <Col size="sm-12 md-6 lg-3">
           <Card title="Getting Started">
             <div className="card-body-about">
@@ -43,6 +48,16 @@ const About = () => {
           </Card>
         </Col>
       </Row>
+
+      <div className="container-fluid devInfo">
+        <Row fluid>
+          <h5 className="text-center">The Developers</h5>
+          <hr></hr>
+        </Row>
+        <div className="row justify-content-center">
+          <Developers />
+        </div>
+      </div>
     </>
   );
 };

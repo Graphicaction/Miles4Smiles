@@ -20,6 +20,12 @@ html {
   -o-background-size: cover;
 }
 
+.about-jumbotron {
+  background: url('./images/about.jpeg') no-repeat center center fixed;
+  height: 400px;
+  opacity: 55%;
+}
+
 .location-search-input {
   width: 250px;
 }

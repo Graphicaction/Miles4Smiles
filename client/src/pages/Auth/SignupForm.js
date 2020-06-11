@@ -35,7 +35,7 @@ function SignupForm() {
       [event.target.name]: event.target.value,
     });
   };
-
+  //Checks for validation for signup and then creates new user
   const handleSubmit = (event) => {
     event.preventDefault();
     if((userObject.password !== userObject.confirmPassword))
@@ -45,6 +45,7 @@ function SignupForm() {
     else {
       const valid = validateSignup(userObject.firstName, userObject.lastName , userObject.username, userObject.password, userObject.confirmPassword);
       if (valid) {
+        //Adding extra fields for user to update later
         AUTH.signup({
           firstName: userObject.firstName,
           lastName: userObject.lastName,

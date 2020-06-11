@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import Jdenticon from 'react-jdenticon';
 import UserContext from '../../utils/UserContext';
 import ChallengeModal from '../ChallengeModal/ChallengeModal';
-// import Carousel from 'react-bootstrap/Carousel';
 import './UserCard.scss';
 
 const UserCard = () => {
@@ -10,11 +9,11 @@ const UserCard = () => {
   const currentUser = user._id;
 
   const handleScrollLeft = () => {
-    scrollLeft(document.getElementById('animate-scroll'), -300, 1000);
+    scrollLeft(document.getElementById('animate-scroll'), -400, 1000);
   };
 
   const handleScrollRight = () => {
-    scrollLeft(document.getElementById('animate-scroll'), 300, 1000);
+    scrollLeft(document.getElementById('animate-scroll'), 400, 1000);
   };
 
   const scrollLeft = (element, change, duration) => {
@@ -64,29 +63,12 @@ const UserCard = () => {
 
     return (
       <>
-        {/* <Carousel
-          activeIndex={index}
-          onSelect={handleSelect}
-          keyboard={true}
-          nextLabel={'Next'}
-          prevLabel={'Previous'}
-          touch={true}
-          slide={false}
-          data-interval={false}
-          className="d-flex justify-content-center row"
-        > */}
-
         <div className="row fluid">
           <div className="flex-container flex py-2 justify-content-center" id="animate-scroll">
             {/* <div className="d-flex flex-row flex-nowrap"> */}
             {similarPaceUsers.map((user, index) => (
-              // <Carousel.Item
-              //   key={index}
-              //   className="col-lg-3 col-md-4 col-sm-12 "
-              //   // data-slide={index}
-              // >
               <div
-                className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item samePaceUser"
+                className="card col-lg-3 col-md-4 col-sm-6 text-center flex-item samePaceUser"
                 key={user._id}
               >
                 <div className="card-body">
@@ -114,16 +96,10 @@ const UserCard = () => {
                   <ChallengeModal name={user.username} />
                 </div>
               </div>
-              // {/* </Carousel.Item> */}
             ))}
             {otherUsers.map((user, index) => (
-              // <Carousel.Item
-              //   key={index}
-              //   className="col-lg-3 col-md-4 col-sm-12 "
-              //   // data-slide={index}
-              // >
               <div
-                className="card col-lg-3 col-md-4 col-sm-12 text-center flex-item"
+                className="card col-lg-3 col-md-4 col-sm-6 text-center flex-item"
                 key={user._id}
               >
                 <div className="card-body">
@@ -151,9 +127,7 @@ const UserCard = () => {
                   <ChallengeModal name={user.username} />
                 </div>
               </div>
-              // {/* </Carousel.Item> */}
             ))}
-            {/* </Carousel> */}
           </div>
         </div>
         <div className="row fluid justify-content-center">

@@ -76,6 +76,11 @@ class LocationSearchInput extends React.Component {
     this.setState({ address });
   };
 
+  clearPrevious = () => {
+    if(this.state.address) this.setState({address: ''});
+    console.log('cleared');
+  }
+
   getPlaceDetails = (place, status) => {
     const request = {
       placeId: this.state.place_id,

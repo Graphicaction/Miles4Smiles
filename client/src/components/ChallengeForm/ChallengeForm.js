@@ -75,8 +75,7 @@ function ChallengeForm(props) {
           formObject.cMiles = '';
           formObject.cDonation = '';
           if (props.handleChallenge) props.handleChallenge();
-          // clearBusiness('');
-          // console.log(address);
+          clearBusiness();
         })
         .catch((err) => {
           console.log(err);

@@ -5,6 +5,7 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 import Axios from 'axios';
 
+//Auto-complete function that utilizes Google Maps API to run a places search based on input, auto-complete suggestions, then call the Places API to getDetails on the selected business
 class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
@@ -26,18 +27,12 @@ class LocationSearchInput extends React.Component {
         // Work to do after the library loads.
         if (this._isMounted) {
           this.setState({ googleMapsReady: true });
-          // this.setState({address: ''});
-          // console.log(this.state.address);
-          // console.log('google maps ready:', this.state.googleMapsReady)
-        } else {
-          console.log('google script has un-mounted')
         }
       });
   }
 
   componentWillUnmount() {
     this._isMounted = false;
-    // unload script when needed to avoid multiple google scripts loaded warning
     this.unloadGoogleMaps();
   }
 
@@ -52,23 +47,18 @@ class LocationSearchInput extends React.Component {
           //action to do after a script is loaded in our case setState
           script.onload = () => {
             this.setState({script: script})
-            console.log('script loaded', this.state.script);
             if (callback) callback();
           };
-      if (existingScript && callback) callback(); console.log('existing');
+      if (existingScript && callback) callback();
     }
   };
 
+  // unload script when needed to avoid multiple google scripts loaded warning
   unloadGoogleMaps = () => {
-    console.log('start unload');
-    // let googlePlacesScript = document.getElementById('googlePlacesScript');
-    // console.log(googlePlacesScript);
     if (this.state.script) {
       this.state.script.remove();
       window.google = {}
       this.setState({address: ''})
-      console.log('Google Maps script unloaded');
-      console.log(this.state.address);
     }
   };
 
@@ -78,7 +68,6 @@ class LocationSearchInput extends React.Component {
 
   clearPrevious = () => {
     if(this.state.address) this.setState({address: ''});
-    console.log('cleared');
   }
 
   getPlaceDetails = (place, status) => {
@@ -102,8 +91,6 @@ class LocationSearchInput extends React.Component {
         this.state.businessType
       )
     });
-    // this.props.clearBusiness();
-    // this.setState({address: ''})
     this.unloadGoogleMaps();
   };
 
@@ -111,7 +98,6 @@ class LocationSearchInput extends React.Component {
     geocodeByPlaceId(place_id)
       .then((results) => {
         getLatLng(results[0]);
-        // this.state.query to update the components value once a suggestion is selected ??
         this.setState({ place_id });
         this.getPlaceDetails();
       })

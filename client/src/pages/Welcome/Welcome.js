@@ -56,12 +56,6 @@ const Welcome = (props) => {
     setFirstLogin(false);
   };
 
-  //update react context
-  // const updateUser = (newData) => {
-  // console.log(newData);
-  // props.updateUser(newData);
-  // };
-
   return (
     <div>
       {firstLogin && (

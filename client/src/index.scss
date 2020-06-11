@@ -7,8 +7,7 @@ body {
   opacity: 0.9;
   background-image: $gradientBluePurple;
   font-family: 'Raleway', sans-serif;
-  // background: cover;
-  height: auto;
+  width: 100%;
   min-height: 1300px;
 }
 
@@ -23,7 +22,7 @@ html {
 .about-jumbotron {
   background: url('./images/about.png') no-repeat center center fixed;
   height: 400px;
-  opacity: .55;
+  opacity: 0.55;
 }
 
 .location-search-input {

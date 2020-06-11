@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '../../components/Card';
-import { Row, Col } from '../../components/Grid';
+import { Row } from '../../components/Grid';
 import AboutJumbotron from '../../components/Jumbotron/AboutJumbotron';
 import Developers from '../../components/Developers/Developers';
 import './About.scss';

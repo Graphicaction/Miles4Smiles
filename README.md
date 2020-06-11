@@ -1,22 +1,16 @@
 # Miles 4 Smiles
 
-![Github license](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Github license](https://img.shields.io/badge/License-MIT-yellow.svg) ![Build Status](https://img.shields.io/badge/build-passing-green.svg)
 
 ## Table of Content
 
-- [User Story](#User)
-
-- [Description](#Description)
-
-- [Installation](#Installation)
-
-- [Usage](#Usage)
-
-- [Test](#Test)
-
-- [Deployed Link](#Deployed)
-
-- [Contribution](#Contribution)
+*[User Story](#User)
+*[Description](#Description)
+*[Installation](#Installation)
+*[Usage](#Usage)
+*[Test](#Test)
+*[Deployed Link](#Deployed)
+*[Contribution](#Contribution)
 
 ## User Story
 
@@ -33,7 +27,7 @@ In a period of economic lockdown and social isolation it can be difficult to fin
 
 ## Installation
 
-Git pull and run the following command:
+Git clone and run the following command:
 
 ```
     npm install
@@ -49,7 +43,7 @@ Git pull and run the following command:
 
 The heroku deployed link: <a href="https://miles4smiles.herokuapp.com/">Miles4Smiles</a>.
 
-<!-- ![](/public/assets/images/CQ.gif) -->
+![Screenshot](client/public/images/homeScreen.png "test-screen")
 
 ## Test:
 

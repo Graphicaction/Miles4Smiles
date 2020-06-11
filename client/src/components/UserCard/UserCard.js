@@ -58,11 +58,21 @@ const UserCard = () => {
       }
     });
 
+    const allUserCards = [];
+    similarPaceUsers.forEach((user) => {
+      allUserCards.push(user);
+    });
+    otherUsers.forEach((user) => {
+      allUserCards.push(user);
+    });
+
     return (
       <>
         <div className="row fluid">
           <div
-            className="flex-container flex py-2 justify-content-center"
+            className={`flex-container flex py-2 ${
+              allUserCards.length < 4 ? 'justify-content-center' : ''
+            }`}
             id="animate-scroll"
           >
             {/* <div className="d-flex flex-row flex-nowrap"> */}
@@ -132,13 +142,17 @@ const UserCard = () => {
         </div>
         <div className="row fluid justify-content-center">
           <button
-            className="btn bounce-left chevronBtn"
+            className={`btn chevronBtn ${
+              allUserCards.length < 4 ? 'bounce-left' : ''
+            }`}
             onClick={handleScrollLeft}
           >
             <i className=" fa fa-chevron-left m-2" />{' '}
           </button>
           <button
-            className="btn bounce-right chevronBtn"
+            className={`btn chevronBtn ${
+              allUserCards.length < 4 ? 'bounce-right' : ''
+            }`}
             onClick={handleScrollRight}
           >
             <i className=" fa fa-chevron-right m-2" />{' '}

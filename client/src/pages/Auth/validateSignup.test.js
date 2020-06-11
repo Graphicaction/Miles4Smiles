@@ -21,4 +21,15 @@ describe('validate search query', () => {
     const input = validateSignup('$#', '&8', '*7', 'Y%', 'Y%');
     expect(input).toBe(0);
   });
+
+  it('should have function validateSignup to have username and password atleast 6 characters long', () => {
+    const input = validateSignup('mike', 'johnson', 'mike123', 'mike123', 'mike123');
+    expect(input).toBe(1);
+  });
+
+  it('should have function validateSignup that does not have username and password atleast 6 characters long', () => {
+    const input = validateSignup('mike', 'johnson', 'mike123', 'mike', 'mike');
+    expect(input).toBe(1);
+  });
+
 });

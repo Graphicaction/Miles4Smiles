@@ -57,14 +57,14 @@ const UserCard = () => {
         else otherUsers.push(challenger);
       }
     });
-    //    while(user.length > 0){
-    //         chunks.push(user.splice(0, 3))};
-    //         chunks.map()
 
     return (
       <>
         <div className="row fluid">
-          <div className="flex-container flex py-2 " id="animate-scroll">
+          <div
+            className="flex-container justify-content-center d-flex py-2 "
+            id="animate-scroll"
+          >
             {similarPaceUsers.map((user, index) => (
               <div
                 className="card col-lg-3 col-md-4 col-sm-6 text-center flex-item samePaceUser"

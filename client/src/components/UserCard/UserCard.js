@@ -58,11 +58,21 @@ const UserCard = () => {
       }
     });
 
+    const allUserCards = [];
+    similarPaceUsers.forEach((user) => {
+      allUserCards.push(user);
+    });
+    otherUsers.forEach((user) => {
+      allUserCards.push(user);
+    });
+
     return (
       <>
         <div className="row fluid">
           <div
-            className="flex-container flex py-2 justify-content-center"
+            className={`flex-container flex py-2 ${
+              allUserCards.length < 4 ? 'justify-content-center' : ''
+            }`}
             id="animate-scroll"
           >
             {/* <div className="d-flex flex-row flex-nowrap"> */}

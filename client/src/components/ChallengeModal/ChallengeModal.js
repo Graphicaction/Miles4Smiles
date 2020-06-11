@@ -4,7 +4,7 @@ import ChallengeForm from '../../components/ChallengeForm/ChallengeForm';
 //Modal that includes the Challenge Form and is nested in Runningstats.js and Usercard.js
 function ChallengeModal(props) {
   const [challengeReadyState, setChallengeReadyState] = useState();
-  //Quick timeout to initialize Google Maps script for Challenge Form
+  //Brief timeout to initialize Google Maps script for Challenge Form
   const setChallengeReady = () => {
     setTimeout(() => {
       setChallengeReadyState('true');
@@ -93,7 +93,6 @@ function ChallengeModal(props) {
                 <div className="modal-body">
                   { challengeReadyState ?  <ChallengeForm  
                     handleChallenge={props.handleChallenge}
-                    // getChallenges={props.loadChallenges}
                   /> : (<i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>) }
                 </div>
               </div>

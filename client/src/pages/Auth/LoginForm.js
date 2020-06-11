@@ -62,6 +62,7 @@ function LoginForm({ login, user, logout }) {
                 name="username"
                 value={userObject.username}
                 onChange={handleChange}
+                id="username"
               />
               <label htmlFor="password">Password: </label>
               <Input
@@ -69,6 +70,7 @@ function LoginForm({ login, user, logout }) {
                 name="password"
                 value={userObject.password}
                 onChange={handleChange}
+                id="password"
               />
               <Link to="/signup" className="btn registerBtn">
                 <i className="fa fa-user-plus mr-2" />

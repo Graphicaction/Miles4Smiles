@@ -88,21 +88,23 @@ const PostSignUpUserData = (props) => {
             <form ref={formEl}>
               <Row>
                 <Col size="md-6 sm-12">
-                  <label>What city do you live in?</label>
+                  <label htmlFor="city">What city do you live in?</label>
                   <Input
                     onChange={handleInputChange}
                     name="city"
                     placeholder="Raleigh"
+                    id="city"
                   />
                 </Col>
                 <Col size="md-6 sm-6">
-                  <label>What state do you live in?</label>
+                  <label htmlFor="state">What state do you live in?</label>
                   <select
                     className="form-control"
                     id="usStateSelect"
                     name="state"
                     onChange={handleInputChange}
                     placeholder="NC"
+                    id="state"
                   >
                     <option defaultValue>Choose...</option>
                     {usStates.map((states, i) => (
@@ -114,13 +116,16 @@ const PostSignUpUserData = (props) => {
 
               <Row>
                 <Col size="md-6 sm-6">
-                  <label>How far do you usually run?</label>
+                  <label htmlFor="averageDistance">
+                    How far do you usually run?
+                  </label>
                   <Row>
                     <Col size="md-5">
                       <Input
                         onChange={handleInputChange}
                         name="averageDistance"
                         placeholder="3"
+                        id="averageDistance"
                       />
                     </Col>
                     <Col size="md-3">
@@ -129,7 +134,9 @@ const PostSignUpUserData = (props) => {
                   </Row>
                 </Col>
                 <Col size="md-6 sm-6">
-                  <label>How fast do you run a mile?</label>
+                  <label htmlFor="paceSelector">
+                    How fast do you run a mile?
+                  </label>
                   <Row>
                     <Col size="md-5">
                       <select

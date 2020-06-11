@@ -77,7 +77,7 @@ const UserCard = () => {
         > */}
 
         <div className="row fluid">
-          <div className="flex-container flex py-2 " id="animate-scroll">
+          <div className="flex-container flex py-2 justify-content-center" id="animate-scroll">
             {/* <div className="d-flex flex-row flex-nowrap"> */}
             {similarPaceUsers.map((user, index) => (
               // <Carousel.Item

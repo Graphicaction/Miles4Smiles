@@ -9,15 +9,11 @@
   font-size: 30px;
   color: rgba(black, 1);
   padding-top: 3px;
-  // padding: 0 20px;
-  // margin-right: 20%;
 }
 
 .fa-github {
   font-size: 40px;
   color: rgba(black, 1);
-  // padding: 0 20px;
-  // margin-left: 20%;
 }
 
 .fa-github:hover,
@@ -25,14 +21,43 @@
   color: rgba(black, 1);
 }
 
-.linkBody {
-  // padding: 0 0 20px 0 !important;
-  padding: 0 !important;
+.c1 {
+  animation-name: hop;
+  animation-duration: 2s;
+  animation-delay: 0;
 }
 
-.devImg {
-  // margin-top: 1rem;
-  // margin-bottom: 1rem;
+.c2 {
+  animation-name: hop;
+  animation-duration: 2s;
+  animation-delay: 2s;
+}
+.c3 {
+  animation-name: hop;
+  animation-duration: 2s;
+  animation-delay: 4s;
+}
+.c4 {
+  animation-name: hop;
+  animation-duration: 2s;
+  animation-delay: 6s;
+}
+
+@keyframes hop {
+  0% {
+    bottom: 0px;
+  }
+
+  50% {
+    bottom: 20px;
+  }
+  75% {
+    bottom: -10px;
+  }
+
+  100% {
+    bottom: 0;
+  }
 }
 
 .card-img-top {

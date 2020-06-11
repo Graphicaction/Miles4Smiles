@@ -62,9 +62,10 @@ const UserCard = () => {
       <>
         <div className="row fluid">
           <div
-            className="flex-container justify-content-center d-flex py-2 "
+            className="flex-container flex py-2 justify-content-center"
             id="animate-scroll"
           >
+            {/* <div className="d-flex flex-row flex-nowrap"> */}
             {similarPaceUsers.map((user, index) => (
               <div
                 className="card col-lg-3 col-md-4 col-sm-6 text-center flex-item samePaceUser"

@@ -28,7 +28,7 @@ module.exports = {
   update: function (req, res) {
     db.Challenge.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbChallenge) => {
-        console.log(dbChallenge);
+        // If the Challenge was updated successfully, send it back to the client
         res.json(dbChallenge);
       })
       .catch((err) => res.status(422).json(err));

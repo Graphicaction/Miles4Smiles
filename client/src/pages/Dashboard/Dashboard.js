@@ -16,7 +16,7 @@ function Dashboard() {
   useEffect(() => {
     loadChallenges()
   }, []);
-
+  //On page mount get all challenge data and set the challenge context for child components to use
   function loadChallenges() {
     let allChallenges = [],
       dData = [];

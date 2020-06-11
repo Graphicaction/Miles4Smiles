@@ -16,7 +16,7 @@ const PostSignUpUserData = (props) => {
   const [formObject, setFormObject] = useState({});
   const formEl = useRef(null);
   const alert = useAlert();
-
+  //setting dropdown for pace
   const paceSelector = [
     '6:00',
     '6:30',

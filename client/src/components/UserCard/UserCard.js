@@ -15,7 +15,7 @@ const UserCard = () => {
   const handleScrollRight = () => {
     scrollLeft(document.getElementById('animate-scroll'), 400, 1000);
   };
-
+  // Adding scroll for cards
   const scrollLeft = (element, change, duration) => {
     let start = element.scrollLeft,
       currentTime = 0,
@@ -49,6 +49,7 @@ const UserCard = () => {
     minPace = parseInt(user.averagePace) - 1;
     const similarPaceUsers = [],
       otherUsers = [];
+    //Getting data to display the users with similar pace first and then other users
     users.forEach((challenger) => {
       if (challenger._id !== currentUser) {
         const avgPace = parseInt(challenger.averagePace);

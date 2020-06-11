@@ -27,7 +27,7 @@ function LoginForm({ login, user, logout }) {
   //   // setRedirectTo('/auth/google');
   //   console.log('test');
   // };
-
+  //Checks for valid user, if user does not exits and other validations
   const handleSubmit = (event) => {
     event.preventDefault();
     const valid = validateLogin(userObject.username, userObject.password);

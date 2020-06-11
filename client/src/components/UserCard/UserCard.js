@@ -32,10 +32,7 @@ const UserCard = () => {
     animateScroll();
   };
 
-  //t = current time
-  //b = start value
-  //c = change in value
-  //d = duration
+  //t = current time, b = start value, c = change in value, d = duration
   Math.easeInOutQuad = function (t, b, c, d) {
     t /= d / 2;
     if (t < 1) return (c / 2) * t * t + b;
@@ -77,7 +74,6 @@ const UserCard = () => {
             }`}
             id="animate-scroll"
           >
-            {/* <div className="d-flex flex-row flex-nowrap"> */}
             {similarPaceUsers.map((user, index) => (
               <div
                 className="card col-lg-3 col-md-4 col-sm-6 text-center flex-item samePaceUser"

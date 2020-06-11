@@ -144,11 +144,6 @@ const PostSignUpUserData = (props) => {
                           <option key={i}>{pace}</option>
                         ))}
                       </select>
-                      {/* <Input
-                        onChange={handleInputChange}
-                        name="averagePace"
-                        placeholder="9:50"
-                      /> */}
                     </Col>
                     <Col size="md-3">
                       <label>/mile</label>

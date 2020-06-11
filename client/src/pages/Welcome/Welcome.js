@@ -11,10 +11,6 @@ import ChallengeContext from '../../utils/ChallengeContext';
 
 const Welcome = (props) => {
   const [challenges, setChallenges] = useState([]);
-  // const [distanceData, setDistanceData] = useState([]);
-  // const [donatedAmountData, setDonatedAmountData] = useState([]);
-  // const [donorData, setDonorData] = useState([]);
-  // const [challengersData, setChallengersData] = useState([]);
   const [firstLogin, setFirstLogin] = useState(false);
   const { user } = useContext(UserContext);
   //setup to direct first time login user to different component before going to usual welcome
@@ -44,10 +40,6 @@ const Welcome = (props) => {
           challengersData.push(challenge.challengers);
         });
         setChallenges(allChallenges);
-        // setDistanceData(distanceData);
-        // setDonatedAmountData(donatedAmountData);
-        // setDonorData(donorData);
-        // setChallengersData(challengersData);
       })
       .catch((err) => console.log(err));
   }
@@ -61,11 +53,7 @@ const Welcome = (props) => {
       {firstLogin && (
         //if it's a first time user and more info needs to be entered to complete the user data
         <div>
-          <PostSignUpUserData
-            id={user._id}
-            flip={flip}
-            // updateUser={updateUser}
-          />
+          <PostSignUpUserData id={user._id} flip={flip} />
         </div>
       )}
       {!firstLogin && (

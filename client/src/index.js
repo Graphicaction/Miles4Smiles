@@ -9,7 +9,6 @@ const CustomAlertTemplate = ({ style, options, message, close }) => (
   <div
     style={{
       color: 'black',
-      // backgroundColor: '#F89D2F',
       borderRadius: '18px',
       padding: '12px',
       fontSize: '1.15rem',
@@ -21,7 +20,6 @@ const CustomAlertTemplate = ({ style, options, message, close }) => (
     {options.type === 'success' && success}
     {options.type === 'error' && alert}
     {message}
-    {/* <button onClick={close}>X</button> */}
   </div>
 );
 

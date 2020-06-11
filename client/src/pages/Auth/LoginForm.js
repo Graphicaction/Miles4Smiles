@@ -24,7 +24,6 @@ function LoginForm({ login, user, logout }) {
   };
 
   // const handleGoogleDirect = () => {
-  //   // setRedirectTo('/auth/google');
   //   console.log('test');
   // };
   //Checks for valid user, if user does not exits and other validations
@@ -35,7 +34,6 @@ function LoginForm({ login, user, logout }) {
       login(userObject.username, userObject.password, function (result) {
         if (result === 0) {
           alert.error('User does not exist! Try again or register instead.');
-          // logout();
           setRedirectTo('/');
         }
       });
@@ -83,7 +81,6 @@ function LoginForm({ login, user, logout }) {
               >
                 <i className="fa fa-google mr-2"></i>Sign in with Google
               </a> */}
-
               <FormBtn onClick={handleSubmit} className="loginBtn">
                 <i className="fa fa-sign-in mr-2" />
                 Login

@@ -18,7 +18,6 @@ function ViewLosses(props) {
           ))}
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 }

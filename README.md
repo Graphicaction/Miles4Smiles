@@ -4,13 +4,20 @@
 
 ## Table of Content
 
-*[User Story](#User)
-*[Description](#Description)
-*[Installation](#Installation)
-*[Usage](#Usage)
-*[Test](#Test)
-*[Deployed Link](#Deployed)
-*[Contribution](#Contribution)
+- [Deployed Link](#Deployed)
+- [User Story](#User)
+- [Description](#Description)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Test](#Test)
+- [Technologies](#Technologies)
+- [Contribution](#Contribution)
+
+## Deployed Link:
+
+The heroku deployed link: <a href="https://miles4smiles.herokuapp.com/">Miles4Smiles</a>.
+
+![Screenshot](client/public/images/homeScreen.png 'test-screen')
 
 ## User Story
 
@@ -39,12 +46,6 @@ Git clone and run the following command:
     npm run start
 ```
 
-## Deployed Link:
-
-The heroku deployed link: <a href="https://miles4smiles.herokuapp.com/">Miles4Smiles</a>.
-
-![Screenshot](client/public/images/homeScreen.png "test-screen")
-
 ## Test:
 
 ```
@@ -52,6 +53,10 @@ The heroku deployed link: <a href="https://miles4smiles.herokuapp.com/">Miles4Sm
 ```
 
 ![Screenshot](client/public/images/testScreen.png 'test-screen')
+
+## Technolgies
+
+MongoDB, Express.js, React.js, Node.js, Google Places API, Sass, Passport, Jdenticon, Count-Up, react-datepicker, react-alert
 
 ## Contribution
 

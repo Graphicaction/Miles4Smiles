@@ -32,32 +32,6 @@ function App() {
     });
   };
 
-  // const CustomAlertTemplate = ({ style, options, message, close }) => (
-  //   <div style={{
-  //       color: 'black',
-  //       backgroundColor: '#f7c331',
-  //       borderRadius: '18px',
-  //       padding: '12px',
-  //       fontSize: '1.15rem'
-  //       }}>
-  //     {options.type === 'info' && info}
-  //     {options.type === 'success' && success}
-  //     {options.type === 'error' && alert}
-  //     {message}
-  //     {/* <button onClick={close}>X</button> */}
-  //   </div>
-  // )
-
-  // const info = (<i class="fa fa-info" aria-hidden="true"></i>)
-  // const alert = (<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>);
-  // const success = (<i class="fa fa-check" aria-hidden="true"></i>);
-
-  // const options = {
-  //   position: positions.TOP_CENTER,
-  //   timeout: 4000,
-  //   transition: transitions.FADE,
-  // }
-
   const login = (username, password, result) => {
     AUTH.login(username, password)
       .then((response) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '../../components/Card';
-import { Row, Col } from '../../components/Grid';
+import { Row } from '../../components/Grid';
 import AboutJumbotron from '../../components/Jumbotron/AboutJumbotron';
 import Developers from '../../components/Developers/Developers';
 import './About.scss';
@@ -11,32 +11,32 @@ const About = () => {
       <AboutJumbotron />
 
       <Row className="mb-5">
-        <Col size="sm-12 md-6 lg-3">
+        <div className="col-sm-12 col-md-6 col-lg-3 c1">
           <Card title="Getting Started">
             <div className="card-body-about ">
               Setup a Miles4Smiles account to get started. You can even use M4S
               to log your race times.
             </div>
           </Card>
-        </Col>
-        <Col size="sm-12 md-6 lg-3">
-          <Card title="Challenge Users to Support Local Businesses ">
+        </div>
+        <div className="col-sm-12 col-md-6 col-lg-3 c2">
+          <Card title="Challenge Users to Support Businesses ">
             <div className="card-body-about">
               Click the "Challenge" button to compete against a friend or any
               other M4S user. Here you'll choose a distance to race and the
               lucky local business to support.
             </div>
           </Card>
-        </Col>
-        <Col size="sm-12 md-6 lg-3">
+        </div>
+        <div className="col-sm-12 col-md-6 col-lg-3 c3">
           <Card title="RUN for your local business">
             <div className="card-body-about">
               If accepted, each challenger must run the selected distance.
               Remember-- the slower runner pays up! GO GO GO!
             </div>
           </Card>
-        </Col>
-        <Col size="sm-12 md-6 lg-3">
+        </div>
+        <div className="col-sm-12 col-md-6 col-lg-3 c4">
           <Card title="Log Outcome - Loser Donates">
             <div className="card-body-about">
               After running, log the faster competitor as the winner! The
@@ -44,7 +44,7 @@ const About = () => {
               to make their donation.
             </div>
           </Card>
-        </Col>
+        </div>
       </Row>
 
       <div className="container-fluid devInfo">

@@ -39,32 +39,6 @@ const Developers = () => {
                 </a>
               </div>
             </div>
-            {/* <p className="text-center devImg">
-              <a className="float-left" href={dev.github}>
-                <i className="fa fa-github" />
-              </a>
-              <img
-                className="img-thumbnail"
-                alt={dev.name}
-                src={dev.image}
-                width="100px"
-                height="100px"
-              />
-              <a className="float-right" href={dev.linkedin}>
-                <i className="fa fa-linkedin" />
-              </a>
-            </p> */}
-            {/* <hr></hr>
-            <div className=" linkBody">
-              <p className="links">
-                <a className="float-left" href={dev.github}>
-                  <i className="fa fa-github" />
-                </a>
-                <a className="float-right" href={dev.linkedin}>
-                  <i className="fa fa-linkedin" />
-                </a>
-              </p>
-            </div> */}
           </div>
         </div>
       ))}

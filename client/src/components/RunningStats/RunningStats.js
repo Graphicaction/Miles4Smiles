@@ -107,7 +107,7 @@ function RunningStats(props) {
   const handleChallenge = () => {
     loadChallenges();
   };
-
+  //updating status if 'accept' challenge or delete if 'deny'
   const handleChallengeChange = (id, reply) => {
     if (reply === 'accept') {
       API.updateChallenge(id, { status: 'pending' })
@@ -122,7 +122,7 @@ function RunningStats(props) {
       loadChallenges();
     }
   };
-
+  //re-render user card on mypage if updates or delete user account if requested
   const handleUserUpdate = () => {
     setUpdateUser(true);
   };
@@ -138,7 +138,6 @@ function RunningStats(props) {
       .catch((err) => console.log(err));
   };
 
-  // console.log(challenges)
   let loggedInUser;
   if (user) {
     loggedInUser = { user };
@@ -157,7 +156,7 @@ function RunningStats(props) {
                 />
               ) : (
                 <h5 className="text-center">
-                  No lost challenges pending donation- great work!
+                  No pending donations- great work!
                 </h5>
               )}
             </Card>

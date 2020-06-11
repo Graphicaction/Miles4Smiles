@@ -69,7 +69,7 @@ class LocationSearchInput extends React.Component {
   clearPrevious = () => {
     if(this.state.address) this.setState({address: ''});
   }
-
+  //Getting bussiness details and passing back to parent component
   getPlaceDetails = (place, status) => {
     const request = {
       placeId: this.state.place_id,

@@ -26,7 +26,7 @@ function LoginForm({ login, user, logout }) {
   // const handleGoogleDirect = () => {
   //   console.log('test');
   // };
-
+  //Checks for valid user, if user does not exits and other validations
   const handleSubmit = (event) => {
     event.preventDefault();
     const valid = validateLogin(userObject.username, userObject.password);

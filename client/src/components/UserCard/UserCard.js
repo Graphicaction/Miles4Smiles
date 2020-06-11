@@ -142,13 +142,17 @@ const UserCard = () => {
         </div>
         <div className="row fluid justify-content-center">
           <button
-            className="btn bounce-left chevronBtn"
+            className={`btn chevronBtn ${
+              allUserCards.length < 4 ? 'bounce-left' : ''
+            }`}
             onClick={handleScrollLeft}
           >
             <i className=" fa fa-chevron-left m-2" />{' '}
           </button>
           <button
-            className="btn bounce-right chevronBtn"
+            className={`btn chevronBtn ${
+              allUserCards.length < 4 ? 'bounce-right' : ''
+            }`}
             onClick={handleScrollRight}
           >
             <i className=" fa fa-chevron-right m-2" />{' '}

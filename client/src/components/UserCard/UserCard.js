@@ -54,7 +54,8 @@ const UserCard = () => {
         const avgPace = parseInt(challenger.averagePace);
         if (avgPace >= minPace && avgPace <= maxPace)
           similarPaceUsers.push(challenger);
-        else otherUsers.push(challenger);
+        else if(avgPace !== 0)
+          otherUsers.push(challenger);
       }
     });
 

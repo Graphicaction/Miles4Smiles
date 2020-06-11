@@ -55,6 +55,7 @@ module.exports = {
         username: username,
         password: password,
         firstLogin: firstLogin,
+        averagePace: 0,
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);

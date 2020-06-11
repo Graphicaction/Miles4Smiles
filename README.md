@@ -50,7 +50,7 @@ Git clone and run the following command:
 ## Test:
 
 ```
-    client/npm run test
+    npm run test
 ```
 
 ![Screenshot](client/public/images/testScreen.png 'test-screen')

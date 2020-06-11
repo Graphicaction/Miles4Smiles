@@ -2,16 +2,13 @@
 
 .logout {
   color: $fontColor1;
-  /* background-color:#ffd6ba; */
   background-image: $gradientOrange;
   opacity: 0.8;
   box-shadow: none !important;
 }
 
 .logout:hover {
-  // color: $fontColor2;
   background-image: $gradientOrangeHover;
-  // background-color: $primaryColor2;
   opacity: 1;
 
   .fa-eject {

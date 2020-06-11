@@ -26,14 +26,9 @@ export default {
   },
   //user update after first signup
   update: function (id, userData) {
-    // console.log(userData);
-    // console.log(id)
     return axios.put('/auth/signup/' + id, { userData });
   },
   userUpdate: function (id, data) {
     return axios.put('/auth/user/' + id, data);
   },
-  // googleLogin: function (username, password) {
-  //   return axios.post('/auth/login', { username, passowrd });
-  // },
 };

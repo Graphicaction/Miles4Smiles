@@ -4,13 +4,13 @@
 
 ## Table of Content
 
-- [Deployed Link](#Deployed)
-- [User Story](#User)
+- [Deployed Link](#Deployed-Link)
+- [User Story](#User-Story)
 - [Description](#Description)
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [Test](#Test)
-- [API Documentation](#Documentation)
+- [API Documentation](#API-Documentation)
 - [Technologies](#Technologies)
 - [Contribution](#Contribution)
 
@@ -61,7 +61,7 @@ Developers can refer to some of our API collections by following instructions gi
 
 ![Screenshot](client/public/images/api-doc.png 'apiDoc-screen')
 
-## Technolgies
+## Technologies
 
 MongoDB, Express.js, React.js, Node.js, Google Places API, Sass, Passport, Jdenticon, Count-Up, react-datepicker, react-alert
 

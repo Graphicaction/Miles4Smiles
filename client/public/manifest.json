@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://miles4smiles.herokuapp.com/",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#f7882f",
   "background_color": "#8363a1"

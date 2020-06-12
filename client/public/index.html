@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <meta
       name="Description"
-      content="Miles 4 Smiles - Run for and your local business, Authors: Rashmi R, Rachel Humble & Stephanie Lebby"
+      content="Miles 4 Smiles - Run for and your local business, Authors: Rashmi Sharma, Rachel Humble & Stephanie Lebby"
     />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#000000" />
-    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="shortcut icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/journal/bootstrap.min.css"
@@ -45,5 +45,14 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("service-worker.js").then(reg => {
+            console.log("Service worker file found!", reg);
+          });
+        });
+      }
+    </script>
   </body>
 </html>

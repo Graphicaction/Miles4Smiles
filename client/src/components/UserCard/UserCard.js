@@ -52,8 +52,7 @@ const UserCard = () => {
         const avgPace = parseInt(challenger.averagePace);
         if (avgPace >= minPace && avgPace <= maxPace)
           similarPaceUsers.push(challenger);
-        else if(avgPace !== 0)
-          otherUsers.push(challenger);
+        else if (avgPace !== 0) otherUsers.push(challenger);
       }
     });
 
@@ -141,7 +140,7 @@ const UserCard = () => {
         <div className="row fluid justify-content-center">
           <button
             className={`btn chevronBtn ${
-              allUserCards.length < 4 ? 'bounce-left' : ''
+              allUserCards.length > 4 ? 'bounce-left' : ''
             }`}
             onClick={handleScrollLeft}
           >
@@ -149,7 +148,7 @@ const UserCard = () => {
           </button>
           <button
             className={`btn chevronBtn ${
-              allUserCards.length < 4 ? 'bounce-right' : ''
+              allUserCards.length > 4 ? 'bounce-right' : ''
             }`}
             onClick={handleScrollRight}
           >

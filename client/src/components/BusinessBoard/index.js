@@ -9,7 +9,8 @@ function BusinessBoard() {
   let finishedChallenges = [];
   //getting challenges with finish or donated status
   challenges.forEach((c) => {
-    if (c.status === 'finish' || c.status === 'donated') {
+    // if (c.status === 'finish' || c.status === 'donated') {
+    if (c.status === 'donated') {
       finishedChallenges.push(c);
     }
   });

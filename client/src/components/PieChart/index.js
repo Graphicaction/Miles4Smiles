@@ -8,8 +8,8 @@ const PieChart = () => {
   //converting db data into percentage
   if (user != null) {
     const total = user.challengesWon + user.challengesLost;
-    wonData = Math.floor((user.challengesWon * 100) / total);
-    lostData = Math.floor((user.challengesLost * 100) / total);
+    wonData = Math.round((user.challengesWon * 100) / total);
+    lostData = Math.round((user.challengesLost * 100) / total);
   } else {
     wonData = 0;
     lostData = 0;

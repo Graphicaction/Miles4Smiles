@@ -13,8 +13,7 @@ const ChallengeCard = (props) => {
             <div
               className="card text-center areChallenging"
               key={challenge._id}
-              style={{ backgroundColor: '#f3faf9' }}
-            >
+              style={{ backgroundColor: '#f3faf9' }}>
               <div className="card-body">
                 <h5 className="card-title">
                   You Challenged {challenge.challengers[1]}
@@ -74,6 +73,9 @@ const ChallengeCard = (props) => {
                   </>
                 )}
               </div>
+              <div class="card-footer text-muted">
+                Status: {challenge.status}
+              </div>
             </div>
           ))}
         </>
@@ -84,8 +86,7 @@ const ChallengeCard = (props) => {
           {props.incomingChallenges.map((challenge, i) => (
             <div
               className="card text-center wereChallenged"
-              key={challenge._id}
-            >
+              key={challenge._id}>
               <div className="card-body">
                 <h5 className="card-title">
                   You Were Challenged By {challenge.challengers[0]}!
@@ -171,6 +172,9 @@ const ChallengeCard = (props) => {
                     </Row>
                   </div>
                 )}
+              </div>
+              <div class="card-footer text-muted">
+                Status: {challenge.status}
               </div>
             </div>
           ))}

@@ -100,7 +100,6 @@ function App() {
                 />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/dashboard" component={Dashboard} />
-                {/* <Route exact path="/dashboard" component={() => <LoginForm login={login} />} /> */}
                 <Route
                   exact
                   path="/mypage/:id"

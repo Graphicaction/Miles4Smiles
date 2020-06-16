@@ -31,7 +31,7 @@ function ChallengeForm(props) {
 
   const clearBusiness = () => {
     setAddress('');
-  }
+  };
 
   //Saving new challenge
   function handleChallengeSave(event) {
@@ -88,7 +88,7 @@ function ChallengeForm(props) {
   function handleCancel() {
     challengeForm.current.reset();
   }
-    
+
   return (
     <>
       <form ref={challengeForm}>
@@ -102,7 +102,9 @@ function ChallengeForm(props) {
             ></input>
           ) : (
             <>
-              <label>Select The User You Want to Challenge</label>
+              <label htmlFor="usernameSelect">
+                Select The User You Want to Challenge
+              </label>
               <select
                 className="form-control"
                 id="usernameSelect"
@@ -123,10 +125,13 @@ function ChallengeForm(props) {
         </div>
         <div className="form-group">
           <label>Which Business Will You Support?</label>
-          <LocationSearchInput handleBusiness={handleBusiness} clearBusiness={clearBusiness}/>
+          <LocationSearchInput
+            handleBusiness={handleBusiness}
+            clearBusiness={clearBusiness}
+          />
         </div>
         <div className="form-group">
-          <label>
+          <label htmlFor="milesAndDollarInput">
             Let's Talk Mileage{' '}
             <span role="img" aria-label="checkeredflag">
               🏁
@@ -140,6 +145,7 @@ function ChallengeForm(props) {
                 className="form-control form-control-sm"
                 type="text"
                 placeholder="Distance in Miles"
+                id="milesInput"
               ></input>
             </Col>
             <Col size="6">
@@ -149,6 +155,7 @@ function ChallengeForm(props) {
                 className="form-control form-control-sm"
                 type="text"
                 placeholder="$ Amount per Mile"
+                id="dollarInput"
               ></input>
             </Col>
           </Row>

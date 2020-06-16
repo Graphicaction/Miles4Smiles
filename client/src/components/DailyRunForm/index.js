@@ -65,12 +65,13 @@ function DailyRunForm(props) {
         <Row>
           <Col size="3">
             <div className="radio">
-              <label>
+              <label htmlFor="5k">
                 <Input
                   type="radio"
                   value="5"
                   name="distance"
                   onChange={handleInputChange}
+                  id="5k"
                 />
                 5K
               </label>
@@ -78,12 +79,13 @@ function DailyRunForm(props) {
           </Col>
           <Col size="3">
             <div className="radio">
-              <label>
+              <label htmlFor="10k">
                 <Input
                   type="radio"
                   value="10"
                   name="distance"
                   onChange={handleInputChange}
+                  id="10k"
                 />
                 10K
               </label>
@@ -91,12 +93,13 @@ function DailyRunForm(props) {
           </Col>
           <Col size="3">
             <div className="radio">
-              <label>
+              <label htmlFor="21k">
                 <Input
                   type="radio"
                   value="21"
                   name="distance"
                   onChange={handleInputChange}
+                  id="21k"
                 />
                 Half Marathon
               </label>
@@ -104,12 +107,13 @@ function DailyRunForm(props) {
           </Col>
           <Col size="3">
             <div className="radio">
-              <label>
+              <label htmlFor="42k">
                 <Input
                   type="radio"
                   value="42"
                   name="distance"
                   onChange={handleInputChange}
+                  id="42k"
                 />
                 Marathon
               </label>

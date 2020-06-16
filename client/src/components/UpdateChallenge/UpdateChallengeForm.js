@@ -85,7 +85,7 @@ function UpdateChallengeForm(props) {
           <Row>
             <Col size="6">
               <div className="radio">
-                <label>
+                <label htmlFor="loserOption1">
                   <Jdenticon
                     className="avatar"
                     size="48"
@@ -97,6 +97,7 @@ function UpdateChallengeForm(props) {
                     value={props.challengers[0]}
                     name="loser"
                     onChange={handleInputChange}
+                    id="loserOption1"
                   />
                   {props.challengers[0]}
                 </label>
@@ -104,7 +105,7 @@ function UpdateChallengeForm(props) {
             </Col>
             <Col size="6">
               <div className="radio">
-                <label>
+                <label htmlFor="loserOption2">
                   <Jdenticon
                     className="avatar"
                     size="48"
@@ -117,6 +118,7 @@ function UpdateChallengeForm(props) {
                     value={props.challengers[1]}
                     name="loser"
                     onChange={handleInputChange}
+                    id="loserOption2"
                   />
                   {props.challengers[1]}
                 </label>

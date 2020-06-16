@@ -39,9 +39,9 @@ function SignupForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if((userObject.password !== userObject.confirmPassword))
-      alert.error("Password and Confirm Password are different!");
+      alert.error("Password and Confirm Password do not match!");
     else if(userObject.username.length < 5 || userObject.password.length < 5)
-      alert.error("username/password must be atleast 6 characters long!");
+      alert.error("Username/Password must be at least 6 characters long!");
     else {
       const valid = validateSignup(userObject.firstName, userObject.lastName , userObject.username, userObject.password, userObject.confirmPassword);
       if (valid) {

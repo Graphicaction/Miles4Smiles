@@ -9,16 +9,15 @@ const BarChart = (props) => {
       {
         label: props.label,
         fill: false,
-        // lineTension: 0.5,
         backgroundColor: [
-          '#6b7a8f',
-          '#f7882f',
-          '#6b7a8f',
-          '#f7882f',
-          '#6b7a8f',
-          '#f7882f',
+          '#7686b1',
+          '#f5a248',
+          '#7686b1',
+          '#f5a248',
+          '#7686b1',
+          '#f5a248',
         ],
-        borderColor: '#6b7a8f',
+        borderColor: '#606e81',
         borderWidth: 2,
         data: props.data,
       },
@@ -31,7 +30,6 @@ const BarChart = (props) => {
         data={state}
         options={{
           responsive: true,
-          // maintainAspectRatio: false,
           legend: {
             display: true,
             position: 'top',

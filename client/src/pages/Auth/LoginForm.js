@@ -24,7 +24,6 @@ function LoginForm({ login, user, logout }) {
   };
 
   // const handleGoogleDirect = () => {
-  //   // setRedirectTo('/auth/google');
   //   console.log('test');
   // };
   //Checks for valid user, if user does not exits and other validations
@@ -35,7 +34,6 @@ function LoginForm({ login, user, logout }) {
       login(userObject.username, userObject.password, function (result) {
         if (result === 0) {
           alert.error('User does not exist! Try again or register instead.');
-          // logout();
           setRedirectTo('/');
         }
       });
@@ -64,6 +62,7 @@ function LoginForm({ login, user, logout }) {
                 name="username"
                 value={userObject.username}
                 onChange={handleChange}
+                id="username"
               />
               <label htmlFor="password">Password: </label>
               <Input
@@ -71,6 +70,7 @@ function LoginForm({ login, user, logout }) {
                 name="password"
                 value={userObject.password}
                 onChange={handleChange}
+                id="password"
               />
               <Link to="/signup" className="btn registerBtn">
                 <i className="fa fa-user-plus mr-2" />
@@ -83,7 +83,6 @@ function LoginForm({ login, user, logout }) {
               >
                 <i className="fa fa-google mr-2"></i>Sign in with Google
               </a> */}
-
               <FormBtn onClick={handleSubmit} className="loginBtn">
                 <i className="fa fa-sign-in mr-2" />
                 Login

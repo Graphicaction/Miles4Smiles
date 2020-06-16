@@ -32,10 +32,7 @@ const UserCard = () => {
     animateScroll();
   };
 
-  //t = current time
-  //b = start value
-  //c = change in value
-  //d = duration
+  //t = current time, b = start value, c = change in value, d = duration
   Math.easeInOutQuad = function (t, b, c, d) {
     t /= d / 2;
     if (t < 1) return (c / 2) * t * t + b;
@@ -55,8 +52,7 @@ const UserCard = () => {
         const avgPace = parseInt(challenger.averagePace);
         if (avgPace >= minPace && avgPace <= maxPace)
           similarPaceUsers.push(challenger);
-        else if(avgPace !== 0)
-          otherUsers.push(challenger);
+        else if (avgPace !== 0) otherUsers.push(challenger);
       }
     });
 
@@ -77,7 +73,6 @@ const UserCard = () => {
             }`}
             id="animate-scroll"
           >
-            {/* <div className="d-flex flex-row flex-nowrap"> */}
             {similarPaceUsers.map((user, index) => (
               <div
                 className="card col-lg-3 col-md-4 col-sm-6 text-center flex-item samePaceUser"
@@ -145,7 +140,7 @@ const UserCard = () => {
         <div className="row fluid justify-content-center">
           <button
             className={`btn chevronBtn ${
-              allUserCards.length < 4 ? 'bounce-left' : ''
+              allUserCards.length > 4 ? 'bounce-left' : ''
             }`}
             onClick={handleScrollLeft}
           >
@@ -153,7 +148,7 @@ const UserCard = () => {
           </button>
           <button
             className={`btn chevronBtn ${
-              allUserCards.length < 4 ? 'bounce-right' : ''
+              allUserCards.length > 4 ? 'bounce-right' : ''
             }`}
             onClick={handleScrollRight}
           >

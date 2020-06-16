@@ -73,14 +73,12 @@ module.exports = {
     }
   },
   auth: function (req, res, next) {
-    // console.log(req.body);
     next();
   },
   authenticate: (req, res) => {
     const user = JSON.parse(JSON.stringify(req.user)); // hack
     const cleanUser = Object.assign({}, user);
     if (cleanUser) {
-      // console.log(`Deleting ${cleanUser.password}`);
       delete cleanUser.password;
     }
     res.json({ user: cleanUser });
@@ -121,14 +119,14 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
 
-  googleLogin: (req, res) => {
-    console.log(req, res);
-    // if (req.user) {
-    //   req.session.destroy();
-    //   res.clearCookie('connect.sid'); // clean up!
-    //   return res.json({ msg: 'logging you out' });
-    // } else {
-    //   return res.json({ msg: 'no user to log out!' });
-    // }
-  },
+  // googleLogin: (req, res) => {
+  //   console.log(req, res);
+  // if (req.user) {
+  //   req.session.destroy();
+  //   res.clearCookie('connect.sid'); // clean up!
+  //   return res.json({ msg: 'logging you out' });
+  // } else {
+  //   return res.json({ msg: 'no user to log out!' });
+  // }
+  // },
 };

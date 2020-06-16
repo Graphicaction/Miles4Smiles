@@ -1,15 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ChallengeContext from '../../utils/ChallengeContext';
 
 function BusinessBoard() {
   const { challenges } = useContext(ChallengeContext);
+
+  useEffect(() => {}, [challenges]);
+
+  let finishedChallenges = [];
+  //getting challenges with finish or donated status
+  challenges.forEach((c) => {
+    // if (c.status === 'finish' || c.status === 'donated') {
+    if (c.status === 'donated') {
+      finishedChallenges.push(c);
+    }
+  });
 
   return (
     <div>
       <ul className="fa-ul">
         {
           // Displaying up to 5 business names of businesses that were supported already in reverse order
-          challenges
+          finishedChallenges
             .slice(0)
             .reverse()
             .map(

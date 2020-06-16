@@ -8,8 +8,8 @@ const PieChart = () => {
   //converting db data into percentage
   if (user != null) {
     const total = user.challengesWon + user.challengesLost;
-    wonData = (user.challengesWon * 100) / total;
-    lostData = (user.challengesLost * 100) / total;
+    wonData = Math.floor((user.challengesWon * 100) / total);
+    lostData = Math.floor((user.challengesLost * 100) / total);
   } else {
     wonData = 0;
     lostData = 0;
@@ -19,8 +19,9 @@ const PieChart = () => {
     datasets: [
       {
         data: [wonData, lostData],
-        backgroundColor: ['#2a9d8f', '#f7882f'],
-        hoverBackgroundColor: ['#0ca08f', '#cc3e07'],
+        backgroundColor: ['#7686b1', '#f5a248'],
+        hoverBackgroundColor: ['#8794a6', '#f7882f'],
+        borderColor: '#606e81',
       },
     ],
   };

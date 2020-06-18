@@ -1,9 +1,9 @@
 @import '../../variables.scss';
 
 .card {
-  background-color: rgba($primaryColor5, 0.4) !important;
+  background-color: rgba($primaryColor5, 0.2) !important;
   border-radius: $borderRadius !important;
-  box-shadow: $boxShadow1;
+  // box-shadow: $boxShadow1;
 }
 
 .card-header {
@@ -17,5 +17,5 @@ h5 {
 }
 
 .card:hover {
-  background-color: rgba($primaryColor5, 0.6) !important;
+  background-color: rgba($primaryColor5, 0.4) !important;
 }

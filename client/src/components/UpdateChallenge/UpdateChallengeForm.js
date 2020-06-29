@@ -27,15 +27,17 @@ function UpdateChallengeForm(props) {
     let won = 0,
       lost = 0;
     if (formObject.time) {
+      let strTime = formObject.time.split(':');
+      let hoursMinutes = parseInt(strTime[0] * 60) + parseInt(strTime[1]);
       let newTime = [], waiting, donor;
       //Getting the time index according to current user
       if(user.username === props.challengers[0]) {
-        newTime = [formObject.time, props.time[1]];
+        newTime = [hoursMinutes, props.time[1]];
         if(props.time[1] == 0){
          alert("Waiting for other challenger to enter time!");
          waiting = true;
         }else{
-          if(parseInt(props.time[1]) < formObject.time){
+          if(parseInt(props.time[1]) < hoursMinutes){
             donor = user.username;
             winner = props.challengers[1];
             loser = user.username;
@@ -47,12 +49,12 @@ function UpdateChallengeForm(props) {
         }
       }
       if(user.username === props.challengers[1]) {
-        newTime = [props.time[0], formObject.time];
+        newTime = [props.time[0], hoursMinutes];
         if(props.time[0] == 0){
           alert("Waiting for other challenger to enter time!");
           waiting = true;
         }else{
-          if(parseInt(props.time[0]) < formObject.time) {
+          if(parseInt(props.time[0]) < hoursMinutes) {
             donor = user.username;
             winner = props.challengers[0];
             loser = user.username;
@@ -62,9 +64,8 @@ function UpdateChallengeForm(props) {
             loser = props.challengers[0];;
           }  
         }
-          
       }
-      //Update challenge record with status and donor
+      // //Update challenge record with status and donor
         if(!waiting){
           API.updateChallenge(props.id, {
             donor: donor,

@@ -64,6 +64,7 @@ const ChallengeCard = (props) => {
                               id={challenge._id}
                               handleChallenge={props.handleChallenge}
                               challengers={challenge.challengers}
+                              time = {challenge.time}
                               business={challenge.businessName}
                             />
                           </div>
@@ -136,6 +137,7 @@ const ChallengeCard = (props) => {
                               id={challenge._id}
                               handleChallenge={props.handleChallenge}
                               challengers={challenge.challengers}
+                              time = {challenge.time}
                               business={challenge.businessName}
                             />
                           </div>

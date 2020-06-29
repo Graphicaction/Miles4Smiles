@@ -7,6 +7,7 @@ const ChallengeContext = React.createContext({
   businessLocation: '',
   businessUrl: '',
   donor: '',
+  time: '',
   donatedAmount: '',
   status: '',
   challengers: [],

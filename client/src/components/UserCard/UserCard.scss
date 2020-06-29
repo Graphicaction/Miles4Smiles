@@ -25,8 +25,9 @@
 }
 
 .samePaceUser {
-  background-color: rgba($primaryColor5, 0.8) !important;
+  background-color: rgba($primaryColor5, 0.6) !important;
   box-shadow: $boxShadow3;
+  border: 1px solid orange;
 }
 
 //horizontal scroll
@@ -71,6 +72,8 @@
 .chevronBtn {
   margin: 0 10px !important;
   padding: 1px 10px;
+  background-image: $gradientOrange;
+  border-radius: 50px !important;
 }
 
 .chevronBtn:hover {

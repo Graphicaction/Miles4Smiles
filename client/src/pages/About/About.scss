@@ -63,7 +63,8 @@
 .card-img-top {
   height: 50% !important;
   vertical-align: middle !important;
-  border-radius: 18px !important;
+  border-radius: $borderRadius !important;
+  border: 1px solid orange;
 }
 
 .devName {

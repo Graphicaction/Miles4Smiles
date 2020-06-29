@@ -3,6 +3,7 @@ import API from '../../utils/API';
 import AUTH from '../../utils/AUTH';
 import UserContext from '../../utils/UserContext';
 import { Input } from '../Form';
+import { useAlert } from 'react-alert';
 import validateUpdateChallenge from './validateUpdateChallenge';
 
 //form to accept, deny or log challenge outcomes, nested inside Update ChallengeModal
@@ -11,6 +12,7 @@ function UpdateChallengeForm(props) {
   const [formObject, setFormObject] = useState([]);
   const challengeForm = useRef(null);
   const {time, setTime} = useState(0);
+  const alert = useAlert();
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -34,34 +36,38 @@ function UpdateChallengeForm(props) {
       if(user.username === props.challengers[0]) {
         newTime = [hoursMinutes, props.time[1]];
         if(props.time[1] == 0){
-         alert("Waiting for other challenger to enter time!");
+         alert.success("Waiting for another challenger to enter time!");
          waiting = true;
         }else{
           if(parseInt(props.time[1]) < hoursMinutes){
             donor = user.username;
             winner = props.challengers[1];
             loser = user.username;
+            alert.success("You Lost the challenge, Please donate!");
           } else{
             donor = props.challengers[1];
             winner = user.username
-            loser = props.challengers[1];;
+            loser = props.challengers[1];
+            alert.success("You Won the challenge, Congratulations!");
           } 
         }
       }
       if(user.username === props.challengers[1]) {
         newTime = [props.time[0], hoursMinutes];
         if(props.time[0] == 0){
-          alert("Waiting for other challenger to enter time!");
+          alert.success("Waiting for another challenger to enter time!");
           waiting = true;
         }else{
           if(parseInt(props.time[0]) < hoursMinutes) {
             donor = user.username;
             winner = props.challengers[0];
             loser = user.username;
+            alert.success("You Lost the challenge, Please donate!");
           } else{
             donor = props.challengers[0];
             winner = user.username
-            loser = props.challengers[0];;
+            loser = props.challengers[0];
+            alert.success("You Won the challenge, Congratulations!");
           }  
         }
       }
@@ -117,7 +123,7 @@ function UpdateChallengeForm(props) {
               console.log(err);
             });
         }
-    }else console.log("not valid!");
+    }else alert.error("Please enter valid time(hh:mm / h:mm)!")
   }
 
   return (

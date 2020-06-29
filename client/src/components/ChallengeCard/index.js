@@ -74,7 +74,7 @@ const ChallengeCard = (props) => {
                   </>
                 )}
               </div>
-              <div class="card-footer text-muted">
+              <div className="card-footer text-muted">
                 Status: {challenge.status}
               </div>
             </div>

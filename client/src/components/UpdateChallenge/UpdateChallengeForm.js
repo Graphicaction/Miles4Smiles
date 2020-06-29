@@ -36,14 +36,14 @@ function UpdateChallengeForm(props) {
       if(user.username === props.challengers[0]) {
         newTime = [hoursMinutes, props.time[1]];
         if(props.time[1] == 0){
-         alert.success("Waiting for another challenger to enter time!");
+         alert.success("Waiting for other challenger to enter time!");
          waiting = true;
         }else{
           if(parseInt(props.time[1]) < hoursMinutes){
             donor = user.username;
             winner = props.challengers[1];
             loser = user.username;
-            alert.success("You Lost the challenge, Please donate!");
+            alert.success("You Lost the challenge, please donate!");
           } else{
             donor = props.challengers[1];
             winner = user.username
@@ -55,14 +55,14 @@ function UpdateChallengeForm(props) {
       if(user.username === props.challengers[1]) {
         newTime = [props.time[0], hoursMinutes];
         if(props.time[0] == 0){
-          alert.success("Waiting for another challenger to enter time!");
+          alert.success("Waiting for other challenger to enter time!");
           waiting = true;
         }else{
           if(parseInt(props.time[0]) < hoursMinutes) {
             donor = user.username;
             winner = props.challengers[0];
             loser = user.username;
-            alert.success("You Lost the challenge, Please donate!");
+            alert.success("You Lost the challenge, please donate!");
           } else{
             donor = props.challengers[0];
             winner = user.username

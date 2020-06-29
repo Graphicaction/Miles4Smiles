@@ -2,9 +2,8 @@ import React, { useState, useRef, useContext } from 'react';
 import API from '../../utils/API';
 import AUTH from '../../utils/AUTH';
 import UserContext from '../../utils/UserContext';
-import Jdenticon from 'react-jdenticon';
 import { Input } from '../Form';
-import { Row, Col } from '../Grid';
+import validateUpdateChallenge from './validateUpdateChallenge';
 
 //form to accept, deny or log challenge outcomes, nested inside Update ChallengeModal
 function UpdateChallengeForm(props) {
@@ -26,7 +25,8 @@ function UpdateChallengeForm(props) {
       loser = '';
     let won = 0,
       lost = 0;
-    if (formObject.time) {
+    let valid = validateUpdateChallenge(formObject.time);
+    if(valid) {
       let strTime = formObject.time.split(':');
       let hoursMinutes = parseInt(strTime[0] * 60) + parseInt(strTime[1]);
       let newTime = [], waiting, donor;
@@ -117,7 +117,7 @@ function UpdateChallengeForm(props) {
               console.log(err);
             });
         }
-    }
+    }else console.log("not valid!");
   }
 
   return (
@@ -133,6 +133,7 @@ function UpdateChallengeForm(props) {
                     value={time}
                     name="time"
                     onChange={handleInputChange}
+                    placeholder = "1:30"
                     id="raceTime"
                   />
                 </label>

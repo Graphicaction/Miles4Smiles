@@ -7,6 +7,7 @@ const ChallengeSchema = new Schema({
   businessLocation: { type: String, required: false },
   businessUrl: { type: String, required: false },
   challengers: [{ type: String, required: false }],
+  time: [{ type: Number, required: false }],
   distance: { type: Number, required: false },
   donor: { type: String, required: false },
   donatedAmount: { type: Number, required: false },

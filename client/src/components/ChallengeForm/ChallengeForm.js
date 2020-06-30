@@ -64,6 +64,7 @@ function ChallengeForm(props) {
         distance: formObject.cMiles,
         donatedAmount: donation,
         donor: '',
+        time: [0,0],
         status: 'Waiting for Response',
         businessLocation: address,
         businessUrl: businessUrl,

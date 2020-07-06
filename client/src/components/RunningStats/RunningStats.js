@@ -74,7 +74,7 @@ function RunningStats(props) {
     if (data.length) {
       data.forEach((result) => {
         // graphDates.push(result.date.slice(5, 10));
-        graphDates.push(result.date);
+        graphDates.push(result.date.slice(5, 10));
       });
       //If no data for the day put 0
       for (let j = 0; j < 7; j++) {
@@ -272,7 +272,7 @@ function RunningStats(props) {
                 {newRun ? (
                   <BarChart
                     data={milesData}
-                    day={date}
+                    xTickLabel={date}
                     label="Races Completed"
                     yAxesTick=""
                     yAxesMax="45"

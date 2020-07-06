@@ -12,14 +12,16 @@ function Dashboard() {
   const [challenges, setChallenges] = useState([]);
   const [distanceData, setDistanceData] = useState([]);
   const [donationData, setDonationData] = useState([]);
+  const [business, setBusiness] = useState([]);
   // Loads all Challenges and sets them to Challenges
   useEffect(() => {
-    loadChallenges()
+    loadChallenges();
   }, []);
   //On page mount get all challenge data and set the challenge context for child components to use
   function loadChallenges() {
     let allChallenges = [],
       dData = [];
+    let allBusinesses = [];
     let moneyData = [];
     API.getChallenges()
       .then((response) => {
@@ -27,13 +29,21 @@ function Dashboard() {
         //Adding distances into an array
         allChallenges.forEach((challenge) => {
           dData.push(challenge.distance);
+          allBusinesses.push(challenge.businessName);
           if (challenge.status === 'donated')
             moneyData.push(challenge.donatedAmount);
         });
+
+        for (let i = 0; i < 7; i++) {
+          if (!allBusinesses[i]) {
+            allBusinesses[i] = '';
+          }
+        }
         //Setting donation data, distance data and all challenges to pass to child components
         setDonationData(moneyData);
         setChallenges(allChallenges);
         setDistanceData(dData);
+        setBusiness(allBusinesses);
       })
       .catch((err) => console.log(err));
   }
@@ -57,6 +67,7 @@ function Dashboard() {
             {distanceData ? (
               <BarChart
                 data={distanceData}
+                xTickLabel={business}
                 label="Challenge"
                 yAxesTick=""
                 yAxesMax="20"
@@ -74,6 +85,7 @@ function Dashboard() {
             {donationData[0] !== 0 ? (
               <BarChart
                 data={donationData}
+                xTickLabel={business}
                 label="Donations Completed"
                 yAxesTick="$"
                 yAxesMax="100"

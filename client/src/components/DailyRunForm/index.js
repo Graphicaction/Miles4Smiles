@@ -32,17 +32,17 @@ function DailyRunForm(props) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    const formatteddate = moment(date).format('YYYY-MM-DD');
+    const formattedDate = moment(date).format('YYYY-MM-DD');
     const validParams = validateRun(
       formObject.distance,
-      formatteddate,
+      formattedDate,
       formObject.totalTime
     );
     if (validParams) {
       if (formObject.distance && formObject.totalTime) {
         API.saveRunningStat({
           distance: formObject.distance,
-          date: formatteddate,
+          date: formattedDate,
           totalTime: formObject.totalTime,
         })
           .then((res) => {

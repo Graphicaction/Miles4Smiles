@@ -31,6 +31,8 @@ function RunningStats(props) {
   const [pieData, setPieData] = useState(false);
   const [updateUser, setUpdateUser] = useState(true);
 
+  const [date, setDate] = useState([]);
+
   // Load all RunningStats and store them with setRunningStats
   useEffect(() => {
     loadRunningStats();
@@ -41,7 +43,10 @@ function RunningStats(props) {
   function loadRunningStats() {
     API.getRunningStats()
       .then((res) => {
-        if (res.data.runningStats.length) setGraphData(res.data.runningStats);
+        if (res.data.runningStats.length) {
+          setGraphData(res.data.runningStats);
+          setRaceDate(res.data.runningStats);
+        }
       })
       .catch((err) => console.log(err));
   }
@@ -60,6 +65,24 @@ function RunningStats(props) {
         }
       }
       setMilesData([...graphData]);
+      setNewRun(true);
+    }
+  };
+
+  const setRaceDate = (data) => {
+    let graphDates = [];
+    if (data.length) {
+      data.forEach((result) => {
+        // graphDates.push(result.date.slice(5, 10));
+        graphDates.push(result.date);
+      });
+      //If no data for the day put 0
+      for (let j = 0; j < 7; j++) {
+        if (!graphDates[j]) {
+          graphDates[j] = '';
+        }
+      }
+      setDate([...graphDates]);
       setNewRun(true);
     }
   };
@@ -249,11 +272,12 @@ function RunningStats(props) {
                 {newRun ? (
                   <BarChart
                     data={milesData}
+                    day={date}
                     label="Races Completed"
                     yAxesTick=""
                     yAxesMax="45"
                     yLabelString="Distance Run (Km)"
-                    xLabelString="Number of Races"
+                    xLabelString="Date"
                   />
                 ) : (
                   <h5 className="text-center">No races recorded yet</h5>

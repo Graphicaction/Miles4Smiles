@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2';
 const BarChart = (props) => {
   //Assigning custom props data
   const state = {
-    labels: [1, 2, 3, 4, 5, 6, 7],
+    labels: props.day.map((d) => d.slice(5, 10)),
     datasets: [
       {
         label: props.label,

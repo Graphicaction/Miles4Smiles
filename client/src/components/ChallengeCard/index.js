@@ -11,7 +11,7 @@ const ChallengeCard = (props) => {
           {props.myChallenges.map((challenge, i) => (
             //Challenges created by logged in user
             <div
-              className="card text-center areChallenging"
+              className="card text-center areChallenging challengeCard"
               key={challenge._id}
               style={{ backgroundColor: '#f3faf9' }}
             >
@@ -87,7 +87,7 @@ const ChallengeCard = (props) => {
         <>
           {props.incomingChallenges.map((challenge, i) => (
             <div
-              className="card text-center wereChallenged"
+              className="card text-center wereChallenged challengeCard"
               key={challenge._id}
             >
               <div className="card-body">

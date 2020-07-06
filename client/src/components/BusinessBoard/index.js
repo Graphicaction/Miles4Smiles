@@ -36,6 +36,7 @@ function BusinessBoard() {
                         alt="businessIcon"
                       />{' '}
                       <a
+                        className="businessUrl"
                         href={challenge.businessUrl}
                         target="_blank"
                         rel="noopener noreferrer"

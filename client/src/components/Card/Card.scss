@@ -1,21 +1,35 @@
 @import '../../variables.scss';
 
 .card {
+  // background-color: transparent !important;
   background-color: rgba($primaryColor5, 0.2) !important;
   border-radius: $borderRadius !important;
   // box-shadow: $boxShadow1;
+  border: none !important;
 }
 
 .card-header {
   background-image: $gradientOrange !important;
+  // background-color: transparent !important;
   border-radius: $borderRadius !important;
+  color: $fontColor1;
+  // border-top: 2px solid $primaryColor3;
+  // border-bottom: 2px solid $primaryColor2;
+}
+
+label {
   color: $fontColor1;
 }
 
-h5 {
-  font-family: 'Raleway', sans-serif;
+// h5 {
+//   font-family: 'Raleway', sans-serif;
+// }
+
+.card-body {
+  // background-color: rgba(white, 0.1);
+  border-radius: $borderRadius !important;
 }
 
 .card:hover {
-  background-color: rgba($primaryColor5, 0.3) !important;
+  // background-color: rgba($primaryColor5, 0.3) !important;
 }

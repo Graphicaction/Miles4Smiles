@@ -204,7 +204,7 @@ function RunningStats(props) {
                 title="Update Your Information"
                 style={{ justifyContent: 'center' }}
               >
-                <div key={user._id} className="card text-center">
+                <div key={user._id} className="card text-center challengeCard">
                   <Row>
                     <Col size="lg-6 sm-12">
                       <RunningStatsContext.Provider>

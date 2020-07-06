@@ -1,8 +1,8 @@
 @import '../../variables.scss';
 
 .accept {
-  background-image: $gradientBluePurple;
-  color: $fontColor2;
+  background-image: $gradientOrange;
+  color: $fontColor1;
 }
 
 .accept:hover {
@@ -19,12 +19,45 @@
 }
 
 .wereChallenged {
-  border: 1px solid $primaryColor3 !important;
+  background-color: white;
 }
 
-.areChallenging {
-  border: 1px solid $primaryColor2 !important;
+.wereChallenged::before,
+.wereChallenged::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-color: transparent;
+  border-style: solid;
 }
+
+.wereChallenged::after {
+  border-width: 1.5em;
+  border-left-color: rgba($primaryColor3, 0.5);
+  border-top-color: rgba($primaryColor3, 0.5);
+}
+
+.areChallenging::before,
+.areChallenging::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: $borderRadius;
+}
+
+.areChallenging::after {
+  border-width: 1.5em;
+  border-left-color: rgba($primaryColor2, 0.5);
+  border-top-color: rgba($primaryColor2, 0.5);
+}
+
+// .areChallenging {
+//   border: 1px solid $primaryColor2 !important;
+// }
 
 .enterOutcome {
   background-image: $gradientOrange;

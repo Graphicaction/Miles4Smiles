@@ -28,8 +28,13 @@ function Dashboard() {
         allChallenges = response.data.challenges;
         //Adding distances into an array
         allChallenges.forEach((challenge) => {
-          dData.push(challenge.distance);
-          allBusinesses.push(challenge.businessName);
+          if (
+            challenge.status === 'pending' ||
+            challenge.status === 'donated'
+          ) {
+            dData.push(challenge.distance);
+            allBusinesses.push(challenge.businessName);
+          }
           if (challenge.status === 'donated')
             moneyData.push(challenge.donatedAmount);
         });

@@ -58,9 +58,9 @@ h6,
 
 .btn:hover {
   opacity: 1;
-  -moz-box-shadow: inset $boxShadow1;
-  -webkit-box-shadow: inset $boxShadow1;
-  box-shadow: inset $boxShadow1;
+  // -moz-box-shadow: inset $boxShadow1;
+  // -webkit-box-shadow: inset $boxShadow1;
+  // box-shadow: inset $boxShadow1;
 }
 
 a {
@@ -68,6 +68,11 @@ a {
 }
 a:hover {
   color: black;
+}
+
+.businessUrl {
+  color: $primaryColor2;
+  text-shadow: 1px 1px $primaryColor1;
 }
 
 svg {
@@ -98,6 +103,8 @@ ul {
 
   h5 {
     font-size: 1.3em !important;
+    // color: $fontColor2;
+    font-family: 'Raleway', sans-serif;
   }
   .postSignUpHeader {
     font-size: 0.4em !important;

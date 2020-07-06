@@ -11,9 +11,10 @@ const ChallengeCard = (props) => {
           {props.myChallenges.map((challenge, i) => (
             //Challenges created by logged in user
             <div
-              className="card text-center areChallenging"
+              className="card text-center areChallenging challengeCard"
               key={challenge._id}
-              style={{ backgroundColor: '#f3faf9' }}>
+              style={{ backgroundColor: '#f3faf9' }}
+            >
               <div className="card-body">
                 <h5 className="card-title">
                   You Challenged {challenge.challengers[1]}
@@ -29,7 +30,7 @@ const ChallengeCard = (props) => {
                   <>
                     <button
                       href="#"
-                      className="btn enterOutcome mr-5"
+                      className="btn enterOutcome"
                       id="update-challenge"
                       data-toggle="modal"
                       data-target={`#updateModal${i}`}
@@ -64,7 +65,7 @@ const ChallengeCard = (props) => {
                               id={challenge._id}
                               handleChallenge={props.handleChallenge}
                               challengers={challenge.challengers}
-                              time = {challenge.time}
+                              time={challenge.time}
                               business={challenge.businessName}
                             />
                           </div>
@@ -86,8 +87,9 @@ const ChallengeCard = (props) => {
         <>
           {props.incomingChallenges.map((challenge, i) => (
             <div
-              className="card text-center wereChallenged"
-              key={challenge._id}>
+              className="card text-center wereChallenged challengeCard"
+              key={challenge._id}
+            >
               <div className="card-body">
                 <h5 className="card-title">
                   You Were Challenged By {challenge.challengers[0]}!
@@ -102,7 +104,7 @@ const ChallengeCard = (props) => {
                   <>
                     <button
                       href="#"
-                      className="btn enterOutcome mr-5"
+                      className="btn enterOutcome"
                       id="update-challenge"
                       data-toggle="modal"
                       data-target={`#updateModal${i}`}
@@ -137,7 +139,7 @@ const ChallengeCard = (props) => {
                               id={challenge._id}
                               handleChallenge={props.handleChallenge}
                               challengers={challenge.challengers}
-                              time = {challenge.time}
+                              time={challenge.time}
                               business={challenge.businessName}
                             />
                           </div>

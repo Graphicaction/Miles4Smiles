@@ -33,6 +33,7 @@ function LatestUpdate() {
                     ran a {challenge.distance} mile race. {challenge.donor} lost
                     and donated ${challenge.donatedAmount} to{' '}
                     <a
+                      className="businessUrl"
                       href={challenge.businessUrl}
                       target="_blank"
                       rel="noopener noreferrer"

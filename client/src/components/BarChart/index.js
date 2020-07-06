@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2';
 const BarChart = (props) => {
   //Assigning custom props data
   const state = {
-    labels: [1, 2, 3, 4, 5, 6, 7],
+    labels: props.xTickLabel.map((x) => x),
     datasets: [
       {
         label: props.label,
@@ -52,6 +52,9 @@ const BarChart = (props) => {
             ],
             xAxes: [
               {
+                ticks: {
+                  maxTicksLimit: 7,
+                },
                 scaleLabel: {
                   display: true,
                   labelString: props.xLabelString,

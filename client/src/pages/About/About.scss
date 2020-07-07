@@ -9,11 +9,18 @@
   background-color: transparent !important;
   box-shadow: none !important;
   height: 15%;
+  margin-bottom: 0;
   // padding-top: 20px;
 }
 
 .mt-0 {
   margin-top: 0 !important;
+}
+.c1,
+.c2,
+.c3,
+.c4 {
+  margin-bottom: 0 !important;
 }
 
 .fa-linkedin {
@@ -30,6 +37,45 @@
 .fa-github:hover,
 .fa-linkedin:hover {
   color: rgba(black, 1);
+}
+
+.SVG1,
+.SVG2,
+.SVG3,
+.SVG4 {
+  opacity: 0;
+  animation-name: comeIn;
+  animation-duration: 2s;
+}
+
+.SVG1 {
+  animation-delay: 0;
+}
+.SVG2 {
+  animation-delay: 2s;
+}
+.SVG3 {
+  animation-delay: 4s;
+}
+.SVG4 {
+  animation-delay: 6s;
+}
+
+@keyframes comeIn {
+  0% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .c1 {

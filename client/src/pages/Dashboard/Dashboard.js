@@ -33,7 +33,7 @@ function Dashboard() {
             challenge.status === 'donated'
           ) {
             dData.push(challenge.distance);
-            allBusinesses.push(challenge.businessName);
+            allBusinesses.push(`${challenge.businessName.slice(0, 6)} ...`);
           }
           if (challenge.status === 'donated')
             moneyData.push(challenge.donatedAmount);
@@ -73,11 +73,11 @@ function Dashboard() {
               <BarChart
                 data={distanceData}
                 xTickLabel={business}
-                label="Challenge"
+                label="Challenge Miles"
                 yAxesTick=""
                 yAxesMax="20"
                 yLabelString="Distance Run (Mi)"
-                xLabelString="Recent Challenges"
+                xLabelString="Supported Businesses"
               />
             ) : (
               <p className="text-center">No challenges recorded yet</p>
@@ -95,7 +95,7 @@ function Dashboard() {
                 yAxesTick="$"
                 yAxesMax="100"
                 yLabelString="Money Donated (USD)"
-                xLabelString="Recently Completed Challenges"
+                xLabelString="Supported Businesses"
               />
             ) : (
               <p className="text-center">No donations recorded yet</p>

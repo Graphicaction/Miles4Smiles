@@ -8,7 +8,7 @@ export const SVG1 = () => {
       viewBox="0 0 1167 806"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="aboutSVGs"
+      className="aboutSVGs SVG1"
     >
       <g clip-path="url(#clip0)">
         <path

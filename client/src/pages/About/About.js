@@ -11,17 +11,18 @@ const About = () => {
     <>
       <AboutJumbotron />
 
-      <Row className="mb-5">
+      <Row>
         <div className="col-sm-12 col-md-6 col-lg-3 c1 text-center mt-5">
+          <SVG1 />
           <Card title="Getting Started">
             <div className="card-body-about ">
               Setup a Miles4Smiles account to get started. You can even use M4S
               to log your race times.
             </div>
           </Card>
-          <SVG1 />
         </div>
         <div className="col-sm-12 col-md-6 col-lg-3 c2 text-center mt-5">
+          <SVG2 />
           <Card title="Challenge Users to Support Businesses ">
             <div className="card-body-about">
               Click the "Challenge" button to compete against a friend or any
@@ -29,19 +30,19 @@ const About = () => {
               lucky local business to support.
             </div>
           </Card>
-          <SVG2 />
         </div>
         <div className="col-sm-12 col-md-6 col-lg-3 c3 text-center mt-5">
+          <SVG3 />
           <Card title="RUN for your local business">
             <div className="card-body-about">
               If accepted, each challenger must run the selected distance.
               Remember-- the slower runner pays up! GO GO GO!
             </div>
           </Card>
-          <SVG3 />
         </div>
 
         <div className="col-sm-12 col-md-6 col-lg-3 c4 text-center mt-5">
+          <SVG4 />
           <Card title="Log Outcome - Loser Donates" className="mt-0">
             <div className="card-body-about">
               After running, log the faster competitor as the winner! The
@@ -49,7 +50,6 @@ const About = () => {
               to make their donation.
             </div>
           </Card>
-          <SVG4 />
         </div>
       </Row>
 

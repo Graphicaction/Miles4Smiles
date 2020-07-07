@@ -10,7 +10,7 @@ export const SVG1 = () => {
       xmlns="http://www.w3.org/2000/svg"
       className="aboutSVGs SVG1"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <path
           opacity="0.05"
           d="M946.87 212.31H160.87V557.93H946.87V212.31Z"
@@ -183,9 +183,9 @@ export const SVG1 = () => {
           y2="612.42"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#808080" stop-opacity="0.25" />
-          <stop offset="0.54" stop-color="#808080" stop-opacity="0.12" />
-          <stop offset="1" stop-color="#808080" stop-opacity="0.1" />
+          <stop stopColor="#808080" stopOpacity="0.25" />
+          <stop offset="0.54" stopColor="#808080" stopOpacity="0.12" />
+          <stop offset="1" stopColor="#808080" stopOpacity="0.1" />
         </linearGradient>
         <clipPath id="clip0">
           <rect width="1166.17" height="805.09" fill="white" />

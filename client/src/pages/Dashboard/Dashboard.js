@@ -27,17 +27,20 @@ function Dashboard() {
       .then((response) => {
         allChallenges = response.data.challenges;
         //Adding distances into an array
-        allChallenges.forEach((challenge) => {
-          if (
-            challenge.status === 'pending' ||
-            challenge.status === 'donated'
-          ) {
-            dData.push(challenge.distance);
-            allBusinesses.push(`${challenge.businessName.slice(0, 6)} ...`);
-          }
-          if (challenge.status === 'donated')
-            moneyData.push(challenge.donatedAmount);
-        });
+        allChallenges
+          .slice(0)
+          .reverse()
+          .map((challenge) => {
+            if (
+              challenge.status === 'pending' ||
+              challenge.status === 'donated'
+            ) {
+              dData.push(challenge.distance);
+              allBusinesses.push(`${challenge.businessName.slice(0, 6)} ...`);
+            }
+            if (challenge.status === 'donated')
+              moneyData.push(challenge.donatedAmount);
+          });
 
         for (let i = 0; i < 7; i++) {
           if (!allBusinesses[i]) {

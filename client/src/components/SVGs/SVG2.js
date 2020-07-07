@@ -10,7 +10,7 @@ export const SVG2 = () => {
       xmlns="http://www.w3.org/2000/svg"
       className="aboutSVGs SVG2"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <path
           opacity="0.1"
           d="M767.74 761.09C902.089 761.09 1011 744.677 1011 724.43C1011 704.183 902.089 687.77 767.74 687.77C633.391 687.77 524.48 704.183 524.48 724.43C524.48 744.677 633.391 761.09 767.74 761.09Z"
@@ -19,8 +19,8 @@ export const SVG2 = () => {
         <path
           d="M73.7 509.36C73.7 509.36 100.91 562.76 78.7 591.99C56.49 621.22 80.7 700.81 80.7 700.81"
           stroke="#FC6681"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M81.77 492.73C81.77 503.03 74.21 511.37 74.21 511.37C74.21 511.37 66.65 503.02 66.65 492.73C66.65 482.44 74.21 474.09 74.21 474.09C74.21 474.09 81.77 482.43 81.77 492.73Z"
@@ -29,8 +29,8 @@ export const SVG2 = () => {
         <path
           d="M87.81 509.36C87.81 509.36 60.6 562.76 82.81 591.99C105.02 621.22 80.81 700.81 80.81 700.81"
           stroke="#FFD037"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M79.75 492.73C79.75 503.03 87.31 511.37 87.31 511.37C87.31 511.37 94.87 503.02 94.87 492.73C94.87 482.44 87.31 474.09 87.31 474.09C87.31 474.09 79.75 482.43 79.75 492.73Z"
@@ -39,8 +39,8 @@ export const SVG2 = () => {
         <path
           d="M98.9 509.36C98.9 509.36 126.11 562.76 103.9 591.99C81.69 621.22 105.9 700.81 105.9 700.81"
           stroke="#FC6681"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M106.96 492.73C106.96 503.03 99.4 511.37 99.4 511.37C99.4 511.37 91.84 503.02 91.84 492.73C91.84 482.44 99.38 474.09 99.38 474.09C99.38 474.09 106.96 482.43 106.96 492.73Z"
@@ -65,8 +65,8 @@ export const SVG2 = () => {
         <path
           d="M113 509.36C113 509.36 85.79 562.76 108 591.99C130.21 621.22 106 700.81 106 700.81"
           stroke="#FFD037"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M104.94 492.73C104.94 503.03 112.5 511.37 112.5 511.37C112.5 511.37 120.06 503.02 120.06 492.73C120.06 482.44 112.5 474.09 112.5 474.09C112.5 474.09 104.94 482.43 104.94 492.73Z"
@@ -83,20 +83,20 @@ export const SVG2 = () => {
         <path
           d="M100.44 576.11C100.44 576.11 116.82 550.3 139.8 549.74"
           stroke="#FFD037"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M87.69 560.54C87.69 560.54 71.31 534.73 48.33 534.17"
           stroke="#FC6681"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M85.56 597.37C85.56 597.37 101.94 571.56 124.92 571"
           stroke="#FFD037"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M139.05 553.8C141.397 553.8 143.3 551.897 143.3 549.55C143.3 547.203 141.397 545.3 139.05 545.3C136.703 545.3 134.8 547.203 134.8 549.55C134.8 551.897 136.703 553.8 139.05 553.8Z"
@@ -109,8 +109,8 @@ export const SVG2 = () => {
         <path
           d="M97.6 605.87C97.6 605.87 81.23 580.05 58.24 579.54"
           stroke="#FC6681"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M58.64 583.91C60.9872 583.91 62.89 582.007 62.89 579.66C62.89 577.313 60.9872 575.41 58.64 575.41C56.2928 575.41 54.39 577.313 54.39 579.66C54.39 582.007 56.2928 583.91 58.64 583.91Z"
@@ -354,9 +354,9 @@ export const SVG2 = () => {
           y2="29270.7"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#808080" stop-opacity="0.25" />
-          <stop offset="0.54" stop-color="#808080" stop-opacity="0.12" />
-          <stop offset="1" stop-color="#808080" stop-opacity="0.1" />
+          <stop stopColor="#808080" stopOpacity="0.25" />
+          <stop offset="0.54" stopColor="#808080" stopOpacity="0.12" />
+          <stop offset="1" stopColor="#808080" stopOpacity="0.1" />
         </linearGradient>
         <linearGradient
           id="paint1_linear"
@@ -366,9 +366,9 @@ export const SVG2 = () => {
           y2="128099"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#808080" stop-opacity="0.25" />
-          <stop offset="0.54" stop-color="#808080" stop-opacity="0.12" />
-          <stop offset="1" stop-color="#808080" stop-opacity="0.1" />
+          <stop stopColor="#808080" stopOpacity="0.25" />
+          <stop offset="0.54" stopColor="#808080" stopOpacity="0.12" />
+          <stop offset="1" stopColor="#808080" stopOpacity="0.1" />
         </linearGradient>
         <clipPath id="clip0">
           <rect width="1022.76" height="761.09" fill="white" />

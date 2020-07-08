@@ -82,7 +82,7 @@ function RunningStats(props) {
           graphDates[j] = '';
         }
       }
-      graphDates.sort((a, b) => a > b);
+      graphDates.sort((a, b) => (a > b ? -1 : 1));
 
       setDate([...graphDates]);
       setNewRun(true);

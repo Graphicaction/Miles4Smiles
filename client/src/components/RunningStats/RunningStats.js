@@ -273,8 +273,8 @@ function RunningStats(props) {
               <Card title="My Races">
                 {newRun ? (
                   <BarChart
-                    data={milesData}
-                    xTickLabel={date}
+                    data={milesData.slice(0, 7)}
+                    xTickLabel={date.slice(0, 7)}
                     label="Races Completed"
                     yAxesTick=""
                     yAxesMax="45"

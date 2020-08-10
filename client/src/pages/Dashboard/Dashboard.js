@@ -74,8 +74,8 @@ function Dashboard() {
           <Card title="The Distance M4S Runners Go For Our Community">
             {distanceData ? (
               <BarChart
-                data={distanceData}
-                xTickLabel={business}
+                data={distanceData.slice(0, 7)}
+                xTickLabel={business.slice(0, 7)}
                 label="Challenge Miles"
                 yAxesTick=""
                 yAxesMax="20"
@@ -92,8 +92,8 @@ function Dashboard() {
           <Card title="Real Donations in Action">
             {donationData[0] !== 0 ? (
               <BarChart
-                data={donationData}
-                xTickLabel={business}
+                data={donationData.slice(0, 7)}
+                xTickLabel={business.slice(0, 7)}
                 label="Donations Completed"
                 yAxesTick="$"
                 yAxesMax="100"

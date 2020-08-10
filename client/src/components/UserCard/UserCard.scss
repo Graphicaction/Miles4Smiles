@@ -26,20 +26,6 @@
 
 .samePaceUser {
   background-color: rgba($primaryColor5, 0.6) !important;
-  // box-shadow: $boxShadow3;
-  // border-left: 3px solid $primaryColor3;
-  // border-right: 3px solid $primaryColor3;
-  //   border-radius: 0.1em;
-  //   border-width: 1em;
-  //   border-right-color: orange;
-  //   border-top-color: orange;
-
-  // svg {
-  //   border: 2px solid orange;
-  // }
-
-  // border: 4px solid #ccc;
-  // background-color: #fff;
   position: relative;
 }
 
@@ -54,9 +40,6 @@
 }
 
 .samePaceUser::before {
-  // border-width: 1.5em;
-  // border-left-color: #ccc;
-  // border-top-color: #ccc;
 }
 
 .samePaceUser::after {

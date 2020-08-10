@@ -42,7 +42,7 @@ function LatestUpdate() {
                     </a>
                     . Thanks {challenge.donor}!
                   </li>
-                  <hr></hr>
+                  <hr className="boardHr"></hr>
                 </div>
               )
           )}

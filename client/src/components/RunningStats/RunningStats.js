@@ -73,7 +73,7 @@ function RunningStats(props) {
     let graphDates = [];
     if (data.length) {
       data.forEach((result) => {
-        // graphDates.push(result.date.slice(5, 10));
+        // to not show whole date but only month and day without year and time
         graphDates.push(result.date.slice(5, 10));
       });
       //If no data for the day put 0

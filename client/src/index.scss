@@ -40,6 +40,10 @@ h6,
   font-family: 'Raleway', sans-serif;
 }
 
+.text-muted {
+  color: rgba(black, 0.6) !important;
+}
+
 .form-control,
 .location-search-input {
   border-radius: $borderRadius;

@@ -32,7 +32,7 @@ function Dashboard() {
           .reverse()
           .map((challenge) => {
             if (
-              challenge.status === 'pending' ||
+              // challenge.status === 'pending' ||
               challenge.status === 'donated'
             ) {
               dData.push(challenge.distance);
